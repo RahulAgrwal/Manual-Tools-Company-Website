@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><!-- Homepage -->
+  <url>
+    <loc>https://manualtoolsco.com/</loc>
+    <lastmod>2024-05-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url><!-- About Page -->
+  <url>
+    <loc>https://manualtoolsco.com/about.php</loc>
+    <lastmod>2024-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url><!-- Products Page -->
+  <url>
+    <loc>https://manualtoolsco.com/products.php</loc>
+    <lastmod>2024-05-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url><!-- Individual Product Pages -->
+  <url>
+    <loc>https://manualtoolsco.com/coal-crusher.php</loc>
+    <lastmod>2024-05-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://manualtoolsco.com/coal-crusher-5-No-single-disc.php</loc>
+    <lastmod>2024-05-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://manualtoolsco.com/coal-crusher-5-No-double-disc.php</loc>
+    <lastmod>2024-05-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://manualtoolsco.com/coke-cutter-double-drive.php</loc>
+    <lastmod>2024-05-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url><!-- Other Important Pages -->
+  <url>
+    <loc>https://manualtoolsco.com/haulage.php</loc>
+    <lastmod>2024-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://manualtoolsco.com/power-winch.php</loc>
+    <lastmod>2024-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://manualtoolsco.com/vibrator-screen.php</loc>
+    <lastmod>2024-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://manualtoolsco.com/conveyor-materials.php</loc>
+    <lastmod>2024-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url><!-- Photo Gallery Page -->
+  <url>
+    <loc>https://manualtoolsco.com/photo-gallery.php</loc>
+    <lastmod>2024-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url><!-- Contact Page -->
+  <url>
+    <loc>https://manualtoolsco.com/contact.php</loc>
+    <lastmod>2024-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>
