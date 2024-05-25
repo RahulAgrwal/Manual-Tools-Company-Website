@@ -5,7 +5,7 @@
 :--|:--|
 <b>Address | <b> Dhanbad, Jharkhand
 
-## Live Demo(Desktop Site): https://manualtoolsco.com/
+## Live Website : https://manualtoolsco.com/
 
 ## Pages List
 
