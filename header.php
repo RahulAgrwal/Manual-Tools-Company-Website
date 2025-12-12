@@ -1,66 +1,88 @@
 <?php
-$page = basename($_SERVER['PHP_SELF']);
+$page = basename($_SERVER['PHP_SELF'], '.php');
 ?>
 
-
+<!-- ==============================================
+     TOP BAR
+     ============================================== -->
 <section id="topbar" class="d-flex align-items-center">
     <div class="container d-flex justify-content-center justify-content-md-between">
         <div class="contact-info d-flex align-items-center">
-            <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:manualtoolsco.dhn@gmail.com">manualtoolsco.dhn@gmail.com</a></i>
-            <i class="bi bi-phone d-flex align-items-center ms-4"><a href="tel:9430707348">9430707348</a></i>
+            <i class="bi bi-envelope"></i>
+            <a href="mailto:manualtoolsco.dhn@gmail.com">manualtoolsco.dhn@gmail.com</a>
+            
+            <i class="bi bi-phone ms-4"></i>
+            <a href="tel:9430707348">+91 94307 07348</a>
         </div>
+        
         <div class="social-links d-none d-md-flex align-items-center">
-            <a href="https://maps.app.goo.gl/SR7U9r1J5fXyFfF7A" class="Location"><i class="fas fa-location-arrow"></i></a>
-            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+            <a href="https://maps.app.goo.gl/SR7U9r1J5fXyFfF7A" target="_blank" title="Location"><i class="fas fa-location-arrow"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61560479668542" target="_blank" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/manual_tools_company/" target="_blank" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="youtube"><i class="bi bi-youtube"></i></a>
         </div>
     </div>
 </section>
-<header id="header" class="d-flex align-items-center">
-    <div class="container d-flex justify-content-between">
 
+<!-- ==============================================
+     MAIN HEADER
+     ============================================== -->
+<header id="header" class="d-flex align-items-center">
+    <div class="container mtc-header-container">
+
+        <!-- LOGO -->
         <div class="logo">
-            <a href="index.php"><img src="assets/img/MTC Logo.png" alt="Manual Tools Company Logo" class="img-fluid"></a>
+            <a href="/">
+                <img src="assets/img/MTC Logo.png" alt="Manual Tools Company - Coke Oven Machinery" class="img-fluid">
+            </a>
         </div>
 
+        <!-- NAVIGATION -->
         <nav id="navbar" class="navbar">
             <ul>
-                <li><a class="<?php if ($page == 'index.php') {
-                                    echo ' active"';
-                                } ?>" href="index.php">Home</a></li>
-                <li><a class="<?php if ($page == 'about.php') {
-                                    echo ' active"';
-                                } ?>" href="about.php">About</a></li>
-                <li class="dropdown"><a href="products.php"><span>Products</span> <i class="bi bi-chevron-down"></i></a>
+                <!-- Home -->
+                <li>
+                    <a class="nav-link <?php echo ($page == 'index' || $page == '') ? 'active' : ''; ?>" href="/">Home</a>
+                </li>
+
+                <!-- About -->
+                <li>
+                    <a class="nav-link <?php echo ($page == 'about') ? 'active' : ''; ?>" href="about">About</a>
+                </li>
+
+                <!-- Products Dropdown -->
+                <li class="dropdown">
+                    <a href="products" class="<?php echo ($page == 'products') ? 'active' : ''; ?>">
+                        <span>Products</span> <i class="bi bi-chevron-down dropdown-indicator"></i>
+                    </a>
                     <ul>
-                        <li class="dropdown"><a href="coal-crusher.php"><span>Coal Crusher 5 No. Size</span> <i class="bi bi-chevron-down"></i></a>
-                            <ul>
-                                <li><a href="coal-crusher-5-No-single-disc.php">Single Disc</a></li>
-                                <li><a href="coal-crusher-5-No-double-disc.php">Double Disc</a></li>
-                                <li><a href="#">Triple Disc</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="coke-cutter-double-drive.php">Coke Cutter</a></li>
-                        <li><a href="haulage.php">Haulage Machine</a></li>
-                        <li><a href="power-winch.php">Power Winch</a></li>
-                        <li><a href="vibrator-screen.php">Vibrator Screen</a></li>
-                        <li><a href="conveyor-materials.php">Conveyor Materials</a></li>
-                        <li><a href="#">Coal Charging Car</a></li>
-                        <li><a href="#">Pusher Machine</a></li>
+                        <li><a href="coal-crusher-5-No-single-disc">Coal Crusher (5 No.) Single Disc</a></li>
+                        <li><a href="coal-crusher-5-No-double-disc">Coal Crusher (5 No.) Double Disc</a></li>
+                        <li><a href="coke-cutter-double-drive">Coke Cutter Machine</a></li>
+                        <li><a href="haulage">Haulage Machine</a></li>
+                        <li><a href="power-winch">Door Lifting Power Winch</a></li>
+                        <li><a href="vibrator-screen">Vibrator Screen Machine</a></li>
+                        <li><a href="conveyor-materials">Conveyor Materials</a></li>
+                        <li><a href="coal-charging-car">Coal Charging Car</a></li>
+                        <li><a href="pusher-with-stamping-arrangement">Pusher Machine</a></li>
                         <li><a href="#">Quenching Coke Car</a></li>
                     </ul>
                 </li>
-                <li><a class="<?php if ($page == 'photo-gallery.php') {
-                                    echo ' active"';
-                                } ?>" href="photo-gallery.php">Photo Gallery</a></li>
 
-                <li><a class="<?php if ($page == 'contact.php') {
-                                    echo ' active"';
-                                } ?>" href="contact.php">Contact</a></li>
+                <!-- Photo Gallery -->
+                <li>
+                    <a class="nav-link <?php echo ($page == 'photo-gallery') ? 'active' : ''; ?>" href="photo-gallery">Photo Gallery</a>
+                </li>
+
+                <!-- Contact (Styled as CTA) -->
+                <li>
+                    <a class="nav-link <?php echo ($page == 'contact') ? 'active' : ''; ?>" href="contact">Contact Us</a>
+                </li>
             </ul>
+            
+            <!-- Mobile Toggle -->
             <i class="bi bi-list mobile-nav-toggle"></i>
-        </nav><!-- .navbar -->
+        </nav>
 
     </div>
-</header><!-- End Header -->
+</header>

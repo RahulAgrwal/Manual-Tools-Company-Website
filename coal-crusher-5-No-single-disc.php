@@ -2,121 +2,295 @@
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Manual Tools Company is a leading Coke Oven Machinery Manufacturer in India">
-  <meta name="keywords" content="Manual Toools Company, Manual Tools Co, Coal Crusher">
+  <meta name="description" content="Coal Crusher (5 No. Size) Single Disc for fine coal disintegration. 80–120 HP motor, feed <125 mm, output <2 mm, 8–10 TPH. Manual Tools Company, India.">
+  <meta name="keywords" content="Coal Crusher Single Disc, Coal Disintegrator, Coal Pulverizer, 5 No. Size, Industrial Coal Crusher, Manual Tools Company, Dhanbad, Jharkhand, India">
   <meta name="robots" content="index, follow">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Coal Crusher (5 No. Size) Single Disc - Manual Tools Company</title>
+  <link rel="canonical" href="https://www.manualtoolsco.com/coal-crusher-5-No-single-disc">
+  
+  <title>Coal Crusher (5 No. Size) Single Disc | Manual Tools Company</title>
 
-  <?php
-  include('common-head.php');
-  ?>
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="product">
+  <meta property="og:url" content="https://www.manualtoolsco.com/coal-crusher-5-No-single-disc">
+  <meta property="og:title" content="Coal Crusher (5 No. Size) Single Disc | Manual Tools Company">
+  <meta property="og:description" content="80–120 HP single disc coal crusher with <2 mm output and 8–10 TPH capacity.">
+  <meta property="og:image" content="https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Coal-Crusher-single-disc.jpg">
+  <meta property="og:site_name" content="Manual Tools Company">
+
+  <!-- JSON-LD Structured Data (Kept from Original) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Coal Crusher (5 No.) — Single Disc",
+    "image": "https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Coal-Crusher-single-disc.jpg",
+    "description": "5 No. single disc coal crusher — 8–10 TPH capacity, crushed size <2 mm, 80–120 HP motor range, manganese liners, 12 mm body thickness, six hammers.",
+    "sku": "MTC-CC-5-SD",
+    "brand": { "@type": "Organization", "name": "Manual Tools Company" },
+    "additionalProperty": [
+      { "@type": "PropertyValue", "name": "Motor Power", "value": "80 – 120 H.P." },
+      { "@type": "PropertyValue", "name": "Feed Size", "value": "< 125 mm" },
+      { "@type": "PropertyValue", "name": "Crushed Size", "value": "< 2 mm" },
+      { "@type": "PropertyValue", "name": "Capacity", "value": "8 – 10 TPH" }
+    ]
+  }
+  </script>
+
+  <?php include('common-head.php'); ?>
 </head>
 
 <body>
 
-
   <!-- ======= Header ======= -->
-  <?php
-  include('header.php');
-  ?><!-- End Header -->
+  <?php include('header.php'); ?>
+  <!-- End Header -->
 
   <main id="main">
 
-    <!-- ======= Breadcrumbs ======= -->
+    <!-- ======= Modern Breadcrumbs ======= -->
     <section id="breadcrumbs" class="breadcrumbs">
       <div class="container">
-
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Coal Crusher </h2>
+          <h2>Coal Crusher Single Disc</h2>
           <ol>
-            <li><a href="index.php">Home</a></li>
-            <li>Coal Crusher </li>
+            <li><a href="/">Home</a></li>
+            <li>Coal Crusher</li>
           </ol>
         </div>
-
       </div>
-    </section><!-- End Breadcrumbs -->
+    </section>
 
-    <!-- ======= Coal Crusher Single Disc ======= -->
-    <section id="products-page" class="products-page">
+    <!-- ======= Modern Product Showcase ======= -->
+    <section id="product-showcase" class="mtc-product-showcase">
       <div class="container">
-        <div class="row no-gutters">
-          <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start">
-            <img src="assets/img/about-us-products/Coal Crusher.jpg" alt="Coal Crusher Single Disc">
+        <div class="row align-items-center">
+          
+          <!-- LEFT COL: Image Area -->
+          <div class="col-lg-6">
+            <div class="prod-img-wrapper">
+              <span class="prod-badge">Fine Coal Disintegration</span>
+              
+              <!-- Thumbnail -->
+              <img 
+                id="thumbImage" 
+                src="assets/img/about-us-products-thumbnail/Coal-Crusher-single-disc.jpg" 
+                alt="Coal Crusher Single Disc Thumbnail"
+                class="img-fluid"
+              >
+
+              <!-- Main Image (Hidden until loaded) -->
+              <img 
+                id="mainImage" 
+                src="assets/img/about-us-products/Coal Crusher.jpg" 
+                alt="Coal Crusher Single Disc HD"
+                class="img-fluid"
+                style="display:none;"
+              >
+            </div>
           </div>
-          <div class="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
-            <div class="content d-flex flex-column justify-content-center">
-              <h3>Coal Crusher (5 No. Size) Single Disc</h3>
-              <h4>
-                Type : Coal Disintegrator
-              </h4>
-              <p>
-                A Coal Crusher (5 No. Size) Single Disc is a type of coal disintegrator designed for pulverizing coal into smaller particles. This equipment typically features a single rotating disc that crushes the coal fed into it, breaking it down into finer granules suitable for various industrial applications. Its design and operation are focused on efficiently reducing coal sizes while ensuring uniformity and consistency in the output. This type of coal crusher is commonly used in industries such as mining, power generation, and metallurgy for processing coal for combustion or further processing.
+
+          <!-- RIGHT COL: Details & Specs -->
+          <div class="col-lg-6">
+            <div class="prod-details">
+              <span class="prod-cat">Industrial Coal Disintegrator</span>
+              <h1 class="prod-title">Coal Crusher (5 No. Size) Single Disc</h1>
+              
+              <p class="prod-desc">
+                Engineered for precision and consistency, this Single Disc Crusher effectively pulverizes coal into fine granules below 2mm. Featuring a robust 12mm body and 6 Manganese Steel hammers, it is the ideal solution for power generation and metallurgy applications requiring uniform output.
               </p>
 
-              <div class="icon-box">
-                <i class="fa fa-gear"></i>
-                <h4>
-                  Specifications : </h4>
+              <!-- Technical Specs Grid -->
+              <div class="specs-container">
+                <div class="specs-title">
+                  <i class="fas fa-cog"></i> Technical Specifications
+                </div>
+                <div class="specs-grid">
+                  <div class="spec-item"><i class="fas fa-bolt"></i> Motor: 80 - 120 H.P.</div>
+                  <div class="spec-item"><i class="fas fa-arrow-down"></i> Feed Size: < 125 mm</div>
+                  <div class="spec-item"><i class="fas fa-filter"></i> Output Size: < 2 mm</div>
+                  <div class="spec-item"><i class="fas fa-shield-alt"></i> Body Thickness: 12 mm</div>
+                  <div class="spec-item"><i class="fas fa-layer-group"></i> Liners: Manganese Steel</div>
+                  <div class="spec-item"><i class="fas fa-hammer"></i> Hammers: 6 Nos.</div>
+                  
+                  <!-- Highlighted Spec -->
+                  <div class="spec-item spec-highlight">
+                    <i class="fas fa-tachometer-alt"></i> 
+                    Crushing Capacity: 10 to 12 Tons / Hour
+                  </div>
+                </div>
               </div>
 
-              <ul>
-                <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Driven by:</strong> 80 - 120 H.P. Electrical Motor</li>
-                <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Coal Feed Size:</strong> below 125 mm</li>
-                <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Crushed Coal Size:</strong> below 2 mm</li>
-                <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Coal Crushing Capacity:</strong> 8 to 10 Tons per Hour</li>
-                <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Crusher’s Body:</strong> 12 mm thick</li>
-                <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Manganese Steel Top & Side Liner Jaw Plate</strong></li>
-                <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Six Nos. Hammers provided in this Crusher</strong></li>
-              </ul>
-              <a href="contact.php" class="btn-get-started">Get Quote</a>
-            </div><!-- End .content-->
+              <!-- Action Buttons -->
+              <div class="prod-actions">
+                <a href="contact" class="btn-quote-modern">
+                  Request Quote <i class="bi bi-arrow-right ms-2"></i>
+                </a>
+                <a href="tel:9430707348" class="btn-contact-outline">
+                  <i class="bi bi-telephone"></i> Call Us
+                </a>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+<!-- ======= Combined Gallery & FAQ Section ======= -->
+    <section id="portfolio" class="portfolio section-bg" style="padding: 60px 0;">
+      <div class="container">
+        
+        <div class="row">
+          
+          <!-- ==============================================
+               LEFT COLUMN: PHOTO GALLERY (65% Width)
+               ============================================== -->
+          <div class="col-lg-8">
+            <div class="section-title text-start" style="text-align: left; margin-bottom: 30px;">
+              <h2>Product <strong>Gallery</strong></h2>
+              <p>Visual details of the Single Disc crushing mechanism and internal components.</p>
+            </div>
+
+            <div class="row portfolio-container g-3">
+              <?php
+              $directory = "assets/img/product-images/coal-crusher-single-disc/";
+              $images = glob($directory . "*.{jpg,jpeg,png,gif}", GLOB_BRACE);
+
+              if (!empty($images)) {
+                foreach ($images as $image) { ?>
+                  <!-- Use col-md-4 to fit 3 images per row inside this column -->
+                  <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                    <div class="portfolio-wrap">
+                      <img src="<?php echo $image; ?>" class="img-fluid" alt="Single Disc Crusher View">
+                      <div class="portfolio-info">
+                        <h4>Single Disc Crusher</h4>
+                        <div class="portfolio-links">
+                          <a href="<?php echo $image; ?>" data-gallery="portfolioGallery" class="portfolio-lightbox" title="View Large"><i class="bx bx-plus"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <?php }
+              } else {
+                echo '<div class="col-12"><div class="alert alert-light">No images currently available.</div></div>';
+              }
+              ?>
+            </div>
+          </div>
+
+          <!-- ==============================================
+               RIGHT COLUMN: FAQ (35% Width)
+               Using Contact Page Styles (.faq-wrapper)
+               ============================================== -->
+          <div class="col-lg-4 mt-5 mt-lg-0">
+            
+            <!-- This class 'faq-wrapper' comes from your Contact Page CSS -->
+            <div class="faq-wrapper">
+              <div class="section-header-small">
+                <h3>Common Questions</h3>
+                <p>Specifics about this machine.</p>
+              </div>
+
+              <div class="accordion custom-accordion" id="productFaqAccordion">
+
+                <?php
+                // Product-Specific Questions
+                $product_faqs = [
+                    [
+                        "q" => "What is the output size?",
+                        "a" => "The Single Disc Crusher is calibrated to produce a fine output size of below 2 mm."
+                    ],
+                    [
+                        "q" => "What is the motor capacity?",
+                        "a" => "It requires an electrical motor between 80 H.P. to 120 H.P. depending on your required TPH (Tons Per Hour)."
+                    ],
+                    [
+                        "q" => "Are the hammers replaceable?",
+                        "a" => "Yes, the 6 Manganese Steel hammers are designed for easy replacement via the side access door."
+                    ],
+                    [
+                        "q" => "What is the delivery time?",
+                        "a" => "Standard models are often in stock. Custom configurations typically take 3-4 weeks for fabrication."
+                    ],
+                    [
+                        "q" => "What is the maintenance schedule?",
+                        "a" => "Routine maintenance involves checking the liner plates and greasing the bearings. The hammers are easily replaceable when worn out."
+                    ]
+                ];
+
+                foreach($product_faqs as $index => $faq) {
+                    $headingId = "headingProd" . $index;
+                    $collapseId = "collapseProd" . $index;
+                    $isFirst = ($index === 0);
+                    $showClass = $isFirst ? "show" : "";
+                    $btnCollapsed = $isFirst ? "" : "collapsed";
+                    $ariaExpanded = $isFirst ? "true" : "false";
+                ?>
+
+                <!-- FAQ Card -->
+                <div class="card">
+                  <div class="card-header" id="<?php echo $headingId; ?>">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link w-100 text-left <?php echo $btnCollapsed; ?>" 
+                              type="button" 
+                              data-bs-toggle="collapse" 
+                              data-bs-target="#<?php echo $collapseId; ?>" 
+                              aria-expanded="<?php echo $ariaExpanded; ?>" 
+                              aria-controls="<?php echo $collapseId; ?>">
+                        <?php echo $faq['q']; ?>
+                        <i class="fas fa-plus float-right"></i>
+                      </button>
+                    </h5>
+                  </div>
+
+                  <div id="<?php echo $collapseId; ?>" 
+                       class="accordion-collapse collapse <?php echo $showClass; ?>" 
+                       aria-labelledby="<?php echo $headingId; ?>" 
+                       data-bs-parent="#productFaqAccordion">
+                    <div class="card-body">
+                      <?php echo $faq['a']; ?>
+                    </div>
+                  </div>
+                </div>
+                <!-- End Card -->
+
+                <?php } ?>
+
+              </div>
+            </div>
+            <!-- End .faq-wrapper -->
+
           </div>
         </div>
-
       </div>
-    </section><!-- End Coal Crusher Single Disc -->
-    <!-- Product Images -->
-
-    <!-- ======= Portfolio Section ======= -->
-    <?php
-    $directory = "assets/img/product-images/coal-crusher/"; // Directory path
-    $images = glob($directory . "*.{jpg,jpeg,png,gif}", GLOB_BRACE); // Fetch all image files from the directory
-
-    if (!empty($images)) {
-      echo '<!-- ======= Portfolio Section ======= -->';
-      echo '<section id="portfolio" class="portfolio">';
-      echo '<div class="container">';
-      echo '<div class="section-title" data-aos="fade-up"> <h2><strong>Product Gallery</strong></h2></div>';
-      echo '<div class="row portfolio-container" data-aos="fade-up">';
-
-      foreach ($images as $image) {
-        echo '<div class="col-lg-4 col-md-6 portfolio-item filter-app">';
-        echo '<img src="' . $image . '" class="img-fluid" alt="Coal Crusher Single Disc">';
-        echo '<div class="portfolio-info">';
-        echo '<p>Coal Crusher (5 No. Size)</p>';
-        echo '<a href="' . $image . '" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" ><i class="bx bx-plus"></i></a>';
-        echo '</div>';
-        echo '</div>';
-      }
-
-      echo '</div>';
-      echo '</div>';
-      echo '</section><!-- End Portfolio Section -->';
-    }
-    ?><!-- End Portfolio Section -->
-
-  </main><!-- End #main -->
+    </section>
+  </main>
 
   <!-- ======= Footer ======= -->
-  <?php
-  include("footer.php");
-  ?><!-- End Footer -->
-
+  <?php include("footer.php"); ?>
+  
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  
+  <!-- Image Swap Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var thumb = document.getElementById('thumbImage');
+      var main = document.getElementById('mainImage');
+      
+      var hdImg = new Image();
+      hdImg.src = main.src;
+      
+      hdImg.onload = function() {
+        thumb.style.display = 'none';
+        main.style.display = 'block';
+        main.classList.add('animate__animated', 'animate__fadeIn');
+      };
+    });
+  </script>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/aos/aos.js"></script>
@@ -131,5 +305,4 @@
   <script src="assets/js/main.js"></script>
 
 </body>
-
 </html>

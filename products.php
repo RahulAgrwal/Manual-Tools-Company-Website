@@ -33,7 +33,7 @@
         <div class="d-flex justify-content-between align-items-center">
           <h2>Products</h2>
           <ol>
-            <li><a href="index.php">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li>Products</li>
           </ol>
         </div>
@@ -65,7 +65,7 @@
     <section id="coal-crusher" class="products-page">
       <div class="container">
         <div class="row no-gutters">
-          <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start">
+          <div class="image col-xl-5 d-flex  justify-content-center justify-content-lg-start">
             <img src="assets/img/about-us-products/Coal Crusher.jpg" alt="Coal Crusher">
           </div>
           <div class="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
@@ -93,7 +93,7 @@
                 <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Manganese Steel Top & Side Liner Jaw Plate</strong></li>
                 <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Six Nos. Hammers provided in this Crusher</strong></li>
               </ul>
-              <a href="coal-crusher-5-No-single-disc.php" class="btn-get-started">View Product</a>
+              <a href="coal-crusher-5-No-single-disc" class="btn-get-started">View Product</a>
             </div><!-- End .content-->
           </div>
         </div>
@@ -105,7 +105,7 @@
     <section id="coal-crusher" class="products-page">
       <div class="container">
         <div class="row no-gutters">
-          <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start">
+          <div class="image col-xl-5 d-flex  justify-content-center justify-content-lg-start">
             <img src="assets/img/about-us-products/Coal Crusher Double Disc.jpg" alt="Coal Crusher">
           </div>
           <div class="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
@@ -133,7 +133,7 @@
                 <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Manganese Steel Top & Side Liner Jaw Plate</strong></li>
                 <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Twelve Nos. Hammers provided in this Crusher</strong></li>
               </ul>
-              <a href="coal-crusher-5-No-double-disc.php" class="btn-get-started">View Product</a>
+              <a href="coal-crusher-5-No-double-disc" class="btn-get-started">View Product</a>
             </div><!-- End .content-->
           </div>
         </div>
@@ -146,7 +146,7 @@
     <section id="coke-cutter" class="products-page">
       <div class="container">
         <div class="row no-gutters">
-          <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start">
+          <div class="image col-xl-5 d-flex  justify-content-center justify-content-lg-start">
             <img src="assets/img/about-us-products/Double Drive Coke Cutter Machine.jpg" alt="Coal Crusher">
           </div>
           <div class="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
@@ -174,7 +174,7 @@
                 <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Manganese Steel Replacebale Liner Teeth</strong></li>
                 <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Cast Steel Machine Cut Gear & Pinion Both Side</strong></li>
               </ul>
-              <a href="coke-cutter-double-drive.php" class="btn-get-started">View Product</a>
+              <a href="coke-cutter-double-drive" class="btn-get-started">View Product</a>
             </div><!-- End .content-->
           </div>
         </div>
@@ -188,7 +188,7 @@
     <section id="haulage" class="products-page">
       <div class="container">
         <div class="row no-gutters">
-          <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start">
+          <div class="image col-xl-5 d-flex  justify-content-center justify-content-lg-start">
             <img src="assets/img/about-us-products/Haulage Machine.jpg" alt="Coal Crusher">
           </div>
           <div class="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
@@ -213,7 +213,7 @@
                 <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Gearbox Type:</strong> Worm Reducer</li>
                 <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Cast steel machine-cut gear and pinion</strong></li>
               </ul>
-              <a href="haulage.php" class="btn-get-started">View Product</a>
+              <a href="haulage" class="btn-get-started">View Product</a>
             </div><!-- End .content-->
           </div>
         </div>
@@ -225,7 +225,7 @@
     <section id="power-winch" class="products-page">
       <div class="container">
         <div class="row no-gutters">
-          <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start">
+          <div class="image col-xl-5 d-flex  justify-content-center justify-content-lg-start">
             <img src="assets/img/about-us-products/Power Winchh.jpg" alt="Coal Crusher">
           </div>
           <div class="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
@@ -251,7 +251,7 @@
                 <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Gearbox Type:</strong> Worm Reducer</li>
                 <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Cast steel machine-cut gear and pinion</strong></li>
               </ul>
-              <a href="power-winch.php" class="btn-get-started">View Product</a>
+              <a href="power-winch" class="btn-get-started">View Product</a>
             </div><!-- End .content-->
           </div>
         </div>
@@ -264,7 +264,7 @@
     <section id="vibrator" class="products-page">
       <div class="container">
         <div class="row no-gutters">
-          <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start">
+          <div class="image col-xl-5 d-flex  justify-content-center justify-content-lg-start">
             <img src="assets/img/about-us-products/Vibrator Screen Machine.jpg" alt="Coal Crusher">
           </div>
           <div class="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
@@ -287,7 +287,7 @@
                 <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Driven by:</strong> 7.5 H.P. Electrical Motor</li>
                 <li><span class="icon"><i class="fas fa-check"></i></span> <strong>No. Of Decks:</strong> 1 Deck | 2 Deck | 3 Deck</li>
               </ul>
-              <a href="vibrator-screen.php" class="btn-get-started">View Product</a>
+              <a href="vibrator-screen" class="btn-get-started">View Product</a>
             </div><!-- End .content-->
           </div>
         </div>
@@ -300,12 +300,12 @@
     <section id="conveyor-materials" class="products-page">
       <div class="container">
         <div class="row no-gutters">
-          <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start">
+          <div class="image col-xl-5 d-flex  justify-content-center justify-content-lg-start">
             <img src="assets/img/about-us-products/Conveyor Material.jpeg" alt="Coal Crusher">
           </div>
           <div class="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
             <div class="content d-flex flex-column justify-content-center">
-              <h3>Conveyor Materils</h3>
+              <h3>Conveyor Materials</h3>
               <h4>
                 Type : Conveyor
               </h4>
@@ -327,7 +327,7 @@
                 <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Tail Pulley</strong> </li>
                 <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Available in different sizes</strong> </li>
               </ul>
-              <a href="conveyor-materials.php" class="btn-get-started">View Product</a>
+              <a href="conveyor-materials" class="btn-get-started">View Product</a>
             </div><!-- End .content-->
           </div>
         </div>
@@ -335,6 +335,104 @@
       </div>
     </section><!-- End Vibrator Screen -->
 
+<!-- ======= Pusher Machine With Stamping Arrangement (Roller System) ======= -->
+<section id="pusher-machine" class="products-page">
+  <div class="container">
+    <div class="row no-gutters">
+      <div class="image col-xl-5 d-flex  justify-content-center justify-content-lg-start">
+        <img src="assets/img/about-us-products/Pusher Machine With Stamping Arrangement.jpg" alt="Pusher Machine With Stamping Arrangement Roller System">
+      </div>
+      <div class="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
+        <div class="content d-flex flex-column justify-content-center">
+          <h3>Pusher Machine With Stamping Arrangement (Roller System)</h3>
+          <h4>Type : Pusher Machine</h4>
+          <p>
+            The <b>Pusher Machine with Stamping Arrangement (Roller System)</b> is a heavy-duty industrial machine 
+            designed for <b>handling, pushing, and stamping operations</b> in <b>furnaces and coke ovens</b>.  
+            It ensures smooth material movement, precise stamping, and reliable long-term performance even under 
+            high-temperature conditions.  
+            <br><br>
+            Built with a <b>robust underframe, forged steel wheels, machine-cut rack &amp; pinion system,</b> 
+            and a <b>synchronized roller mechanism</b>, it reduces manual effort, improves safety, and increases 
+            productivity. Its <b>gearbox-driven power units</b> and <b>protective shed covering</b> make it an 
+            efficient and durable solution for demanding industrial environments.
+          </p>
+
+          <div class="icon-box">
+            <i class="fa fa-gear"></i>
+            <h4>Specifications :</h4>
+          </div>
+
+          <ul>
+            <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Under Frame:</strong> Heavy-duty with 6 forged steel wheels, EN-8 shafts, and gun metal bush.</li>
+            <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Pusher Beam:</strong> 20m beam with rack &amp; pinion, suitable for ovens up to 11,000mm x 2,000mm.</li>
+            <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Drive System:</strong> Helical gearbox with 40 HP motor and flange rigid coupling.</li>
+            <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Long Travel:</strong> Gearbox driven by 15 HP motor with 3-wheeler arrangement.</li>
+            <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Leveler Beam:</strong> 20m heavy-duty beam with rack &amp; pinion and gun metal bush rollers.</li>
+            <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Stamping:</strong> Synchronized roller system for smooth and uniform stamping.</li>
+            <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Roller Drive:</strong> 20-inch roller powered by 7.5 HP motor with chain drive.</li>
+            <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Gearboxes:</strong> Heavy-duty helical type from reputed manufacturers.</li>
+            <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Motors:</strong> 15 HP, 40 HP, and 7.5 HP for synchronized operations.</li>
+            <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Safety:</strong> Buffer plates with rollers to protect oven walls.</li>
+            <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Protection:</strong> Fully covered shed for long-lasting machine safety.</li>
+          </ul>
+
+          <a href="pusher-with-stamping-arrangement" class="btn-get-started">View Product</a>
+        </div><!-- End .content-->
+      </div>
+    </div>
+  </div>
+</section><!-- End Pusher Machine With Stamping Arrangement -->
+
+<!-- ======= Coal Charging Car ======= -->
+<section id="coal-charging-car" class="products-page">
+  <div class="container">
+    <div class="row no-gutters">
+      <div class="image col-xl-5 d-flex justify-content-center justify-content-lg-start">
+        <img src="assets/img/about-us-products/Coal-Charging-Car.jpg" alt="Coal Charging Car for Coke Oven">
+      </div>
+      <div class="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
+        <div class="content d-flex flex-column justify-content-center">
+          <h3>Coal Charging Car</h3>
+          <h4>Type : Coke Oven Charging</h4>
+          <p>
+            The <b>Coal Charging Car</b> is a robust and heavy-duty machine designed for <b>charging coal into coke ovens</b> 
+            with efficiency, safety, and precision.  
+            It ensures smooth travel on rails, reliable coal feeding through multiple charging mouths, and long-term performance 
+            under high-temperature and dusty conditions.  
+            <br><br>
+            Built with a <b>forged steel wheel system, heavy-duty gearboxes, powerful motors, and semi-automatic charging mechanisms</b>, 
+            it minimizes manual intervention while improving operational safety and productivity.  
+            With <b>platforms, staircases, and protective covers</b>, it offers easy accessibility and durability in demanding industrial environments.
+          </p>
+
+          <div class="icon-box">
+            <i class="fa fa-gear"></i>
+            <h4>Specifications :</h4>
+          </div>
+
+          <ul>
+            <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Structure:</strong> Robust underframe with durable construction.</li>
+            <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Wheel Assemblies:</strong> 4 double-collar forged & hardened steel wheel assemblies.</li>
+            <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Bearings:</strong> Heavy-duty plumber block with double-row self-aligning spherical roller bearings.</li>
+            <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Driving Arrangement:</strong> Two-wheeler driving system with reliable performance.</li>
+            <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Gearbox:</strong> Heavy-duty worm reducer gearbox for smooth transmission.</li>
+            <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Long Travel:</strong> Rail-mounted system powered by a 15 HP electric motor.</li>
+            <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Charging Mouths:</strong> 4 Nos. coal charging mouths with semi-automatic opening arrangement.</li>
+            <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Plates:</strong> 8mm thick taper portion plate and 8mm thick vertical plate.</li>
+            <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Accessibility:</strong> Platforms and staircases provided on both sides for easy operation and maintenance.</li>
+            <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Door Opening:</strong> Arrangement driven by a 3 HP electric motor.</li>
+            <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Dust Control:</strong> Extraction hood system to minimize emissions during charging.</li>
+            <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Safety:</strong> Enclosed body, buffer plates, and protective covers for oven wall protection.</li>
+            <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Automation:</strong> Programmable logic controls for precise and efficient charging cycles.</li>
+          </ul>
+
+          <a href="coal-charging-car" class="btn-get-started">View Product</a>
+        </div><!-- End .content-->
+      </div>
+    </div>
+  </div>
+</section><!-- End Coal Charging Car -->
 
 
 
@@ -395,11 +493,10 @@
           if (filter === "*" || productType === filter) {
             product.style.display = "block";
             console.log(productType, "shown");
-          } else if ("#"+productType === filter){
+          } else if ("#" + productType === filter) {
             product.style.display = "block";
             console.log(productType, "shown");
-          }
-          else {
+          } else {
             product.style.display = "none";
             console.log(productType, "hidden");
           }

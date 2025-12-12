@@ -1,10 +1,15 @@
-/**
-* Template Name: Flattern
-* Template URL: https://bootstrapmade.com/flattern-multipurpose-bootstrap-template/
-* Updated: Mar 17 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+:root {
+    --primary-color: #f03c02;
+    --primary-hover: #ff5722;
+    --primary-dark: #c43100;
+    --primary-light: #fff5f2;
+    --text-main: #4d4643;
+    --mtc-dark: #1a1a1a;
+    --mtc-light-gray: #f4f6f9;
+    --header-height: 85px;
+    --mtc-background-white: #ffffff;
+    --mtc-background-gray: #f6f3f2;
+}
 
 
 /*--------------------------------------------------------------
@@ -17,7 +22,7 @@ body {
 }
 
 a {
-    color: #f03c02;
+    color: var(--primary-color);
     text-decoration: none;
 }
 
@@ -47,7 +52,7 @@ h6 {
     right: 15px;
     bottom: 15px;
     z-index: 996;
-    background: #f03c02;
+    background: var(--primary-color);
     width: 40px;
     height: 40px;
     border-radius: 4px;
@@ -75,11 +80,7 @@ h6 {
 # Disable AOS delay on mobile
 --------------------------------------------------------------*/
 
-@media screen and (max-width: 768px) {
-    [data-aos-delay] {
-        transition-delay: 0 !important;
-    }
-}
+@media screen and (max-width: 768px) {}
 
 
 /*--------------------------------------------------------------
@@ -94,7 +95,7 @@ h6 {
 
 #topbar .contact-info i {
     font-style: normal;
-    color: #f03c02;
+    color: var(--primary-color);
 }
 
 #topbar .contact-info i a,
@@ -109,7 +110,7 @@ h6 {
 }
 
 #topbar .contact-info i a:hover {
-    color: #f03c02;
+    color: var(--primary-color);
 }
 
 #topbar .social-links a {
@@ -120,444 +121,540 @@ h6 {
 }
 
 #topbar .social-links a:hover {
-    color: #f03c02;
+    color: var(--primary-color);
 }
 
 
-/*--------------------------------------------------------------
-# Header
---------------------------------------------------------------*/
+/* ==============================================
+   1. TOP BAR (Dark Industrial Theme)
+   ============================================== */
+
+#topbar {
+    background: var(--mtc-dark);
+    color: #fff;
+    padding: 10px 0;
+    font-size: 0.9rem;
+    border-bottom: 3px solid var(--primary-color);
+    /* Red accent line */
+}
+
+#topbar a {
+    color: #ccc;
+    text-decoration: none;
+    transition: 0.3s;
+    font-family: sans-serif;
+}
+
+#topbar a:hover {
+    color: #fff;
+}
+
+#topbar i {
+    color: var(--primary-color);
+    margin-right: 8px;
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    margin-left: 10px;
+    transition: 0.3s;
+}
+
+.social-links a:hover {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+
+/* ==============================================
+   2. MAIN HEADER
+   ============================================== */
 
 #header {
-    height: 70px;
+    background: #fff;
+    height: var(--header-height);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    /* Soft modern shadow */
     transition: all 0.5s;
     z-index: 997;
-    transition: all 0.5s;
-    background: #fff;
+    position: relative;
+    /* Or sticky/fixed based on your layout preference */
 }
 
-#header.fixed-top {
-    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
-}
-
-#header .logo h1 {
-    font-size: 28px;
-    margin: 0;
-    padding: 10px 0;
-    line-height: 1;
-    font-weight: 400;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-#header .logo h1 a,
-#header .logo h1 a:hover {
-    color: #2b2320;
-    text-decoration: none;
-}
-
-#header .logo img {
-    padding: 0;
-    margin: 0;
-    max-height: 40px;
-}
-
-.scrolled-offset {
-    margin-top: 70px;
+.mtc-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
 }
 
 
-/*--------------------------------------------------------------
-# Navigation Menu
---------------------------------------------------------------*/
+/* LOGO */
+
+.logo img {
+    max-height: 55px;
+    /* Ensures logo fits perfectly */
+    width: auto;
+    transition: 0.3s;
+}
 
 
-/**
-* Desktop Navigation 
-*/
+/* ==============================================
+   3. NAVIGATION (FIXED & CLEAN)
+   ============================================== */
 
 .navbar {
     padding: 0;
 }
 
-.navbar ul {
+
+/* 1. TOP LEVEL MENU ONLY (Using '>') */
+
+.navbar>ul {
     margin: 0;
     padding: 0;
     display: flex;
+    /* Horizontal Layout */
     list-style: none;
+    /* No bullets */
     align-items: center;
 }
 
 .navbar li {
     position: relative;
+    /* Crucial for positioning the dropdown */
+    margin-left: 25px;
 }
 
-.navbar a,
-.navbar a:focus {
+
+/* Main Links Styling */
+
+.navbar>ul>li>a {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 0 10px 20px;
-    font-size: 13px;
-    color: #65534c;
-    white-space: nowrap;
+    padding: 10px 0;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--mtc-dark);
     text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
     transition: 0.3s;
+    position: relative;
 }
 
-.navbar a i,
-.navbar a:focus i {
-    font-size: 12px;
-    line-height: 0;
-    margin-left: 5px;
+
+/* Underline Animation */
+
+.navbar>ul>li>a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease-in-out;
 }
 
-.navbar a:hover,
-.navbar .active,
-.navbar .active:focus,
-.navbar li:hover>a {
-    color: #f03c02;
+.navbar>ul>li>a:hover::after,
+.navbar>ul>li>a.active::after {
+    width: 100%;
 }
 
-.navbar .getstarted,
-.navbar .getstarted:focus {
-    background: #f03c02;
-    padding: 8px 20px;
-    margin-left: 30px;
-    border-radius: 4px;
-    color: #fff;
+.navbar>ul>li>a:hover,
+.navbar>ul>li>a.active {
+    color: var(--primary-color);
 }
 
-.navbar .getstarted:hover,
-.navbar .getstarted:focus:hover {
-    color: #fff;
-    background: #fd490f;
-}
+
+/* ==============================================
+   4. DROPDOWN MENU (FIXED)
+   ============================================== */
+
+
+/* The Dropdown Box (Hidden by default) */
 
 .navbar .dropdown ul {
     display: block;
+    /* Vertical List */
     position: absolute;
-    left: 14px;
-    top: calc(100% + 30px);
+    left: 0;
+    top: 100%;
+    /* Position right below the menu item */
     margin: 0;
-    padding: 10px 0;
+    padding: 15px 0;
     z-index: 99;
     opacity: 0;
+    /* HIDDEN */
     visibility: hidden;
+    /* HIDDEN */
     background: #fff;
-    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
-    transition: 0.3s;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-top: 3px solid var(--primary-color);
+    border-radius: 0 0 4px 4px;
+    transition: all 0.3s ease;
+    min-width: 260px;
+    list-style: none;
+    /* Remove bullets specifically here */
 }
+
+
+/* Hover: Show the Dropdown */
+
+.navbar .dropdown:hover>ul {
+    opacity: 1;
+    visibility: visible;
+    top: 100%;
+    /* Ensure it sits tight against the header */
+}
+
+
+/* Dropdown Items Styling */
 
 .navbar .dropdown ul li {
     min-width: 200px;
+    margin: 0;
+    /* Reset spacing */
+    display: block;
 }
 
 .navbar .dropdown ul a {
     padding: 10px 20px;
-    font-size: 13px;
-    text-transform: none;
+    font-size: 14px;
     font-weight: 500;
-    color: #581601;
-}
-
-.navbar .dropdown ul a i {
-    font-size: 12px;
+    text-transform: none;
+    color: #444;
+    border-bottom: 1px solid #f5f5f5;
+    display: block;
+    /* Make the whole area clickable */
+    transition: 0.3s;
 }
 
 .navbar .dropdown ul a:hover,
 .navbar .dropdown ul .active:hover,
 .navbar .dropdown ul li:hover>a {
-    color: #f03c02;
-}
-
-.navbar .dropdown:hover>ul {
-    opacity: 1;
-    top: 100%;
-    visibility: visible;
-}
-
-.navbar .dropdown .dropdown ul {
-    top: 0;
-    left: calc(100% - 30px);
-    visibility: hidden;
-}
-
-.navbar .dropdown .dropdown:hover>ul {
-    opacity: 1;
-    top: 0;
-    left: 100%;
-    visibility: visible;
-}
-
-@media (max-width: 1366px) {
-    .navbar .dropdown .dropdown ul {
-        left: -90%;
-    }
-    .navbar .dropdown .dropdown:hover>ul {
-        left: -100%;
-    }
+    color: var(--primary-color);
+    background-color: #fcfcfc;
+    padding-left: 25px;
+    /* Slide effect */
 }
 
 
-/**
-* Mobile Navigation 
-*/
+/* ==============================================
+   5. MOBILE TOGGLE BUTTON
+   ============================================== */
 
 .mobile-nav-toggle {
-    color: #2b2320;
+    color: var(--mtc-dark);
     font-size: 28px;
     cursor: pointer;
     display: none;
+    /* Hidden on Desktop by default */
     line-height: 0;
     transition: 0.5s;
 }
 
-.mobile-nav-toggle.bi-x {
-    color: #fff;
-}
+
+/* ==============================================
+   MOBILE NAVIGATION STYLES (FINAL FIX)
+   ============================================== */
+
+
+/* 1. Show the Toggle Button */
 
 @media (max-width: 991px) {
     .mobile-nav-toggle {
         display: block;
     }
+    /* Hide the desktop menu links initially */
     .navbar ul {
         display: none;
     }
 }
 
-.navbar-mobile {
-    position: fixed;
-    overflow: hidden;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    background: rgba(14, 11, 10, 0.9);
-    transition: 0.3s;
-    z-index: 999;
-}
 
-.navbar-mobile .mobile-nav-toggle {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-}
+/* 2. The Active Mobile Menu */
 
-.navbar-mobile ul {
-    display: block;
-    position: absolute;
-    top: 55px;
-    right: 15px;
-    bottom: 15px;
-    left: 15px;
-    padding: 10px 0;
-    background-color: #fff;
-    overflow-y: auto;
-    transition: 0.3s;
-}
-
-.navbar-mobile a,
-.navbar-mobile a:focus {
-    padding: 10px 20px;
-    font-size: 15px;
-    color: #581601;
-}
-
-.navbar-mobile a:hover,
-.navbar-mobile .active,
-.navbar-mobile li:hover>a {
-    color: #f03c02;
-}
-
-.navbar-mobile .getstarted,
-.navbar-mobile .getstarted:focus {
-    margin: 15px;
-}
-
-.navbar-mobile .dropdown ul {
-    position: static;
-    display: none;
-    margin: 10px 20px;
-    padding: 10px 0;
-    z-index: 99;
-    opacity: 1;
-    visibility: visible;
-    background: #fff;
-    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
-}
-
-.navbar-mobile .dropdown ul li {
-    min-width: 200px;
-}
-
-.navbar-mobile .dropdown ul a {
-    padding: 10px 20px;
-}
-
-.navbar-mobile .dropdown ul a i {
-    font-size: 12px;
-}
-
-.navbar-mobile .dropdown ul a:hover,
-.navbar-mobile .dropdown ul .active:hover,
-.navbar-mobile .dropdown ul li:hover>a {
-    color: #f03c02;
-}
-
-.navbar-mobile .dropdown>.dropdown-active {
-    display: block;
+@media (max-width: 991px) {
+    /* When JS adds 'navbar-mobile', we show the UL */
+    .navbar.navbar-mobile ul {
+        /* USE FIXED TO BREAK OUT OF HEADER OVERFLOW */
+        position: fixed;
+        display: block !important;
+        /* Force visibility */
+        /* Positioning */
+        top: 85px;
+        /* Push it down below the header */
+        left: 15px;
+        right: 15px;
+        bottom: auto;
+        /* Sizing & Scroll */
+        height: auto;
+        max-height: 80vh;
+        /* Scroll if menu is too long */
+        overflow-y: auto;
+        /* Visuals */
+        background: #fff;
+        padding: 15px 0;
+        border-radius: 8px;
+        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+        /* Stronger shadow */
+        border-top: 4px solid var(--primary-color);
+        z-index: 9999;
+        /* Ensure it stays on top of everything */
+    }
+    /* 3. Link Styling */
+    .navbar.navbar-mobile a {
+        padding: 12px 25px;
+        font-size: 16px;
+        color: #333;
+        border: none;
+        display: block;
+        text-decoration: none;
+    }
+    .navbar.navbar-mobile a:hover,
+    .navbar.navbar-mobile .active,
+    .navbar.navbar-mobile li:hover>a {
+        color: var(--primary-color);
+        background: #f9f9f9;
+    }
+    /* Remove Desktop Effects */
+    .navbar.navbar-mobile>ul>li>a::after {
+        display: none;
+    }
+    /* 4. Dropdown Styling */
+    .navbar.navbar-mobile .dropdown ul {
+        position: static;
+        display: none;
+        /* Hidden by default */
+        margin: 10px 20px;
+        padding: 0;
+        z-index: 99;
+        opacity: 1;
+        visibility: visible;
+        background: #fff;
+        box-shadow: none;
+        border-top: 1px solid #eee;
+    }
+    /* This shows the dropdown when you click the link */
+    .navbar.navbar-mobile .dropdown .dropdown-active {
+        display: block !important;
+    }
 }
 
 
 /*--------------------------------------------------------------
-# Hero Section
+# Modern Hero Section
 --------------------------------------------------------------*/
 
 #hero {
     width: 100%;
-    height: 70vh;
+    height: 85vh;
+    /* Taller = More Modern */
     overflow: hidden;
     position: relative;
-    padding: 0;
+    background-color: #1a1a1a;
+    /* Dark fallback */
 }
 
-#hero .carousel,
-#hero .carousel-inner,
-#hero .carousel-item,
+
+/* Dark Gradient Overlay - Makes text readable on any machine photo */
+
 #hero .carousel-item::before {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    content: "";
     position: absolute;
     top: 0;
-    right: 0;
     left: 0;
+    right: 0;
     bottom: 0;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.1) 100%);
+    z-index: 1;
 }
 
 #hero .carousel-container {
     display: flex;
-    align-items: flex-end;
-    justify-content: center;
+    justify-content: flex-start;
+    /* Align text to Left */
+    align-items: center;
     position: absolute;
-    bottom: 60px;
-    top: 110px;
-    left: 50px;
-    right: 50px;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0 5%;
+    /* Side padding */
+    z-index: 2;
 }
+
+
+/* Glass/Industrial Text Box */
 
 #hero .carousel-content {
-    background: rgba(28, 23, 21, 0.7);
-    padding: 20px;
-    color: #fff;
-    animation-duration: 0.5s;
-    border-top: 5px solid #f03c02;
+    text-align: left;
+    /* Modern Left Align */
+    max-width: 600px;
+    padding: 40px;
+    border-left: 5px solid var(--primary-color);
+    /* The Orange Safety Line */
+    background: rgba(0, 0, 0, 0.2);
+    /* Subtle glass effect */
+    backdrop-filter: blur(5px);
+    /* Modern blur effect */
 }
 
-#hero .carousel-content h2 {
+
+/* Typography */
+
+#hero h2 {
     color: #fff;
-    margin-bottom: 30px;
-    font-size: 28px;
-    font-weight: 700;
+    margin-bottom: 20px;
+    font-size: 48px;
+    font-weight: 800;
+    /* Extra Bold */
+    text-transform: uppercase;
+    line-height: 1.1;
+    letter-spacing: 1px;
+    opacity: 0;
+    /* Hidden for animation */
+    animation: slideInDown 1s ease-out forwards;
 }
+
+#hero h2 span {
+    color: var(--primary-color);
+    /* Orange Subtitle */
+    display: block;
+    font-size: 0.6em;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+
+/* The Button */
 
 #hero .btn-get-started {
     font-family: "Muli", sans-serif;
-    font-weight: 500;
+    font-weight: 700;
     font-size: 14px;
     letter-spacing: 1px;
     display: inline-block;
-    padding: 12px 32px;
-    border-radius: 4px;
+    padding: 15px 40px;
+    border-radius: 0;
+    /* Square buttons look more industrial */
     transition: 0.5s;
-    line-height: 1;
-    margin: 10px;
+    margin-top: 30px;
     color: #fff;
-    animation-delay: 0.8s;
-    border: 2px solid #f03c02;
+    background: var(--primary-color);
+    border: none;
+    text-transform: uppercase;
+    opacity: 0;
+    /* Hidden for animation */
+    animation: fadeInUp 1s ease-out 0.5s forwards;
+    /* 0.5s delay */
 }
 
 #hero .btn-get-started:hover {
-    background: #f03c02;
-    color: #fff;
-    text-decoration: none;
+    background: var(--primary-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(240, 60, 2, 0.3);
 }
 
-#hero .carousel-inner .carousel-item {
-    transition-property: opacity;
-}
 
-#hero .carousel-inner .carousel-item,
-#hero .carousel-inner .active.carousel-item-start,
-#hero .carousel-inner .active.carousel-item-end {
-    opacity: 0;
-}
-
-#hero .carousel-inner .active,
-#hero .carousel-inner .carousel-item-next.carousel-item-start,
-#hero .carousel-inner .carousel-item-prev.carousel-item-end {
-    opacity: 1;
-    transition: 0.5s;
-}
-
-#hero .carousel-inner .carousel-item-next,
-#hero .carousel-inner .carousel-item-prev,
-#hero .carousel-inner .active.carousel-item-start,
-#hero .carousel-inner .active.carousel-item-end {
-    left: 0;
-    transform: translate3d(0, 0, 0);
-}
+/* Custom Navigation Arrows */
 
 #hero .carousel-control-prev,
 #hero .carousel-control-next {
-    width: 10%;
-    color: #f03c02;
+    width: 60px;
+    height: 60px;
+    background: rgba(0, 0, 0, 0.5);
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 1;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s;
 }
 
-#hero .carousel-control-next-icon,
-#hero .carousel-control-prev-icon {
-    background: none;
-    font-size: 48px;
-    line-height: 1;
-    width: auto;
-    height: auto;
-    color: #f03c02;
+#hero .carousel-control-prev:hover,
+#hero .carousel-control-next:hover {
+    background: var(--primary-color);
 }
+
+#hero .carousel-control-prev {
+    left: 0;
+}
+
+#hero .carousel-control-next {
+    right: 0;
+}
+
+
+/* Indicators (Lines instead of dots) */
 
 #hero .carousel-indicators li {
-    background: #f03c02;
-    cursor: pointer;
-    list-style-type: none;
-    color: #f03c02;
+    width: 40px;
+    height: 4px;
+    background-color: #fff;
+    opacity: 0.5;
+    margin: 0 5px;
+    border: none;
 }
 
-@media (min-width: 1024px) {
+#hero .carousel-indicators .active {
+    background-color: var(--primary-color);
+    opacity: 1;
+}
+
+
+/* Animations */
+
+@keyframes slideInDown {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+/* Mobile Responsiveness */
+
+@media (max-width: 768px) {
+    #hero {
+        height: 70vh;
+    }
+    #hero .carousel-item::before {
+        /* On mobile, darken the whole image more so text is readable */
+        background: rgba(0, 0, 0, 0.6);
+    }
+    #hero h2 {
+        font-size: 28px;
+    }
     #hero .carousel-content {
-        width: 60%;
-    }
-    #hero .carousel-control-prev,
-    #hero .carousel-control-next {
-        width: 5%;
-    }
-}
-
-@media (max-width: 992px) {
-    #hero {
-        height: 70vh;
-    }
-    #hero .carousel-content h2 {
-        margin-bottom: 15px;
-        font-size: 22px;
-    }
-    #hero .carousel-content p {
-        font-size: 15px;
-    }
-}
-
-@media (max-height: 500px) {
-    #hero {
-        height: 70vh;
+        padding: 20px;
+        margin: 0 15px;
+        border-left: 3px solid var(--primary-color);
     }
 }
 
@@ -666,13 +763,13 @@ section {
 }
 
 .cta h3 span {
-    color: #f03c02;
+    color: var(--primary-color);
 }
 
 .cta .d p {
     padding: 0;
     margin: 0;
-    text-align: justify;
+    text-align: left;
 }
 
 .cta .cta-btn {
@@ -726,13 +823,13 @@ section {
 }
 
 .services h3 span {
-    color: #f03c02;
+    color: var(--primary-color);
 }
 
 .services p {
     padding: 0;
     margin: 0;
-    text-align: justify;
+    text-align: left;
 }
 
 .services .services-btn {
@@ -769,7 +866,7 @@ section {
 }
 
 .services .list-group-item i {
-    color: red;
+    color: var(--primary-color);
     position: absolute;
     /* Position icons absolutely */
     left: 0;
@@ -831,7 +928,7 @@ section {
     text-align: center;
     width: 72px;
     height: 72px;
-    background: #f03c02;
+    background: var(--primary-color);
 }
 
 .strengths .icon i {
@@ -853,15 +950,15 @@ section {
 
 .strengths .icon-box:hover .icon {
     background: #fff;
-    border: 2px solid #f03c02;
+    border: 2px solid var(--primary-color);
 }
 
 .strengths .icon-box:hover .icon i {
-    color: #f03c02;
+    color: var(--primary-color);
 }
 
 .strengths .icon-box:hover .title a {
-    color: #f03c02;
+    color: var(--primary-color);
 }
 
 .strengths .description {
@@ -897,7 +994,7 @@ section {
 .portfolio #portfolio-flters li:hover,
 .portfolio #portfolio-flters li.filter-active {
     color: #fff;
-    background: #f03c02;
+    background: var(--primary-color);
 }
 
 .portfolio #portfolio-flters li:last-child {
@@ -906,25 +1003,45 @@ section {
 
 .portfolio .portfolio-item {
     margin-bottom: 30px;
+    border-radius: 5px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio .portfolio-item:hover {
+    transform: translateY(-5px);
+}
+
+.portfolio .portfolio-item img {
+    width: 100%;
+    height: 200px;
+    /* Fixed height for all images */
+    object-fit: contain;
+    /* Ensure the entire image is visible within its container */
+    transition: transform 0.3s ease;
 }
 
 .portfolio .portfolio-item .portfolio-info {
-    opacity: 0;
-    position: absolute;
-    left: 30px;
-    right: 30px;
-    bottom: 0;
-    z-index: 3;
-    transition: all ease-in-out 0.3s;
-    background: rgba(255, 255, 255, 0.9);
+    opacity: 1;
+    /* Always visible */
+    position: static;
+    /* Remove absolute positioning */
     padding: 15px;
+    /* Adjust padding as needed */
+    text-align: center;
+    /* Center align content */
+    background: #fff;
+    /* White background */
+    border-top: 1px solid #eee;
+    /* Subtle border at the top */
 }
 
 .portfolio .portfolio-item .portfolio-info h4 {
     font-size: 18px;
-    color: #fff;
-    font-weight: 600;
     color: #2b2320;
+    font-weight: 600;
+    margin-bottom: 5px;
 }
 
 .portfolio .portfolio-item .portfolio-info p {
@@ -935,47 +1052,18 @@ section {
 
 .portfolio .portfolio-item .portfolio-info .preview-link,
 .portfolio .portfolio-item .portfolio-info .details-link {
-    position: absolute;
-    right: 40px;
-    font-size: 24px;
-    top: calc(50% - 18px);
-    color: #483b36;
-}
-
-.portfolio .portfolio-item .portfolio-info .preview-link:hover,
-.portfolio .portfolio-item .portfolio-info .details-link:hover {
-    color: #f03c02;
-}
-
-.portfolio .portfolio-item .portfolio-info .details-link {
-    right: 10px;
+    display: none;
+    /* Hide these links as they're not needed with text always visible */
 }
 
 .portfolio .portfolio-item .portfolio-links {
-    opacity: 0;
-    left: 0;
-    right: 0;
-    text-align: center;
-    z-index: 3;
-    position: absolute;
-    transition: all ease-in-out 0.3s;
-}
-
-.portfolio .portfolio-item .portfolio-links a {
-    color: #fff;
-    margin: 0 2px;
-    font-size: 28px;
-    display: inline-block;
-    transition: 0.3s;
-}
-
-.portfolio .portfolio-item .portfolio-links a:hover {
-    color: #fe825a;
+    display: none;
+    /* Hide social links */
 }
 
 .portfolio .portfolio-item:hover .portfolio-info {
-    opacity: 1;
-    bottom: 20px;
+    bottom: auto;
+    /* Remove bottom animation */
 }
 
 
@@ -1001,11 +1089,11 @@ section {
     height: 12px;
     background-color: #fff;
     opacity: 1;
-    border: 1px solid #f03c02;
+    border: 1px solid var(--primary-color);
 }
 
 .portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
-    background-color: #f03c02;
+    background-color: var(--primary-color);
 }
 
 .portfolio-details .portfolio-info {
@@ -1053,6 +1141,13 @@ section {
 .clients .clients-wrap {
     border-top: 1px solid #f1eeed;
     border-left: 1px solid #f1eeed;
+}
+
+.clients .clients-wrap .col-lg-3,
+.clients .clients-wrap .col-md-4,
+.clients .clients-wrap .col-xs-6 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 }
 
 .clients .client-logo {
@@ -1111,7 +1206,7 @@ section {
 .about-us .content .icon-box i {
     font-size: 48px;
     float: left;
-    color: #f03c02;
+    color: var(--primary-color);
 }
 
 .about-us .content .icon-box p {
@@ -1162,7 +1257,7 @@ section {
 # ABOUT Product
 --------------------------------------------------------------*/
 
-.aboutus-team .member {
+.our-products .member {
     margin-bottom: 20px;
     overflow: hidden;
     text-align: center;
@@ -1173,22 +1268,31 @@ section {
     /* Adding a transition for smooth animation */
 }
 
-.aboutus-team .member:hover {
+.our-products .member:hover {
     transform: scale(1.1);
     /* Zoom in effect on hover */
 }
 
-.aboutus-team .member .member-img {
+.our-products .member .member-img {
     position: relative;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.our-products .member .member-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
     transition: transform 0.3s ease;
 }
 
-.aboutus-team .member .member-img:hover {
-    transform: scale(1.1);
+.our-products .member .member-img:hover img {
+    transform: scale(1.05);
 }
 
-.aboutus-team .member .social {
+.our-products .member .social {
     position: absolute;
     left: 0;
     bottom: 0;
@@ -1202,7 +1306,7 @@ section {
     justify-content: center;
 }
 
-.aboutus-team .member .social a {
+.our-products .member .social a {
     transition: color 0.3s;
     color: #2b2320;
     margin: 0 10px;
@@ -1211,78 +1315,82 @@ section {
     justify-content: center;
 }
 
-.aboutus-team .member .social a:hover {
-    color: #f03c02;
+.our-products .member .social a:hover {
+    color: var(--primary-color);
 }
 
-.aboutus-team .member .social i {
+.our-products .member .social i {
     font-size: 18px;
     line-height: 0;
 }
 
-.aboutus-team .member .member-info {
+.our-products .member .member-info {
     padding: 25px 15px;
 }
 
-.aboutus-team .member .member-info h4 {
+.our-products .member .member-info h4 {
     font-weight: 700;
     margin-bottom: 5px;
     font-size: 18px;
     color: #2b2320;
 }
 
-.aboutus-team .member .member-info span {
+.our-products .member .member-info span {
     display: block;
     font-size: 13px;
     font-weight: 400;
     color: #b4aca8;
 }
 
-.aboutus-team .member .member-info p {
+.our-products .member .member-info p {
     font-style: italic;
     font-size: 14px;
     line-height: 26px;
     color: #847872;
 }
 
-.aboutus-team .member:hover .social {
+.our-products .member:hover .social {
     opacity: 1;
 }
 
-.aboutus-team .btn-get-started {
+.our-products .btn-get-started {
     font-family: "Muli", sans-serif;
     font-weight: 500;
     font-size: 14px;
     letter-spacing: 1px;
     display: inline-block;
-    padding: 6px 12px;
-    border-radius: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
     transition: 0.5s;
     line-height: 1;
-    margin: 10px;
+    margin-top: 15px;
     animation-delay: 0.8s;
-    background-color: #f03c02;
+    background-color: var(--primary-color);
     color: white;
 }
 
-.aboutus-team .btn-container {
+.our-products .btn-container {
     text-align: center;
+    margin-top: 30px;
 }
 
-.aboutus-team .btn-container .btn-get-started {
+.our-products .btn-container .btn-get-started {
     font-family: "Muli", sans-serif;
     font-weight: 500;
-    font-size: 14px;
+    font-size: 16px;
     letter-spacing: 1px;
     display: inline-block;
-    padding: 6px 12px;
-    border-radius: 10px;
+    padding: 12px 28px;
+    border-radius: 5px;
     transition: 0.5s;
     line-height: 1;
-    margin: 10px;
     animation-delay: 0.8s;
-    background-color: #f03c02;
+    background-color: var(--primary-color);
     color: white;
+}
+
+.our-products .btn-container .btn-get-started:hover {
+    background-color: #e03600;
 }
 
 
@@ -1313,7 +1421,7 @@ section {
 .product-filter #product-filter-flters li:hover,
 .product-filter #product-filter-flters li.filter-active {
     color: #fff;
-    background: #f03c02;
+    background: var(--primary-color);
 }
 
 .product-filter #product-filter-flters li:last-child {
@@ -1321,22 +1429,19 @@ section {
 }
 
 .products-page .content {
-    padding: 0px 30px;
-    margin: 10px;
+    /* padding: 0px 30px;
+    margin: 10px; */
 }
 
 .products-page .image {
-    justify-items: center;
-    align-items: center;
+    justify-items: flex-start;
+    align-items: flex-start;
 }
 
 .products-page .image img {
-    margin: 10px;
-    width: 500px;
-    height: 400px;
-    padding: 10px;
     transition: transform 0.3s ease;
-    /* Adding a transition for smooth animation */
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .products-page .image img:hover {
@@ -1374,12 +1479,12 @@ section {
     margin: 5px;
     font-size: 20px;
     float: left;
-    color: #f03c02;
+    color: var(--primary-color);
 }
 
 .products-page .content .icon i {
     margin: 5px;
-    color: #f03c02;
+    color: var(--primary-color);
 }
 
 .products-page .content ul {
@@ -1409,14 +1514,14 @@ section {
     line-height: 1;
     margin: 10px;
     animation-delay: 0.8s;
-    background-color: #f03c02;
+    background-color: var(--primary-color);
     color: white;
     width: 140px;
     text-align: center;
 }
 
 .products-page .btn-get-started:hover {
-    border: 2px solid #f03c02;
+    border: 2px solid var(--primary-color);
     font-family: "Muli", sans-serif;
     font-weight: 500;
     font-size: 14px;
@@ -1429,7 +1534,7 @@ section {
     margin: 10px;
     animation-delay: 0.8s;
     background-color: white;
-    color: #f03c02;
+    color: var(--primary-color);
 }
 
 @media (max-width: 991px) {
@@ -1496,7 +1601,7 @@ section {
 }
 
 .team .member .social a:hover {
-    color: #f03c02;
+    color: var(--primary-color);
 }
 
 .team .member .social i {
@@ -1545,7 +1650,7 @@ section {
     line-height: 1;
     margin: 10px;
     animation-delay: 0.8s;
-    border: 2px solid #f03c02;
+    border: 2px solid var(--primary-color);
 }
 
 
@@ -1582,7 +1687,7 @@ section {
     width: 1px;
     height: 10px;
     transition: 0.9s;
-    background-color: #f03c02;
+    background-color: var(--primary-color);
 }
 
 
@@ -1608,7 +1713,7 @@ section {
 }
 
 .features .nav-link:hover {
-    color: #f03c02;
+    color: var(--primary-color);
 }
 
 .features .nav-link h4 {
@@ -1628,7 +1733,7 @@ section {
 
 .features .nav-link.active {
     box-shadow: 0px 0 15px rgba(0, 0, 0, 0.12);
-    color: #f03c02;
+    color: var(--primary-color);
 }
 
 .features .tab-pane.active {
@@ -1669,7 +1774,7 @@ section {
 
 .pricing h4 {
     font-size: 42px;
-    color: #f03c02;
+    color: var(--primary-color);
     font-weight: 500;
     font-family: "Open Sans", sans-serif;
     margin-bottom: 20px;
@@ -1725,8 +1830,8 @@ section {
 }
 
 .pricing .btn-buy:hover {
-    color: #f03c02;
-    border-color: #f03c02;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
 }
 
 .pricing .featured {
@@ -1753,7 +1858,7 @@ section {
 }
 
 .pricing .featured .btn-buy:hover {
-    color: #f03c02;
+    color: var(--primary-color);
     background: #fff;
     border-color: #fff;
 }
@@ -1785,13 +1890,13 @@ section {
     transition: 0.4s;
     margin: 10px;
     border-radius: 4px;
-    border: 2px solid #f03c02;
-    color: #f03c02;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
     background: #fff;
 }
 
 .cta-pricing .cta-btn:hover {
-    background: #f03c02;
+    background: var(--primary-color);
     color: #fff;
 }
 
@@ -1917,6 +2022,15 @@ section {
     background: #fff;
 }
 
+.contact .php-email-form .error-border {
+    border-color: red;
+}
+
+.contact .php-email-form .validate {
+    font-size: 12px;
+    color: red;
+}
+
 .contact .php-email-form .form-group {
     padding-bottom: 8px;
 }
@@ -1991,7 +2105,7 @@ section {
 }
 
 .contact .php-email-form button[type="submit"] {
-    background: #f03c02;
+    background: var(--primary-color);
     border: 0;
     padding: 10px 24px;
     color: #fff;
@@ -2046,7 +2160,7 @@ section {
 }
 
 .blog .entry .entry-title a:hover {
-    color: #f03c02;
+    color: var(--primary-color);
 }
 
 .blog .entry .entry-meta {
@@ -2091,7 +2205,7 @@ section {
 
 .blog .entry .entry-content .read-more a {
     display: inline-block;
-    background: #f03c02;
+    background: var(--primary-color);
     color: #fff;
     padding: 6px 20px;
     transition: 0.3s;
@@ -2155,7 +2269,7 @@ section {
 }
 
 .blog .entry .entry-footer a:hover {
-    color: #f03c02;
+    color: var(--primary-color);
 }
 
 .blog .entry .entry-footer .cats {
@@ -2264,7 +2378,7 @@ section {
 }
 
 .blog .blog-comments .comment h5 a:hover {
-    color: #f03c02;
+    color: var(--primary-color);
 }
 
 .blog .blog-comments .comment h5 .reply {
@@ -2365,7 +2479,7 @@ section {
 
 .blog .blog-pagination li.active,
 .blog .blog-pagination li:hover {
-    background: #f03c02;
+    background: var(--primary-color);
 }
 
 .blog .blog-pagination li.active a,
@@ -2416,7 +2530,7 @@ section {
     font-size: 16px;
     padding: 0 15px;
     margin: -1px;
-    background: #f03c02;
+    background: var(--primary-color);
     color: #fff;
     transition: 0.3s;
     border-radius: 0 4px 4px 0;
@@ -2446,7 +2560,7 @@ section {
 }
 
 .blog .sidebar .categories ul a:hover {
-    color: #f03c02;
+    color: var(--primary-color);
 }
 
 .blog .sidebar .categories ul a span {
@@ -2476,7 +2590,7 @@ section {
 }
 
 .blog .sidebar .recent-posts h4 a:hover {
-    color: #f03c02;
+    color: var(--primary-color);
 }
 
 .blog .sidebar .recent-posts time {
@@ -2512,8 +2626,8 @@ section {
 
 .blog .sidebar .tags ul a:hover {
     color: #fff;
-    border: 1px solid #f03c02;
-    background: #f03c02;
+    border: 1px solid var(--primary-color);
+    background: var(--primary-color);
 }
 
 .blog .sidebar .tags ul a span {
@@ -2644,7 +2758,7 @@ section {
     background: none;
     font-size: 16px;
     padding: 0 20px;
-    background: #f03c02;
+    background: var(--primary-color);
     color: #fff;
     transition: 0.3s;
     border-radius: 0 4px 4px 0;
@@ -2664,7 +2778,7 @@ section {
 #footer .social-links a {
     font-size: 18px;
     display: inline-block;
-    background: #f03c02;
+    background: var(--primary-color);
     color: #fff;
     line-height: 1;
     padding: 8px 0;
@@ -2685,7 +2799,7 @@ section {
 #footer .social-links a {
     font-size: 18px;
     display: inline-block;
-    background: #f03c02;
+    background: var(--primary-color);
     color: #fff;
     line-height: 1;
     padding: 8px 0;
@@ -2701,4 +2815,2166 @@ section {
     background: #fd5c28;
     color: #fff;
     text-decoration: none;
+}
+
+
+/*--------------------------------------------------------------
+# VIDEO SECTION
+--------------------------------------------------------------*/
+
+.video-gallery {
+    padding: 60px 0;
+    background-color: #f8f9fa;
+}
+
+.main-video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    background: #000;
+}
+
+.main-video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-list-container {
+    height: 100%;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.video-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.video-item:hover {
+    background: #f0f0f0;
+}
+
+.video-item.active {
+    background: #e9ecef;
+    border-left: 4px solid #e03a3c;
+}
+
+.video-thumbnail {
+    width: 120px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.video-list-title {
+    font-size: 14px;
+    margin: 0;
+}
+
+.container {
+    max-width: 90% !important;
+}
+
+@media (max-width: 767px) {
+    .container {
+        max-width: 100% !important;
+    }
+}
+
+
+/* =======================================================
+   MTC INDUSTRIAL SPLIT-CAROUSEL (FINAL VERSION)
+   ======================================================= */
+
+.mtc-hero-section {
+    position: relative;
+    width: 100%;
+    height: 85vh;
+    min-height: 650px;
+    background-color: #f4f4f4;
+    overflow: hidden;
+    align-items: center;
+    padding: 0;
+}
+
+
+/* Force Bootstrap height chain */
+
+.mtc-hero-section .carousel,
+.mtc-hero-section .carousel-inner,
+.mtc-hero-section .carousel-item {
+    height: 100% !important;
+}
+
+.mtc-slide-grid {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 5;
+}
+
+.mtc-text-col {
+    position: relative;
+    z-index: 10;
+    padding-right: 30px;
+}
+
+.mtc-info-box {
+    background: #ffffff;
+    padding: 45px;
+    border-left: 8px solid var(--primary-color);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all 0.1s ease-out;
+}
+
+.carousel-item.active .mtc-info-box {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/* Typography */
+
+.mtc-badge {
+    color: var(--primary-color);
+    font-weight: 800;
+    letter-spacing: 3px;
+    font-size: 12px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.mtc-title {
+    color: #1a1a1a;
+    font-size: 3.2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 20px;
+}
+
+.mtc-subtitle {
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 35px;
+    font-weight: 400;
+}
+
+.mtc-btn {
+    display: inline-block;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 15px 40px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: 0.3s;
+    letter-spacing: 1px;
+}
+
+.mtc-btn:hover {
+    background: #111;
+    color: #fff;
+}
+
+.mtc-btn i {
+    margin-left: 8px;
+}
+
+.mtc-img-col {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: radial-gradient( ellipse at center bottom, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.0) 65%);
+    background-size: 70% 40px;
+    background-repeat: no-repeat;
+    background-position: center bottom 15%;
+}
+
+img.mtc-product-img {
+    max-width: 100%;
+    max-height: 75%;
+    object-fit: contain;
+    filter: drop-shadow(5px 15px 30px rgba(0, 0, 0, 0.2));
+    opacity: 0;
+    transform: translateX(30px) scale(0.95);
+    transition: all 0.2s ease-out;
+}
+
+.carousel-item.active img.mtc-product-img {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+}
+
+.mtc-thumb-nav {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: transparent !important;
+    padding: 10px 0;
+    z-index: 20;
+}
+
+.mtc-thumb-scroll {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    overflow-x: auto;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    scroll-behavior: smooth;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.mtc-thumb-scroll::-webkit-scrollbar {
+    height: 6px;
+}
+
+.mtc-thumb-scroll::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+}
+
+
+/* 2. The Scrollbar Handle (Thumb) */
+
+.mtc-thumb-scroll::-webkit-scrollbar-thumb {
+    background: #bbb;
+    border-radius: 10px;
+    transition: background 0.3s;
+}
+
+
+/* 3. Handle Hover State */
+
+.mtc-thumb-scroll::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+    cursor: pointer;
+}
+
+.mtc-thumb-item {
+    width: 110px;
+    flex-shrink: 0;
+    cursor: pointer;
+    background: #fff;
+    padding: 3px;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid transparent;
+    transition: 0.3s;
+    opacity: 0.7;
+}
+
+.mtc-thumb-item img {
+    width: 100%;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+.mtc-thumb-item:hover {
+    opacity: 1;
+    transform: translateY(-3px);
+}
+
+.mtc-thumb-item.active {
+    opacity: 1;
+    border-color: var(--primary-color);
+    /* Orange Border */
+    transform: translateY(-5px);
+}
+
+.mtc-mobile-hero-img {
+    display: block;
+    width: 100%;
+    max-width: 350px;
+    height: 250px;
+    object-fit: contain;
+    margin: 15px auto 25px auto;
+    filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.15));
+    animation: fadeInMobile 1s ease-out;
+}
+
+@keyframes fadeInMobile {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 991px) {
+    /* Reset Section Height */
+    .mtc-hero-section {
+        height: auto !important;
+        min-height: auto !important;
+        padding-top: 40px;
+        padding-bottom: 20px;
+        display: block;
+    }
+    /* Reset Text Column */
+    .mtc-text-col {
+        padding: 0 15px;
+        width: 100%;
+    }
+    /* Info Box Styling */
+    .mtc-info-box {
+        text-align: center;
+        border-left: none;
+        border-top: none;
+        padding: 30px 20px;
+        box-shadow: none;
+    }
+    /* Adjust Title Font for Mobile */
+    .mtc-title {
+        font-size: 2rem;
+        margin-top: 10px;
+    }
+    /* Thumbnails adjustments */
+    .mtc-thumb-nav {
+        position: relative;
+        margin-top: 20px;
+    }
+    .mtc-thumb-scroll {
+        justify-content: flex-start;
+    }
+}
+
+
+/* ==============================================
+   MODERN STRENGTHS SECTION
+   ============================================== */
+
+
+/* Section Background */
+
+.mtc-strengths-section {
+    padding: 50px 0;
+    background-color: var(--mtc-background-gray);
+    /* Very light grey */
+}
+
+
+/* Section Header styling */
+
+.mtc-section-header {
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.text-orange {
+    color: var(--primary-color);
+}
+
+
+/* THE CARD DESIGN */
+
+.mtc-feature-card {
+    background: #fff;
+    padding: 40px 30px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    height: 100%;
+    /* Ensures equal height */
+    transition: all 0.4s ease;
+    z-index: 1;
+}
+
+
+/* Hover Effect: Lift up & Orange Border */
+
+.mtc-feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    border-bottom: 4px solid var(--primary-color);
+}
+
+
+/* The Icon Circle */
+
+.mtc-feature-card .icon-wrapper {
+    width: 60px;
+    height: 60px;
+    background: rgba(240, 60, 2, 0.1);
+    /* Faint Orange */
+    color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 25px;
+    transition: 0.3s;
+}
+
+
+/* Hover: Icon turns solid orange */
+
+.mtc-feature-card:hover .icon-wrapper {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+
+/* Typography */
+
+.mtc-feature-card h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #222;
+    text-transform: uppercase;
+}
+
+.mtc-feature-card p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+
+/* BACKGROUND NUMBER (Watermark) */
+
+.card-bg-number {
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    font-size: 6rem;
+    font-weight: 900;
+    color: rgba(0, 0, 0, 0.03);
+    /* Very faint grey */
+    z-index: -1;
+    font-family: 'Open Sans', sans-serif;
+    transition: 0.4s;
+}
+
+
+/* Hover: Number gets slightly darker/moves */
+
+.mtc-feature-card:hover .card-bg-number {
+    color: rgba(240, 60, 2, 0.08);
+    /* Faint orange tint */
+    transform: scale(1.1);
+}
+
+
+/* ==============================================
+   MODERN WELCOME & STATS SECTION
+   ============================================== */
+
+.mtc-about-section {
+    padding: 30px 0;
+    background-color: var(--mtc-background-white);
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* --- LEFT SIDE: TEXT --- */
+
+.mtc-section-subtitle {
+    display: block;
+    color: #888;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.mtc-section-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #222;
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+
+.text-orange {
+    color: var(--primary-color);
+}
+
+.mtc-lead-text {
+    font-size: 1.2rem;
+    color: #444;
+    font-weight: 500;
+    border-left: 4px solid var(--primary-color);
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.mtc-body-text {
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 35px;
+}
+
+
+/* Action Row (Button + ISO) */
+
+.mtc-action-row {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+
+/* ISO Badge Styling */
+
+.mtc-iso-badge {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-left: 1px solid #ddd;
+    padding-left: 30px;
+}
+
+.mtc-iso-badge i {
+    font-size: 2rem;
+}
+
+.mtc-iso-badge span {
+    font-weight: 700;
+    color: #333;
+    line-height: 1.2;
+}
+
+.mtc-iso-badge small {
+    font-weight: 400;
+    color: #777;
+}
+
+
+/* --- RIGHT SIDE: STATS CARDS --- */
+
+.mtc-stats-wrapper {
+    position: relative;
+    padding: 20px;
+}
+
+
+/* The Stat Box */
+
+.mtc-stat-card {
+    background: #fff;
+    padding: 30px 20px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #f0f0f0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    /* Soft floaty shadow */
+    transition: 0.3s ease;
+    height: 100%;
+}
+
+.mtc-stat-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+    box-shadow: 0 15px 40px rgba(240, 60, 2, 0.15);
+}
+
+.stat-icon {
+    font-size: 2rem;
+    color: #ddd;
+    /* Initially grey */
+    margin-bottom: 15px;
+    transition: 0.3s;
+}
+
+.mtc-stat-card:hover .stat-icon {
+    color: var(--primary-color);
+    /* Turns orange on hover */
+}
+
+.mtc-stat-card h3 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #222;
+    margin-bottom: 5px;
+}
+
+.mtc-stat-card p {
+    color: #666;
+    font-weight: 600;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+
+/* Decorative Background Blob behind stats */
+
+.stat-bg-decoration {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 90%;
+    background: radial-gradient(circle, rgba(240, 60, 2, 0.03) 0%, rgba(255, 255, 255, 0) 70%);
+    z-index: -1;
+    border-radius: 50%;
+}
+
+
+/* Mobile Adjustments */
+
+@media (max-width: 991px) {
+    .mtc-section-title {
+        font-size: 2rem;
+    }
+    .mtc-action-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    .mtc-iso-badge {
+        border-left: none;
+        padding-left: 0;
+    }
+    .mtc-stats-wrapper {
+        margin-top: 40px;
+    }
+}
+
+
+/* ==============================================
+   MODERN SERVICES SECTION
+   ============================================== */
+
+.mtc-services-section {
+    padding: 50px 0;
+    background-color: var(--mtc-background-gray);
+    overflow: hidden;
+}
+
+
+/* --- LEFT SIDE: IMAGE STYLING --- */
+
+.mtc-service-img-wrapper {
+    position: relative;
+    padding: 20px;
+    /* Space for the offset border */
+}
+
+
+/* The Image */
+
+.mtc-service-img-wrapper .main-img {
+    border-radius: 4px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+
+/* The Orange Frame behind the image */
+
+.img-offset-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 90%;
+    height: 90%;
+    border: 5px solid var(--primary-color);
+    z-index: 1;
+    opacity: 0.3;
+}
+
+
+/* The Floating Badge */
+
+.img-experience-badge {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    background: #fff;
+    padding: 20px 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    z-index: 3;
+    border-left: 5px solid var(--primary-color);
+    text-align: center;
+}
+
+.img-experience-badge .count {
+    display: block;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    line-height: 1;
+}
+
+.img-experience-badge .label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #333;
+}
+
+
+/* --- RIGHT SIDE: CONTENT --- */
+
+.mtc-service-desc {
+    color: #666;
+    margin-bottom: 40px;
+    line-height: 1.7;
+    max-width: 600px;
+}
+
+
+/* THE SERVICE GRID LIST */
+
+.mtc-service-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+/* Individual Service Card */
+
+.mtc-service-item {
+    display: flex;
+    align-items: center;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 6px;
+    transition: 0.3s ease;
+    border: 1px solid transparent;
+}
+
+
+/* Hover Effect */
+
+.mtc-service-item:hover {
+    background: #fff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    border-color: #eee;
+    transform: translateX(10px);
+    /* Moves slightly right */
+}
+
+
+/* Icon Box */
+
+.mtc-service-item .icon-box {
+    width: 50px;
+    height: 50px;
+    background: rgba(240, 60, 2, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-right: 20px;
+    flex-shrink: 0;
+    transition: 0.3s;
+}
+
+.mtc-service-item:hover .icon-box {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+
+/* Text Content */
+
+.mtc-service-item h5 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #222;
+}
+
+.mtc-service-item p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #888;
+}
+
+
+/* Mobile Adjustments */
+
+@media (max-width: 991px) {
+    .mtc-service-img-wrapper {
+        margin-bottom: 40px;
+        padding: 0;
+    }
+    .img-offset-border {
+        display: none;
+    }
+    /* Simplify on mobile */
+    .img-experience-badge {
+        right: 0;
+        bottom: 0;
+    }
+    .mtc-service-item:hover {
+        transform: none;
+    }
+}
+
+
+/* ==============================================
+   MODERN CLIENTS SECTION
+   ============================================== */
+
+.mtc-clients-section {
+    padding: 50px 0;
+    background-color: var(--mtc-background-gray);
+    border-top: 1px solid #f0f0f0;
+}
+
+
+/* SECTION HEADERS */
+
+.mtc-section-header {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #333;
+    text-transform: uppercase;
+}
+
+.text-orange {
+    color: var(--primary-color);
+}
+
+
+/* CLIENT CARD (The Logo Box) */
+
+.mtc-client-card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 20px;
+    height: 120px;
+    /* Fixed height for uniformity */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* THE LOGO IMAGE styling */
+
+.mtc-client-card img {
+    max-width: 90%;
+    max-height: 70px;
+    /* Ensures logos don't get too tall */
+    object-fit: contain;
+    /* 1. Grayscale Effect (The Modern B2B Look) */
+    filter: grayscale(100%) opacity(0.6);
+    transition: all 0.4s ease;
+}
+
+
+/* HOVER EFFECTS */
+
+.mtc-client-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    transform: translateY(-3px);
+    z-index: 2;
+}
+
+
+/* Bring Color Back on Hover */
+
+.mtc-client-card:hover img {
+    filter: grayscale(0%) opacity(1);
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .mtc-client-card {
+        padding: 10px;
+        height: 100px;
+    }
+    .mtc-client-card img {
+        max-height: 50px;
+    }
+}
+
+
+/* Style for the "And Many More" card */
+
+.mtc-more-card {
+    background-color: #fdfdfd;
+    border: 2px dashed #ddd;
+    /* Dashed border implies "list continues" */
+    cursor: pointer;
+    text-decoration: none;
+    flex-direction: column;
+    /* Stack text vertically */
+}
+
+.mtc-more-card .plus-icon {
+    display: block;
+    font-size: 2rem;
+    color: var(--primary-color);
+    /* Orange Plus */
+    font-weight: 300;
+    line-height: 1;
+    margin-bottom: 5px;
+    transition: 0.3s;
+}
+
+.mtc-more-card .more-text {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #888;
+    text-transform: uppercase;
+    line-height: 1.2;
+    transition: 0.3s;
+}
+
+
+/* Hover Effect */
+
+.mtc-more-card:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    border-style: solid;
+    /* Becomes solid on hover */
+}
+
+.mtc-more-card:hover .plus-icon,
+.mtc-more-card:hover .more-text {
+    color: #fff;
+    /* Turn text white on orange background */
+}
+
+
+/* ==============================================
+   MODERN VALUES SECTION (TABS)
+   ============================================== */
+
+.mtc-values-section {
+    padding: 50px 0;
+    background-color: var(--mtc-background-white);
+}
+
+
+/* --- LEFT SIDE: VERTICAL TABS --- */
+
+.mtc-vertical-tabs .nav-link {
+    background: #f8f9fa;
+    color: #555;
+    border: 1px solid #eee;
+    margin-bottom: 12px;
+    padding: 20px 25px;
+    text-align: left;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* Icon Styles inside Tab */
+
+.mtc-vertical-tabs .nav-link i {
+    width: 25px;
+    text-align: center;
+}
+
+.mtc-vertical-tabs .nav-link .arrow-icon {
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+}
+
+
+/* HOVER STATE */
+
+.mtc-vertical-tabs .nav-link:hover {
+    background: #fff;
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transform: translateX(5px);
+    /* Slide right */
+}
+
+
+/* ACTIVE STATE (The "Orange Switch") */
+
+.mtc-vertical-tabs .nav-link.active {
+    background: var(--primary-color);
+    color: #fff;
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 25px rgba(240, 60, 2, 0.3);
+}
+
+
+/* Show arrow when active */
+
+.mtc-vertical-tabs .nav-link.active .arrow-icon {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/* --- RIGHT SIDE: CONTENT CARD --- */
+
+.mtc-value-card {
+    background: #fff;
+    padding: 50px 40px;
+    border-left: 8px solid var(--primary-color);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+    /* Clips the watermark */
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 0 8px 8px 0;
+}
+
+
+/* Typography */
+
+.mtc-value-card h3 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+    color: #222;
+}
+
+.mtc-value-card p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #555;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 15px;
+}
+
+.mtc-value-card strong {
+    color: #000;
+    font-weight: 700;
+}
+
+
+/* THE WATERMARK ICON (Background Faint Icon) */
+
+.watermark-icon {
+    position: absolute;
+    bottom: -20px;
+    right: 0;
+    font-size: 10rem;
+    color: rgba(0, 0, 0, 0.03);
+    /* Very faint grey */
+    z-index: 1;
+    transform: rotate(-15deg);
+    transition: 0.5s ease;
+}
+
+
+/* Animate watermark on hover */
+
+.mtc-value-card:hover .watermark-icon {
+    color: rgba(240, 60, 2, 0.08);
+    /* Faint orange */
+    transform: rotate(0deg) scale(1.1);
+}
+
+
+/* ANIMATION FOR TAB SWITCHING */
+
+.tab-pane.active {
+    animation: slideInRight 0.5s ease-out forwards;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+/* Mobile Adjustments */
+
+@media (max-width: 991px) {
+    .mtc-vertical-tabs .nav-link {
+        padding: 15px;
+        font-size: 1rem;
+    }
+    .mtc-value-card {
+        padding: 30px;
+        min-height: auto;
+        margin-top: 30px;
+    }
+    .watermark-icon {
+        font-size: 6rem;
+    }
+}
+
+
+/* ==============================================
+   MODERN ABOUT & CERTIFICATE SECTION
+   ============================================== */
+
+.mtc-about-cert-section {
+    padding: 80px 0;
+    background-color: var(--mtc-background-gray);
+    /* Off-white background */
+    overflow: hidden;
+}
+
+
+/* --- LEFT SIDE: CERTIFICATE STYLING --- */
+
+.mtc-cert-wrapper {
+    position: relative;
+    padding: 20px;
+    display: inline-block;
+}
+
+
+/* The Certificate Image */
+
+.mtc-cert-img {
+    border: 10px solid #fff;
+    /* White matte border */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    /* Deep Shadow */
+    position: relative;
+    z-index: 2;
+    max-height: 500px;
+    border-radius: 4px;
+}
+
+
+/* Make the orange frame look like a solid offset box */
+
+.mtc-cert-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Make border thicker */
+    border: 4px solid var(--primary-color);
+    /* Push it further away for a distinct "Layered" look */
+    transform: translate(-25px, -25px);
+    z-index: 1;
+    opacity: 0.2;
+    /* Subtle opacity */
+    border-radius: 4px;
+}
+
+
+/* The Floating Badge (30 Years) */
+
+
+/* =========================================
+   FIX: BADGE POSITIONING & STYLE
+   ========================================= */
+
+.mtc-floating-badge {
+    position: absolute;
+    /* 1. Move DOWN: Hanging off the bottom edge */
+    bottom: -15px;
+    /* 2. Move RIGHT: Hanging off the side edge */
+    right: -25px;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 4px;
+    /* 3. SEPARATION: Add white border so it doesn't bleed into the photo */
+    border: 4px solid #fff;
+    /* 4. SHADOW: Make it pop off the page */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    z-index: 3;
+    text-align: center;
+    min-width: 140px;
+    /* Ensure text fits on one line if needed */
+}
+
+
+/* Typography Tweaks inside Badge */
+
+.mtc-floating-badge .years {
+    display: block;
+    font-size: 2rem;
+    /* Make number bigger */
+    font-weight: 800;
+    line-height: 0.9;
+    margin-bottom: 3px;
+}
+
+.mtc-floating-badge .text {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+
+
+/* RESPONSIVE FIX: Prevent badge from falling off screen on mobile */
+
+@media (max-width: 768px) {
+    .mtc-floating-badge {
+        right: 0;
+        bottom: -20px;
+        transform: scale(0.9);
+        /* Slightly smaller on phone */
+    }
+}
+
+
+/* --- RIGHT SIDE: CONTENT --- */
+
+.mtc-section-tagline {
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #888;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.mtc-lead-paragraph {
+    font-size: 1.15rem;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.mtc-body-paragraph {
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+
+/* FEATURE BOXES (Icon Grid) */
+
+.mtc-feature-box {
+    display: flex;
+    align-items: flex-start;
+}
+
+
+/* Icon Styling */
+
+.mtc-feature-box .icon-wrap {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: 0.3s;
+}
+
+.mtc-feature-box:hover .icon-wrap {
+    background: var(--primary-color);
+    color: #fff;
+    transform: rotateY(180deg);
+}
+
+
+/* Text inside feature box */
+
+.mtc-feature-box .text-wrap h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.mtc-feature-box .text-wrap p {
+    font-size: 0.9rem;
+    color: #777;
+    line-height: 1.5;
+    margin: 0;
+}
+
+
+/* Mobile Adjustments */
+
+@media (max-width: 991px) {
+    .mtc-cert-wrapper {
+        margin-bottom: 40px;
+    }
+    .mtc-floating-badge {
+        right: 0;
+        bottom: 0;
+    }
+    .mtc-cert-frame {
+        display: none;
+    }
+}
+
+
+/* ==============================================
+   1. GLOBAL VARIABLES & UTILITIES
+   ============================================== */
+
+:root {
+    /* Define the orange color seen in the screenshot */
+    --primary-color: #f03c02;
+}
+
+
+/* Fix for Issue #2: Helper class for the header text */
+
+.text-orange {
+    color: var(--primary-color) !important;
+}
+
+
+/* Modern Section Header Styling */
+
+.mtc-section-header {
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+
+/* ==============================================
+   2. MODERN PRODUCT SECTION
+   ============================================== */
+
+.mtc-products-section {
+    padding: 50px 0;
+    background-color: #fcfcfc;
+}
+
+.mtc-product-card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    overflow: hidden;
+    width: 100%;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    /* Ensures equal height in flex row */
+}
+
+.mtc-product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+    border-color: #ddd;
+    border-top: 4px solid var(--primary-color);
+}
+
+
+/* ==============================================
+   3. IMAGE AREA & FIX FOR OVERLAY (Issue #1)
+   ============================================== */
+
+
+/* IMAGE AREA - Auto Height (No Cropping) */
+
+.card-img-wrap {
+    height: auto;
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    display: block;
+    line-height: 0;
+}
+
+.card-img-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+
+/* Hover: Zoom Image */
+
+.mtc-product-card:hover .card-img-wrap img {
+    transform: scale(1.05);
+    /* Gentle zoom */
+}
+
+
+/* ==============================================
+   4. CONTENT AREA
+   ============================================== */
+
+.card-body {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.spec-badge {
+    display: inline-block;
+    background: #f0f0f0;
+    color: #666;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+    align-self: flex-start;
+}
+
+.product-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    line-height: 1.4;
+    color: #222;
+}
+
+.product-title a {
+    color: #222;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.mtc-product-card:hover .product-title a {
+    color: var(--primary-color);
+}
+
+
+/* Footer Action */
+
+.card-footer-action {
+    margin-top: auto;
+    padding-top: 15px;
+    border-top: 1px dashed #eee;
+}
+
+.view-link {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+}
+
+.view-link i {
+    font-size: 0.8rem;
+    margin-left: 5px;
+    transition: 0.3s;
+}
+
+.mtc-product-card:hover .view-link i {
+    transform: translateX(5px);
+}
+
+
+/* Button */
+
+.mtc-btn-outline {
+    display: inline-block;
+    padding: 12px 35px;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: 0.3s;
+    letter-spacing: 1px;
+}
+
+.mtc-btn-outline:hover {
+    background: var(--primary-color);
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(240, 60, 2, 0.3);
+}
+
+
+/* Mobile Adjustments */
+
+@media (max-width: 768px) {
+    .card-img-wrap {
+        height: 200px;
+    }
+    .mtc-product-card {
+        max-width: 400px;
+        margin: 0 auto 30px;
+    }
+}
+
+
+/* ==============================================
+   MODERN PRODUCT PAGE STYLES
+   ============================================== */
+
+
+/* Section Wrapper */
+
+.mtc-product-showcase {
+    padding: 60px 0 80px 0;
+    background-color: #fff;
+}
+
+
+/* --- LEFT COLUMN: IMAGE AREA --- */
+
+.prod-img-wrapper {
+    position: relative;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    /* padding: 40px; */
+    background: #fdfdfd;
+    text-align: center;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    /* min-height: 400px; */
+    /* Prevent layout shift */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.prod-img-wrapper:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    border-color: #ddd;
+}
+
+.prod-img-wrapper img {
+    /* max-width: 100%; */
+    /* height: auto; */
+    /* max-height: 400px; */
+    object-fit: contain;
+    transition: transform 0.4s ease;
+}
+
+
+/* Zoom effect on hover */
+
+.prod-img-wrapper:hover img {
+    transform: scale(1.05);
+}
+
+
+/* Badge overlay */
+
+.prod-badge {
+    position: absolute;
+    /* CHANGED: Switched from top to bottom */
+    top: auto;
+    bottom: 20px;
+    left: 20px;
+    background: var(--primary-color);
+    color: #fff;
+    font-size: 11px;
+    /* Slightly smaller for elegance */
+    font-weight: 800;
+    text-transform: uppercase;
+    padding: 8px 15px;
+    border-radius: 4px;
+    letter-spacing: 1px;
+    box-shadow: 0 5px 15px rgba(240, 60, 2, 0.4);
+    /* Adds a nice glow */
+    z-index: 10;
+}
+
+
+/* --- RIGHT COLUMN: DETAILS --- */
+
+.prod-details {
+    padding-left: 30px;
+}
+
+
+/* Typography */
+
+.prod-cat {
+    color: #888;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.prod-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #222;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.prod-desc {
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    font-size: 1rem;
+}
+
+
+/* Features Grid (Replaces the list) */
+
+.specs-container {
+    background: #f8f9fa;
+    border-left: 4px solid var(--primary-color);
+    padding: 25px;
+    margin-bottom: 30px;
+    border-radius: 0 6px 6px 0;
+}
+
+.specs-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.specs-title i {
+    color: var(--primary-color);
+    margin-right: 10px;
+}
+
+.specs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Two columns */
+    gap: 15px;
+}
+
+.spec-item {
+    display: flex;
+    align-items: center;
+    font-size: 0.95rem;
+    color: #444;
+    padding: 8px;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+.spec-item:hover {
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transform: translateX(5px);
+    /* Slide slightly right */
+}
+
+.spec-item i {
+    color: var(--primary-color);
+    font-size: 0.8rem;
+    margin-right: 10px;
+    background: rgba(240, 60, 2, 0.1);
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+
+/* Highlighted Spec (Sizes) */
+
+.spec-highlight {
+    grid-column: span 2;
+    /* Full width */
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #e5e5e5;
+    font-weight: 600;
+    color: #222;
+}
+
+
+/* Action Buttons */
+
+.prod-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.btn-quote-modern {
+    background: var(--primary-color);
+    color: #fff;
+    padding: 15px 40px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: 0.3s;
+    letter-spacing: 1px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn-quote-modern:hover {
+    background: #111;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(240, 60, 2, 0.2);
+}
+
+.btn-contact-outline {
+    border: 2px solid #ddd;
+    background: #fff;
+    /* Ensure white background */
+    color: #555;
+    padding: 15px 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn-contact-outline:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    background: #fff5f2;
+    /* Very light orange tint on hover */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+
+/* Mobile Adjustments */
+
+@media (max-width: 991px) {
+    .prod-details {
+        padding-left: 0;
+        margin-top: 40px;
+    }
+    .specs-grid {
+        grid-template-columns: 1fr;
+    }
+    /* Single column specs on mobile */
+    .spec-highlight {
+        grid-column: span 1;
+    }
+    .prod-title {
+        font-size: 2rem;
+    }
+}
+
+
+/* ==============================================
+   MOBILE BUTTON FIXES
+   ============================================== */
+
+
+/* 1. Ensure text and icons never wrap inside the button */
+
+.btn-quote-modern,
+.btn-contact-outline {
+    white-space: nowrap;
+    /* Forces text to stay on one line */
+    display: inline-flex;
+    /* Keeps icon and text aligned */
+    align-items: center;
+    /* Vertically centers icon */
+    justify-content: center;
+    /* Horizontally centers content */
+}
+
+
+/* 2. Add spacing between the Phone Icon and Text */
+
+.btn-contact-outline i {
+    margin-right: 8px;
+    /* Fixes the icon touching the text */
+}
+
+
+/* 3. MOBILE: Stack buttons vertically for a clean look */
+
+@media (max-width: 576px) {
+    .prod-actions {
+        flex-direction: column;
+        /* Stacks buttons top to bottom */
+        gap: 15px;
+        /* Space between the two buttons */
+    }
+    .btn-quote-modern,
+    .btn-contact-outline {
+        width: 100%;
+        /* Make buttons full width */
+        padding: 15px 0;
+        /* Adjust padding for balance */
+        margin: 0;
+        /* Remove default margins */
+    }
+}
+
+
+/* =================== Contact ================= */
+
+.contact-section {
+    padding: 60px 0 80px 0;
+    background: var(--bg-light);
+}
+
+
+/* --- INFO CARDS (Top Row) --- */
+
+.contact-info-card {
+    background: #fff;
+    padding: 30px 20px;
+    text-align: center;
+    border-radius: 6px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+    height: 100%;
+    margin-bottom: 20px;
+}
+
+.contact-info-card:hover {
+    transform: translateY(-5px);
+    border-bottom-color: var(--primary-color);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+}
+
+.contact-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(240, 60, 2, 0.1);
+    color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin: 0 auto 20px auto;
+    transition: 0.3s;
+}
+
+.contact-info-card:hover .contact-icon {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.contact-info-card h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+    text-transform: uppercase;
+}
+
+.contact-info-card p {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    margin-bottom: 5px;
+    line-height: 1.6;
+}
+
+.contact-info-card a {
+    color: var(--text-gray);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.contact-info-card a:hover {
+    color: var(--primary-color);
+}
+
+
+/* --- FORM SECTION --- */
+
+.form-wrapper {
+    background: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    height: 100%;
+}
+
+.section-header-small {
+    margin-bottom: 30px;
+}
+
+.section-header-small h3 {
+    font-weight: 800;
+    font-size: 1.8rem;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+}
+
+.section-header-small p {
+    color: var(--text-gray);
+}
+
+.form-control {
+    height: 50px;
+    border-radius: 4px;
+    border: 1px solid #e0e0e0;
+    padding: 10px 15px;
+    font-size: 14px;
+    background: #fafafa;
+    transition: 0.3s;
+}
+
+textarea.form-control {
+    height: auto;
+    padding-top: 15px;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(240, 60, 2, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+
+/* Validation Styles */
+
+.validate {
+    color: #dc3545;
+    font-size: 12px;
+    margin-top: 5px;
+    font-weight: 500;
+    display: block;
+    height: 15px;
+    /* Reserve space */
+}
+
+.error-border {
+    border-color: #dc3545 !important;
+    background-image: none !important;
+}
+
+
+/* Button */
+
+.btn-submit {
+    background: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 12px 40px;
+    border-radius: 4px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    width: 100%;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background: #d63300;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(240, 60, 2, 0.3);
+}
+
+
+/* Messages */
+
+.sent-message {
+    display: none;
+    background: #d4edda;
+    color: #155724;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.error-msg {
+    display: none;
+    background: #f8d7da;
+    color: #721c24;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.loading {
+    display: none;
+    text-align: center;
+    padding: 10px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+
+/* --- MAP --- */
+
+.map-container {
+    height: 100%;
+    min-height: 500px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    position: relative;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+@media (max-width: 991px) {
+    .map-container {
+        min-height: 400px;
+        margin-top: 30px;
+    }
+}
+
+
+/* ==============================================
+   FAQ SECTION STYLES
+   ============================================== */
+
+.faq-wrapper {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    height: 100%;
+}
+
+.custom-accordion .card {
+    border: none;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+    border-radius: 0;
+}
+
+.custom-accordion .card:last-child {
+    border-bottom: none;
+}
+
+.custom-accordion .card-header {
+    background: transparent;
+    padding: 0;
+    border: none;
+}
+
+.custom-accordion .btn-link {
+    color: #333;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.custom-accordion .btn-link:hover {
+    color: var(--primary-color);
+}
+
+.custom-accordion .btn-link i {
+    font-size: 0.8rem;
+    color: var(--primary-color);
+    transition: transform 0.3s ease;
+}
+
+
+/* Rotate icon when open */
+
+.custom-accordion .btn-link[aria-expanded="true"] i {
+    transform: rotate(45deg);
+    /* Turns plus to X */
+}
+
+
+/* Active Question Color */
+
+.custom-accordion .btn-link[aria-expanded="true"] {
+    color: var(--primary-color);
+}
+
+.custom-accordion .card-body {
+    padding-top: 0;
+    padding-bottom: 20px;
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
 }

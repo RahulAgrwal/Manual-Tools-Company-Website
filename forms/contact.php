@@ -22,6 +22,67 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $email = $_POST['email'];
   $subject = $_POST['subject'];
   $message = $_POST['message'];
+  $body = "
+  <body class='bg-light'>
+  <div class='container'>   
+    <div class='card my-10'>
+      <a href='https://manualtoolsco.com' target='_blank'>
+        <img src='https://manualtoolsco.com/assets/img/MTC%20Logo.png' style='height:40px;'/>
+      </a>
+      <div class='card-body'>
+        <h2 class='h3 mb-2'>Thank you for contacting us</h2>
+        <hr>
+        <table>
+          <tbody>
+            <tr>
+              <td style='padding-bottom: 10px;'>Name:</td>
+              <td style='padding-bottom: 10px;'>$first_name $last_name</td>
+            </tr>
+            <tr>
+              <td style='padding-bottom: 10px;'>Company Name:</td>
+              <td style='padding-bottom: 10px;'>$company_name</td>
+            </tr>
+            <tr>
+              <td style='padding-bottom: 10px;'>GSTIN:</td>
+              <td style='padding-bottom: 10px;'>$company_gstin</td>
+            </tr>
+            <tr>
+              <td style='padding-bottom: 10px;'>Contact:</td>
+              <td style='padding-bottom: 10px;'>$contact</td>
+            </tr>
+            <tr>
+              <td style='padding-bottom: 10px;'>Address:</td>
+              <td style='padding-bottom: 10px;'>$address</td>
+            </tr>
+            <tr>
+              <td style='padding-bottom: 10px;'>Email:</td>
+              <td style='padding-bottom: 10px;'>$email</td>
+            </tr>
+            <tr>
+              <td style='padding-bottom: 10px;'>Subject:</td>
+              <td style='padding-bottom: 10px;'>$subject</td>
+            </tr>
+            <tr>
+              <td style='padding-bottom: 10px;'>Requirement:</td>
+              <td style='padding-bottom: 10px;'>$message</td>
+            </tr>
+          </tbody>
+        </table>
+        <hr>
+        <p class='text-gray-700'>
+          We will reach out to you after reviewing your requirements.
+        </p>
+        <p class='text-gray-700'>
+          Check out other <a href='https://manualtoolsco.com/products.php' target='_blank'>Products</a> to know more.
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+
+
+";
+  
 
   try {
     // Create a new PHPMailer instance
@@ -45,7 +106,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Content
     $mail->isHTML(true); // Set email format to HTML
     $mail->Subject = $subject;
-    $mail->Body    = "First Name: $first_name<br>Last Name: $last_name<br>Company Name: $company_name<br>Company GSTIN: $company_gstin<br>Contact: $contact<br>Address: $address<br><br>Message:<br>$message";
+    $mail->Body    = $body;
 
     // Send the email
     $mail->send();

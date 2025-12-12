@@ -5,10 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Leading manufacturer of Coke Oven Machineries since 1995. Specializing in high-quality accessories for hard coke ovens, with customizable solutions for global clients.">
-  <meta name="keywords" content="Manual Toools Company, Manual Tools Co, Coal Crusher, Coke Cutter, Haulage, Winch, Vibrator, Manual Tools, Dhanbad, Manufacturer, Coke Oven">
+  <meta name="keywords" content="Manual Toools Company, Manual Tools Co, Coal Crusher, Coke Cutter, Haulage, Winch, Vibrator, Manual Tools, Dhanbad, Manufacturer, Coke Oven,Conveyor, Coal, Coke, Machinery">
   <meta name="robots" content="index, follow">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>About us - Manual Tools Company</title>
+  <title>About us | Manual Tools Company</title>
 
   <?php
   include('common-head.php');
@@ -32,7 +32,7 @@
         <div class="d-flex justify-content-between align-items-center">
           <h2>About</h2>
           <ol>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li>About</li>
           </ol>
         </div>
@@ -40,256 +40,232 @@
       </div>
     </section><!-- End Breadcrumbs -->
 
-    <!-- ======= About Us Section ======= -->
-    <section id="about-us" class="about-us">
-      <div class="container">
+<!-- ============================================ -->
+<!-- MTC MODERN ABOUT & CERTIFICATE SECTION       -->
+<!-- ============================================ -->
+<section id="about-us" class="mtc-about-cert-section">
+  <div class="container">
+    <div class="row align-items-center">
+      
+      <!-- LEFT COLUMN: The Certificate Showcase -->
+      <div class="col-lg-5 mb-5 mb-lg-0 text-center position-relative">
+        <div class="mtc-cert-wrapper">
+          <!-- Main Certificate Image -->
+          <!-- Make sure this points to your ISO image file -->
+          <img src="assets/img/ISO.jpg" alt="ISO 9001:2015 Certificate" class="img-fluid mtc-cert-img">
+          
+          <!-- Decorative Frame Element -->
+          <div class="mtc-cert-frame"></div>
 
-        <div class="row no-gutters">
-          <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start"></div>
-          <div class="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
-            <div class="content d-flex flex-column justify-content-center">
-              <h3>MANUAL TOOLS COMPANY</h3>
-              <p>
-                We are manufacturer of Coke Oven Machineries,
-                established in 1995, located in Dhanbad, Jharkhand, India, has been manufacturing accessories for hard coke ovens of various capacities for over 25 years. With a reputation for quality, our products are supplied both domestically and internationally, offering customization options to meet specific client needs. Known for user-friendliness, impeccable finishes, accurate performance, and high stability, our offerings are preferred by clients seeking reliable solutions tailored to their requirements, cementing our position as a trusted industry leader.
-              </p>
-              <div class="row">
-                <div class="col-md-6 icon-box">
-                  <i class="fa fa-gear"></i>
-                  <h4>
-                    STANDARDS</h4>
-                  <p>We pay special attention on the raw material used for the production. All the raw materials are procured from reliable vendors, who hold a good reputation in the market.</p>
+          <!-- Floating Badge -->
+          <div class="mtc-floating-badge">
+            <span class="years">30+</span>
+            <span class="text">Years of<br>Excellence</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN: Content & Values -->
+      <div class="col-lg-7 ps-lg-5">
+        <div class="mtc-about-text">
+          
+          <span class="mtc-section-tagline">Since 1995</span>
+          <h2 class="mtc-section-header">Manual Tools <span class="text-orange">Company</span></h2>
+          
+          <p class="mtc-lead-paragraph">
+            We are a premier manufacturer of Coke Oven Machineries, based in Dhanbad, Jharkhand. For over three decades, we have set the industry standard for quality and reliability.
+          </p>
+          
+          <p class="mtc-body-paragraph">
+             With a reputation for impeccable finishes and high stability, our products are preferred by clients globally. We offer complete customization to meet specific plant requirements, cementing our position as a trusted industry leader.
+          </p>
+
+          <!-- The 4 Values Grid -->
+          <div class="row g-4 mt-2">
+            
+            <!-- Item 1 -->
+            <div class="col-md-6">
+              <div class="mtc-feature-box">
+                <div class="icon-wrap">
+                  <i class="fas fa-cog"></i>
                 </div>
-                <div class="col-md-6 icon-box">
-                  <i class="	fas fa-pen-nib"></i>
-                  <h4>PRINCIPLE</h4>
-                  <p>We always believe in best quality and best services. Our customers are most important assets of our firm so we never compromise with quality driven principles.</p>
+                <div class="text-wrap">
+                  <h4>Standards</h4>
+                  <p>Rigorous quality control on all raw materials procured from reputed vendors.</p>
                 </div>
-                <div class="col-md-6 icon-box">
+              </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="col-md-6">
+              <div class="mtc-feature-box">
+                <div class="icon-wrap">
+                  <i class="fas fa-pen-nib"></i>
+                </div>
+                <div class="text-wrap">
+                  <h4>Principle</h4>
+                  <p>Customers are our greatest asset. We never compromise on quality-driven principles.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="col-md-6">
+              <div class="mtc-feature-box">
+                <div class="icon-wrap">
                   <i class="fas fa-tasks"></i>
-                  <h4>EXPERIENCE</h4>
-                  <p>We are in operation since 1995, We possess a team of 15+ professionals, who have an adequate amount of experience in this field.</p>
                 </div>
-                <div class="col-md-6 icon-box">
-                  <i class="bx bx-shield"></i>
-                  <h4>TRUST</h4>
-                  <p>With Manual Tools Company, you can rest assured knowing that you're in trustworthy hands. Experience the difference that trust makes.</p>
+                <div class="text-wrap">
+                  <h4>Experience</h4>
+                  <p>Operating since 1995 with a dedicated team of 15+ specialized professionals.</p>
                 </div>
               </div>
-            </div><!-- End .content-->
-          </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="col-md-6">
+              <div class="mtc-feature-box">
+                <div class="icon-wrap">
+                  <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="text-wrap">
+                  <h4>Trust</h4>
+                  <p>Rest assured, you are in safe hands. Experience the difference reliability makes.</p>
+                </div>
+              </div>
+            </div>
+
+          </div> <!-- End Row -->
+
         </div>
-
       </div>
-    </section><!-- End About Us Section -->
 
+    </div>
+  </div>
+</section>
+<!-- End MTC MODERN ABOUT & CERTIFICATE SECTION -->
     <!-- ======= Our Products Section ======= -->
-    <section id="aboutus-team" class="aboutus-team section-bg">
-      <div class="container">
+    <?php
+    include("our-products.php");
+    ?>
+    <!-- End Our Our Products Section Section -->
 
-        <div class="section-title" data-aos="fade-up">
-          <h2>Our <strong>Products</strong></h2>
-        </div>
+<!-- ============================================ -->
+<!-- MTC MODERN VALUES SECTION                    -->
+<!-- ============================================ -->
+<section id="features" class="mtc-values-section">
+  <div class="container">
 
-        <div class="row">
+    <div class="section-title text-center mb-5">
+      <h2 class="mtc-section-header">Our <span class="text-orange">Core Values</span></h2>
+      <p class="text-muted">The principles that have driven our engineering excellence since 1995.</p>
+    </div>
 
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-            <div class="member">
-              <div class="member-img">
-                <img src="assets/img/about-us-products/Coal Crusher.jpg" class="img-fluid" alt="Coal Crusher">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Coal Crusher 5 No. Size</h4>
-                <span>Single Disc</span>
-                <a href="coal-crusher-5-No-single-disc.php" class="btn-get-started">View Product</a>
-              </div>
+    <div class="row g-4 align-items-center">
+      
+      <!-- LEFT COLUMN: The Navigation Tabs -->
+      <div class="col-lg-4">
+        <div class="nav flex-column nav-pills mtc-vertical-tabs" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+          
+          <!-- Tab 1: History -->
+          <button class="nav-link active" id="v-pills-history-tab" data-bs-toggle="pill" data-bs-target="#v-pills-history" type="button" role="tab">
+            <div class="d-flex align-items-center justify-content-between w-100">
+              <span><i class="fas fa-history me-3"></i> Our History</span>
+              <i class="fas fa-arrow-right arrow-icon"></i>
             </div>
-          </div>
+          </button>
 
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-            <div class="member">
-              <div class="member-img">
-                <img src="assets/img/about-us-products/Coal Crusher Double Disc.jpg" class="img-fluid" alt="Coal Crusher Double Disc">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Coal Crusher 5 No. Size</h4>
-                <span>Double Disc</span>
-                <a href="coal-crusher-5-No-double-disc.php" class="btn-get-started">View Product</a>
-              </div>
+          <!-- Tab 2: Vision -->
+          <button class="nav-link" id="v-pills-vision-tab" data-bs-toggle="pill" data-bs-target="#v-pills-vision" type="button" role="tab">
+            <div class="d-flex align-items-center justify-content-between w-100">
+              <span><i class="fas fa-eye me-3"></i> Our Vision</span>
+              <i class="fas fa-arrow-right arrow-icon"></i>
             </div>
-          </div>
+          </button>
 
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-            <div class="member">
-              <div class="member-img">
-                <img src="assets/img/about-us-products/Double Drive Coke Cutter Machine.jpg" class="img-fluid" alt="Double Drive Coke Cutter Machine">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Coke Cutter Machine</h4>
-                <span>Double Drive</span>
-                <a href="coke-cutter-double-drive.php" class="btn-get-started">View Product</a>
-              </div>
+          <!-- Tab 3: Mission -->
+          <button class="nav-link" id="v-pills-mission-tab" data-bs-toggle="pill" data-bs-target="#v-pills-mission" type="button" role="tab">
+            <div class="d-flex align-items-center justify-content-between w-100">
+              <span><i class="fas fa-rocket me-3"></i> Our Mission</span>
+              <i class="fas fa-arrow-right arrow-icon"></i>
             </div>
-          </div>
+          </button>
 
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-            <div class="member">
-              <div class="member-img">
-                <img src="assets/img/about-us-products/Haulage Machine.jpg" class="img-fluid" alt="Haulage Machine">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Haulage Machine</h4>
-                <span>Power Driven</span>
-                <a href="haulage.php" class="btn-get-started">View Product</a>
-              </div>
+          <!-- Tab 4: Ethics -->
+          <button class="nav-link" id="v-pills-ethics-tab" data-bs-toggle="pill" data-bs-target="#v-pills-ethics" type="button" role="tab">
+            <div class="d-flex align-items-center justify-content-between w-100">
+              <span><i class="fas fa-balance-scale me-3"></i> Core Ethics</span>
+              <i class="fas fa-arrow-right arrow-icon"></i>
             </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-            <div class="member">
-              <div class="member-img">
-                <img src="assets/img/about-us-products/Power Winchh.jpg" class="img-fluid" alt="Power Winch">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Power Winch</h4>
-                <span>Power Driven</span>
-                <a href="power-winch.php" class="btn-get-started">View Product</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-            <div class="member">
-              <div class="member-img">
-                <img src="assets/img/about-us-products/Vibrator Screen Machine.jpg" class="img-fluid" alt="Vibrator Screen Machine">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Vibrator Screen Machine</h4>
-                <span>Triple Deck</span>
-                <a href="vibrator-screen.php" class="btn-get-started">View Product</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-            <div class="member">
-              <div class="member-img">
-                <img src="assets/img/about-us-products/Conveyor Material.jpeg" class="img-fluid" alt="Conveyor Materials">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Conveyor Material</h4>
-                <span>Idler Roller, Head Pulley, Tail Pulley</span>
-                <a href="conveyor-materials.php" class="btn-get-started">View Product</a>
-              </div>
-            </div>
-          </div>
+          </button>
 
         </div>
-
       </div>
-    </section>
 
-    <!-- ======= Features Section ======= -->
-    <section id="features" class="features">
-      <div class="container">
-
-        <div class="section-title" data-aos="fade-up">
-          <h2>Our <strong>Values</strong> </h2>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-right">
-            <ul class="nav nav-tabs flex-column">
-              <li class="nav-item">
-                <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">
-                  <h4>Our History </h4>
-                  <i class="fas fa-arrow-right"></i>
-                </a>
-              </li>
-              <li class="nav-item mt-2">
-                <a class="nav-link show" data-bs-toggle="tab" href="#tab-2">
-                  <h4>Our Vision </h4>
-                  <i class="fas fa-arrow-right"></i>
-                </a>
-              </li>
-              <li class="nav-item mt-2">
-                <a class="nav-link show" data-bs-toggle="tab" href="#tab-3">
-                  <h4>Our Mission </h4>
-                  <i class="fas fa-arrow-right"></i>
-                </a>
-              </li>
-              <li class="nav-item mt-2">
-                <a class="nav-link show" data-bs-toggle="tab" href="#tab-4">
-                  <h4>Our Core Ethics</h4>
-                  <i class="fas fa-arrow-right"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-lg-7 ml-auto" data-aos="fade-left" data-aos-delay="100">
-            <div class="tab-content">
-              <div class="tab-pane active show" id="tab-1">
-                <p>A small beginning, that was destined to have a glorious present and spectacular future was made in 1995 in Dhnbad by Late Mr. Shobha Ram Agarwal. A small firm indigenously manufacturing coke oven machinery started spreading its wings in the area so far unexplored.</p>
-              </div>
-              <div class="tab-pane" id="tab-2">
-                <p>To be the top of the chart company that manufacturers Coke Oven machinery, Conveyor Materials, and other fabricated goods both standard and custom-built to customers’ expectation.</p>
-              </div>
-              <div class="tab-pane" id="tab-3">
-                <p>Our Mission is to develop a nationwide market for our present and future products, and thus assure a growing volume of business and To maintain our reputation for the finest quality products and the best service available anywhere.</p>
-              </div>
-              <div class="tab-pane" id="tab-4">
-                <p>MTC is firmly committed to achieve customer delight by Deliver the best products at the most economic prices, by ensuring on time delivery followed by fair business practices.</p>
-              </div>
+      <!-- RIGHT COLUMN: The Content Cards -->
+      <div class="col-lg-7 offset-lg-1">
+        <div class="tab-content mtc-tab-content" id="v-pills-tabContent">
+          
+          <!-- Content 1: History -->
+          <div class="tab-pane fade show active" id="v-pills-history" role="tabpanel">
+            <div class="mtc-value-card">
+              <i class="fas fa-history watermark-icon"></i>
+              <h3>A Legacy of <span class="text-orange">Excellence</span></h3>
+              <p class="lead">Established in 1995 in Dhanbad.</p>
+              <p>
+                A small beginning destined for a glorious future was made by <strong>Late Mr. Shobha Ram Agarwal</strong>. 
+                From a small firm indigenously manufacturing coke oven machinery, MTC has spread its wings to become 
+                a dominant force in the unexplored industrial sectors of Eastern India.
+              </p>
             </div>
           </div>
+
+          <!-- Content 2: Vision -->
+          <div class="tab-pane fade" id="v-pills-vision" role="tabpanel">
+            <div class="mtc-value-card">
+              <i class="fas fa-eye watermark-icon"></i>
+              <h3>Future <span class="text-orange">Outlook</span></h3>
+              <p>
+                To be the <strong>top-of-the-chart company</strong> manufacturing Coke Oven machinery, Conveyor Materials, 
+                and fabricated goods. We aim to deliver both standard and custom-built solutions that exceed customer 
+                expectations globally.
+              </p>
+            </div>
+          </div>
+
+          <!-- Content 3: Mission -->
+          <div class="tab-pane fade" id="v-pills-mission" role="tabpanel">
+            <div class="mtc-value-card">
+              <i class="fas fa-rocket watermark-icon"></i>
+              <h3>Our <span class="text-orange">Mission</span></h3>
+              <p>
+                To develop a nationwide market for our products and assure a growing volume of business. 
+                We strive to maintain our reputation for the <strong>finest quality products</strong> and the 
+                best service available anywhere in the industry.
+              </p>
+            </div>
+          </div>
+
+          <!-- Content 4: Ethics -->
+          <div class="tab-pane fade" id="v-pills-ethics" role="tabpanel">
+            <div class="mtc-value-card">
+              <i class="fas fa-balance-scale watermark-icon"></i>
+              <h3>Core <span class="text-orange">Ethics</span></h3>
+              <p>
+                At MTC, we are firmly dedicated to achieving <strong>customer delight</strong>. 
+                We promise premium products at the most economical prices, ensuring punctual delivery, 
+                and strictly adhering to fair and transparent business practices.
+              </p>
+            </div>
+          </div>
+
         </div>
-
       </div>
-    </section><!-- End Features Section -->
 
-
+    </div>
+  </div>
+</section>
+<!-- End MTC MODERN VALUES SECTION -->
 
     <!-- ======= Our Clients Section ======= -->
     <?php

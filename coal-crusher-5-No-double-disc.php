@@ -4,122 +4,288 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Manual Tools Company, a premier Coke Oven Machinery Manufacturer in India, specializes in high-quality equipment for the coke industry. Our offerings include top-notch Coal Crushers, meticulously crafted to ensure efficient coal processing and enhanced productivity. Trust our expertise for reliable solutions tailored to your specific needs.">
-  <meta name="keywords" content="Manual Tools Company, Manual Tools Co, Coal Crusher,Coal Disintegrator, Disintegrator, Coke Cutter, Haulage, Winch, Vibrator, Manual Tools, Dhanbad, Manufacturer, Coke Oven">
+  <meta name="description" content="Coal Crusher (5 No. Size) Double Disc for high-capacity coal disintegration. 160–200 HP, feed <150 mm, output <2 mm, 20–25 TPH. Manual Tools Company, India.">
+  <meta name="keywords" content="Coal Crusher Double Disc, Coal Disintegrator, 5 No. Size, High Capacity Coal Crusher, Industrial Coal Crusher, Manual Tools Company, Dhanbad, Jharkhand, India">
   <meta name="robots" content="index, follow">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="canonical" href="https://www.manualtoolsco.com/coal-crusher-5-No-double-disc">
+  
+  <title>Coal Crusher (5 No. Size) Double Disc | Manual Tools Company</title>
 
-  <title>Coal Crusher (5 No. Size) Double Disc - Manual Tools Company</title>
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="product">
+  <meta property="og:url" content="https://www.manualtoolsco.com/coal-crusher-5-No-double-disc">
+  <meta property="og:title" content="Coal Crusher (5 No. Size) Double Disc | Manual Tools Company">
+  <meta property="og:description" content="160–200 HP double disc coal crusher with <2 mm output and 20–25 TPH capacity.">
+  <meta property="og:image" content="https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Coal-Crusher-Double-Disc.jpg">
+  <meta property="og:site_name" content="Manual Tools Company">
 
-  <?php
-  include('common-head.php');
-  ?>
+  <!-- JSON-LD Structured Data (Kept from your original) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Coal Crusher (5 No. Size) Double Disc",
+    "image": ["https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Coal-Crusher-Double-Disc.jpg"],
+    "description": "Double disc coal disintegrator for high throughput and uniform output.",
+    "brand": {"@type": "Brand", "name": "Manual Tools Company"},
+    "manufacturer": {"@type": "Organization", "name": "Manual Tools Company"},
+    "category": "Industrial Coal Crusher",
+    "additionalProperty": [
+      {"@type": "PropertyValue", "name": "Driven by", "value": "160–200 H.P. Electrical Motor"},
+      {"@type": "PropertyValue", "name": "Coal Feed Size", "value": "Below 150 mm"},
+      {"@type": "PropertyValue", "name": "Crushed Coal Size", "value": "Below 2 mm"},
+      {"@type": "PropertyValue", "name": "Coal Crushing Capacity", "value": "20–25 Tons per Hour"}
+    ]
+  }
+  </script>
+
+  <?php include('common-head.php'); ?>
 </head>
 
 <body>
 
-
   <!-- ======= Header ======= -->
-  <?php
-  include('header.php');
-  ?><!-- End Header -->
+  <?php include('header.php'); ?>
+  <!-- End Header -->
 
   <main id="main">
 
-    <!-- ======= Breadcrumbs ======= -->
+    <!-- ======= Modern Breadcrumbs ======= -->
     <section id="breadcrumbs" class="breadcrumbs">
       <div class="container">
-
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Coal Crusher </h2>
+          <h2>Coal Crusher Double Disc</h2>
           <ol>
-            <li><a href="index.php">Home</a></li>
-            <li>Coal Crusher </li>
+            <li><a href="/">Home</a></li>
+            <li>Industrial Solutions</li>
+            <li>Coal Crusher</li>
           </ol>
         </div>
-
       </div>
-    </section><!-- End Breadcrumbs -->
+    </section>
 
-    <!-- ======= Coal Crusher Double Disc ======= -->
-    <section id="products-page" class="products-page">
+    <!-- ======= Modern Product Showcase ======= -->
+    <section id="product-showcase" class="mtc-product-showcase">
       <div class="container">
-        <div class="row no-gutters">
-          <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start">
-            <img src="assets/img/about-us-products/Coal Crusher Double Disc.jpg" alt="Coal Crusher Double Disc">
+        <div class="row align-items-center">
+          
+          <!-- LEFT COL: Image Area -->
+          <div class="col-lg-6">
+            <div class="prod-img-wrapper">
+              <span class="prod-badge">High Capacity Series</span>
+              
+              <!-- Thumbnail -->
+              <img 
+                id="thumbImage" 
+                src="assets/img/about-us-products-thumbnail/Coal-Crusher-Double-Disc.jpg" 
+                alt="Coal Crusher Double Disc Thumbnail"
+                class="img-fluid"
+              >
+
+              <!-- Main Image (Hidden until loaded) -->
+              <img 
+                id="mainImage" 
+                src="assets/img/about-us-products/Coal Crusher Double Disc.jpg" 
+                alt="Coal Crusher Double Disc HD"
+                class="img-fluid"
+                style="display:none;"
+              >
+            </div>
           </div>
-          <div class="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
-            <div class="content d-flex flex-column justify-content-center">
-              <h3>Coal Crusher (5 No. Size) Double Disc</h3>
-              <h4>
-                Type : Coal Disintegrator
-              </h4>
-              <p>
-                A Coal Crusher (5 No. Size) Double Disc is a type of coal disintegrator designed for pulverizing coal into smaller particles. This equipment typically features a single rotating disc that crushes the coal fed into it, breaking it down into finer granules suitable for various industrial applications. Its design and operation are focused on efficiently reducing coal sizes while ensuring uniformity and consistency in the output. This type of coal crusher is commonly used in industries such as mining, power generation, and metallurgy for processing coal for combustion or further processing.
+
+          <!-- RIGHT COL: Details & Specs -->
+          <div class="col-lg-6">
+            <div class="prod-details">
+              <span class="prod-cat">Heavy Duty Coal Disintegrator</span>
+              <h1 class="prod-title">Coal Crusher (5 No. Size) Double Disc</h1>
+              
+              <p class="prod-desc">
+                Designed for high-performance pulverization, this double-disc crusher efficiently reduces coal sizes for mining and power generation. Featuring a 12mm thick body and Manganese Steel liners, it ensures uniformity in output while withstanding rigorous industrial demands.
               </p>
 
-              <div class="icon-box">
-                <i class="fa fa-gear"></i>
-                <h4>
-                  Specifications : </h4>
+              <!-- Technical Specs Grid -->
+              <div class="specs-container">
+                <div class="specs-title">
+                  <i class="fas fa-cog"></i> Technical Specifications
+                </div>
+                <div class="specs-grid">
+                  <div class="spec-item"><i class="fas fa-bolt"></i> Motor: 160 - 200 H.P.</div>
+                  <div class="spec-item"><i class="fas fa-arrow-down"></i> Feed Size: < 150 mm</div>
+                  <div class="spec-item"><i class="fas fa-filter"></i> Output Size: < 2 mm</div>
+                  <div class="spec-item"><i class="fas fa-shield-alt"></i> Body Thickness: 12 mm</div>
+                  <div class="spec-item"><i class="fas fa-layer-group"></i> Liners: Manganese Steel</div>
+                  <div class="spec-item"><i class="fas fa-hammer"></i> Hammers: 12 Nos.</div>
+                  
+                  <!-- Highlighted Spec -->
+                  <div class="spec-item spec-highlight">
+                    <i class="fas fa-tachometer-alt"></i> 
+                    Crushing Capacity: 20 to 25 Tons / Hour
+                  </div>
+                </div>
               </div>
 
-              <ul>
-                <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Driven by:</strong> 160 - 200 H.P. Electrical Motor</li>
-                <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Coal Feed Size:</strong> Below 150 mm</li>
-                <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Crushed Coal Size:</strong> Below 2 mm</li>
-                <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Coal Crushing Capacity:</strong> 20 to 25 Tons per Hour</li>
-                <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Crusher’s Body:</strong> 12 mm thick</li>
-                <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Manganese Steel Top & Side Liner Jaw Plate</strong></li>
-                <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Twelve Nos. Hammers provided in this Crusher</strong></li>
-              </ul>
-              <a href="contact.php" class="btn-get-started">Get Quote</a>
-            </div><!-- End .content-->
+              <!-- Action Buttons -->
+              <div class="prod-actions">
+                <a href="contact" class="btn-quote-modern">
+                  Request Quote <i class="bi bi-arrow-right ms-2"></i>
+                </a>
+                <a href="tel:9430707348" class="btn-contact-outline">
+                  <i class="bi bi-telephone"></i> Call Us
+                </a>
+              </div>
+
+            </div>
           </div>
+
         </div>
-
       </div>
-    </section><!-- End Coal Crusher Double Disc -->
+    </section>
 
+    <!-- ======= Combined Gallery & FAQ Section ======= -->
+    <section id="portfolio" class="portfolio section-bg" style="padding: 60px 0;">
+      <div class="container">
+        
+        <div class="row">
+          
+          <!-- LEFT COLUMN: Photo Gallery (65% Width) -->
+          <div class="col-lg-8">
+            <div class="section-title text-start" style="text-align: left; margin-bottom: 30px;">
+              <h2>Product <strong>Gallery</strong></h2>
+              <p>Detailed views of the double disc mechanism and sturdy construction.</p>
+            </div>
 
-    <!-- Product Images -->
+            <div class="row portfolio-container g-3">
+              <?php
+              $directory = "assets/img/product-images/coal-crusher-double-disc/";
+              $images = glob($directory . "*.{jpg,jpeg,png,gif}", GLOB_BRACE);
 
-    <!-- ======= Portfolio Section ======= -->
-    <?php
-    $directory = "assets/img/product-images/coal-crusher/"; // Directory path
-    $images = glob($directory . "*.{jpg,jpeg,png,gif}", GLOB_BRACE); // Fetch all image files from the directory
+              if (!empty($images)) {
+                foreach ($images as $image) { ?>
+                  <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                    <div class="portfolio-wrap">
+                      <img src="<?php echo $image; ?>" class="img-fluid" alt="Coal Crusher View">
+                      <div class="portfolio-info">
+                        <h4>Double Disc Crusher</h4>
+                        <div class="portfolio-links">
+                          <a href="<?php echo $image; ?>" data-gallery="portfolioGallery" class="portfolio-lightbox" title="View Large"><i class="bx bx-plus"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <?php }
+              } else {
+                echo '<div class="col-12"><div class="alert alert-light">No images currently available.</div></div>';
+              }
+              ?>
+            </div>
+          </div>
 
-    if (!empty($images)) {
-      echo '<!-- ======= Portfolio Section ======= -->';
-      echo '<section id="portfolio" class="portfolio">';
-      echo '<div class="container">';
-      echo '<div class="section-title" data-aos="fade-up"> <h2><strong>Product Gallery</strong></h2></div>';
-      echo '<div class="row portfolio-container" data-aos="fade-up">';
+          <!-- RIGHT COLUMN: FAQ Section (35% Width) -->
+          <div class="col-lg-4 mt-5 mt-lg-0">
+            <div class="faq-wrapper">
+              <div class="section-header-small">
+                <h3>Common Questions</h3>
+                <p>Specifics about the Double Disc model.</p>
+              </div>
 
-      foreach ($images as $image) {
-        echo '<div class="col-lg-4 col-md-6 portfolio-item filter-app">';
-        echo '<img src="' . $image . '" class="img-fluid" alt="Coal Crusher Double Disc">';
-        echo '<div class="portfolio-info">';
-        echo '<p>Coal Crusher (5 No. Size)</p>';
-        echo '<a href="' . $image . '" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" ><i class="bx bx-plus"></i></a>';
-        echo '</div>';
-        echo '</div>';
-      }
+              <div class="accordion custom-accordion" id="doubleDiscFAQ">
 
-      echo '</div>';
-      echo '</div>';
-      echo '</section><!-- End Portfolio Section -->';
-    }
-    ?><!-- End Portfolio Section -->
+                <?php
+                // FAQ Data Specific to Double Disc Crusher
+                $dd_faqs = [
+                    [
+                        "q" => "What is the capacity difference compared to Single Disc?",
+                        "a" => "The Double Disc model offers significantly higher throughput, capable of processing 20 to 25 Tons Per Hour compared to the 8-10 TPH of the Single Disc version."
+                    ],
+                    [
+                        "q" => "What is the required motor power?",
+                        "a" => "This heavy-duty machine requires a high-torque electrical motor ranging from 160 H.P. to 200 H.P. depending on load."
+                    ],
+                    [
+                        "q" => "What is the maximum feed size?",
+                        "a" => "It is designed to accept coal lumps up to 150 mm in size, efficiently reducing them to below 2 mm."
+                    ],
+                    [
+                        "q" => "Are the liners replaceable?",
+                        "a" => "Yes, the machine features Manganese Steel Top & Side Liner Jaw Plates which are fully replaceable to extend the machine's lifespan."
+                    ],
+                    [
+                        "q" => "What is the maintenance schedule?",
+                        "a" => "Routine maintenance involves checking the liner plates and greasing the bearings. The hammers are easily replaceable when worn out."
+                    ]
+                ];
 
-  </main><!-- End #main -->
+                foreach($dd_faqs as $index => $faq) {
+                    $headingId = "headingDD" . $index;
+                    $collapseId = "collapseDD" . $index;
+                    $isFirst = ($index === 0);
+                    $showClass = $isFirst ? "show" : "";
+                    $btnCollapsed = $isFirst ? "" : "collapsed";
+                    $ariaExpanded = $isFirst ? "true" : "false";
+                ?>
+
+                <!-- FAQ Card -->
+                <div class="card">
+                  <div class="card-header" id="<?php echo $headingId; ?>">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link w-100 text-left <?php echo $btnCollapsed; ?>" 
+                              type="button" 
+                              data-bs-toggle="collapse" 
+                              data-bs-target="#<?php echo $collapseId; ?>" 
+                              aria-expanded="<?php echo $ariaExpanded; ?>" 
+                              aria-controls="<?php echo $collapseId; ?>">
+                        <?php echo $faq['q']; ?>
+                        <i class="fas fa-plus float-right"></i>
+                      </button>
+                    </h5>
+                  </div>
+
+                  <div id="<?php echo $collapseId; ?>" 
+                       class="accordion-collapse collapse <?php echo $showClass; ?>" 
+                       aria-labelledby="<?php echo $headingId; ?>" 
+                       data-bs-parent="#doubleDiscFAQ">
+                    <div class="card-body">
+                      <?php echo $faq['a']; ?>
+                    </div>
+                  </div>
+                </div>
+                <!-- End Card -->
+
+                <?php } ?>
+
+              </div>
+            </div>
+          </div>
+          <!-- End FAQ Column -->
+
+        </div>
+      </div>
+    </section>
+
+  </main>
 
   <!-- ======= Footer ======= -->
-  <?php
-  include("footer.php");
-  ?><!-- End Footer -->
-
+  <?php include("footer.php"); ?>
+  
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  
+  <!-- Image Swap Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var thumb = document.getElementById('thumbImage');
+      var main = document.getElementById('mainImage');
+      
+      var hdImg = new Image();
+      hdImg.src = main.src;
+      
+      hdImg.onload = function() {
+        thumb.style.display = 'none';
+        main.style.display = 'block';
+        main.classList.add('animate__animated', 'animate__fadeIn');
+      };
+    });
+  </script>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/aos/aos.js"></script>
@@ -134,5 +300,4 @@
   <script src="assets/js/main.js"></script>
 
 </body>
-
 </html>

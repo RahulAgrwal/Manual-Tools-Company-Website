@@ -32,7 +32,7 @@
         <div class="d-flex justify-content-between align-items-center">
           <h2>Coal Crusher</h2>
           <ol>
-            <li><a href="index.php">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li>Coal Crusher</li>
           </ol>
         </div>
@@ -44,7 +44,7 @@
     <section id="products-page" class="products-page">
       <div class="container">
         <div class="row no-gutters">
-          <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start">
+          <div class="image col-xl-5 d-flex  justify-content-center justify-content-lg-start">
             <img src="assets/img/about-us-products/Coal Crusher.jpg" alt="Coal Crusher">
           </div>
           <div class="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
@@ -72,7 +72,7 @@
                 <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Manganese Steel Top & Side Liner Jaw Plate</strong></li>
                 <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Six Nos. Hammers provided in this Crusher</strong></li>
               </ul>
-              <a href="coal-crusher-5-No-single-disc.php" class="btn-get-started">View Product</a>
+              <a href="coal-crusher-5-No-single-disc" class="btn-get-started">View Product</a>
             </div><!-- End .content-->
           </div>
         </div>
@@ -84,7 +84,7 @@
     <section id="products-page" class="products-page">
       <div class="container">
         <div class="row no-gutters">
-          <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start">
+          <div class="image col-xl-5 d-flex  justify-content-center justify-content-lg-start">
             <img src="assets/img/about-us-products/Coal Crusher Double Disc.jpg" alt="Coal Crusher">
           </div>
           <div class="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
@@ -112,7 +112,7 @@
                 <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Manganese Steel Top & Side Liner Jaw Plate</strong></li>
                 <li><span class="icon"><i class="fas fa-check"></i></span> <strong>Twelve Nos. Hammers provided in this Crusher</strong></li>
               </ul>
-              <a href="coal-crusher-5-No-double-disc.php" class="btn-get-started">View Product</a>
+              <a href="coal-crusher-5-No-double-disc" class="btn-get-started">View Product</a>
             </div><!-- End .content-->
           </div>
         </div>
