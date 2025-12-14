@@ -50,10 +50,25 @@
      * 3. MOBILE NAV TOGGLE
      */
     on('click', '.mobile-nav-toggle', function(e) {
-        select('#navbar').classList.toggle('navbar-mobile');
-        // Toggle the icon between List (Hamburger) and X (Close)
+        let navbar = document.querySelector('#navbar');
+
+        // 1. Toggle the Main Menu
+        navbar.classList.toggle('navbar-mobile');
         this.classList.toggle('bi-list');
         this.classList.toggle('bi-x');
+        document.body.classList.toggle('mobile-nav-active');
+
+        // 2. CHECK STATE
+        if (!navbar.classList.contains('navbar-mobile')) {
+            // === CASE: MENU CLOSED ===
+            // Find all items with active classes and remove them
+            let activeDropdowns = navbar.querySelectorAll('.dropdown-active');
+            let activeLinks = navbar.querySelectorAll('.dropdown > a.active');
+
+            activeDropdowns.forEach(el => el.classList.remove('dropdown-active'));
+            activeLinks.forEach(el => el.classList.remove('active'));
+
+        }
     });
 
     /**

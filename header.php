@@ -12,7 +12,7 @@ $page = basename($_SERVER['PHP_SELF'], '.php');
             <a href="mailto:manualtoolsco.dhn@gmail.com">manualtoolsco.dhn@gmail.com</a>
             
             <i class="bi bi-phone ms-4"></i>
-            <a href="tel:9430707348">+91 94307 07348</a>
+            <a href="tel:9430707348">+91 9430707348</a>
         </div>
         
         <div class="social-links d-none d-md-flex align-items-center">
@@ -53,7 +53,7 @@ $page = basename($_SERVER['PHP_SELF'], '.php');
                 <!-- Products Dropdown -->
                 <li class="dropdown">
                     <a href="products" class="<?php echo ($page == 'products') ? 'active' : ''; ?>">
-                        <span>Products</span> <i class="bi bi-chevron-down dropdown-indicator"></i>
+                        <span>Products</span> <i class="bi bi-chevron-down dropdown-indicator "></i>
                     </a>
                     <ul>
                         <li><a href="coal-crusher-5-No-single-disc">Coal Crusher (5 No.) Single Disc</a></li>

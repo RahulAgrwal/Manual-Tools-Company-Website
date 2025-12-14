@@ -58,7 +58,6 @@
           <h2>Coal Crusher Double Disc</h2>
           <ol>
             <li><a href="/">Home</a></li>
-            <li>Industrial Solutions</li>
             <li>Coal Crusher</li>
           </ol>
         </div>
