@@ -36,7 +36,7 @@
         "@type": "Product",
         "name": "Coke Cutter Machine (Double Drive)",
         "image": ["https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Double-Drive-Coke-Cutter-Machine.jpg"],
-        "description": "Heavy-duty industrial machine for precise coke cutting with dual 20 HP motors, manganese steel liner teeth, and cast steel gears.",
+        "description": "Heavy-duty industrial machine for coke cutting with dual 20 HP motors, manganese steel liner teeth, and cast steel gears.",
         "sku": "CCM-DD-001",
         "brand": { "@type": "Brand", "name": "Manual Tools Company" },
         "manufacturer": { "@type": "Organization", "name": "Manual Tools Company" },
@@ -124,7 +124,7 @@
                   <div class="spec-item"><i class="fas fa-bolt"></i> Dual Motors: 20 H.P. (x2)</div>
                   <div class="spec-item"><i class="fas fa-arrow-down"></i> Feed Size: < 200 mm</div>
                   <div class="spec-item"><i class="fas fa-filter"></i> Finished Size: 45 - 60 mm</div>
-                  <div class="spec-item"><i class="fas fa-sliders-h"></i> Adjustable Drum: Up to 45mm</div>
+                  <div class="spec-item"><i class="fas fa-sliders-h"></i> Adjustable Drum: Up to 30mm</div>
                   <div class="spec-item"><i class="fas fa-cogs"></i> Gears: Cast Steel (Both Sides)</div>
                   <div class="spec-item"><i class="fas fa-shield-alt"></i> Teeth: Manganese Steel</div>
                   
@@ -153,6 +153,68 @@
       </div>
     </section>
 
+    <!-- ======= Operational Process Section ======= -->
+    <section id="process-flow" class="process-section section-bg">
+      <div class="container">
+        
+        <div class="section-title">
+          <h2>Operational <strong>Process Flow</strong></h2>
+          <p>Visualizing the efficient material handling of the Double Drive Coke Cutter.</p>
+        </div>
+
+        <div class="row align-items-center">
+          
+          <!-- LEFT COL: The Image -->
+          <div class="col-lg-7 mb-4 mb-lg-0">
+            <div class="process-img-wrap">
+              <!-- Replace 'path/to/your/image.jpg' with your actual image file path -->
+              <img src="assets/img/product-images/coke-cutter/process-diagram.jpg" 
+                   alt="Coke Cutter Machine Process Flow Diagram 45mm output" 
+                   class="img-fluid rounded shadow-lg border-process">
+              
+              <!-- Optional: Pulse animation marker on the output -->
+              <div class="process-pulse-marker"></div>
+            </div>
+          </div>
+
+          <!-- RIGHT COL: Description Steps -->
+          <div class="col-lg-5">
+            <div class="process-content ps-lg-4">
+              <h3 class="mb-4" style="font-weight: 800; color: #333;">Continuous Production Cycle</h3>
+              
+              <!-- Step 1 -->
+              <div class="process-step">
+                <div class="step-icon"><i class="fas fa-dolly-flatbed"></i></div>
+                <div class="step-text">
+                  <h4>1. Material Feed</h4>
+                  <p>Raw coal/coke lumps (up to 200mm) are delivered via the upper conveyor belt directly into the machine's intake hopper.</p>
+                </div>
+              </div>
+
+              <!-- Step 2 -->
+              <div class="process-step">
+                <div class="step-icon"><i class="fas fa-cog fa-spin-hover"></i></div>
+                <div class="step-text">
+                  <h4>2. Double Drive Cutting</h4>
+                  <p>The dual 20HP motors power the crushing drums, efficiently breaking down the material without jamming, ensuring high throughput.</p>
+                </div>
+              </div>
+
+              <!-- Step 3 -->
+              <div class="process-step">
+                <div class="step-icon"><i class="fas fa-check-circle"></i></div>
+                <div class="step-text">
+                  <h4>3. Output</h4>
+                  <p>Uniformly sized <strong>45mm coke product</strong> (adjustable up to 60mm) is discharged onto the lower conveyor belt for immediate transport.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
     <!-- ======= Combined Gallery & FAQ Section ======= -->
     <section id="portfolio" class="portfolio section-bg" style="padding: 60px 0;">
       <div class="container">

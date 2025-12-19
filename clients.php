@@ -16,7 +16,6 @@ $domestic_clients = [
     ["image_path" => "assets/img/clients/domestic/Simplex Coke and Refacctory.png", "image_name" => "Simplex Coke & Refractory Pvt. Ltd."],
     ["image_path" => "assets/img/clients/domestic/Su Mangala Coke Pvt. Ltd..png", "image_name" => "Su Mangala Coke Pvt. Ltd."],
     ["image_path" => "assets/img/clients/domestic/Surya-Orange-Logo.jpg", "image_name" => "SURYA CEMENT UDYOG"],
-    ["image_path" => "assets/img/clients/domestic/Tata Metaliks.png", "image_name" => "Tata Metaliks"],
     ["image_path" => "assets/img/clients/domestic/Akash Coke.webp", "image_name" => "Akash Coke Industries Pvt. Ltd."],
     ["image_path" => "assets/img/clients/domestic/Kalimati.png", "image_name" => "Kalimati Metalik (P) Ltd."],
     ["image_path" => "assets/img/clients/domestic/krishna-coke.jpg", "image_name" => "Krishna Coke (INDIA) Pvt. Ltd."],

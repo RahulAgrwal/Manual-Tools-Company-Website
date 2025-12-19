@@ -140,6 +140,68 @@
       </div>
     </section>
 
+<!-- ======= Operational Process Section (Coal Crusher) ======= -->
+    <section id="process-flow" class="process-section section-bg">
+      <div class="container">
+        
+        <div class="section-title">
+          <h2>Operational <strong>Process Flow</strong></h2>
+          <p>Visualizing the high-speed fine pulverization cycle.</p>
+        </div>
+
+        <div class="row align-items-center">
+          
+          <!-- LEFT COL: The Image -->
+          <div class="col-lg-7 mb-4 mb-lg-0">
+            <div class="process-img-wrap">
+              <!-- Save the image you uploaded as 'coal-crusher-process.jpg' -->
+              <img src="assets/img/product-images/coal-crusher-single-disc/process-diagram.jpg" 
+                   alt="Coal Crusher Process Flow Diagram" 
+                   class="img-fluid rounded shadow-lg border-process">
+              
+              <!-- Optional: Pulse animation marker on the output belt -->
+              <div class="process-pulse-marker"></div>
+            </div>
+          </div>
+
+          <!-- RIGHT COL: Description Steps -->
+          <div class="col-lg-5">
+            <div class="process-content ps-lg-4">
+              <h3 class="mb-4" style="font-weight: 800; color: #333;">Single Disc Pulverizing Cycle</h3>
+              
+              <!-- Step 1: Feed -->
+              <div class="process-step">
+                <div class="step-icon"><i class="fas fa-arrow-down"></i></div>
+                <div class="step-text">
+                  <h4>1. Gravity Feed</h4>
+                  <p>Raw coal lumps (up to 125mm) are delivered via the upper conveyor belt and drop directly into the crushing chamber via the top hopper.</p>
+                </div>
+              </div>
+
+              <!-- Step 2: Mechanism -->
+              <div class="process-step">
+                <div class="step-icon"><i class="fas fa-hammer"></i></div>
+                <div class="step-text">
+                  <h4>2. High-Speed Impact</h4>
+                  <p>Inside, the Single Disc rotates at high speed. The 6 Manganese Steel hammers impact the coal against the liner plates, shattering it instantly.</p>
+                </div>
+              </div>
+
+              <!-- Step 3: Output -->
+              <div class="process-step">
+                <div class="step-icon"><i class="fas fa-filter"></i></div>
+                <div class="step-text">
+                  <h4>3. Fine Discharge (< 2mm)</h4>
+                  <p>The pulverized coal is reduced to a fine powder (below 2mm) and discharged onto the lower conveyor belt, ready for the boiler.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
 <!-- ======= Combined Gallery & FAQ Section ======= -->
     <section id="portfolio" class="portfolio section-bg" style="padding: 60px 0;">
       <div class="container">

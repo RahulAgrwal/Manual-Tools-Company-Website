@@ -4,7 +4,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://manualtoolsco.com/</loc>
-    <lastmod>2025-08-16</lastmod>
+    <lastmod>2025-12-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -16,7 +16,7 @@
   <!-- About Page -->
   <url>
     <loc>https://manualtoolsco.com/about.php</loc>
-    <lastmod>2025-08-16</lastmod>
+    <lastmod>2025-12-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -24,7 +24,7 @@
   <!-- Products Page -->
   <url>
     <loc>https://manualtoolsco.com/products.php</loc>
-    <lastmod>2025-08-16</lastmod>
+    <lastmod>2025-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -32,7 +32,7 @@
   <!-- Individual Product Pages -->
   <url>
     <loc>https://manualtoolsco.com/coal-crusher.php</loc>
-    <lastmod>2025-08-16</lastmod>
+    <lastmod>2025-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -43,7 +43,7 @@
 
   <url>
     <loc>https://manualtoolsco.com/coal-crusher-5-No-single-disc.php</loc>
-    <lastmod>2025-08-16</lastmod>
+    <lastmod>2025-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -54,7 +54,7 @@
 
   <url>
     <loc>https://manualtoolsco.com/coal-crusher-5-No-double-disc.php</loc>
-    <lastmod>2025-08-16</lastmod>
+    <lastmod>2025-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -65,7 +65,7 @@
 
   <url>
     <loc>https://manualtoolsco.com/coke-cutter-double-drive.php</loc>
-    <lastmod>2025-08-16</lastmod>
+    <lastmod>2025-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -76,7 +76,7 @@
 
   <url>
     <loc>https://manualtoolsco.com/haulage.php</loc>
-    <lastmod>2025-08-16</lastmod>
+    <lastmod>2025-12-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
       <image:image>
@@ -87,7 +87,7 @@
 
   <url>
     <loc>https://manualtoolsco.com/power-winch.php</loc>
-    <lastmod>2025-08-16</lastmod>
+    <lastmod>2025-12-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -98,7 +98,7 @@
 
   <url>
     <loc>https://manualtoolsco.com/vibrator-screen.php</loc>
-    <lastmod>2025-08-16</lastmod>
+    <lastmod>2025-12-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -109,7 +109,7 @@
 
   <url>
     <loc>https://manualtoolsco.com/conveyor-materials.php</loc>
-    <lastmod>2025-08-16</lastmod>
+    <lastmod>2025-12-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -120,7 +120,7 @@
 
     <url>
     <loc>https://manualtoolsco.com/pusher-with-stamping-arrangement.php</loc>
-    <lastmod>2025-08-16</lastmod>
+    <lastmod>2025-12-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -141,7 +141,7 @@
   <!-- Photo Gallery Page -->
   <url>
     <loc>https://manualtoolsco.com/photo-gallery.php</loc>
-    <lastmod>2025-08-16</lastmod>
+    <lastmod>2025-12-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -149,7 +149,7 @@
   <!-- Contact Page -->
   <url>
     <loc>https://manualtoolsco.com/contact.php</loc>
-    <lastmod>2025-08-16</lastmod>
+    <lastmod>2025-12-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

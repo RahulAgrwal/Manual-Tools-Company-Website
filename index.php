@@ -309,8 +309,8 @@ $carousel_items = [
             <div class="col-6">
               <div class="mtc-stat-card">
                 <i class="fas fa-user stat-icon"></i>
-                <h3 class="counter" data-target="25">25+</h3>
-                <p>Expert Staff</p>
+                <h3 class="counter" data-target="15">15+</h3>
+                <p>Experienced Staff</p>
               </div>
             </div>
 
@@ -521,12 +521,7 @@ $carousel_items = [
     </div>
   </div>
 </section>
-<!-- End MTC MODERN STRENGTHS SECTION -->
-    <!-- ======= Photo Gallery Section ======= -->
-    <?php
-    include("gallery-products.php");
-    ?>
-<!-- End Products Gallery Section -->
+
 
     <?php
     include("clients.php");
