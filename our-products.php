@@ -56,7 +56,7 @@
               "link" => "conveyor-materials"
             ],
             [
-              "image_path" => "assets/img/about-us-products-thumbnail/Pusher-Machine-With-Stamping-Arrangement.png",
+              "image_path" => "assets/img/about-us-products-thumbnail/Pusher-Machine-With-Stamping-Arrangement.jpg",
               "title" => "Pusher Machine With Stamping Arrangement",
               "subtitle" => "Roller System",
               "link" => "pusher-with-stamping-arrangement"

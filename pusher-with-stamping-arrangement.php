@@ -62,7 +62,6 @@
           <h2>Pusher Machine</h2>
           <ol>
             <li><a href="/">Home</a></li>
-            <li>Industrial Solutions</li>
             <li>Pusher Machine</li>
           </ol>
         </div>

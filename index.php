@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Discover excellence with Manual Tools Company, a foremost manufacturer of Coke Oven Machinery in India. Explore our extensive selection of premium industrial equipment, including coal crushers, power winches, conveyor materials, and more. Elevate your operations with our high-quality machinery solutions.">
+  <meta name="description" content="Experience quality and trust with Manual Tools Company, a manufacturer of Coke Oven Machinery in India. Browse our comprehensive range of premium industrial equipment, featuring coal crushers, power winches, conveyor systems, and more. Enhance your operations with our reliable, high-performance machinery solutions.">
   <meta name="keywords" content="Manual Tools Company, Manual Tools, Tools Company, Coke, Coke Oven, Coke Oven Machinery, Coal Crusher Machine, Coal Disintegrator, Double Disc Coal Crusher, Coke Cutter Machine, Haulage Machine, Door Lifting Power Winch, Vibrator Screen, Conveyor Materials, Industrial Equipment Manufacturer, Coke Oven Accessories, Coal Crusher Manufacturer, Power Winch Manufacturer, Industrial Conveyor, Dhanbad, Jharkhand, India">
   <meta name="robots" content="index, follow">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -13,12 +13,12 @@
   <link rel="alternate" href="https://www.manualtoolsco.com/" hreflang="x-default">
   <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 
-  <title>Coal Crusher & Coke Oven Machinery Manufacturer | Manual Tools Co.</title>
+  <title>Home | Manual Tools Co.</title>
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.manualtoolsco.com/">
   <meta property="og:title" content="Home | Manual Tools Company">
-  <meta property="og:description" content="Discover excellence with Manual Tools Company, a foremost manufacturer of Coke Oven Machinery in India. Explore our extensive selection of premium industrial equipment, including coal crushers, power winches, conveyor materials, and more. Elevate your operations with our high-quality machinery solutions.">
+  <meta property="og:description" content="Experience quality and trust with Manual Tools Company, a manufacturer of Coke Oven Machinery in India. Browse our comprehensive range of premium industrial equipment, featuring coal crushers, power winches, conveyor systems, and more. Enhance your operations with our reliable, high-performance machinery solutions.">
   <meta property="twitter:image" content="https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Coal-Crusher-single-disc.jpg"> <!-- Consider using a more general logo/hero image -->
   <meta property="og:site_name" content="Manual Tools Company">
   <meta property="og:locale" content="en_IN">
@@ -27,7 +27,7 @@
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://www.manualtoolsco.com/">
   <meta property="twitter:title" content="Home | Manual Tools Company">
-  <meta property="twitter:description" content="Discover excellence with Manual Tools Company, a foremost manufacturer of Coke Oven Machinery in India. Explore our extensive selection of premium industrial equipment, including coal crushers, power winches, conveyor materials, and more. Elevate your operations with our high-quality machinery solutions.">
+  <meta property="twitter:description" content="Experience quality and trust with Manual Tools Company, a manufacturer of Coke Oven Machinery in India. Browse our comprehensive range of premium industrial equipment, featuring coal crushers, power winches, conveyor systems, and more. Enhance your operations with our reliable, high-performance machinery solutions.">
   <meta property="twitter:image" content="https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Coal-Crusher-single-disc.jpg"> <!-- Consider using a more general logo/hero image -->
 
   <!-- JSON-LD Structured Data: Organization -->
