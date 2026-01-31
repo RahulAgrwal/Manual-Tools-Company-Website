@@ -118,8 +118,7 @@
                     <div class="validate"></div>
                   </div>
                   <div class="col-md-6 form-group">
-                    <input type="text" class="form-control" name="company_gstin" id="company_gstin" placeholder="Company GSTIN *" autocomplete="off">
-                    <div class="validate"></div>
+                    <input type="text" class="form-control" name="company_gstin" id="company_gstin" placeholder="Company GSTIN" autocomplete="off">
                   </div>
                 </div>
 
@@ -288,8 +287,6 @@
 
         // Run validation
         let valid = true;
-        if (!validateInput(contactInput)) valid = false;
-        if (!validateInput(gstinInput)) valid = false;
         if (!validateInput(emailInput)) valid = false;
         if (!validateInput(subjectInput)) valid = false;
         if (!validateInput(companyNameInput)) valid = false;
@@ -297,10 +294,14 @@
         if (!valid) return;
 
         var formData = new FormData(this);
+        var ajaxUrl = './forms/contact.php'; // Default for Local (XAMPP/Apache)
+        if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+            ajaxUrl = './forms/contact';
+        }
 
         $.ajax({
           type: 'POST',
-          url: './forms/contact.php', 
+          url: ajaxUrl, 
           data: formData,
           contentType: false,
           cache: false,
@@ -322,6 +323,15 @@
                   $('#mailsend')[0].reset(); 
                   $('.error-msg').hide();
                   $('.form-control').removeClass('error-border');
+                  if (typeof gtag === 'function') {
+                      gtag('event', 'conversion', {
+                          'send_to': 'AW-17669553737/4NI3CPisnNgbEMn8v-lB'
+                      });
+                      console.log("Conversion Triggered");
+                    
+                  } else {
+                      console.log("Conversion logic skipped (Localhost or AdBlocker active)");
+                  }
                 } else {
                   $('.sent-message').hide();
                   $('.error-msg').html(response.message).fadeIn(); 
@@ -343,13 +353,7 @@
         const value = input.value.trim();
         const validateDiv = input.parentElement.querySelector(".validate");
 
-        if (input.id === 'contact' && !validateContact(value)) {
-          showError(input, "Contact number must be 10 digits.");
-          return false;
-        } else if (input.id === 'company_gstin' && !validateGSTIN(value)) {
-          showError(input, "GSTIN must be 15 digits.");
-          return false;
-        } else if (input.id === 'email' && !validateEmail(value)) {
+        if (input.id === 'email' && !validateEmail(value)) {
           showError(input, "Please enter a valid email");
           return false;
         } else if (input.id === 'subject' && !validateSubject(value)) {
@@ -363,14 +367,6 @@
           input.classList.remove("error-border"); 
           return true;
         }
-      }
-
-      function validateContact(contact) {
-        return /^\d{10}$/.test(contact);
-      }
-
-      function validateGSTIN(gstin) {
-        return /^[A-Za-z0-9]{15}$/.test(gstin);
       }
 
       function validateEmail(email) {

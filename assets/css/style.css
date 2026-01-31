@@ -4881,3 +4881,20 @@
                    margin-top: 30px;
                }
            }
+/* Add this to style.css or main.css */
+.btn-brochure {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 5px;
+  border: 2px solid var(--primary-color); /* Red border for PDF feel */
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-right: 10px; /* Space between buttons */
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-brochure:hover {
+  background-color: var(--primary-color);
+  color: #fff;
+}

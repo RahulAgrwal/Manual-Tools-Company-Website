@@ -99,7 +99,7 @@
               <h1 class="prod-title">Coal Crusher (5 No. Size) Single Disc</h1>
               
               <p class="prod-desc">
-                Engineered for precision and consistency, this Single Disc Crusher effectively pulverizes coal into fine granules below 2mm. Featuring a robust 12mm body and 6 Manganese Steel hammers, it is the ideal solution for power generation and metallurgy applications requiring uniform output.
+                Engineered for precision and consistency, this Single Disc Crusher effectively pulverizes coal into fine granules below 2mm. Featuring a robust 12mm body and 6 Manganese Steel hammers, it is the ideal product for coke oven applications requiring uniform output.
               </p>
 
               <!-- Technical Specs Grid -->
@@ -127,6 +127,9 @@
               <div class="prod-actions">
                 <a href="contact" class="btn-quote-modern">
                   Request Quote <i class="bi bi-arrow-right ms-2"></i>
+                </a>
+                <a href="brochure/Manual_Tools_Co_Coal_Crusher_Single_Disc.pdf" class="btn-brochure" download="MTC-Coal-Crusher-Brochure.pdf">
+                  <i class="bi bi-file-earmark-arrow-down"></i> Brochure
                 </a>
                 <a href="tel:9430707348" class="btn-contact-outline">
                   <i class="bi bi-telephone"></i> Call Us
