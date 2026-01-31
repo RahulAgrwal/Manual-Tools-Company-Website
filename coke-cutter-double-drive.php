@@ -112,7 +112,7 @@
               <h1 class="prod-title">Coke Cutter Machine (Double Drive)</h1>
               
               <p class="prod-desc">
-                Built for maximum torque and precision, this double-drive cutter features dual 20 HP motors and cast steel gears. Its adjustable drum system ensures uniform output sizing (45-60mm) while manganese steel liner teeth guarantee longevity under heavy loads.
+                Built for maximum torque and power, this double-drive cutter features dual 20 HP motors and cast steel gears. Its adjustable drum system ensures uniform output sizing (45-60mm) while manganese steel liner teeth guarantee longevity under heavy loads.
               </p>
 
               <!-- Technical Specs Grid -->
@@ -140,6 +140,9 @@
               <div class="prod-actions">
                 <a href="contact" class="btn-quote-modern">
                   Request Quote <i class="bi bi-arrow-right ms-2"></i>
+                </a>
+                <a href="brochure/Manual_Tools_Co_Coke_Cutter_Double_Drive.pdf" class="btn-brochure" download="MTC-Coke-Cutter-Brochure.pdf">
+                  <i class="bi bi-file-earmark-arrow-down"></i> Brochure
                 </a>
                 <a href="tel:9430707348" class="btn-contact-outline">
                   <i class="bi bi-telephone"></i> Call Us

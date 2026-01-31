@@ -189,6 +189,8 @@ class MTCStyleBrochure(FPDF):
                 self.cell(img_w, 5, "Image Missing", align="C")
             
             x_offset += img_w + gap
+    
+    
     def request_A_quotation(self):
         self.set_y(-40)
         self.set_fill_color(*COLORS["accent_red"])

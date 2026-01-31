@@ -4888,9 +4888,11 @@
   border-radius: 5px;
   border: 2px solid var(--primary-color); /* Red border for PDF feel */
   color: var(--primary-color);
-  font-weight: 600;
+  font-weight: 700;
   margin-right: 10px; /* Space between buttons */
+  text-transform: uppercase;
   text-decoration: none;
+  letter-spacing: 1px;
   transition: all 0.3s ease;
 }
 
