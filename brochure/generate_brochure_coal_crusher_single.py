@@ -68,12 +68,12 @@ class MTCStyleBrochure(FPDF):
         self.set_font(FONT_FAMILY, "B", 10)
         self.set_text_color(255, 255, 255)
         # Website URL
-        self.cell(85, 6, "Ravindra Kr. Agarwal, Prop.", align="R", ln=True)
+        self.cell(90, 6, "Ravindra Kr. Agarwal, Prop.", align="R", ln=True)
         # Office Address
         self.set_x(110)
         self.set_font(FONT_FAMILY, "", 9)
         self.set_text_color(200, 200, 200) # Slightly lighter grey for the address
-        self.cell(85, 6, "Dhanbad, Jharkhand | manualtoolsco.com", align="R")
+        self.cell(90, 6, "Dhanbad, Jharkhand | manualtoolsco.com", align="R")
         # 5. Cleanup
         self.set_auto_page_break(True, margin=20)
         self.show_branding = True
@@ -89,12 +89,17 @@ class MTCStyleBrochure(FPDF):
                 self.set_text_color(255, 255, 255)
                 self.text(10, 22, "MANUAL TOOLS CO.")
 
-            # Company Tagline (Right)
+            # Company Tagline (Right Aligned)
+            # We start at X=105 and use a width of 95 to hit the right margin (200mm)
+            
             self.set_font(FONT_FAMILY, "B", 10)
             self.set_text_color(255, 255, 255)
-            self.text(145, 18, "Ph: +91 9430707348")
-            self.set_font(FONT_FAMILY, "", 8)
-            self.text(145, 23, "Dhanbad, Jharkhand | manualtoolsco.com")
+            self.set_xy(105, 14) 
+            self.cell(95, 5, "Ph: +91 9430707348", align="R")
+
+            self.set_font(FONT_FAMILY, "", 9)
+            self.set_xy(105, 19)
+            self.cell(95, 5, "Dhanbad, Jharkhand | manualtoolsco.com", align="R")
 
     def footer(self):
         # FIX: Explicitly tell the footer to stay hidden on Page 1
