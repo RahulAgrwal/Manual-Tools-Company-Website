@@ -4,12 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Coal Crusher (5 No. Size) Single Disc for fine coal disintegration. 80–120 HP motor, feed <125 mm, output <2 mm, 8–10 TPH. Manual Tools Company, India.">
-  <meta name="keywords" content="Coal Crusher Single Disc, Coal Disintegrator, Coal Pulverizer, 5 No. Size, Industrial Coal Crusher, Manual Tools Company, Dhanbad, Jharkhand, India">
+  <meta name="description"
+    content="Coal Crusher (5 No. Size) Single Disc for fine coal disintegration. 80–120 HP motor, feed <125 mm, output <2 mm, 8–10 TPH. Manual Tools Company, India.">
+  <meta name="keywords"
+    content="Coal Crusher Single Disc, Coal Disintegrator, Coal Pulverizer, 5 No. Size, Industrial Coal Crusher, Manual Tools Company, Dhanbad, Jharkhand, India">
   <meta name="robots" content="index, follow">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="canonical" href="https://www.manualtoolsco.com/coal-crusher-5-No-single-disc">
-  
+
   <title>Coal Crusher (5 No. Size) Single Disc | Manual Tools Company</title>
 
   <!-- Open Graph / Facebook -->
@@ -17,7 +19,8 @@
   <meta property="og:url" content="https://www.manualtoolsco.com/coal-crusher-5-No-single-disc">
   <meta property="og:title" content="Coal Crusher (5 No. Size) Single Disc | Manual Tools Company">
   <meta property="og:description" content="80–120 HP single disc coal crusher with <2 mm output and 8–10 TPH capacity.">
-  <meta property="og:image" content="https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Coal-Crusher-single-disc.jpg">
+  <meta property="og:image"
+    content="https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Coal-Crusher-single-disc.jpg">
   <meta property="og:site_name" content="Manual Tools Company">
 
   <!-- JSON-LD Structured Data (Kept from Original) -->
@@ -40,6 +43,12 @@
   </script>
 
   <?php include('common-head.php'); ?>
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/product-detail.css" rel="stylesheet">
 </head>
 
 <body>
@@ -63,311 +72,426 @@
       </div>
     </section>
 
-    <!-- ======= Modern Product Showcase ======= -->
-    <section id="product-showcase" class="mtc-product-showcase">
+    <section class="mtc-product-hero">
       <div class="container">
-        <div class="row align-items-center">
-          
-          <!-- LEFT COL: Image Area -->
-          <div class="col-lg-6">
-            <div class="prod-img-wrapper">
-              <span class="prod-badge">Fine Coal Disintegration</span>
-              
-              <!-- Thumbnail -->
-              <img 
-                id="thumbImage" 
-                src="assets/img/about-us-products-thumbnail/Coal-Crusher-single-disc.jpg" 
-                alt="Coal Crusher Single Disc Thumbnail"
-                class="img-fluid"
-              >
-
-              <!-- Main Image (Hidden until loaded) -->
-              <img 
-                id="mainImage" 
-                src="assets/img/about-us-products/Coal Crusher.jpg" 
-                alt="Coal Crusher Single Disc HD"
-                class="img-fluid"
-                style="display:none;"
-              >
-            </div>
-          </div>
-
-          <!-- RIGHT COL: Details & Specs -->
-          <div class="col-lg-6">
-            <div class="prod-details">
-              <span class="prod-cat">Industrial Coal Disintegrator</span>
-              <h1 class="prod-title">Coal Crusher (5 No. Size) Single Disc</h1>
-              
-              <p class="prod-desc">
-                Engineered for precision and consistency, this Single Disc Crusher effectively pulverizes coal into fine granules below 2mm. Featuring a robust 12mm body and 6 Manganese Steel hammers, it is the ideal product for coke oven applications requiring uniform output.
-              </p>
-
-              <!-- Technical Specs Grid -->
-              <div class="specs-container">
-                <div class="specs-title">
-                  <i class="fas fa-cog"></i> Technical Specifications
-                </div>
-                <div class="specs-grid">
-                  <div class="spec-item"><i class="fas fa-bolt"></i> Motor: 80 - 120 H.P.</div>
-                  <div class="spec-item"><i class="fas fa-arrow-down"></i> Feed Size: < 125 mm</div>
-                  <div class="spec-item"><i class="fas fa-filter"></i> Output Size: < 2 mm</div>
-                  <div class="spec-item"><i class="fas fa-shield-alt"></i> Body Thickness: 12 mm</div>
-                  <div class="spec-item"><i class="fas fa-layer-group"></i> Liners: Manganese Steel</div>
-                  <div class="spec-item"><i class="fas fa-hammer"></i> Hammers: 6 Nos.</div>
-                  
-                  <!-- Highlighted Spec -->
-                  <div class="spec-item spec-highlight">
-                    <i class="fas fa-tachometer-alt"></i> 
-                    Crushing Capacity: 10 to 12 Tons / Hour
-                  </div>
-                </div>
-              </div>
-
-              <!-- Action Buttons -->
-              <div class="prod-actions">
-                <a href="contact" class="btn-quote-modern">
-                  Request Quote <i class="bi bi-arrow-right ms-2"></i>
-                </a>
-                <a href="brochure/Manual_Tools_Co_Coal_Crusher_Single_Disc.pdf" class="btn-brochure" download="MTC-Coal-Crusher-Brochure.pdf">
-                  <i class="bi bi-file-earmark-arrow-down"></i> Brochure
-                </a>
-                <a href="tel:9430707348" class="btn-contact-outline">
-                  <i class="bi bi-telephone"></i> Call Us
-                </a>
-              </div>
-
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-<!-- ======= Operational Process Section (Coal Crusher) ======= -->
-    <section id="process-flow" class="process-section section-bg">
-      <div class="container">
-        
-        <div class="section-title">
-          <h2>Operational <strong>Process Flow</strong></h2>
-          <p>Visualizing the high-speed fine pulverization cycle.</p>
-        </div>
-
-        <div class="row align-items-center">
-          
-          <!-- LEFT COL: The Image -->
-          <div class="col-lg-7 mb-4 mb-lg-0">
-            <div class="process-img-wrap">
-              <!-- Save the image you uploaded as 'coal-crusher-process.jpg' -->
-              <img src="assets/img/product-images/coal-crusher-single-disc/process-diagram.jpg" 
-                   alt="Coal Crusher Process Flow Diagram" 
-                   class="img-fluid rounded shadow-lg border-process">
-              
-              <!-- Optional: Pulse animation marker on the output belt -->
-              <div class="process-pulse-marker"></div>
-            </div>
-          </div>
-
-          <!-- RIGHT COL: Description Steps -->
-          <div class="col-lg-5">
-            <div class="process-content ps-lg-4">
-              <h3 class="mb-4" style="font-weight: 800; color: #333;">Single Disc Pulverizing Cycle</h3>
-              
-              <!-- Step 1: Feed -->
-              <div class="process-step">
-                <div class="step-icon"><i class="fas fa-arrow-down"></i></div>
-                <div class="step-text">
-                  <h4>1. Gravity Feed</h4>
-                  <p>Raw coal lumps (up to 125mm) are delivered via the upper conveyor belt and drop directly into the crushing chamber via the top hopper.</p>
-                </div>
-              </div>
-
-              <!-- Step 2: Mechanism -->
-              <div class="process-step">
-                <div class="step-icon"><i class="fas fa-hammer"></i></div>
-                <div class="step-text">
-                  <h4>2. High-Speed Impact</h4>
-                  <p>Inside, the Single Disc rotates at high speed. The 6 Manganese Steel hammers impact the coal against the liner plates, shattering it instantly.</p>
-                </div>
-              </div>
-
-              <!-- Step 3: Output -->
-              <div class="process-step">
-                <div class="step-icon"><i class="fas fa-filter"></i></div>
-                <div class="step-text">
-                  <h4>3. Fine Discharge (< 2mm)</h4>
-                  <p>The pulverized coal is reduced to a fine powder (below 2mm) and discharged onto the lower conveyor belt, ready for the boiler.</p>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-<!-- ======= Combined Gallery & FAQ Section ======= -->
-    <section id="portfolio" class="portfolio section-bg" style="padding: 60px 0;">
-      <div class="container">
-        
         <div class="row">
-          
-          <!-- ==============================================
-               LEFT COLUMN: PHOTO GALLERY (65% Width)
-               ============================================== -->
-          <div class="col-lg-8">
-            <div class="section-title text-start" style="text-align: left; margin-bottom: 30px;">
-              <h2>Product <strong>Gallery</strong></h2>
-              <p>Visual details of the Single Disc crushing mechanism and internal components.</p>
+
+          <div class="col-lg-6 mb-4 mb-lg-0">
+            <?php
+            // Define specific main image
+            $specificMainImage = "assets/img/about-us-products/Coal Crusher.jpg";
+
+            // Fetch gallery images from folder
+            $directory = "assets/img/product-images/coal-crusher-single-disc/";
+            $folderImages = glob($directory . "*.{jpg,jpeg,png,gif}", GLOB_BRACE);
+
+            // Merge images: specific first, then folder images
+            $allImages = $folderImages ? array_merge([$specificMainImage], $folderImages) : [$specificMainImage];
+            $currentMainSrc = $allImages[0];
+            ?>
+
+            <div class="mtc-product-main-frame text-center">
+              <img id="mainImage" src="<?php echo htmlspecialchars($currentMainSrc); ?>" alt="Coal Crusher Single Disc"
+                class="img-fluid">
             </div>
 
-            <div class="row portfolio-container g-3">
-              <?php
-              $directory = "assets/img/product-images/coal-crusher-single-disc/";
-              $images = glob($directory . "*.{jpg,jpeg,png,gif}", GLOB_BRACE);
+            <div class="mtc-product-thumb-grid">
+              <?php foreach ($allImages as $index => $image): ?>
+                <div class="mtc-product-thumb-item <?php echo $index === 0 ? 'active' : ''; ?>" onclick="swapImage(this)">
+                  <img src="<?php echo htmlspecialchars($image); ?>"
+                    alt="<?php echo htmlspecialchars(pathinfo($image, PATHINFO_FILENAME)); ?>">
+                </div>
+              <?php endforeach; ?>
+            </div>
+          </div>
 
-              if (!empty($images)) {
-                foreach ($images as $image) { ?>
-                  <!-- Use col-md-4 to fit 3 images per row inside this column -->
-                  <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                    <div class="portfolio-wrap">
-                      <img src="<?php echo $image; ?>" class="img-fluid" alt="Single Disc Crusher View">
-                      <div class="portfolio-info">
-                        <h4>Single Disc Crusher</h4>
-                        <div class="portfolio-links">
-                          <a href="<?php echo $image; ?>" data-gallery="portfolioGallery" class="portfolio-lightbox" title="View Large"><i class="bx bx-plus"></i></a>
+          <div class="col-lg-6 ps-lg-5">
+            <div class="mtc-product-eyebrow">Industrial Coal Disintegrator</div>
+            <h1 class="mtc-product-title">Coal Crusher <br><span class="mtc-highlight">Single Disc</span> (5 No.)</h1>
+
+            <div class="mtc-product-review-row">
+              <div class="mtc-product-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                  class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+              <span>Model: MTC-CC-5-SD</span>
+              <span class="mtc-product-stock-badge">In Stock</span>
+            </div>
+
+            <p style="line-height: 1.6; color: #555;">
+              Engineered for precision and consistency, this Single Disc Crusher effectively pulverizes coal into fine
+              granules below 2mm. Featuring a robust 12mm body and 6 Manganese Steel hammers, it is ideal for coke oven
+              applications.
+            </p>
+
+            <div class="mtc-product-specs-grid">
+              <div class="mtc-product-spec-item">
+                <i class="fas fa-tachometer-alt mtc-product-spec-icon"></i>
+                <div class="mtc-product-spec-text">
+                  <span>Capacity</span>
+                  <strong>8 - 10 TPH</strong>
+                </div>
+              </div>
+              <div class="mtc-product-spec-item">
+                <i class="fas fa-bolt mtc-product-spec-icon"></i>
+                <div class="mtc-product-spec-text">
+                  <span>Motor Power</span>
+                  <strong>80 - 120 HP</strong>
+                </div>
+              </div>
+              <div class="mtc-product-spec-item">
+                <i class="fas fa-filter mtc-product-spec-icon"></i>
+                <div class="mtc-product-spec-text">
+                  <span>Output Size</span>
+                  <strong>
+                    < 2 mm</strong>
+                </div>
+              </div>
+              <div class="mtc-product-spec-item">
+                <i class="fas fa-arrow-down mtc-product-spec-icon"></i>
+                <div class="mtc-product-spec-text">
+                  <span>Max Feed Size</span>
+                  <strong>Up to 125mm</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="mtc-product-action-row">
+              <a href="brochure/Manual_Tools_Co_Coal_Crusher_Single_Disc.pdf" class="mtc-btn-dark" download>
+                <i class="fas fa-download"></i> Brochure
+              </a>
+              <a href="#quote-form" class="mtc-btn-orange">
+                <i class="fas fa-file-signature"></i> Request Quote
+              </a>
+              <a href="tel:+919430707348" class="mtc-btn-call-us">
+                <i class="fas fa-phone"></i> Call Us
+              </a>
+            </div>
+
+            <div class="mtc-product-trust-badges">
+              <span><i class="fas fa-check-circle"></i> ISO 9001:2015</span>
+              <span><i class="fas fa-headset"></i> On-Site Support</span>
+              <span><i class="fas fa-truck"></i> Global Shipping</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-bg" style="padding: 60px 0;">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-8">
+
+            <ul class="nav nav-tabs mtc-content-tabs" id="myTab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="desc-tab" data-bs-toggle="tab" data-bs-target="#desc" type="button"
+                  role="tab">Technical Description</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="operationalflow-tab" data-bs-toggle="tab" data-bs-target="#operationalflow"
+                  type="button" role="tab">Operational Process Flow</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="apps-tab" data-bs-toggle="tab" data-bs-target="#apps" type="button"
+                  role="tab">Applications</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="maint-tab" data-bs-toggle="tab" data-bs-target="#maint" type="button"
+                  role="tab">Maintenance</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="faq-tab" data-bs-toggle="tab" data-bs-target="#faq" type="button"
+                  role="tab">FAQ</button>
+              </li>
+            </ul>
+
+            <div class="tab-content" id="myTabContent">
+<div class="tab-pane fade show active" id="desc" role="tabpanel">
+
+  <div class="mtc-tech-wrapper">
+    
+    <h3 class="mtc-tech-heading">Engineered for Tough Environments</h3>
+    <p class="mtc-tech-paragraph">
+      The Manual Tools Company Single Disc Coal Crusher utilizes a unique high-speed impact action that is highly effective for reducing coal to specific sizes required for coke ovens and thermal power plants. Unlike traditional hammer mills, the single disc design minimizes the creation of excessive fines (dust), ensuring a higher yield of usable product.
+    </p>
+    <p class="mtc-tech-paragraph">
+      Constructed with heavy-duty fabricated steel housing and lined with wear-resistant manganese steel plates, this machine is built to withstand the rigorous demands of 24/7 industrial operation.
+    </p>
+
+    <h3 class="mtc-tech-heading" style="font-size: 20px; margin-top: 40px;">Technical Parameters</h3>
+    
+    <div class="mtc-tech-table-container">
+      <table class="mtc-modern-tech-table">
+        <thead>
+          <tr>
+            <th width="40%">Parameter</th>
+            <th>Specification Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Rotor Style</strong></td>
+            <td>Single Disc (6 Manganese Hammers)</td>
+          </tr>
+          <tr>
+            <td><strong>Motor Power</strong></td>
+            <td>80 HP – 120 HP (Based on required TPH)</td>
+          </tr>
+          <tr>
+            <td><strong>Input Feed Size</strong></td>
+            <td>&lt; 125 mm</td>
+          </tr>
+          <tr>
+            <td><strong>Output Size</strong></td>
+            <td>&lt; 2 mm (Fine Pulverization)</td>
+          </tr>
+          <tr>
+            <td><strong>Crushing Capacity</strong></td>
+            <td>8 – 10 Tons Per Hour</td>
+          </tr>
+          <tr>
+            <td><strong>Body Thickness</strong></td>
+            <td>12 mm Heavy-Duty Fabricated Steel</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+              <div class="tab-pane fade" id="operationalflow" role="tabpanel">
+
+                <div class="mtc-timeline-wrapper">
+                  <div class="row">
+
+                    <div class="col-lg-6 mb-5 mb-lg-0">
+                      <div class="mtc-flow-image-box">
+                        <img src="assets/img/product-images/coal-crusher-single-disc/process-diagram.jpg"
+                          alt="Process Flow Diagram" class="img-fluid w-100">
+                        <div class="mtc-flow-image-overlay">
+                          <i class="fas fa-info-circle"></i> Visual representation of internal mechanism
                         </div>
                       </div>
                     </div>
-                  </div>
-                <?php }
-              } else {
-                echo '<div class="col-12"><div class="alert alert-light">No images currently available.</div></div>';
-              }
-              ?>
-            </div>
-          </div>
 
-          <!-- ==============================================
-               RIGHT COLUMN: FAQ (35% Width)
-               Using Contact Page Styles (.faq-wrapper)
-               ============================================== -->
-          <div class="col-lg-4 mt-5 mt-lg-0">
-            
-            <!-- This class 'faq-wrapper' comes from your Contact Page CSS -->
-            <div class="faq-wrapper">
-              <div class="section-header-small">
-                <h3>Common Questions</h3>
-                <p>Specifics about this machine.</p>
-              </div>
+                    <div class="col-lg-6">
+                      <div class="ps-lg-4">
+                        <h3 style="font-weight: 800; font-size: 26px; margin-bottom: 40px; color: #333;">
+                          <span style="color: var(--primary-color);">3-Stage</span> Operation Cycle
+                        </h3>
 
-              <div class="accordion custom-accordion" id="productFaqAccordion">
+                        <div class="mtc-process-timeline">
 
-                <?php
-                // Product-Specific Questions
-                $product_faqs = [
-                    [
-                        "q" => "What is the output size?",
-                        "a" => "The Single Disc Crusher is calibrated to produce a fine output size of below 2 mm."
-                    ],
-                    [
-                        "q" => "What is the motor capacity?",
-                        "a" => "It requires an electrical motor between 80 H.P. to 120 H.P. depending on your required TPH (Tons Per Hour)."
-                    ],
-                    [
-                        "q" => "Are the hammers replaceable?",
-                        "a" => "Yes, the 6 Manganese Steel hammers are designed for easy replacement via the side access door."
-                    ],
-                    [
-                        "q" => "What is the delivery time?",
-                        "a" => "Standard models are often in stock. Custom configurations typically take 3-4 weeks for fabrication."
-                    ],
-                    [
-                        "q" => "What is the maintenance schedule?",
-                        "a" => "Routine maintenance involves checking the liner plates and greasing the bearings. The hammers are easily replaceable when worn out."
-                    ]
-                ];
+                          <div class="mtc-timeline-item">
+                            <div class="mtc-timeline-marker"></div>
+                            <div class="mtc-timeline-content">
+                              <span class="mtc-timeline-number">Step 01</span>
+                              <h4 class="mtc-timeline-title"><i class="fas fa-arrow-down"></i> Gravity Feed Intake</h4>
+                              <p class="mtc-timeline-desc">
+                                Raw coal lumps (up to 125mm) enter via the top hopper. The angled chute design ensures
+                                material is directed straight into the rotor's impact zone without clogging.
+                              </p>
+                            </div>
+                          </div>
 
-                foreach($product_faqs as $index => $faq) {
-                    $headingId = "headingProd" . $index;
-                    $collapseId = "collapseProd" . $index;
-                    $isFirst = ($index === 0);
-                    $showClass = $isFirst ? "show" : "";
-                    $btnCollapsed = $isFirst ? "" : "collapsed";
-                    $ariaExpanded = $isFirst ? "true" : "false";
-                ?>
+                          <div class="mtc-timeline-item">
+                            <div class="mtc-timeline-marker"></div>
+                            <div class="mtc-timeline-content">
+                              <span class="mtc-timeline-number">Step 02</span>
+                              <h4 class="mtc-timeline-title"><i class="fas fa-hammer"></i> High-Velocity Impact</h4>
+                              <p class="mtc-timeline-desc">
+                                The Single Disc rotates at 960-1440 RPM. Six suspended manganese steel hammers strike
+                                the coal against the serrated liner plates, achieving instant size reduction.
+                              </p>
+                            </div>
+                          </div>
 
-                <!-- FAQ Card -->
-                <div class="card">
-                  <div class="card-header" id="<?php echo $headingId; ?>">
-                    <h5 class="mb-0">
-                      <button class="btn btn-link w-100 text-left <?php echo $btnCollapsed; ?>" 
-                              type="button" 
-                              data-bs-toggle="collapse" 
-                              data-bs-target="#<?php echo $collapseId; ?>" 
-                              aria-expanded="<?php echo $ariaExpanded; ?>" 
-                              aria-controls="<?php echo $collapseId; ?>">
-                        <?php echo $faq['q']; ?>
-                        <i class="fas fa-plus float-right"></i>
-                      </button>
-                    </h5>
-                  </div>
+                          <div class="mtc-timeline-item">
+                            <div class="mtc-timeline-marker"></div>
+                            <div class="mtc-timeline-content">
+                              <span class="mtc-timeline-number">Step 03</span>
+                              <h4 class="mtc-timeline-title"><i class="fas fa-filter"></i> Calibrated Discharge</h4>
+                              <p class="mtc-timeline-desc">
+                                Crushed material passes through the bottom adjustable grate bars. Only particles smaller
+                                than 2mm are released onto the output conveyor, ensuring 100% uniformity.
+                              </p>
+                            </div>
+                          </div>
 
-                  <div id="<?php echo $collapseId; ?>" 
-                       class="accordion-collapse collapse <?php echo $showClass; ?>" 
-                       aria-labelledby="<?php echo $headingId; ?>" 
-                       data-bs-parent="#productFaqAccordion">
-                    <div class="card-body">
-                      <?php echo $faq['a']; ?>
+                        </div>
+                      </div>
                     </div>
+
                   </div>
                 </div>
-                <!-- End Card -->
 
-                <?php } ?>
+              </div>
+              <div class="tab-pane fade" id="apps" role="tabpanel">
+
+                <div class="row mtc-app-grid-container g-4">
+
+                  <div class="col-md-4">
+                    <div class="mtc-app-card">
+                      <div class="mtc-app-icon-wrapper">
+                        <i class="fas fa-industry"></i>
+                      </div>
+                      <h4 class="mtc-app-title">Coke Oven Plants</h4>
+                      <p class="mtc-app-description">Essential for preparing fine coal charge for beehive and recovery
+                        type ovens to ensure uniform combustion.</p>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="mtc-app-card">
+                      <div class="mtc-app-icon-wrapper">
+                        <i class="fas fa-bolt"></i>
+                      </div>
+                      <h4 class="mtc-app-title">Thermal Power</h4>
+                      <p class="mtc-app-description">Used for pulverizing coal for Fluidized Bed Combustion (FBC)
+                        boilers to maximize thermal efficiency.</p>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="mtc-app-card">
+                      <div class="mtc-app-icon-wrapper">
+                        <i class="fas fa-cubes"></i>
+                      </div>
+                      <h4 class="mtc-app-title">Brick Kilns</h4>
+                      <p class="mtc-app-description">Generates consistent fine coal dust required for automated kiln
+                        firing systems and mixture.</p>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="maint" role="tabpanel">
+
+                <div class="mtc-maintenance-alert">
+                  <i class="fas fa-exclamation-triangle"></i>
+                  <div>
+                    <strong>Maintenance Tip:</strong> Regular lubrication of the main bearing blocks extends machine life.
+                  </div>
+                </div>
+
+                <div class="row">
+
+                  <div class="col-md-6">
+                    <h5 class="mtc-maintenance-col-title">Daily / Weekly Checks</h5>
+                    <ul class="mtc-maintenance-list">
+                      <li>Check foundation bolts for tightness before starting.</li>
+                      <li>Inspect <span class="mtc-maintenance-highlight">V-Belts</span> for proper tension and
+                        alignment.</li>
+                      <li>Ensure the crusher chamber is empty before motor startup.</li>
+                      <li>Monitor bearing temperature during operation (should not exceed 70°C).</li>
+                    </ul>
+                  </div>
+
+                  <div class="col-md-6">
+                    <h5 class="mtc-maintenance-col-title">Periodic Replacement</h5>
+                    <ul class="mtc-maintenance-list">
+                      <li><strong>Hammers:</strong> Inspect every 300 hours. Rotate faces if edges become rounded.</li>
+                      <li><strong>Liner Plates:</strong> Check wear pattern monthly. Replace if thickness reduces by
+                        60%.</li>
+                      <li><strong>Rotor Disc:</strong> Inspect annually for any hairline cracks or imbalance.</li>
+                      <li><strong>Bearings:</strong> Flush and replace grease completely every 6 months.</li>
+                    </ul>
+                  </div>
+
+                </div>
+
+              </div>
+              <div class="tab-pane fade" id="faq" role="tabpanel">
+
+                <div class="row">
+                  <div class="col-lg-10 mx-auto">
+
+                    <div class="mtc-faq-container">
+
+                      <?php
+                      $product_faqs = [
+                        ["q" => "What is the output size?", "a" => "The Single Disc Crusher is calibrated to produce a fine output size of below 2 mm."],
+                        ["q" => "What is the motor capacity?", "a" => "It requires an electrical motor between 80 H.P. to 120 H.P. depending on your required TPH (Tons Per Hour)."],
+                        ["q" => "Are the hammers replaceable?", "a" => "Yes, the 6 Manganese Steel hammers are designed for easy replacement via the side access door."],
+                        ["q" => "What is the delivery time?", "a" => "Standard models are often in stock. Custom configurations typically take 3-4 weeks for fabrication."],
+                        ["q" => "What is the maintenance schedule?", "a" => "Routine maintenance involves checking the liner plates and greasing the bearings. The hammers are easily replaceable when worn out."]
+                      ];
+
+                      foreach ($product_faqs as $index => $faq) {
+                        $isOpen = ($index === 0);
+                        $btnClass = $isOpen ? "" : "collapsed";
+                        $ariaExpanded = $isOpen ? "true" : "false";
+                        $showClass = $isOpen ? "show" : "";
+                        $collapseId = "localFaq" . $index;
+                        ?>
+
+                        <div class="mtc-faq-item">
+                          <button class="mtc-faq-button <?php echo $btnClass; ?>" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#<?php echo $collapseId; ?>" aria-expanded="<?php echo $ariaExpanded; ?>">
+                            <?php echo htmlspecialchars($faq['q']); ?>
+                            <span class="mtc-faq-icon">
+                              <i class="fas fa-chevron-down"></i>
+                            </span>
+                          </button>
+                          <div id="<?php echo $collapseId; ?>" class="collapse <?php echo $showClass; ?>"
+                            data-bs-parent="#faq">
+                            <div class="mtc-faq-body">
+                              <?php echo htmlspecialchars($faq['a']); ?>
+                            </div>
+                          </div>
+                        </div>
+                      <?php } ?>
+
+                    </div>
+
+                  </div>
+                </div>
 
               </div>
             </div>
-            <!-- End .faq-wrapper -->
 
           </div>
+
+          <div class="col-lg-4 mt-5 mt-lg-0" id="quote-form">
+            <?php 
+              $_GET['page_url'] = 'coal-crusher-5-No-single-disc';
+              $_GET['page_title'] = 'Coal Crusher Single Disc';
+              include('sidebar-quote-form.php'); 
+            ?>
         </div>
       </div>
     </section>
+    <?php
+    // 1. Set the current product's link/slug to exclude it
+    $current_page_slug = "coal-crusher-5-No-single-disc";
+
+    // 2. Include the reusable component
+    include('related-products.php');
+    ?>
+
   </main>
 
-  <!-- ======= Footer ======= -->
   <?php include("footer.php"); ?>
-  
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-  
-  <!-- Image Swap Script -->
+
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      var thumb = document.getElementById('thumbImage');
-      var main = document.getElementById('mainImage');
-      
-      var hdImg = new Image();
-      hdImg.src = main.src;
-      
-      hdImg.onload = function() {
-        thumb.style.display = 'none';
-        main.style.display = 'block';
-        main.classList.add('animate__animated', 'animate__fadeIn');
-      };
-    });
+    function swapImage(el) {
+      // 1. Change Main Image
+      var newSrc = el.querySelector('img').src;
+      document.getElementById('mainImage').src = newSrc;
+
+      // 2. Update Active Class
+      document.querySelectorAll('.thumb-item').forEach(item => item.classList.remove('active'));
+      el.classList.add('active');
+    }
   </script>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-
-  <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
 </body>
+
 </html>

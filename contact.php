@@ -94,7 +94,7 @@
                 <p>Fill out the form below and we will get back to you shortly.</p>
               </div>
 
-              <form id="mailsend" method="post" role="form" class="php-email-form">
+              <form action="forms/contact.php" method="post" class="ajax-form php-email-form" id="contact_form" role="form">
                 
                 <!-- Feedback Messages -->
                 <div class="loading">Sending...</div>
@@ -103,19 +103,16 @@
 
                 <div class="row">
                   <div class="col-md-6 form-group">
-                    <input type="text" name="first_name" class="form-control" id="first_name" placeholder="First Name *" autocomplete="off">
-                    <div class="validate"></div>
+                    <input type="text" name="first_name" class="form-control" id="first_name" placeholder="First Name *" autocomplete="off" required>
                   </div>
                   <div class="col-md-6 form-group">
-                    <input type="text" name="last_name" class="form-control" id="last_name" placeholder="Last Name *" autocomplete="off">
-                    <div class="validate"></div>
+                    <input type="text" name="last_name" class="form-control" id="last_name" placeholder="Last Name" autocomplete="off">
                   </div>
                 </div>
 
                 <div class="row">
                   <div class="col-md-6 form-group">
-                    <input type="text" class="form-control" name="company_name" id="company_name" placeholder="Company Name *" autocomplete="off">
-                    <div class="validate"></div>
+                    <input type="text" class="form-control" name="company_name" id="company_name" placeholder="Company Name *" autocomplete="off" required>
                   </div>
                   <div class="col-md-6 form-group">
                     <input type="text" class="form-control" name="company_gstin" id="company_gstin" placeholder="Company GSTIN" autocomplete="off">
@@ -124,28 +121,23 @@
 
                 <div class="row">
                   <div class="col-md-6 form-group">
-                    <input type="text" class="form-control" name="contact" id="contact" placeholder="Mobile Number *" autocomplete="off">
-                    <div class="validate"></div>
+                    <input type="text" class="form-control" name="contact" id="contact" placeholder="Mobile Number *" autocomplete="off" required>
                   </div>
                   <div class="col-md-6 form-group">
-                    <input type="text" class="form-control" name="address" id="address" placeholder="Location/Address *" autocomplete="off">
-                    <div class="validate"></div>
+                    <input type="text" class="form-control" name="address" id="address" placeholder="Location/Address *" autocomplete="off" required>
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email *" autocomplete="off">
-                  <div class="validate"></div>
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email *" autocomplete="off" required>
                 </div>
 
                 <div class="form-group">
-                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject *" autocomplete="off">
-                  <div class="validate"></div>
+                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject *" autocomplete="off" required>
                 </div>
 
                 <div class="form-group">
-                  <textarea class="form-control" id="message" name="message" rows="5" placeholder="Tell us about your requirements *" autocomplete="off"></textarea>
-                  <div class="validate"></div>
+                  <textarea class="form-control" id="message" name="message" rows="5" placeholder="Tell us about your requirements *" autocomplete="off" required></textarea>
                 </div>
 
                 <div class="text-center mt-3">
@@ -268,127 +260,6 @@
   
   <!-- JavaScript (Kept from your original code) -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script>
-    $(document).ready(function() {
-      $('#contact, #company_gstin, #email, #subject, #company_name').on('input', function() {
-        validateInput(this);
-      });
-
-      $('#mailsend').submit(function(e) {
-        e.preventDefault(); 
-
-        const contactInput = document.getElementById("contact");
-        const gstinInput = document.getElementById("company_gstin");
-        const emailInput = document.getElementById("email");
-        const subjectInput = document.getElementById("subject");
-        const companyNameInput = document.getElementById("company_name");
-        $('.error-msg').hide();
-        $('.sent-message').hide();
-
-        // Run validation
-        let valid = true;
-        if (!validateInput(emailInput)) valid = false;
-        if (!validateInput(subjectInput)) valid = false;
-        if (!validateInput(companyNameInput)) valid = false;
-        
-        if (!valid) return;
-
-        var formData = new FormData(this);
-        var ajaxUrl = './forms/contact.php'; // Default for Local (XAMPP/Apache)
-        if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
-            ajaxUrl = './forms/contact';
-        }
-
-        $.ajax({
-          type: 'POST',
-          url: ajaxUrl, 
-          data: formData,
-          contentType: false,
-          cache: false,
-          processData: false,
-          beforeSend: function() {
-            $('.loading').fadeIn(); 
-          },
-          success: function(response) {
-            $('.loading').fadeOut(); 
-            console.log("Response:", response);
-            try {
-                // Ensure response is parsed if it comes back as string
-                if(typeof response === 'string') {
-                    response = JSON.parse(response);
-                }
-
-                if (response.success) {
-                  $('.sent-message').html(response.message).fadeIn(); 
-                  $('#mailsend')[0].reset(); 
-                  $('.error-msg').hide();
-                  $('.form-control').removeClass('error-border');
-                  if (typeof gtag === 'function') {
-                      gtag('event', 'conversion', {
-                          'send_to': 'AW-17669553737/4NI3CPisnNgbEMn8v-lB'
-                      });
-                      console.log("Conversion Triggered");
-                    
-                  } else {
-                      console.log("Conversion logic skipped (Localhost or AdBlocker active)");
-                  }
-                } else {
-                  $('.sent-message').hide();
-                  $('.error-msg').html(response.message).fadeIn(); 
-                }
-            } catch(e) {
-                console.error("JSON Parse Error", e);
-                $('.error-msg').html("An unexpected error occurred.").fadeIn();
-            }
-          },
-          error: function(xhr, status, error) {
-            $('.loading').fadeOut();
-            console.log("AJAX Error:", status, error);
-            $('.error-msg').html("Server error. Please try again later.").fadeIn();
-          }
-        });
-      });
-
-      function validateInput(input) {
-        const value = input.value.trim();
-        const validateDiv = input.parentElement.querySelector(".validate");
-
-        if (input.id === 'email' && !validateEmail(value)) {
-          showError(input, "Please enter a valid email");
-          return false;
-        } else if (input.id === 'subject' && !validateSubject(value)) {
-          showError(input, "Subject cannot be blank.");
-          return false;
-        } else if (input.id === 'company_name' && !validateCompanyName(value)) {
-          showError(input, "Company name cannot be blank.");
-          return false;
-        } else {
-          if(validateDiv) validateDiv.textContent = ""; 
-          input.classList.remove("error-border"); 
-          return true;
-        }
-      }
-
-      function validateEmail(email) {
-        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return regex.test(email);
-      }
-
-      function validateSubject(subject) {
-        return subject !== "";
-      }
-
-      function validateCompanyName(companyName) {
-        return companyName !== "";
-      }
-
-      function showError(input, message) {
-        const validateDiv = input.parentElement.querySelector(".validate");
-        if(validateDiv) validateDiv.textContent = message;
-        input.classList.add("error-border");
-      }
-    });
-  </script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>

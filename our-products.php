@@ -12,62 +12,9 @@
     <div class="row g-4">
       
           <?php
-          $product_cards = [
-            [
-              "image_path" => "assets/img/about-us-products-thumbnail/Coal-Crusher-single-disc.jpg",
-              "title" => "Coal Crusher 5 No. Size",
-              "subtitle" => "Single Disc",
-              "link" => "coal-crusher-5-No-single-disc"
-            ],
-            [
-              "image_path" => "assets/img/about-us-products-thumbnail/Coal-Crusher-Double-Disc.jpg",
-              "title" => "Coal Crusher 5 No. Size",
-              "subtitle" => "Double Disc",
-              "link" => "coal-crusher-5-No-double-disc"
-            ],
-            [
-              "image_path" => "assets/img/about-us-products-thumbnail/Double-Drive-Coke-Cutter-Machine.jpg",
-              "title" => "Coke Cutter Machine",
-              "subtitle" => "Double Drive",
-              "link" => "coke-cutter-double-drive"
-            ],
-            [
-              "image_path" => "assets/img/about-us-products-thumbnail/Haulage-Machine.png",
-              "title" => "Haulage Machine",
-              "subtitle" => "Power Driven",
-              "link" => "haulage"
-            ],
-            [
-              "image_path" => "assets/img/about-us-products-thumbnail/Power-Winchh.png",
-              "title" => "Power Winch",
-              "subtitle" => "Power Driven",
-              "link" => "power-winch"
-            ],
-            [
-              "image_path" => "assets/img/about-us-products-thumbnail/Vibrator-Screen-Machine.png",
-              "title" => "Vibrator Screen Machine",
-              "subtitle" => "Triple Deck",
-              "link" => "vibrator-screen"
-            ],
-            [
-              "image_path" => "assets/img/about-us-products-thumbnail/Conveyor-Material.png",
-              "title" => "Idler Roller, Head Pulley, Tail Pulley",
-              "subtitle" => "Conveyor Material",
-              "link" => "conveyor-materials"
-            ],
-            [
-              "image_path" => "assets/img/about-us-products-thumbnail/Pusher-Machine-With-Stamping-Arrangement.jpg",
-              "title" => "Pusher Machine With Stamping Arrangement",
-              "subtitle" => "Roller System",
-              "link" => "pusher-with-stamping-arrangement"
-            ],
-            [
-              "image_path" => "assets/img/about-us-products-thumbnail/Coal-Charging-Car.jpg",
-              "title" => "Coal Charging Car",
-              "subtitle" => "Coke Oven Charging",
-              "link" => "coal-charging-car"
-            ]
-          ];
+          // Use global product cards
+          include_once 'global-products.php';
+          $product_cards = $GLOBAL_PRODUCT_CARDS;
           ?>
 
       <?php foreach ($product_cards as $card) : ?>

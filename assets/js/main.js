@@ -287,3 +287,128 @@
     });
 
 })();
+
+$(document).ready(function() {
+
+  // Target any form with the class 'ajax-form'
+  $('.ajax-form').submit(function(e) {
+    e.preventDefault(); 
+
+    // Find the specific form being submitted
+    var $form = $(this);
+    
+    // Dynamically get the URL from the form's 'action' attribute
+    var actionUrl = $form.attr('action'); 
+    
+    // Optional: Your existing localhost logic adapted dynamically
+    if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+        actionUrl = actionUrl.replace('.php', ''); // strips .php on production if needed
+    }
+
+    // Find message containers ONLY inside this specific form
+    var $loading = $form.find('.loading');
+    var $errorMsg = $form.find('.error-msg');
+    var $sentMsg = $form.find('.sent-message');
+
+    $errorMsg.hide();
+    $sentMsg.hide();
+
+    // Generic Validation: Check all fields with the 'required' attribute
+    let valid = true;
+    $form.find('[required]').each(function() {
+      if ($(this).val().trim() === '') {
+        valid = false;
+        $(this).addClass('error-border');
+      } else {
+        $(this).removeClass('error-border');
+      }
+    });
+
+    // Email specific validation (if an email field exists in this form)
+    var $emailField = $form.find('input[type="email"], input[name="email"]');
+    if ($emailField.length > 0) {
+      const emailVal = $emailField.val().trim();
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (emailVal !== '' && !emailRegex.test(emailVal)) {
+        valid = false;
+        $emailField.addClass('error-border');
+        $errorMsg.html("Please enter a valid email address.").fadeIn();
+      }
+    }
+
+    // Stop if validation fails
+    if (!valid) {
+      if ($errorMsg.is(':hidden')) {
+        $errorMsg.html("Please fill out all required fields correctly.").fadeIn();
+      }
+      return;
+    }
+
+    // Prepare data and send AJAX
+    var formData = new FormData(this);
+    console.log("Form Data:", formData);
+
+    $.ajax({
+      type: 'POST',
+      url: actionUrl, 
+      data: formData,
+      contentType: false,
+      cache: false,
+      processData: false,
+      beforeSend: function() {
+        $loading.fadeIn(); 
+      },
+      success: function(response) {
+        $loading.fadeOut(); 
+        console.log("Response:", response);
+        try {
+          if(typeof response === 'string') {
+              response = JSON.parse(response);
+          }
+
+          if (response.success) {
+            $sentMsg.html(response.message || "Message sent!").fadeIn(); 
+            $form[0].reset(); 
+            $form.find('.error-border').removeClass('error-border');
+            
+            // Track GA4 Event & Google Ads Conversion
+            if (typeof gtag === 'function') {
+                // Track to GA4 with event parameters
+                gtag('event', 'generate_lead', {
+                    'form_name': $form.attr('id') || 'contact_form',
+                    'form_action': $form.attr('action'),
+                    'timestamp': new Date().toISOString()
+                });
+                
+                // Track Google Ads Conversion
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-17669553737/4NI3CPisnNgbEMn8v-lB',
+                    'value': 1.0,
+                    'currency': 'INR'
+                });
+                
+                console.log("GA4 Event & Conversion Tracked");
+            }
+          } else {
+            $errorMsg.html(response.message || "Something went wrong.").fadeIn(); 
+          }
+        } catch(e) {
+          console.error("JSON Parse Error", e);
+          $errorMsg.html("An unexpected error occurred.").fadeIn();
+        }
+      },
+      error: function(xhr, status, error) {
+        $loading.fadeOut();
+        console.log("AJAX Error:", status, error);
+        $errorMsg.html("Server error. Please try again later.").fadeIn();
+      }
+    });
+  });
+
+  // Real-time input validation cleanup
+  $('.ajax-form input, .ajax-form textarea').on('input', function() {
+    $(this).removeClass('error-border');
+    $(this).closest('form').find('.error-msg').fadeOut();
+  });
+
+});
