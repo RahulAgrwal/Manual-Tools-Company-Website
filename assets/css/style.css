@@ -1435,169 +1435,6 @@
                background-color: #e03600;
            }
            /*--------------------------------------------------------------
-# Productspage
---------------------------------------------------------------*/
-           
-           .product-filter #product-filter-flters {
-               padding: 0;
-               margin: 0 0 -100px 0;
-               list-style: none;
-               text-align: center;
-           }
-           
-           .product-filter #product-filter-flters li {
-               cursor: pointer;
-               display: inline-block;
-               padding: 8px 20px 10px 20px;
-               font-size: 14px;
-               font-weight: 400;
-               line-height: 1;
-               text-transform: uppercase;
-               color: #4d4643;
-               transition: all 0.3s;
-               border-radius: 50px;
-           }
-           
-           .product-filter #product-filter-flters li:hover,
-           .product-filter #product-filter-flters li.filter-active {
-               color: #fff;
-               background: var(--primary-color);
-           }
-           
-           .product-filter #product-filter-flters li:last-child {
-               margin-right: 0;
-           }
-           
-           .products-page .content {
-               /* padding: 0px 30px;
-    margin: 10px; */
-           }
-           
-           .products-page .image {
-               justify-items: flex-start;
-               align-items: flex-start;
-           }
-           
-           .products-page .image img {
-               transition: transform 0.3s ease;
-               max-width: 100%;
-               max-height: 100%;
-           }
-           
-           .products-page .image img:hover {
-               transform: scale(1.1);
-               /* Zoom in effect on hover */
-           }
-           
-           .products-page .content h3 {
-               font-weight: 700;
-               font-size: 20px;
-           }
-           
-           .products-page .content h4 {
-               font-weight: 700;
-               font-size: 16px;
-           }
-           
-           .products-page .content p {
-               margin-bottom: 0;
-               text-align: justify;
-               font-size: 14px;
-           }
-           
-           .products-page .content .icon-box {
-               margin-top: 10px;
-           }
-           
-           .products-page .content .icon-box h4 {
-               font-size: 16px;
-               font-weight: 700;
-               margin: 5px;
-           }
-           
-           .products-page .content .icon-box i {
-               margin: 5px;
-               font-size: 20px;
-               float: left;
-               color: var(--primary-color);
-           }
-           
-           .products-page .content .icon i {
-               margin: 5px;
-               color: var(--primary-color);
-           }
-           
-           .products-page .content ul {
-               list-style-type: none;
-               /* Removes default bullet points */
-               padding: 0;
-               font-size: 14px;
-               /* padding-left: 20px; */
-           }
-           
-           .products-page .content .icon-box p {
-               font-size: 14px;
-               color: #90847f;
-               margin-left: 60px;
-               text-align: justify;
-           }
-           
-           .products-page .btn-get-started {
-               font-family: "Muli", sans-serif;
-               font-weight: 500;
-               font-size: 14px;
-               letter-spacing: 1px;
-               display: inline-block;
-               padding: 12px 12px;
-               border-radius: 10px;
-               transition: 0.5s;
-               line-height: 1;
-               margin: 10px;
-               animation-delay: 0.8s;
-               background-color: var(--primary-color);
-               color: white;
-               width: 140px;
-               text-align: center;
-           }
-           
-           .products-page .btn-get-started:hover {
-               border: 2px solid var(--primary-color);
-               font-family: "Muli", sans-serif;
-               font-weight: 500;
-               font-size: 14px;
-               letter-spacing: 1px;
-               display: inline-block;
-               padding: 12px 12px;
-               border-radius: 10px;
-               transition: 0.5s;
-               line-height: 1;
-               margin: 10px;
-               animation-delay: 0.8s;
-               background-color: white;
-               color: var(--primary-color);
-           }
-           
-           @media (max-width: 991px) {
-               .products-page .image {
-                   text-align: center;
-               }
-               .products-page .image img {
-                   max-width: 100%;
-                   max-height: 100vh;
-               }
-           }
-           
-           @media (max-width: 667px) {
-               .products-page .image img {
-                   max-width: 100%;
-                   max-height: 40vh;
-               }
-               .products-page .content {
-                   padding: 0px 0px;
-                   margin: 10px;
-               }
-           }
-           /*--------------------------------------------------------------
 # Our Team
 --------------------------------------------------------------*/
            
@@ -2657,185 +2494,167 @@
                color: #c8bab5;
                font-size: 14px;
            }
-           /*--------------------------------------------------------------
-# Footer
---------------------------------------------------------------*/
-           
-           #footer {
-               color: #b4aca8;
-               font-size: 14px;
-               background: #14100f;
-           }
-           
-           #footer .footer-top {
-               padding: 60px 0 30px 0;
-               background: black;
-           }
-           
-           #footer .footer-top .footer-contact {
-               margin-bottom: 30px;
-           }
-           
-           #footer .footer-top .footer-contact h4 {
-               font-size: 18px;
-               margin: 0 0 0px 0;
-               padding: 2px 0 2px 0;
-               line-height: 1;
-               font-weight: 500;
-               letter-spacing: 1px;
-               text-transform: uppercase;
-               color: #fff;
-           }
-           
-           #footer .footer-top .footer-contact p {
-               font-size: 14px;
-               line-height: 24px;
-               margin-bottom: 0;
-               font-family: "Muli", sans-serif;
-               color: #b4aca8;
-           }
-           
-           #footer .footer-top h4 {
-               font-size: 16px;
-               font-weight: bold;
-               color: #fff;
-               position: relative;
-               padding-bottom: 12px;
-           }
-           
-           #footer .footer-top .footer-links {
-               margin-bottom: 30px;
-           }
-           
-           #footer .footer-top .footer-links ul {
-               list-style: none;
-               padding: 0;
-               margin: 0;
-           }
-           
-           #footer .footer-top .footer-links ul i {
-               padding-right: 2px;
-               color: #fd6f41;
-               font-size: 18px;
-               line-height: 1;
-           }
-           
-           #footer .footer-top .footer-links ul li {
-               padding: 10px 0;
-               display: flex;
-               align-items: center;
-           }
-           
-           #footer .footer-top .footer-links ul li:first-child {
-               padding-top: 0;
-           }
-           
-           #footer .footer-top .footer-links ul a {
-               color: #b4aca8;
-               transition: 0.3s;
-               display: inline-block;
-               line-height: 1;
-           }
-           
-           #footer .footer-top .footer-links ul a:hover {
-               text-decoration: none;
-               color: #fd6f41;
-           }
-           
-           #footer .footer-newsletter {
-               font-size: 15px;
-           }
-           
-           #footer .footer-newsletter h4 {
-               font-size: 16px;
-               font-weight: bold;
-               color: #fff;
-               position: relative;
-               padding-bottom: 12px;
-           }
-           
-           #footer .footer-newsletter form {
-               margin-top: 30px;
-               background: #fff;
-               padding: 6px 10px;
-               position: relative;
-               border-radius: 4px 0 0 4px;
-               text-align: left;
-           }
-           
-           #footer .footer-newsletter form input[type="email"] {
-               border: 0;
-               padding: 4px 8px;
-               width: calc(100% - 100px);
-           }
-           
-           #footer .footer-newsletter form input[type="submit"] {
-               position: absolute;
-               top: 0;
-               right: -4px;
-               bottom: 0;
-               border: 0;
-               background: none;
-               font-size: 16px;
-               padding: 0 20px;
-               background: var(--primary-color);
-               color: #fff;
-               transition: 0.3s;
-               border-radius: 0 4px 4px 0;
-               box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
-           }
-           
-           #footer .footer-newsletter form input[type="submit"]:hover {
-               background: #fd5c28;
-           }
-           
-           #footer .credits {
-               padding-top: 5px;
-               font-size: 13px;
-               color: #b4aca8;
-           }
-           
-           #footer .social-links a {
-               font-size: 18px;
-               display: inline-block;
-               background: var(--primary-color);
-               color: #fff;
-               line-height: 1;
-               padding: 8px 0;
-               margin-right: 4px;
-               border-radius: 50%;
-               text-align: center;
-               width: 36px;
-               height: 36px;
-               transition: 0.3s;
-           }
-           
-           #footer .social-links a:hover {
-               background: #fd5c28;
-               color: #fff;
-               text-decoration: none;
-           }
-           
-           #footer .social-links a {
-               font-size: 18px;
-               display: inline-block;
-               background: var(--primary-color);
-               color: #fff;
-               line-height: 1;
-               padding: 8px 0;
-               margin-right: 4px;
-               border-radius: 50%;
-               text-align: center;
-               width: 36px;
-               height: 36px;
-               transition: 0.3s;
-           }
-           
-           #footer .social-links a:hover {
-               background: #fd5c28;
-               color: #fff;
-               text-decoration: none;
-           }
+/* ============================================ */
+/* MODERN FOOTER STYLES                         */
+/* ============================================ */
+
+.mtc-modern-footer {
+  background: #111111; /* Deeper Black */
+  color: #c0c0c0;
+  font-size: 14px;
+  position: relative;
+}
+
+/* --- Top Section --- */
+.mtc-modern-footer .footer-top {
+  padding: 60px 0 30px 0;
+  background: #181818; /* Slight contrast for top section */
+  border-bottom: 1px solid #2a2a2a;
+}
+
+/* Headings with Orange Accent */
+.mtc-modern-footer h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  position: relative;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.mtc-modern-footer h4::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 40px;
+  background: var(--primary-color, #f03c02);
+}
+
+/* Brand Section */
+.mtc-modern-footer .footer-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 0;
+  color: #a0a0a0;
+}
+
+/* Social Icons */
+.mtc-modern-footer .social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #2b2b2b;
+  color: #fff;
+  line-height: 1;
+  margin-right: 8px;
+  border-radius: 4px;
+  width: 36px;
+  height: 36px;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.mtc-modern-footer .social-links a:hover {
+  background: var(--primary-color, #f03c02);
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* Links List */
+.mtc-modern-footer .footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mtc-modern-footer .footer-links li {
+  padding: 8px 0;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #222;
+}
+
+.mtc-modern-footer .footer-links li:first-child {
+  padding-top: 0;
+}
+
+.mtc-modern-footer .footer-links i {
+  padding-right: 10px;
+  color: var(--primary-color, #f03c02);
+  font-size: 14px;
+}
+
+.mtc-modern-footer .footer-links a {
+  color: #b0b0b0;
+  transition: all 0.3s ease;
+  display: inline-block;
+  line-height: 1;
+  text-decoration: none;
+}
+
+/* Hover Slide Effect */
+.mtc-modern-footer .footer-links a:hover {
+  color: #fff;
+  padding-left: 5px; /* Slide effect */
+}
+
+/* Contact Section */
+.mtc-modern-footer .contact-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  color: #b0b0b0;
+}
+
+.mtc-modern-footer .contact-item i {
+  font-size: 20px;
+  color: var(--primary-color, #f03c02);
+  margin-right: 15px;
+  margin-top: 2px;
+}
+
+/* --- Bottom Section --- */
+.mtc-modern-footer .footer-bottom {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.mtc-modern-footer .copyright {
+  color: #fff;
+  font-size: 14px;
+}
+
+.mtc-modern-footer .credits {
+  font-size: 13px;
+  color: #888;
+}
+
+.mtc-modern-footer .credits a {
+  color: var(--primary-color, #f03c02);
+  text-decoration: none;
+}
+
+.mtc-modern-footer .visitor-count {
+    color: #666;
+    font-size: 12px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .mtc-modern-footer .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+}
            /*--------------------------------------------------------------
 # VIDEO SECTION
 --------------------------------------------------------------*/
@@ -3445,161 +3264,169 @@
                .mtc-stats-wrapper {
                    margin-top: 40px;
                }
-           }
-           /* ==============================================
-   MODERN SERVICES SECTION
+           }/* ==============================================
+   MTC MODERN SERVICES SECTION
    ============================================== */
-           
-           .mtc-services-section {
-               padding: 50px 0;
-               background-color: var(--mtc-background-gray);
-               overflow: hidden;
-           }
-           /* --- LEFT SIDE: IMAGE STYLING --- */
-           
-           .mtc-service-img-wrapper {
-               position: relative;
-               padding: 20px;
-               /* Space for the offset border */
-           }
-           /* The Image */
-           
-           .mtc-service-img-wrapper .main-img {
-               border-radius: 4px;
-               box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-               position: relative;
-               z-index: 2;
-               width: 100%;
-           }
-           /* The Orange Frame behind the image */
-           
-           .img-offset-border {
-               position: absolute;
-               top: 0;
-               left: 0;
-               width: 90%;
-               height: 90%;
-               border: 5px solid var(--primary-color);
-               z-index: 1;
-               opacity: 0.3;
-           }
-           /* The Floating Badge */
-           
-           .img-experience-badge {
-               position: absolute;
-               bottom: -20px;
-               right: -20px;
-               background: #fff;
-               padding: 20px 30px;
-               box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-               z-index: 3;
-               border-left: 5px solid var(--primary-color);
-               text-align: center;
-           }
-           
-           .img-experience-badge .count {
-               display: block;
-               font-size: 2rem;
-               font-weight: 800;
-               color: var(--primary-color);
-               line-height: 1;
-           }
-           
-           .img-experience-badge .label {
-               font-size: 0.8rem;
-               font-weight: 700;
-               text-transform: uppercase;
-               color: #333;
-           }
-           /* --- RIGHT SIDE: CONTENT --- */
-           
-           .mtc-service-desc {
-               color: #666;
-               margin-bottom: 40px;
-               line-height: 1.7;
-               max-width: 600px;
-           }
-           /* THE SERVICE GRID LIST */
-           
-           .mtc-service-grid {
-               display: flex;
-               flex-direction: column;
-               gap: 15px;
-           }
-           /* Individual Service Card */
-           
-           .mtc-service-item {
-               display: flex;
-               align-items: center;
-               background: #f9f9f9;
-               padding: 20px;
-               border-radius: 6px;
-               transition: 0.3s ease;
-               border: 1px solid transparent;
-           }
-           /* Hover Effect */
-           
-           .mtc-service-item:hover {
-               background: #fff;
-               box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-               border-color: #eee;
-               transform: translateX(10px);
-               /* Moves slightly right */
-           }
-           /* Icon Box */
-           
-           .mtc-service-item .icon-box {
-               width: 50px;
-               height: 50px;
-               background: rgba(240, 60, 2, 0.1);
-               border-radius: 50%;
-               display: flex;
-               align-items: center;
-               justify-content: center;
-               color: var(--primary-color);
-               font-size: 1.2rem;
-               margin-right: 20px;
-               flex-shrink: 0;
-               transition: 0.3s;
-           }
-           
-           .mtc-service-item:hover .icon-box {
-               background: var(--primary-color);
-               color: #fff;
-           }
-           /* Text Content */
-           
-           .mtc-service-item h5 {
-               margin: 0;
-               font-size: 1.1rem;
-               font-weight: 700;
-               color: #222;
-           }
-           
-           .mtc-service-item p {
-               margin: 0;
-               font-size: 0.85rem;
-               color: #888;
-           }
-           /* Mobile Adjustments */
-           
-           @media (max-width: 991px) {
-               .mtc-service-img-wrapper {
-                   margin-bottom: 40px;
-                   padding: 0;
-               }
-               .img-offset-border {
-                   display: none;
-               }
-               /* Simplify on mobile */
-               .img-experience-badge {
-                   right: 0;
-                   bottom: 0;
-               }
-               .mtc-service-item:hover {
-                   transform: none;
-               }
-           }
+
+:root {
+    --mtc-orange: #f03c02;
+    --mtc-dark: #111;
+    --mtc-gray-bg: #f8f9fa;
+}
+
+.mtc-modern-services {
+    padding: 80px 0;
+    background-color: #f4f4f4;
+    position: relative;
+    overflow: hidden;
+}
+
+/* --- LEFT SIDE: TECHNICAL IMAGE --- */
+
+.mtc-tech-img-wrapper {
+    position: relative;
+    z-index: 1;
+    padding: 20px 0 20px 20px;
+}
+
+/* The Dotted Pattern Background */
+.tech-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150px;
+    height: 150px;
+    background-image: radial-gradient(#ddd 2px, transparent 2px);
+    background-size: 10px 10px;
+    z-index: -1;
+}
+
+.mtc-tech-img-wrapper .main-img {
+    border-radius: 8px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    /* Subtle zoom effect on load */
+    animation: fadeInScale 1s ease-out;
+}
+
+/* Glassmorphism Badge */
+.mtc-glass-badge {
+    position: absolute;
+    bottom: 40px;
+    left: -20px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-left: 4px solid var(--mtc-orange);
+    z-index: 2;
+}
+
+.mtc-glass-badge i {
+    font-size: 24px;
+}
+
+.mtc-glass-badge span {
+    line-height: 1.2;
+}
+
+/* --- RIGHT SIDE: GRID LAYOUT --- */
+
+.mtc-service-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two Columns */
+    gap: 20px;
+}
+
+.mtc-service-card {
+    background: #fff;
+    border: 1px solid #eee;
+    padding: 25px;
+    border-radius: 8px;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Spans across 2 columns */
+.mtc-service-card.full-width {
+    grid-column: span 2;
+    background: #fff9f7; /* Very light orange tint */
+    border-color: #ffecd9;
+}
+
+/* Hover Effects */
+.mtc-service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+    border-color: var(--mtc-orange);
+}
+
+/* The Icon */
+.mtc-service-card .card-icon {
+    width: 45px;
+    height: 45px;
+    background: rgba(240, 60, 2, 0.08);
+    color: var(--mtc-orange);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    transition: 0.3s;
+    flex-shrink: 0;
+}
+
+.mtc-service-card:hover .card-icon {
+    background: var(--mtc-orange);
+    color: #fff;
+}
+
+/* Text */
+.mtc-service-card h5 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #222;
+}
+
+.mtc-service-card p {
+    font-size: 13px;
+    color: #666;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Animation */
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .mtc-service-cards-grid {
+        grid-template-columns: 1fr; /* Stack on mobile */
+    }
+    .mtc-service-card.full-width {
+        grid-column: span 1;
+    }
+    .mtc-glass-badge {
+        left: 0;
+        bottom: -20px;
+    }
+    .mtc-tech-img-wrapper {
+        padding: 0;
+        margin-bottom: 50px;
+    }
+}
            /* ==============================================
    MODERN CLIENTS SECTION
    ============================================== */

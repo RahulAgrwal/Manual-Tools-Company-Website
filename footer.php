@@ -1,87 +1,110 @@
 <?php
-
-include "webcounter.php";
-$page_name = basename($_SERVER['PHP_SELF']);
-$access_number = visitor($page_name);
-
+// Ensure counter exists to prevent errors
+if(file_exists("webcounter.php")) {
+    include_once "webcounter.php";
+    $page_name = basename($_SERVER['PHP_SELF']);
+    $access_number = visitor($page_name);
+} else {
+    $access_number = 1000; // Fallback
+}
 ?>
 
-<footer id="footer">
+<footer id="footer" class="mtc-modern-footer">
+    
+    <!-- Main Footer Content -->
     <div class="footer-top">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-5 footer-contact">
-                    <img src="assets/img/MTC_Logo_Footer.png" class="img-fluid rounded mb-3 align-self-center" width="20%" alt="Manual Tools Company" />
-                    <p>
-                    <h4>Manual Tools company</h4>Bastacolla, P.O. Dhansar,<br> Dhanbad - 828106<br /> Jharkhand, India <br /><br /> <strong>Phone:</strong> +91-9430707348<br />
-                    <strong>Email:</strong> ravindrakumaragarwal@rocketmail.com<br />
+            <div class="row gy-4">
+
+                <!-- Col 1: Brand & Socials -->
+                <div class="col-lg-4 col-md-6 footer-about">
+                    <a href="index.php" class="logo d-flex align-items-center mb-3">
+                        <img src="assets/img/MTC_Logo_Footer.png" alt="MTC Logo" class="img-fluid" style="max-height: 60px;">
+                        <span class="ms-2 text-white fw-bold fs-4">MANUAL TOOLS CO.</span>
+                    </a>
+                    <p class="footer-desc">
+                        Leading manufacturer of heavy-duty Coke Oven Machinery. Engineering excellence from Dhanbad to the world since 1995.
                     </p>
+                    <div class="social-links mt-3">
+                        <a href="https://www.facebook.com/profile.php?id=61560479668542" class="facebook" target="_blank"><i class="bx bxl-facebook"></i></a>
+                        <a href="https://www.instagram.com/manual_tools_company/" class="instagram" target="_blank"><i class="bx bxl-instagram"></i></a>
+                        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                        <a href="https://maps.app.goo.gl/SR7U9r1J5fXyFfF7A" class="googlemap" target="_blank"><i class="bx bx-map"></i></a>
+                    </div>
                 </div>
 
-                <div class="col-lg-3 col-md-2 footer-links">
-                    <h4>Useful Links</h4>
+                <!-- Col 2: Useful Links -->
+                <div class="col-lg-2 col-md-6 footer-links">
+                    <h4>Quick Links</h4>
                     <ul>
                         <li><i class="bx bx-chevron-right"></i> <a href="/">Home</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="about">About us</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="products">Products</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="photo-gallery">Photo Gallery</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="contact">Contact us</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="about">Company Profile</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="products">All Products</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="photo-gallery">Gallery</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="contact">Contact Us</a></li>
                     </ul>
                 </div>
 
-                <div class="col-lg-3 col-md-2 footer-links">
-                    <h4>Our Products</h4>
+                <!-- Col 3: Key Products -->
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>Key Machinery</h4>
                     <ul>
-                        <li><i class="bx bx-chevron-right"></i> <a href="coal-crusher">Coal Crusher 5 No. Size</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="coke-cutter-double-drive">Coke Cutter Machine</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="haulage">Haulage</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="power-winch">Door Lifting Power Winch</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="vibrator-screen">Vibrator Screen Machine</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="coal-charging-car">Coal Charging Car</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="coal-crusher">Coal Crusher</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="pusher-machine-with-stamping-arrangement">Pusher Machine</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="coal-charging-car">Charging Car</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="power-winch">Power Winch</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="vibrator-screen">Vibrator Screen</a></li>
                     </ul>
                 </div>
 
-                <div class="col-lg-3 col-md-2 footer-links">
-                    <h4>Location</h4>
-                    <iframe class="d-block mx-auto" style="border:0; width: 100%; height: 95%;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14605.66029759085!2d86.4114906!3d23.7682293!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f6a356034dbf29%3A0x3fd82229c2edb25e!2sMANUAL%20TOOLS%20COMPANY!5e0!3m2!1sen!2sin!4v1715487885451!5m2!1sen!2sin" frameborder="0" allowfullscreen loading="lazy"></iframe>
-                
+                <!-- Col 4: Contact & Map -->
+                <div class="col-lg-3 col-md-6 footer-contact">
+                    <h4>Get In Touch</h4>
+                    
+                    <div class="contact-item">
+                        <i class="bx bx-map"></i>
+                        <span>Bastacolla, P.O. Dhansar,<br>Dhanbad - 828106, Jharkhand</span>
                     </div>
+                    
+                    <div class="contact-item">
+                        <i class="bx bx-phone-call"></i>
+                        <span>+91-9430707348</span>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="bx bx-envelope"></i>
+                        <span>ravindrakumaragarwal@rocketmail.com</span>
+                    </div>
+
+                    <div class="mt-3">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14605.66029759085!2d86.4114906!3d23.7682293!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f6a356034dbf29%3A0x3fd82229c2edb25e!2sMANUAL%20TOOLS%20COMPANY!5e0!3m2!1sen!2sin!4v1715487885451!5m2!1sen!2sin" 
+                            width="100%" height="120" style="border:0; border-radius: 6px; opacity: 0.8;" allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
 
             </div>
         </div>
     </div>
 
-    <div class="container d-md-flex py-4">
-
-        <div class="me-md-auto text-center text-md-start">
-            <div class="copyright">
-                &copy; Copyright <strong><span>Manual Tools Company</span></strong>. All Rights Reserved
-            </div>
-            <div class="credits">
-                Designed by <a href="https://github.com/RahulAgrwal">Rahul Agarwal</a>
-
-                <?php
-                echo " , Visitor Number : <span>" . $access_number . "</span>";
-                ?>
-
-            </div>
+    <!-- Bottom Bar -->
+    <div class="container footer-bottom clearfix">
+        <div class="copyright">
+            &copy; <?php echo date("Y"); ?> <strong><span>Manual Tools Company</span></strong>. All Rights Reserved.
         </div>
-        <div class="social-links text-center text-md-right pt-3 pt-md-0">
-            <a href="https://maps.app.goo.gl/SR7U9r1J5fXyFfF7A" class="googlemap"><i class="fas fa-location-arrow"></i></a>
-            <a href="https://www.facebook.com/profile.php?id=61560479668542" class="facebook"><i class="bx bxl-facebook"></i></a>
-            <a href="https://www.instagram.com/manual_tools_company/" class="instagram"><i class="bx bxl-instagram"></i></a>
-            <a href="https://www.youtube.com/channel/UCy7gmLKz8GxMEOprcQ8SkMA" class="linkedin"><i class="bx bxl-youtube"></i></a>
+        <div class="credits">
+            Designed by <a href="https://github.com/RahulAgrwal" target="_blank">Rahul Agarwal</a>
+            <span class="visitor-count ms-2">| &nbsp; <i class="fas fa-chart-line"></i> Visitors: <b><?php echo $access_number; ?></b></span>
         </div>
     </div>
 </footer>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17669553737">
-</script>
+<!-- Google Tag -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17669553737"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'AW-17669553737');
 </script>

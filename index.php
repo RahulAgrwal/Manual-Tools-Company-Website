@@ -329,89 +329,97 @@ $carousel_items = [
 <!-- ============================================ -->
 <!-- MTC MODERN SERVICES SECTION                  -->
 <!-- ============================================ -->
-<section id="services" class="mtc-services-section">
+<section id="services" class="mtc-modern-services">
   <div class="container">
     <div class="row align-items-center">
       
-      <!-- LEFT COLUMN: The Image (Styled) -->
-      <div class="col-lg-5 mb-5 mb-lg-0">
-        <div class="mtc-service-img-wrapper">
-          <!-- The Main Image -->
-          <img src="assets/img/flames-fire-heat-3092318-1024x669.jpg" alt="Coke Oven Process" class="img-fluid main-img">
+      <!-- LEFT COLUMN: Image with Technical styling -->
+      <div class="col-lg-5 mb-5 mb-lg-0 relative-holder">
+        <div class="mtc-tech-img-wrapper">
+          <!-- Dot Pattern Background -->
+          <div class="tech-pattern"></div>
           
-          <!-- Decorative Elements -->
-          <div class="img-offset-border"></div>
-          <div class="img-experience-badge">
-            <span class="label">Quality<br>Assured</span>
+          <img src="assets/img/flames-fire-heat-3092318-1024x669.jpg" alt="Industrial Engineering" class="img-fluid main-img">
+          
+          <!-- Modern Floating Badge -->
+          <div class="mtc-glass-badge">
+            <i class="fas fa-certificate text-orange"></i>
+            <div>
+              <span class="d-block fw-bold">ISO 9001:2015</span>
+              <span class="small text-muted">Certified Quality</span>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- RIGHT COLUMN: Content & Service List -->
+      <!-- RIGHT COLUMN: Service Grid -->
       <div class="col-lg-7 ps-lg-5">
         <div class="mtc-service-content">
           
-          <h2 class="mtc-section-header">Our <span class="text-orange">Services</span></h2>
+          <div class="section-header text-start mb-4">
+            <span class="text-uppercase text-orange fw-bold ls-2" style="font-size: 12px; letter-spacing: 2px;">What We Do</span>
+            <h2 class="fw-bold mt-2">Comprehensive <span class="text-orange">Industrial Services</span></h2>
+          </div>
           
-          <p class="mtc-service-desc">
-            We manufacture products crafted under expert supervision utilizing advanced technology. Our dedicated team rigorously tests the entire range to guarantee flawless perfection before dispatch.
+          <p class="text-muted mb-5">
+            Beyond manufacturing, Manual Tools Company provides end-to-end support for Coke Oven machinery. From the initial blueprint to the final handover and maintenance.
           </p>
 
-          <!-- MODERN SERVICE LIST -->
-          <div class="mtc-service-grid">
+          <!-- MODERN 2-COLUMN GRID -->
+          <div class="mtc-service-cards-grid">
             
-            <!-- Service Item 1 -->
-            <div class="mtc-service-item">
-              <div class="icon-box">
+            <!-- Card 1 -->
+            <div class="mtc-service-card">
+              <div class="card-icon">
                 <i class="fas fa-drafting-compass"></i>
               </div>
-              <div class="text-box">
+              <div class="card-text">
                 <h5>Design & Engineering</h5>
-                <p>Custom machinery blueprints & CAD modeling</p>
+                <p>CAD modeling & custom blueprints.</p>
               </div>
             </div>
 
-            <!-- Service Item 2 -->
-            <div class="mtc-service-item">
-              <div class="icon-box">
-                <i class="fas fa-tools"></i>
+            <!-- Card 2 -->
+            <div class="mtc-service-card">
+              <div class="card-icon">
+                <i class="fas fa-hard-hat"></i>
               </div>
-              <div class="text-box">
+              <div class="card-text">
                 <h5>Installation Supervision</h5>
-                <p>On-site guidance for proper setup</p>
+                <p>On-site expert guidance.</p>
               </div>
             </div>
 
-            <!-- Service Item 3 -->
-            <div class="mtc-service-item">
-              <div class="icon-box">
+            <!-- Card 3 -->
+            <div class="mtc-service-card">
+              <div class="card-icon">
                 <i class="fas fa-cogs"></i>
               </div>
-              <div class="text-box">
-                <h5>Commissioning Support</h5>
-                <p>Ensuring operational readiness & testing</p>
+              <div class="card-text">
+                <h5>Commissioning</h5>
+                <p>Testing & operational readiness.</p>
               </div>
             </div>
 
-            <!-- Service Item 4 -->
-            <div class="mtc-service-item">
-              <div class="icon-box">
-                <i class="fas fa-industry"></i>
+            <!-- Card 4 -->
+            <div class="mtc-service-card">
+              <div class="card-icon">
+                <i class="fas fa-chalkboard-teacher"></i>
               </div>
-              <div class="text-box">
-                <h5>Operation Training</h5>
-                <p>Staff training for seamless machinery use</p>
+              <div class="card-text">
+                <h5>Staff Training</h5>
+                <p>Operational best practices.</p>
               </div>
             </div>
 
-            <!-- Service Item 5 -->
-            <div class="mtc-service-item">
-              <div class="icon-box">
-                <i class="fas fa-warehouse"></i>
+            <!-- Card 5 (Full Width) -->
+            <div class="mtc-service-card full-width">
+              <div class="card-icon">
+                <i class="fas fa-boxes"></i>
               </div>
-              <div class="text-box">
-                <h5>Inventory & Stocks</h5>
-                <p>Spare parts availability & management</p>
+              <div class="card-text">
+                <h5>Inventory & Spares</h5>
+                <p>Readily available spare parts to minimize downtime.</p>
               </div>
             </div>
 
