@@ -290,6 +290,28 @@
 
 $(document).ready(function() {
 
+    function loadRecaptchaV3(siteKey) {
+        if (typeof grecaptcha !== 'undefined') {
+            return Promise.resolve();
+        }
+
+        if (window.__mtcRecaptchaLoader) {
+            return window.__mtcRecaptchaLoader;
+        }
+
+        window.__mtcRecaptchaLoader = new Promise(function(resolve, reject) {
+            var script = document.createElement('script');
+            script.src = 'https://www.google.com/recaptcha/api.js?render=' + encodeURIComponent(siteKey);
+            script.async = true;
+            script.defer = true;
+            script.onload = function() { resolve(); };
+            script.onerror = function() { reject(new Error('Unable to load reCAPTCHA.')); };
+            document.head.appendChild(script);
+        });
+
+        return window.__mtcRecaptchaLoader;
+    }
+
   // Target any form with the class 'ajax-form'
   $('.ajax-form').submit(function(e) {
     e.preventDefault(); 
@@ -344,65 +366,102 @@ $(document).ready(function() {
       return;
     }
 
-    // Prepare data and send AJAX
-    var formData = new FormData(this);
-    console.log("Form Data:", formData);
+        // Prepare data and send AJAX
+        var formData = new FormData(this);
+        var recaptchaSiteKey = ($form.attr('data-recaptcha-site-key') || '').trim();
+        var recaptchaAction = ($form.attr('data-recaptcha-action') || 'form_submit').trim();
+        console.log("Form Data:", formData);
 
-    $.ajax({
-      type: 'POST',
-      url: actionUrl, 
-      data: formData,
-      contentType: false,
-      cache: false,
-      processData: false,
-      beforeSend: function() {
-        $loading.fadeIn(); 
-      },
-      success: function(response) {
-        $loading.fadeOut(); 
-        console.log("Response:", response);
-        try {
-          if(typeof response === 'string') {
-              response = JSON.parse(response);
-          }
+        var sendAjax = function() {
+            $.ajax({
+                type: 'POST',
+                url: actionUrl, 
+                data: formData,
+                contentType: false,
+                cache: false,
+                processData: false,
+                beforeSend: function() {
+                    $loading.fadeIn(); 
+                },
+                success: function(response) {
+                    $loading.fadeOut(); 
+                    console.log("Response:", response);
+                    try {
+                        if(typeof response === 'string') {
+                                response = JSON.parse(response);
+                        }
 
-          if (response.success) {
-            $sentMsg.html(response.message || "Message sent!").fadeIn(); 
-            $form[0].reset(); 
-            $form.find('.error-border').removeClass('error-border');
-            
-            // Track GA4 Event & Google Ads Conversion
-            if (typeof gtag === 'function') {
-                // Track to GA4 with event parameters
-                gtag('event', 'generate_lead', {
-                    'form_name': $form.attr('id') || 'contact_form',
-                    'form_action': $form.attr('action'),
-                    'timestamp': new Date().toISOString()
+                        if (response.success) {
+                            $sentMsg.html(response.message || "Message sent!").fadeIn(); 
+                            $form[0].reset(); 
+                            $form.find('.error-border').removeClass('error-border');
+              
+                            // Track GA4 Event & Google Ads Conversion
+                            if (typeof gtag === 'function') {
+                                    // Track to GA4 with event parameters
+                                    gtag('event', 'generate_lead', {
+                                            'form_name': $form.attr('id') || 'contact_form',
+                                            'form_action': $form.attr('action'),
+                                            'timestamp': new Date().toISOString()
+                                    });
+                  
+                                    // Track Google Ads Conversion
+                                    gtag('event', 'conversion', {
+                                            'send_to': 'AW-17669553737/4NI3CPisnNgbEMn8v-lB',
+                                            'value': 1.0,
+                                            'currency': 'INR'
+                                    });
+                  
+                                    console.log("GA4 Event & Conversion Tracked");
+                            }
+                        } else {
+                            $errorMsg.html(response.message || "Something went wrong.").fadeIn(); 
+                        }
+                    } catch(e) {
+                        console.error("JSON Parse Error", e);
+                        $errorMsg.html("An unexpected error occurred.").fadeIn();
+                    }
+                },
+                error: function(xhr, status, error) {
+                    $loading.fadeOut();
+                    console.log("AJAX Error:", status, error);
+                    $errorMsg.html("Server error. Please try again later.").fadeIn();
+                }
+            });
+        };
+
+        if (recaptchaSiteKey !== '') {
+            loadRecaptchaV3(recaptchaSiteKey)
+                .then(function() {
+                    if (typeof grecaptcha === 'undefined') {
+                        throw new Error('reCAPTCHA failed to initialize.');
+                    }
+
+                    return new Promise(function(resolve, reject) {
+                        grecaptcha.ready(function() {
+                            grecaptcha.execute(recaptchaSiteKey, { action: recaptchaAction })
+                                .then(resolve)
+                                .catch(reject);
+                        });
+                    });
+                })
+                .then(function(token) {
+                    if (!token) {
+                        throw new Error('reCAPTCHA token was not generated.');
+                    }
+
+                    formData.set('g-recaptcha-response', token);
+                    formData.set('recaptcha_action', recaptchaAction);
+                    sendAjax();
+                })
+                .catch(function(error) {
+                    $errorMsg.html(error.message || 'Security verification failed. Please retry.').fadeIn();
                 });
-                
-                // Track Google Ads Conversion
-                gtag('event', 'conversion', {
-                    'send_to': 'AW-17669553737/4NI3CPisnNgbEMn8v-lB',
-                    'value': 1.0,
-                    'currency': 'INR'
-                });
-                
-                console.log("GA4 Event & Conversion Tracked");
-            }
-          } else {
-            $errorMsg.html(response.message || "Something went wrong.").fadeIn(); 
-          }
-        } catch(e) {
-          console.error("JSON Parse Error", e);
-          $errorMsg.html("An unexpected error occurred.").fadeIn();
+
+            return;
         }
-      },
-      error: function(xhr, status, error) {
-        $loading.fadeOut();
-        console.log("AJAX Error:", status, error);
-        $errorMsg.html("Server error. Please try again later.").fadeIn();
-      }
-    });
+
+        sendAjax();
   });
 
   // Real-time input validation cleanup

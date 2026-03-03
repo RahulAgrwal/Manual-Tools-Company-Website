@@ -23,6 +23,64 @@ $response = [];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
+  $recaptchaSecret = '6Ldj7H0sAAAAAGNwdxtFIMA09ZgxeSd62uE-lICO';
+  $recaptchaToken = trim($_POST['g-recaptcha-response'] ?? '');
+  $expectedRecaptchaAction = trim($_POST['recaptcha_action'] ?? '');
+  $minimumRecaptchaScore = 0.5;
+
+  if ($recaptchaSecret === '' || $recaptchaToken === '') {
+    $response = array('success' => false, 'message' => 'reCAPTCHA verification failed. Please try again.');
+    ob_end_clean();
+    echo json_encode($response);
+    exit;
+  }
+
+  $verifyPostData = http_build_query([
+    'secret' => $recaptchaSecret,
+    'response' => $recaptchaToken,
+    'remoteip' => $_SERVER['REMOTE_ADDR'] ?? ''
+  ]);
+
+  $verifyContext = stream_context_create([
+    'http' => [
+      'method' => 'POST',
+      'header' => "Content-type: application/x-www-form-urlencoded\r\n",
+      'content' => $verifyPostData,
+      'timeout' => 10
+    ]
+  ]);
+
+  $verifyResult = @file_get_contents('https://www.google.com/recaptcha/api/siteverify', false, $verifyContext);
+  $verifyJson = json_decode($verifyResult ?? '', true);
+
+  if (empty($verifyJson['success'])) {
+    $response = array('success' => false, 'message' => 'reCAPTCHA validation failed. Please retry.');
+    ob_end_clean();
+    echo json_encode($response);
+    exit;
+  }
+
+  if (!isset($verifyJson['score'])) {
+    $response = array('success' => false, 'message' => 'Invalid reCAPTCHA key type. Please use reCAPTCHA v3 keys.');
+    ob_end_clean();
+    echo json_encode($response);
+    exit;
+  }
+
+  if ((float)$verifyJson['score'] < $minimumRecaptchaScore) {
+    $response = array('success' => false, 'message' => 'Submission blocked by spam protection. Please try again.');
+    ob_end_clean();
+    echo json_encode($response);
+    exit;
+  }
+
+  if ($expectedRecaptchaAction !== '' && !empty($verifyJson['action']) && $verifyJson['action'] !== $expectedRecaptchaAction) {
+    $response = array('success' => false, 'message' => 'Security action mismatch. Please refresh and try again.');
+    ob_end_clean();
+    echo json_encode($response);
+    exit;
+  }
+
   // Get the form fields and sanitize slightly to prevent breaking HTML
   $first_name = htmlspecialchars($_POST['first_name'] ?? '');
   $last_name = htmlspecialchars($_POST['last_name'] ?? '');

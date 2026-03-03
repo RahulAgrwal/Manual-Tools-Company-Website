@@ -2,6 +2,7 @@
 // Get page URL passed as parameter
 $pageUrl = isset($_GET['page_url']) ? htmlspecialchars($_GET['page_url']) : 'General Inquiry';
 $pageTitle = isset($_GET['page_title']) ? htmlspecialchars($_GET['page_title']) : '';
+$recaptchaSiteKey = '6Ldj7H0sAAAAAIIk3lL0kl9Y_Ohi8M_JcC5Qm13u';
 ?>
 
 <div class="mtc-sidebar-quote-card">
@@ -13,7 +14,7 @@ $pageTitle = isset($_GET['page_title']) ? htmlspecialchars($_GET['page_title']) 
     </div>
   </div>
 
-  <form id="<?php echo $pageUrl; ?>" action="forms/contact.php" method="post" class="ajax-form php-email-form">
+  <form id="<?php echo $pageUrl; ?>" action="forms/contact.php" method="post" class="ajax-form php-email-form" data-recaptcha-site-key="<?php echo htmlspecialchars($recaptchaSiteKey, ENT_QUOTES, 'UTF-8'); ?>" data-recaptcha-action="sidebar_quote_submit">
     <div class="loading" style="display:none; font-size:12px; margin-bottom:10px;">Sending...</div>
   <div class="error-msg" style="display:none; color:red; font-size:12px; margin-bottom:10px;"></div>
   <div class="sent-message" style="display:none; color:green; font-size:12px; margin-bottom:10px;"></div>

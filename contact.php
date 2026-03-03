@@ -1,3 +1,6 @@
+<?php
+$recaptchaSiteKey = '6Ldj7H0sAAAAAIIk3lL0kl9Y_Ohi8M_JcC5Qm13u';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -94,7 +97,7 @@
                 <p>Fill out the form below and we will get back to you shortly.</p>
               </div>
 
-              <form action="forms/contact.php" method="post" class="ajax-form php-email-form" id="contact_form" role="form">
+              <form action="forms/contact.php" method="post" class="ajax-form php-email-form" id="contact_form" role="form" data-recaptcha-site-key="<?php echo htmlspecialchars($recaptchaSiteKey, ENT_QUOTES, 'UTF-8'); ?>" data-recaptcha-action="contact_form_submit">
                 
                 <!-- Feedback Messages -->
                 <div class="loading">Sending...</div>
