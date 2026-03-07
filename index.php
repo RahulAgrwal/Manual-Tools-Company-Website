@@ -97,6 +97,13 @@ $carousel_items = [
       "subtitle" => "Engineered with Manganese Steel for maximum durability and high-capacity performance.",
       "link" => "coke-cutter-double-drive"
     ],
+      [
+      "image_path" => "assets/img/slide/Coke-Cutter-Machine-Ring-Type.png",
+      "lqip_path" => "assets/img/slide-thumbnail/Coke-Cutter-Machine-Ring-Type_thumbnail_1920x1080.png",
+      "title" => "Coke Cutter Machine (Ring Type Teeth)",
+      "subtitle" => "Engineered with Manganese Steel Ring Type Teeth for maximum durability and high-capacity performance.",
+      "link" => "coke-cutter-double-drive-ring-type"
+    ],
     [
       "image_path" => "assets/img/slide/Haulage-Machine.png",
       "lqip_path" => "assets/img/slide-thumbnail/Haulage-Machine_thumbnail_1920x1080.png",

@@ -59,6 +59,7 @@ $page = basename($_SERVER['PHP_SELF'], '.php');
                         <li><a href="coal-crusher-5-No-single-disc">Coal Crusher (5 No.) Single Disc</a></li>
                         <li><a href="coal-crusher-5-No-double-disc">Coal Crusher (5 No.) Double Disc</a></li>
                         <li><a href="coke-cutter-double-drive">Coke Cutter Machine</a></li>
+                        <li><a href="coke-cutter-double-drive-ring-type">Coke Cutter Machine Ring Type Teeth</a></li>
                         <li><a href="haulage">Haulage Machine</a></li>
                         <li><a href="power-winch">Door Lifting Power Winch</a></li>
                         <li><a href="vibrator-screen">Vibrator Screen Machine</a></li>

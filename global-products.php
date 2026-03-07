@@ -23,6 +23,13 @@ $GLOBAL_PRODUCT_CARDS = [
     "short_description" => "Heavy-duty double drive system designed for precise coke cutting and specific sizing requirements."
   ],
   [
+    "image_path" => "assets/img/about-us-products-thumbnail/Double-Drive-Coke-Cutter-Machine-Ring-Type.jpg",
+    "title" => "Coke Cutter Machine Ring Type Teeth",
+    "subtitle" => "Double Drive Ring Type",
+    "link" => "coke-cutter-double-drive-ring-type",
+    "short_description" => "Heavy-duty double drive system with ring type teeth designed for precise coke cutting and specific sizing requirements."
+  ],
+  [
     "image_path" => "assets/img/about-us-products-thumbnail/Haulage-Machine.png",
     "title" => "Haulage Machine",
     "subtitle" => "Power Driven",

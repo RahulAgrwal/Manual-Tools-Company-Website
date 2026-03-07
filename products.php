@@ -142,7 +142,35 @@
           </div>
         </div>
 
-        <!-- 4. Haulage Machine -->
+        <!-- 4. Coke Cutter Double Drive Ring Type -->
+        <div class="mtc-product-card product-item coke-cutter">
+          <div class="row g-0">
+            <div class="col-lg-5">
+              <div class="mtc-card-img-wrapper">
+                <img src="assets/img/about-us-products/Double Drive Coke Cutter Machine Ring Type.jpg" alt="Coke Cutter Machine Ring Type">
+              </div>
+            </div>
+            <div class="col-lg-7">
+              <div class="mtc-card-content">
+                <span class="mtc-card-eyebrow">Precision Sizing</span>
+                <h3 class="mtc-card-title">Coke Cutter Machine (Double Drive Ring Type)</h3>
+                <p class="mtc-card-desc">
+                  Specialized double-drive cutter for sizing metallurgical coke. Features adjustable drums for 45-60mm output and manganese steel teeth for longevity.
+                </p>
+                <div class="mtc-mini-specs">
+                  <div class="mtc-mini-spec-item"><i class="fas fa-bolt"></i> 20 HP x 2 Motors</div>
+                  <div class="mtc-mini-spec-item"><i class="fas fa-ruler"></i> 45-60mm Output</div>
+                  <div class="mtc-mini-spec-item"><i class="fas fa-weight-hanging"></i> 12 - 15 TPH</div>
+                  <div class="mtc-mini-spec-item"><i class="fas fa-cogs"></i> Cast Steel Gears</div>
+                </div>
+                <a href="coke-cutter-double-drive-ring-type" class="mtc-btn-outline">View Details <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- 5. Haulage Machine -->
         <div class="mtc-product-card product-item haulage">
           <div class="row g-0">
             <div class="col-lg-5">
@@ -169,7 +197,7 @@
           </div>
         </div>
 
-        <!-- 5. Power Winch -->
+        <!-- 6. Power Winch -->
         <div class="mtc-product-card product-item power-winch">
           <div class="row g-0">
             <div class="col-lg-5">
@@ -196,7 +224,7 @@
           </div>
         </div>
 
-        <!-- 6. Vibrator Screen -->
+        <!-- 7. Vibrator Screen -->
         <div class="mtc-product-card product-item vibrator">
           <div class="row g-0">
             <div class="col-lg-5">
@@ -223,7 +251,7 @@
           </div>
         </div>
 
-        <!-- 7. Conveyor Materials -->
+        <!-- 8. Conveyor Materials -->
         <div class="mtc-product-card product-item conveyor">
           <div class="row g-0">
             <div class="col-lg-5">
@@ -250,7 +278,7 @@
           </div>
         </div>
 
-        <!-- 8. Pusher Machine -->
+        <!-- 9. Pusher Machine -->
         <div class="mtc-product-card product-item heavy-machinery">
           <div class="row g-0">
             <div class="col-lg-5">
@@ -277,7 +305,7 @@
           </div>
         </div>
 
-        <!-- 9. Coal Charging Car -->
+        <!-- 10. Coal Charging Car -->
         <div class="mtc-product-card product-item heavy-machinery">
           <div class="row g-0">
             <div class="col-lg-5">
