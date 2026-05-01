@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="Double Drive Coke Cutter (Ring Type) for heavy-duty coke sizing. Features Manganese Steel Toothed Rings, 20 HP x 2 motors, 12–15 TPH capacity. Manual Tools Company.">
+    content="Double Drive Coke Cutter (Ring Type) for heavy-duty coke sizing. Features Manganese Steel Toothed Rings, 25 HP x 2 motors, 20 TPH capacity. Manual Tools Company.">
   <meta name="keywords"
     content="Ring Type Coke Cutter, Double Drive Coke Cutter, Toothed Ring Coke Crusher, Coke Sizing Machine, Manual Tools Company, Dhanbad, Jharkhand, India">
   <meta name="robots" content="index, follow">
@@ -31,14 +31,14 @@
     "@type": "Product",
     "name": "Double Drive Coke Cutter (Ring Type)",
     "image": "https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Double-Drive-Coke-Cutter-Machine-Ring-Type.jpg",
-    "description": "Double drive coke cutter machine featuring segmented manganese steel rings, 12-15 TPH capacity, and adjustable output.",
+    "description": "Double drive coke cutter machine featuring segmented manganese steel rings, 20 TPH capacity, and adjustable output.",
     "sku": "MTC-CCM-DD-RT",
     "brand": { "@type": "Organization", "name": "Manual Tools Company" },
     "additionalProperty": [
-      { "@type": "PropertyValue", "name": "Motor Power", "value": "20 H.P. x 2 (Double Drive)" },
+      { "@type": "PropertyValue", "name": "Motor Power", "value": "25 H.P. x 2 (Double Drive)" },
       { "@type": "PropertyValue", "name": "Teeth Type", "value": "Manganese Steel Rings" },
       { "@type": "PropertyValue", "name": "Finished Size", "value": "45 - 60 mm (Adjustable)" },
-      { "@type": "PropertyValue", "name": "Capacity", "value": "12 – 15 TPH" }
+      { "@type": "PropertyValue", "name": "Capacity", "value": "20 TPH" }
     ]
   }
   </script>
@@ -173,7 +173,7 @@
             </div>
 
             <p style="line-height: 1.6; color: #555;">
-              Designed for ease of maintenance and high durability, this model features <strong>Segmented Manganese Steel Rings</strong> instead of standard liner plates. Powered by <strong>Dual 20 HP Motors</strong>, it allows for easy replacement of individual rings, reducing downtime while delivering precise 45mm–60mm coke output.
+              Designed for ease of maintenance and high durability, this model features <strong>Segmented Manganese Steel Rings</strong> instead of standard liner plates. Powered by <strong>Dual 25 HP Motors</strong>, it allows for easy replacement of individual rings, reducing downtime while delivering precise 45mm–60mm coke output.
             </p>
 
             <div class="mtc-product-specs-grid">
@@ -188,7 +188,7 @@
                 <i class="fas fa-bolt mtc-product-spec-icon"></i>
                 <div class="mtc-product-spec-text">
                   <span>Motor Power</span>
-                  <strong>20 HP x 2 (Dual)</strong>
+                  <strong>25 HP x 2 (Dual)</strong>
                 </div>
               </div>
               <div class="mtc-product-spec-item">
@@ -202,7 +202,7 @@
                 <i class="fas fa-weight-hanging mtc-product-spec-icon"></i>
                 <div class="mtc-product-spec-text">
                   <span>Capacity</span>
-                  <strong>12 - 15 TPH</strong>
+                  <strong>20 TPH</strong>
                 </div>
               </div>
             </div>
@@ -269,7 +269,7 @@
                     The Manual Tools Company **Ring Type Double Drive Coke Cutter** is a specialized variant of our standard sizing machines. Instead of a single drum shell, the shaft is fitted with multiple **independent Manganese Steel Rings**. This design offers superior flexibility in maintenance and ensures a more aggressive cutting action for hard metallurgical coke.
                   </p>
                   <p class="mtc-tech-paragraph">
-                    Powered by **Two 20 H.P. Motors**, the counter-rotating shafts deliver high torque to prevent stalling. The ring design prevents the formation of "slabs" (flat pieces) and reduces the generation of fines, ensuring optimal blast furnace permeability.
+                    Powered by **Two 25 H.P. Motors**, the counter-rotating shafts deliver high torque to prevent stalling. The ring design prevents the formation of "slabs" (flat pieces) and reduces the generation of fines, ensuring optimal blast furnace permeability.
                   </p>
 
                   <h3 class="mtc-tech-heading" style="font-size: 20px; margin-top: 40px;">Technical Parameters</h3>
@@ -293,7 +293,7 @@
                         </tr>
                         <tr>
                           <td><strong>Motor Power</strong></td>
-                          <td>20 H.P. + 20 H.P. (Total 40 H.P.)</td>
+                          <td>25 H.P. + 25 H.P. (Total 50 H.P.)</td>
                         </tr>
                         <tr>
                           <td><strong>Input Feed Size</strong></td>
@@ -305,7 +305,7 @@
                         </tr>
                         <tr>
                           <td><strong>Processing Capacity</strong></td>
-                          <td>12 – 15 Tons Per Hour</td>
+                          <td>20 Tons Per Hour</td>
                         </tr>
                         <tr>
                           <td><strong>Material of Construction</strong></td>
@@ -465,7 +465,7 @@
                         ["q" => "Why are there two motors (Double Drive)?", "a" => "Double Drive ensures equal torque distribution on both ends of the cutting shaft. This prevents the machine from jamming when a particularly large or hard lump of coke enters, and it extends the life of the gears."],
                         ["q" => "Can I adjust the output size?", "a" => "Yes, the gap between the ring shafts is adjustable. You can set the output size between 45 mm and 60 mm depending on your furnace requirements."],
                         ["q" => "How durable are the rings?", "a" => "The rings are cast from High Manganese Steel, which work-hardens during use. They are designed to withstand the abrasive nature of metallurgical coke for long periods."],
-                        ["q" => "What capacity does this machine handle?", "a" => "This model is designed for a throughput of 12 to 15 Tons Per Hour (TPH)."]
+                        ["q" => "What capacity does this machine handle?", "a" => "This model is designed for a throughput of 20 Tons Per Hour (TPH)."]
                       ];
 
                       foreach ($product_faqs as $index => $faq) {

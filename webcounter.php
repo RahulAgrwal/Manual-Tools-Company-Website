@@ -15,10 +15,10 @@ function visitor($page_name_)
     $zip = "";
     $regionName = "";
 
-    $db_host = "193.203.184.94:3306";
-    $db_username = "u427644097_manualtoolsco";
-    $db_password = "Manual@06";
-    $db_name = "u427644097_manualtoolsco";
+    $db_host = "193.203.184.155:3306";
+    $db_username = "u889575799_manualtoolsco";
+    $db_password = "6KqVxM?t";
+    $db_name = "u889575799_manualtoolsco";
 
 
     $db_table = "visitor_count";
