@@ -6,7 +6,6 @@
 - [ ] **PHPMailer is not really in git.** `vendor/phpmailer/phpmailer` is stored as a git *gitlink* (a nested repo reference with no `.gitmodules`), so a fresh clone or deploy gets an empty folder and the contact form fails. The live server works only because its copy was uploaded earlier.
   - Fix: commit the library files properly.
   - First, confirm how Hostinger deploys (git pull over existing files can fail when newly tracked files already exist untracked on the server).
-- [ ] **Remove leftover `assets/vendor/phpmailer/` on the server.** It was removed from git, but server-side copies of gitlink folders are not deleted by a deploy. Delete it in the hPanel File Manager if it is still there.
 
 ## Done
 
@@ -19,5 +18,5 @@
 - [x] **2026-09-16: Single site address.** `manualtoolsco.com` redirects (301) to `www.manualtoolsco.com`, and hard-coded URLs use `www`.
 - [x] **2026-09-16: Home page structured data.** `sameAs` now lists the real Facebook and Instagram profiles.
 - [x] **2026-09-16: Ring-type coke cutter page.** Its `<style>` block moved inside `<head>`.
-- [x] **2026-09-16: Duplicate libraries.** Removed the duplicate Composer and PHPMailer copies from `assets/vendor/`.
+- [x] **2026-09-16: Duplicate libraries.** Removed the duplicate Composer and PHPMailer copies from `assets/vendor/`. Confirmed they return 404 on the live site.
 - [x] **2026-09-16: New Vibrator Screen photo.** Added `Vibrator-Screen-3.png`.
