@@ -89,83 +89,118 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     exit;
   }
 
-  // Get the form fields and sanitize slightly to prevent breaking HTML
-  $first_name = htmlspecialchars($_POST['first_name'] ?? '');
-  $last_name = htmlspecialchars($_POST['last_name'] ?? '');
+  // Raw values (trimmed, single-line where appropriate) - escaped separately for HTML below
+  $oneLine = function ($key) {
+    return trim(preg_replace('/[\r\n]+/', ' ', (string)($_POST[$key] ?? '')));
+  };
+  $raw_first_name = $oneLine('first_name');
+  $raw_last_name  = $oneLine('last_name');
+  $raw_subject    = $oneLine('subject');
+  $raw_source     = $oneLine('source_page');
+  $email = filter_var(trim($_POST['email'] ?? ''), FILTER_VALIDATE_EMAIL);
+
+  if ($raw_first_name === '' || !$email) {
+    ob_end_clean();
+    echo json_encode(['success' => false, 'message' => 'Please enter your name and a valid email address.']);
+    exit;
+  }
+
+  // HTML-escaped values for the email body
+  $first_name = htmlspecialchars($raw_first_name);
+  $last_name = htmlspecialchars($raw_last_name);
   $company_name = htmlspecialchars($_POST['company_name'] ?? '');
   $company_gstin = htmlspecialchars($_POST['company_gstin'] ?? '');
   $contact = htmlspecialchars($_POST['contact'] ?? '');
   $address = htmlspecialchars($_POST['address'] ?? '');
-  $email = filter_var($_POST['email'] ?? '', FILTER_SANITIZE_EMAIL);
-  $subject = htmlspecialchars($_POST['subject'] ?? '');
+  $email_html = htmlspecialchars($email);
+  $subject = htmlspecialchars($raw_subject);
+  $source_page = htmlspecialchars($raw_source);
   $message = nl2br(htmlspecialchars($_POST['message'] ?? ''));
 
-  // Your HTML Body
+  // Enquiry email to the company (contains the visitor's details)
   $body = "
-  <body class='bg-light'>
-  <div class='container'>   
-    <div class='card my-10'>
-      <a href='https://manualtoolsco.com' target='_blank'>
-        <img src='https://manualtoolsco.com/assets/img/MTC%20Logo.png' style='height:40px;' alt='Logo'/>
-      </a>
-      <div class='card-body'>
-        <h2 class='h3 mb-2'>Thank you for contacting us</h2>
-        <hr>
-        <table style='width: 100%; border-collapse: collapse;'>
-          <tbody>
-            <tr><td style='padding: 5px; font-weight:bold;'>Name:</td><td style='padding: 5px;'>$first_name $last_name</td></tr>
-            <tr><td style='padding: 5px; font-weight:bold;'>Company Name:</td><td style='padding: 5px;'>$company_name</td></tr>
-            <tr><td style='padding: 5px; font-weight:bold;'>GSTIN:</td><td style='padding: 5px;'>$company_gstin</td></tr>
-            <tr><td style='padding: 5px; font-weight:bold;'>Contact:</td><td style='padding: 5px;'>$contact</td></tr>
-            <tr><td style='padding: 5px; font-weight:bold;'>Address:</td><td style='padding: 5px;'>$address</td></tr>
-            <tr><td style='padding: 5px; font-weight:bold;'>Email:</td><td style='padding: 5px;'>$email</td></tr>
-            <tr><td style='padding: 5px; font-weight:bold;'>Subject:</td><td style='padding: 5px;'>$subject</td></tr>
-            <tr><td style='padding: 5px; font-weight:bold;'>Requirement:</td><td style='padding: 5px;'>$message</td></tr>
-          </tbody>
-        </table>
-        <hr>
-        <p class='text-gray-700'>We will reach out to you after reviewing your requirements.</p>
-        <p class='text-gray-700'>Check out other <a href='https://manualtoolsco.com/products.php' target='_blank'>Products</a> to know more.</p>
-      </div>
-    </div>
-  </div>
+  <body style='font-family: Arial, sans-serif; color:#333;'>
+    <a href='https://manualtoolsco.com' target='_blank'>
+      <img src='https://manualtoolsco.com/assets/img/MTC%20Logo.png' style='height:40px;' alt='Logo'/>
+    </a>
+    <h2 style='margin:16px 0 8px;'>New enquiry from the website</h2>
+    <p style='margin:0 0 12px; color:#777;'>Reply to this email to respond directly to the customer.</p>
+    <hr>
+    <table style='width: 100%; border-collapse: collapse;'>
+      <tbody>
+        <tr><td style='padding: 5px; font-weight:bold; width:150px;'>Name:</td><td style='padding: 5px;'>$first_name $last_name</td></tr>
+        <tr><td style='padding: 5px; font-weight:bold;'>Email:</td><td style='padding: 5px;'>$email_html</td></tr>
+        <tr><td style='padding: 5px; font-weight:bold;'>Contact:</td><td style='padding: 5px;'>$contact</td></tr>
+        <tr><td style='padding: 5px; font-weight:bold;'>Company Name:</td><td style='padding: 5px;'>$company_name</td></tr>
+        <tr><td style='padding: 5px; font-weight:bold;'>GSTIN:</td><td style='padding: 5px;'>$company_gstin</td></tr>
+        <tr><td style='padding: 5px; font-weight:bold;'>Address:</td><td style='padding: 5px;'>$address</td></tr>
+        <tr><td style='padding: 5px; font-weight:bold;'>Subject:</td><td style='padding: 5px;'>$subject</td></tr>
+        <tr><td style='padding: 5px; font-weight:bold;'>Submitted from:</td><td style='padding: 5px;'>$source_page</td></tr>
+        <tr><td style='padding: 5px; font-weight:bold; vertical-align:top;'>Requirement:</td><td style='padding: 5px;'>$message</td></tr>
+      </tbody>
+    </table>
   </body>";
 
-  try {
-    $mail = new PHPMailer(true);
+  // Fixed confirmation to the visitor - intentionally contains NO user-supplied text,
+  // so the form cannot be used to send arbitrary content to arbitrary addresses.
+  $confirmationBody = "
+  <body style='font-family: Arial, sans-serif; color:#333;'>
+    <a href='https://manualtoolsco.com' target='_blank'>
+      <img src='https://manualtoolsco.com/assets/img/MTC%20Logo.png' style='height:40px;' alt='Logo'/>
+    </a>
+    <h2 style='margin:16px 0 8px;'>Thank you for contacting Manual Tools Company</h2>
+    <p>We have received your enquiry. Our team will review your requirements and get back to you shortly.</p>
+    <p>For urgent requirements, call us at <strong>+91 94307 07348</strong>.</p>
+    <p>Explore our <a href='https://www.manualtoolsco.com/products' target='_blank'>products</a>.</p>
+    <hr>
+    <p style='font-size:12px; color:#999;'>Manual Tools Company, Bastacolla, P.O. Dhansar, Dhanbad - 828106, Jharkhand</p>
+  </body>";
 
-    // Server settings
-    $mail->isSMTP(); 
-    $mail->Host       = 'smtp.gmail.com'; 
-    $mail->SMTPAuth   = true; 
+  $newMailer = function () use ($secrets) {
+    $mail = new PHPMailer(true);
+    $mail->isSMTP();
+    $mail->Host       = 'smtp.gmail.com';
+    $mail->SMTPAuth   = true;
     $mail->Username   = $secrets['smtp_user'];
     $mail->Password   = $secrets['smtp_pass']; // Google App Password, stored in secrets file
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port       = 587;
-
-    // Recipients
+    $mail->CharSet    = 'UTF-8';
     $mail->setFrom($secrets['smtp_user'], 'MANUAL TOOLS COMPANY');
-    
-    if($email) {
-        $mail->addAddress($email, "$first_name $last_name"); 
-    }
-    
-    // Add CC
-    $mail->addCC('ravindrakumaragarwal@rocketmail.com', 'Ravindra Kumar Agarwal'); 
+    $mail->isHTML(true);
+    return $mail;
+  };
 
-    // Content
-    $mail->isHTML(true); 
-    $mail->Subject = $subject;
+  $visitorName = trim("$raw_first_name $raw_last_name");
+
+  try {
+    // 1. Enquiry to the company; Reply-To is the visitor
+    $mail = $newMailer();
+    $mail->addAddress($secrets['smtp_user'], 'Manual Tools Company');
+    $mail->addCC('ravindrakumaragarwal@rocketmail.com', 'Ravindra Kumar Agarwal');
+    $mail->addReplyTo($email, $visitorName);
+    $mail->Subject = 'Website Enquiry: ' . ($raw_subject !== '' ? $raw_subject : $visitorName);
     $mail->Body    = $body;
-
     $mail->send();
 
     $response = array('success' => true, 'message' => 'Your message has been sent. Thank you!');
-
   } catch (Exception $e) {
-    // Return the detailed error from PHPMailer so you can debug
-    $errorMsg = $mail->ErrorInfo ?: $e->getMessage();
-    $response = array('success' => false, 'message' => 'Mailer Error: ' . $errorMsg);
+    // Log details server-side; don't expose mailer internals to visitors
+    error_log('contact form: ' . (isset($mail) && $mail->ErrorInfo ? $mail->ErrorInfo : $e->getMessage()));
+    $response = array('success' => false, 'message' => 'Sorry, we could not send your message. Please call +91 94307 07348 or email manualtoolsco.dhn@gmail.com.');
+  }
+
+  // 2. Fixed confirmation to the visitor (best effort - failure doesn't affect the enquiry)
+  if ($response['success']) {
+    try {
+      $confirm = $newMailer();
+      $confirm->addAddress($email, $visitorName);
+      $confirm->Subject = 'We received your enquiry - Manual Tools Company';
+      $confirm->Body    = $confirmationBody;
+      $confirm->send();
+    } catch (Exception $e) {
+      error_log('contact form confirmation: ' . (isset($confirm) && $confirm->ErrorInfo ? $confirm->ErrorInfo : $e->getMessage()));
+    }
   }
 
 } else {
