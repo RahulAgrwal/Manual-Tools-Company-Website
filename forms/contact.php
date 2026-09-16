@@ -13,6 +13,14 @@ if (!file_exists('../vendor/autoload.php')) {
 }
 
 include_once '../vendor/autoload.php';
+require_once __DIR__ . '/../load-secrets.php';
+
+$secrets = mtc_secrets();
+if (empty($secrets['smtp_pass']) || empty($secrets['recaptcha_secret'])) {
+    ob_end_clean();
+    echo json_encode(['success' => false, 'message' => 'Server Error: mail configuration missing. Please contact us by phone or email.']);
+    exit;
+}
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -23,7 +31,7 @@ $response = [];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-  $recaptchaSecret = '6Ldj7H0sAAAAAGNwdxtFIMA09ZgxeSd62uE-lICO';
+  $recaptchaSecret = $secrets['recaptcha_secret'];
   $recaptchaToken = trim($_POST['g-recaptcha-response'] ?? '');
   $expectedRecaptchaAction = trim($_POST['recaptcha_action'] ?? '');
   $minimumRecaptchaScore = 0.5;
@@ -130,13 +138,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mail->isSMTP(); 
     $mail->Host       = 'smtp.gmail.com'; 
     $mail->SMTPAuth   = true; 
-    $mail->Username   = 'manualtoolsco.dhn@gmail.com'; 
-    $mail->Password   = 'mynyxuwmsctnfglq'; // Ensure this App Password is correct
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; 
-    $mail->Port       = 587; 
+    $mail->Username   = $secrets['smtp_user'];
+    $mail->Password   = $secrets['smtp_pass']; // Google App Password, stored in secrets file
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port       = 587;
 
     // Recipients
-    $mail->setFrom('manualtoolsco.dhn@gmail.com', 'MANUAL TOOLS COMPANY'); 
+    $mail->setFrom($secrets['smtp_user'], 'MANUAL TOOLS COMPANY');
     
     if($email) {
         $mail->addAddress($email, "$first_name $last_name"); 

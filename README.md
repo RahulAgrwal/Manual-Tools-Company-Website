@@ -1,47 +1,63 @@
-# PHP Project
+# Manual Tools Company Website
 
-This is a simple PHP project that can be run using PHP's built-in development server with a custom router file.
+Marketing website for Manual Tools Company (coke oven machinery, Dhanbad). Plain PHP pages, no build step.
 
-**Live Demo:** [https://www.manualtoolsco.com/](https://www.manualtoolsco.com/)
+**Live:** [https://www.manualtoolsco.com/](https://www.manualtoolsco.com/)
 
 ## Prerequisites
-- PHP 7.4+ must be installed on your system.
-- A web browser to access the application.
+- PHP 7.4+ with the `mysqli` extension
+- A web browser
 
-## Run the Project
+## Configure secrets
 
-1. Open your terminal and navigate to the project directory:
+Passwords and keys are **not** stored in the code. They are read from a PHP file that is never committed (see `load-secrets.php`).
 
-   ```bash
-   cd path/to/project
-   ```
+1. Copy `secrets.example.php` and fill in the values:
+   - **Local development:** copy to `config/secrets.php` in the project root (the whole `config/` folder is git-ignored). `secrets.local.php` in the root also works.
+   - **Production (Hostinger):** copy to `domains/manualtoolsco.com/config/secrets.php`, i.e. the `config` folder **next to** `public_html`, not inside it, so it can never be served over the web.
+2. Values needed:
 
-2. Start the PHP built-in server with `router.php`:
+   | Key | Used by | Where to get it |
+   |---|---|---|
+   | `smtp_user`, `smtp_pass` | `forms/contact.php` | Gmail account + Google **App Password** |
+   | `recaptcha_secret` | `forms/contact.php` | reCAPTCHA v3 admin console (secret key) |
+   | `db_host`, `db_port`, `db_user`, `db_pass`, `db_name` | `webcounter.php` | hPanel → Databases → MySQL (`localhost` on Hostinger) |
 
-   ```bash
-   php -S localhost:8080 router.php
-   ```
+To use a different path, set the `MTC_SECRETS_FILE` environment variable to the full file path.
 
-3. Open your browser and go to:
+Without a secrets file the site still loads: the contact form returns a configuration error and the footer visitor counter shows a fallback number.
 
-   ```
-   http://localhost:8080
-   ```
+> The public reCAPTCHA **site key** is not secret and lives in `contact.php` and `sidebar-quote-form.php`. Update both if the key pair changes.
 
-The application should now be running locally.
+## Run the project locally
 
-  
-## Project Structure
+```bash
+php -S localhost:8080 router.php
+```
+
+Then open http://localhost:8080. `router.php` mimics the production `.htaccess` rules (URLs without `.php`).
+
+## Project structure
 
 ```
 .
-├── index.php     # Entry point
-├── router.php    # Router for PHP built-in server
-├── src/          # Source code
-├── assets/       # Static files (CSS, JS, Images)
-└── README.md     # Documentation
+├── index.php, about.php, products.php, contact.php, photo-gallery.php
+├── <product-slug>.php        # Product detail pages
+├── header.php, footer.php, common-head.php
+├── global-products.php       # Master product list
+├── related-products.php, our-products.php, sidebar-quote-form.php, clients.php
+├── forms/contact.php         # AJAX form endpoint (PHPMailer + reCAPTCHA v3)
+├── webcounter.php            # Visitor counter (MySQL)
+├── load-secrets.php          # Loads credentials from the secrets file
+├── secrets.example.php       # Template for the secrets file
+├── config/secrets.php        # Local secrets (git-ignored, not in repo)
+├── router.php                # Router for PHP built-in server
+├── .htaccess                 # Production URL rewriting
+├── brochure/                 # Python scripts that generate PDF brochures
+├── vendor/                   # PHPMailer (Composer autoload)
+└── assets/                   # CSS, JS, images, front-end vendor libraries
 ```
 
 ## Notes
-- Use `CTRL + C` in the terminal to stop the server.
-- You can change the port if needed (default here is `8080`).
+- Use `CTRL + C` to stop the server.
+- See `CLAUDE.md` for architecture details and how to add a new product.

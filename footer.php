@@ -3,7 +3,7 @@
 if(file_exists("webcounter.php")) {
     include_once "webcounter.php";
     $page_name = basename($_SERVER['PHP_SELF']);
-    $access_number = visitor($page_name);
+    $access_number = visitor($page_name) ?? 1000; // Fallback if DB is unavailable
 } else {
     $access_number = 1000; // Fallback
 }

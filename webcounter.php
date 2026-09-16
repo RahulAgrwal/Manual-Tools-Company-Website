@@ -1,11 +1,22 @@
 <?php
 require 'vendor/autoload.php';
+require_once __DIR__ . '/load-secrets.php';
 
+/**
+ * Records a visit for $page_name_ and returns the page's total visitor count.
+ * Returns null if the database is not configured or unreachable, so the page
+ * still renders (footer.php shows a fallback number).
+ */
 function visitor($page_name_)
 {
     // Set Indian Standard Timezone
     date_default_timezone_set('Asia/Kolkata');
     $user_ip = get_client_ip();
+
+    $secrets = mtc_secrets();
+    if (empty($secrets['db_host']) || empty($secrets['db_user']) || empty($secrets['db_name'])) {
+        return null;
+    }
 
     // Retrieve location data
     $city = "";
@@ -15,72 +26,70 @@ function visitor($page_name_)
     $zip = "";
     $regionName = "";
 
-    $db_host = "193.203.184.155:3306";
-    $db_username = "u889575799_manualtoolsco";
-    $db_password = "6KqVxM?t";
-    $db_name = "u889575799_manualtoolsco";
-
-
-    $db_table = "visitor_count";
-    $page_name = "page_name";
-    $visitor_count = "visitor_count";
-    $timestamp_column = "last_visit"; // Add the name of your timestamp columnl̥
-
-    // Make the API request and get the response
-    $url = 'http://ip-api.com/json/' . $user_ip;
-    // $url = 'http://ip-api.com/json/2401:4900:30c5:e88d:0:64:97d7:f301';
-    // print_r("URL : ".$url);
-    $response = file_get_contents($url);
-    // print_r($response);
+    // Make the API request (short timeout so a slow API doesn't stall the page)
+    $url = 'http://ip-api.com/json/' . rawurlencode($user_ip);
+    $context = stream_context_create(['http' => ['timeout' => 3]]);
+    $response = @file_get_contents($url, false, $context);
 
     // If successful response
     if ($response !== false) {
-        // Decode JSON response
         $data = json_decode($response, true);
 
-        // Print the response data
         $country = isset($data['country']) ? $data['country'] : "";
         $city = isset($data['city']) ? $data['city'] : "";
-        $latitude = isset($data['lat']) ? $data['lat'] : "";
-        $longitude = isset($data['lon']) ? $data['lon'] : "";
+        $latitude = isset($data['lat']) ? (string)$data['lat'] : "";
+        $longitude = isset($data['lon']) ? (string)$data['lon'] : "";
         $zip = isset($data['zip']) ? $data['zip'] : "";
         $regionName = isset($data['regionName']) ? $data['regionName'] : "";
-        // print_r($country);
-    } else {
-        // Handle error
-        // echo "Failed to fetch API response.";
     }
-
-
-
-
-    $db = mysqli_connect($db_host, $db_username, $db_password, $db_name) or die("Host or database not accessible");
 
     // Convert current time to string format
     $current_time = date('Y-m-d H:i:s');
 
-    $sql = "INSERT INTO visitors (page_name,ip_address, city, country, latitude, longitude, visit_time, zip, region)  VALUES ('$page_name_','$user_ip', '$city', '$country', '$latitude', '$longitude', '$current_time', '$zip', '$regionName') ";
-    mysqli_query($db, $sql) or die("Error while entering");
-    // Construct SQL query to insert or update visitor count with timestamp
-    $sql_call = "INSERT INTO " . $db_table . " (" . $page_name . ", " . $visitor_count . ", " . $timestamp_column . ") VALUES ('" . $page_name_ . "', 1, '" . $current_time . "') ON DUPLICATE KEY UPDATE " . $visitor_count . " = " . $visitor_count . " + 1, " . $timestamp_column . " = '" . $current_time . "'";
+    try {
+        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
-    // Execute the SQL query
-    mysqli_query($db, $sql_call) or die("Error while entering");
+        $db = new mysqli(
+            $secrets['db_host'],
+            $secrets['db_user'],
+            $secrets['db_pass'] ?? '',
+            $secrets['db_name'],
+            (int)($secrets['db_port'] ?? 3306)
+        );
 
-    // Construct SQL query to select visitor count for the page
-    $sql_call = "SELECT " . $visitor_count . " FROM " . $db_table . " WHERE " . $page_name . " = '" . $page_name_ . "'";
+        // Log individual visit
+        $stmt = $db->prepare(
+            "INSERT INTO visitors (page_name, ip_address, city, country, latitude, longitude, visit_time, zip, region)
+             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
+        );
+        $stmt->bind_param('sssssssss', $page_name_, $user_ip, $city, $country, $latitude, $longitude, $current_time, $zip, $regionName);
+        $stmt->execute();
+        $stmt->close();
 
-    // Execute the SQL query
-    $sql_result = mysqli_query($db, $sql_call) or die("SQL request failed ");
+        // Insert or increment the per-page counter
+        $stmt = $db->prepare(
+            "INSERT INTO visitor_count (page_name, visitor_count, last_visit) VALUES (?, 1, ?)
+             ON DUPLICATE KEY UPDATE visitor_count = visitor_count + 1, last_visit = ?"
+        );
+        $stmt->bind_param('sss', $page_name_, $current_time, $current_time);
+        $stmt->execute();
+        $stmt->close();
 
-    // Fetch the result
-    $row = mysqli_fetch_assoc($sql_result);
-    $x = $row[$visitor_count];
+        // Read back the count for this page
+        $stmt = $db->prepare("SELECT visitor_count FROM visitor_count WHERE page_name = ?");
+        $stmt->bind_param('s', $page_name_);
+        $stmt->execute();
+        $stmt->bind_result($x);
+        $stmt->fetch();
+        $stmt->close();
 
-    // Close the database connection
-    mysqli_close($db);
+        $db->close();
 
-    return $x;
+        return $x;
+    } catch (Throwable $e) {
+        error_log('webcounter: ' . $e->getMessage());
+        return null;
+    }
 }
 
 function get_client_ip()
@@ -100,5 +109,8 @@ function get_client_ip()
         $ipaddress = $_SERVER['REMOTE_ADDR'];
     else
         $ipaddress = 'UNKNOWN';
-    return $ipaddress;
+
+    // Forwarded headers can hold a comma-separated list; keep the first address
+    $ipaddress = trim(explode(',', $ipaddress)[0]);
+    return substr($ipaddress, 0, 45);
 }
