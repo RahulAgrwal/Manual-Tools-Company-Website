@@ -213,10 +213,10 @@
 
                   <h3 class="mtc-tech-heading">Precision Lifting for Critical Operations</h3>
                   <p class="mtc-tech-paragraph">
-                    The Manual Tools Company **Door Lifting Power Winch** is designed specifically for the vertical lifting of heavy industrial doors, particularly in Coke Oven Batteries. Unlike standard construction winches, this unit prioritizes stability and load holding over speed.
+                    The Manual Tools Company <strong>Door Lifting Power Winch</strong> is designed specifically for the vertical lifting of heavy industrial doors, particularly in Coke Oven Batteries. Unlike standard construction winches, this unit prioritizes stability and load holding over speed.
                   </p>
                   <p class="mtc-tech-paragraph">
-                    The core advantage lies in its **Worm Reducer Gearbox**. This design provides a high reduction ratio in a compact space and offers an inherent safety feature: the gear cannot be back-driven by the load. This prevents the door from accidentally dropping if the motor brake fails or power is cut.
+                    The core advantage lies in its <strong>Worm Reducer Gearbox</strong>. This design provides a high reduction ratio in a compact space and offers an inherent safety feature: the gear cannot be back-driven by the load. This prevents the door from accidentally dropping if the motor brake fails or power is cut.
                   </p>
 
                   <h3 class="mtc-tech-heading" style="font-size: 20px; margin-top: 40px;">Technical Parameters</h3>

@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <!-- Homepage -->
   <url>
-    <loc>https://manualtoolsco.com/</loc>
+    <loc>https://www.manualtoolsco.com/</loc>
     <lastmod>2025-12-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -15,7 +15,7 @@
 
   <!-- About Page -->
   <url>
-    <loc>https://manualtoolsco.com/about.php</loc>
+    <loc>https://www.manualtoolsco.com/about</loc>
     <lastmod>2025-12-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -23,7 +23,7 @@
 
   <!-- Products Page -->
   <url>
-    <loc>https://manualtoolsco.com/products.php</loc>
+    <loc>https://www.manualtoolsco.com/products</loc>
     <lastmod>2025-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -31,7 +31,7 @@
 
   <!-- Individual Product Pages -->
   <url>
-    <loc>https://manualtoolsco.com/coal-crusher.php</loc>
+    <loc>https://www.manualtoolsco.com/coal-crusher</loc>
     <lastmod>2025-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -42,7 +42,7 @@
   </url>
 
   <url>
-    <loc>https://manualtoolsco.com/coal-crusher-5-No-single-disc.php</loc>
+    <loc>https://www.manualtoolsco.com/coal-crusher-5-No-single-disc</loc>
     <lastmod>2025-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -53,7 +53,7 @@
   </url>
 
   <url>
-    <loc>https://manualtoolsco.com/coal-crusher-5-No-double-disc.php</loc>
+    <loc>https://www.manualtoolsco.com/coal-crusher-5-No-double-disc</loc>
     <lastmod>2025-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -64,7 +64,7 @@
   </url>
 
   <url>
-    <loc>https://manualtoolsco.com/coke-cutter-double-drive.php</loc>
+    <loc>https://www.manualtoolsco.com/coke-cutter-double-drive</loc>
     <lastmod>2025-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -75,7 +75,18 @@
   </url>
 
   <url>
-    <loc>https://manualtoolsco.com/haulage.php</loc>
+    <loc>https://www.manualtoolsco.com/coke-cutter-double-drive-ring-type</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://manualtoolsco.com/assets/img/about-us-products/Double%20Drive%20Coke%20Cutter%20Machine%20Ring%20Type.jpg</image:loc>
+      <image:title>Coke Cutter Double Drive Ring Type</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.manualtoolsco.com/haulage</loc>
     <lastmod>2025-12-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -86,7 +97,7 @@
   </url>
 
   <url>
-    <loc>https://manualtoolsco.com/power-winch.php</loc>
+    <loc>https://www.manualtoolsco.com/power-winch</loc>
     <lastmod>2025-12-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -97,7 +108,7 @@
   </url>
 
   <url>
-    <loc>https://manualtoolsco.com/vibrator-screen.php</loc>
+    <loc>https://www.manualtoolsco.com/vibrator-screen</loc>
     <lastmod>2025-12-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -108,7 +119,7 @@
   </url>
 
   <url>
-    <loc>https://manualtoolsco.com/conveyor-materials.php</loc>
+    <loc>https://www.manualtoolsco.com/conveyor-materials</loc>
     <lastmod>2025-12-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -119,7 +130,7 @@
   </url>
 
     <url>
-    <loc>https://manualtoolsco.com/pusher-with-stamping-arrangement.php</loc>
+    <loc>https://www.manualtoolsco.com/pusher-with-stamping-arrangement</loc>
     <lastmod>2025-12-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -129,7 +140,7 @@
     </image:image>
   </url>
     <url>
-    <loc>https://manualtoolsco.com/coal-charging-car.php</loc>
+    <loc>https://www.manualtoolsco.com/coal-charging-car</loc>
     <lastmod>2025-0824</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -140,7 +151,7 @@
   </url>
   <!-- Photo Gallery Page -->
   <url>
-    <loc>https://manualtoolsco.com/photo-gallery.php</loc>
+    <loc>https://www.manualtoolsco.com/photo-gallery</loc>
     <lastmod>2025-12-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -148,7 +159,7 @@
 
   <!-- Contact Page -->
   <url>
-    <loc>https://manualtoolsco.com/contact.php</loc>
+    <loc>https://www.manualtoolsco.com/contact</loc>
     <lastmod>2025-12-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

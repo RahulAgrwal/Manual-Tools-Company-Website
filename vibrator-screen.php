@@ -212,7 +212,7 @@
 
                   <h3 class="mtc-tech-heading">High-Capacity Industrial Screening</h3>
                   <p class="mtc-tech-paragraph">
-                    The Manual Tools Company **Vibrator Screen Machine** is engineered to separate bulk materials into specific grades. By utilizing an eccentric shaft or unbalanced motor system, the machine generates a uniform circular motion that effectively stratifies the material bed.
+                    The Manual Tools Company <strong>Vibrator Screen Machine</strong> is engineered to separate bulk materials into specific grades. By utilizing an eccentric shaft or unbalanced motor system, the machine generates a uniform circular motion that effectively stratifies the material bed.
                   </p>
                   <p class="mtc-tech-paragraph">
                     Built on a heavy-duty fabricated steel chassis with spring suspension, it minimizes vibration transfer to the foundation while maximizing screening energy. The mesh decks are interchangeable, allowing operators to easily switch between sorting sizes (e.g., separating Coke Breeze from Lumps).

@@ -212,7 +212,7 @@
 
                   <h3 class="mtc-tech-heading">Double the Power, Double the Output</h3>
                   <p class="mtc-tech-paragraph">
-                    The Manual Tools Company **Double Disc Coal Crusher** is the powerhouse of our pulverization line. By utilizing a dual-rotor configuration, this machine doubles the impact frequency, allowing it to process significantly larger feed materials (up to 150mm) while maintaining the ultra-fine output required for Coke Oven Plants.
+                    The Manual Tools Company <strong>Double Disc Coal Crusher</strong> is the powerhouse of our pulverization line. By utilizing a dual-rotor configuration, this machine doubles the impact frequency, allowing it to process significantly larger feed materials (up to 150mm) while maintaining the ultra-fine output required for Coke Oven Plants.
                   </p>
                   <p class="mtc-tech-paragraph">
                     Ideally suited for large-scale operations, the unit is constructed with a 12mm heavy-duty fabricated steel housing and features 12 replaceable Manganese Steel hammers, providing exceptional durability against abrasive Indian coal varieties.
@@ -290,7 +290,7 @@
                               <span class="mtc-timeline-number">Step 02</span>
                               <h4 class="mtc-timeline-title"><i class="fas fa-hammer"></i> Dual Rotor Impact</h4>
                               <p class="mtc-timeline-desc">
-                                Two discs rotating in sync carry **12 Manganese Hammers**. This creates a denser impact zone, pulverizing material faster than single-disc models.
+                                Two discs rotating in sync carry <strong>12 Manganese Hammers</strong>. This creates a denser impact zone, pulverizing material faster than single-disc models.
                               </p>
                             </div>
                           </div>

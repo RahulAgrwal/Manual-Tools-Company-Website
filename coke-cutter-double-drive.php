@@ -212,10 +212,10 @@
 
                   <h3 class="mtc-tech-heading">Precision Cutting with Double Drive Power</h3>
                   <p class="mtc-tech-paragraph">
-                    The Manual Tools Company **Coke Cutter (Double Drive)** is engineered to solve the problem of uneven coke sizing. Unlike standard crushers that produce excess fines (dust), this machine uses a cutting action to slice coke lumps to a specific size.
+                    The Manual Tools Company <strong>Coke Cutter (Double Drive)</strong> is engineered to solve the problem of uneven coke sizing. Unlike standard crushers that produce excess fines (dust), this machine uses a cutting action to slice coke lumps to a specific size.
                   </p>
                   <p class="mtc-tech-paragraph">
-                    The "Double Drive" system refers to the independent 20 H.P. motors powering each side of the cutter assembly. This ensures balanced torque distribution, preventing the stalling often seen when processing hard metallurgical coke. The machine is fitted with **Cast Steel Gears** and **Manganese Steel Liner Teeth** for maximum longevity.
+                    The "Double Drive" system refers to the independent 20 H.P. motors powering each side of the cutter assembly. This ensures balanced torque distribution, preventing the stalling often seen when processing hard metallurgical coke. The machine is fitted with <strong>Cast Steel Gears</strong> and <strong>Manganese Steel Liner Teeth</strong> for maximum longevity.
                   </p>
 
                   <h3 class="mtc-tech-heading" style="font-size: 20px; margin-top: 40px;">Technical Parameters</h3>

@@ -211,7 +211,7 @@
 
                   <h3 class="mtc-tech-heading">Precision Coal Feed System</h3>
                   <p class="mtc-tech-paragraph">
-                    The Manual Tools Company **Coal Charging Car** (Larry Car) is a rail-mounted vehicle designed to travel along the top of the coke oven battery. Its primary function is to receive pulverized coal from the overhead service bunker and discharge it into the hot ovens via charging holes.
+                    The Manual Tools Company <strong>Coal Charging Car</strong> (Larry Car) is a rail-mounted vehicle designed to travel along the top of the coke oven battery. Its primary function is to receive pulverized coal from the overhead service bunker and discharge it into the hot ovens via charging holes.
                   </p>
                   <p class="mtc-tech-paragraph">
                     Constructed with 8mm thick tapered steel plates, the hoppers ensure smooth coal flow without bridging. The travel mechanism is powered by a 15 HP motor coupled with a Worm Reducer Gearbox, providing high torque for controlled movement and precise positioning over the oven mouths.

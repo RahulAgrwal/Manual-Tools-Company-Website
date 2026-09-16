@@ -299,7 +299,7 @@
                   <div class="mtc-mini-spec-item"><i class="fas fa-sync"></i> Roller Stamping</div>
                   <div class="mtc-mini-spec-item"><i class="fas fa-truck-moving"></i> 15 HP Travel</div>
                 </div>
-                <a href="pusher-machine-with-stamping-arrangement" class="mtc-btn-outline">View Details <i class="fas fa-arrow-right"></i></a>
+                <a href="pusher-with-stamping-arrangement" class="mtc-btn-outline">View Details <i class="fas fa-arrow-right"></i></a>
               </div>
             </div>
           </div>

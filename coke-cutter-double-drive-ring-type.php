@@ -266,10 +266,10 @@
 
                   <h3 class="mtc-tech-heading">Superior Sizing with Ring Type Technology</h3>
                   <p class="mtc-tech-paragraph">
-                    The Manual Tools Company **Ring Type Double Drive Coke Cutter** is a specialized variant of our standard sizing machines. Instead of a single drum shell, the shaft is fitted with multiple **independent Manganese Steel Rings**. This design offers superior flexibility in maintenance and ensures a more aggressive cutting action for hard metallurgical coke.
+                    The Manual Tools Company <strong>Ring Type Double Drive Coke Cutter</strong> is a specialized variant of our standard sizing machines. Instead of a single drum shell, the shaft is fitted with multiple <strong>independent Manganese Steel Rings</strong>. This design offers superior flexibility in maintenance and ensures a more aggressive cutting action for hard metallurgical coke.
                   </p>
                   <p class="mtc-tech-paragraph">
-                    Powered by **Two 25 H.P. Motors**, the counter-rotating shafts deliver high torque to prevent stalling. The ring design prevents the formation of "slabs" (flat pieces) and reduces the generation of fines, ensuring optimal blast furnace permeability.
+                    Powered by <strong>Two 25 H.P. Motors</strong>, the counter-rotating shafts deliver high torque to prevent stalling. The ring design prevents the formation of "slabs" (flat pieces) and reduces the generation of fines, ensuring optimal blast furnace permeability.
                   </p>
 
                   <h3 class="mtc-tech-heading" style="font-size: 20px; margin-top: 40px;">Technical Parameters</h3>
@@ -549,7 +549,7 @@
             </div>`;
       } else {
           // Render Image
-          displayArea.innerHTML = `<img src="${src}" alt="Haulage Machine" class="img-fluid" style="height: 450px; width: 100%; object-fit: contain;">`;
+          displayArea.innerHTML = `<img src="${src}" alt="Double Drive Coke Cutter Machine Ring Type" class="img-fluid" style="height: 450px; width: 100%; object-fit: contain;">`;
       }
     }
   </script>

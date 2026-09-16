@@ -229,20 +229,15 @@ $recaptchaSiteKey = '6Ldj7H0sAAAAAIIk3lL0kl9Y_Ohi8M_JcC5Qm13u';
       </div>
 
     <?php 
-    } // End foreach 
+    } // End foreach
     ?>
 
-  </div>
-</div>
-      </div>
-    </div>
+              </div><!-- /#faqAccordion -->
+            </div><!-- /.faq-wrapper -->
+          </div><!-- /.col-lg-6 -->
 
-  </div>
-</div>
-          </div>
-
-        </div>
-      </div>
+        </div><!-- /.row -->
+      </div><!-- /.container -->
     </section>
 
   </main>
@@ -260,9 +255,6 @@ $recaptchaSiteKey = '6Ldj7H0sAAAAAIIk3lL0kl9Y_Ohi8M_JcC5Qm13u';
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  
-  <!-- JavaScript (Kept from your original code) -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>

@@ -265,7 +265,7 @@
 
                   <h3 class="mtc-tech-heading">Reliable Traction for Heavy Loads</h3>
                   <p class="mtc-tech-paragraph">
-                    The Manual Tools Company Haulage Machine is built on a rigid fabricated steel chassis designed to resist the twisting forces encountered during heavy pulling operations. At its core is a precision-engineered **Worm Reducer Gearbox**, which converts high-speed motor rotation into high-torque pulling power.
+                    The Manual Tools Company Haulage Machine is built on a rigid fabricated steel chassis designed to resist the twisting forces encountered during heavy pulling operations. At its core is a precision-engineered <strong>Worm Reducer Gearbox</strong>, which converts high-speed motor rotation into high-torque pulling power.
                   </p>
                   <p class="mtc-tech-paragraph">
                     Specifically optimized for Coke Oven Plants, this machine allows for the smooth, controlled extraction of coke cakes or the movement of charging cars. The use of cast steel gears ensures longevity even under shock-load conditions.
@@ -342,7 +342,7 @@
                               <span class="mtc-timeline-number">Stage 02</span>
                               <h4 class="mtc-timeline-title"><i class="fas fa-compress-arrows-alt"></i> Speed Reduction</h4>
                               <p class="mtc-timeline-desc">
-                                The **Worm Reducer** dramatically lowers the RPM while multiplying torque. This non-reversible gear action acts as a natural braking aid, preventing load back-slip.
+                                The <strong>Worm Reducer</strong> dramatically lowers the RPM while multiplying torque. This non-reversible gear action acts as a natural braking aid, preventing load back-slip.
                               </p>
                             </div>
                           </div>

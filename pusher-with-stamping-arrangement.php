@@ -10,13 +10,13 @@
     content="Pusher Machine, Stamping Arrangement, Coke Oven Pusher, Roller System Pusher, Furnace Charging Machine, Manual Tools Company, Dhanbad, Jharkhand, India">
   <meta name="robots" content="index, follow">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="canonical" href="https://www.manualtoolsco.com/pusher-machine-with-stamping-arrangement">
+  <link rel="canonical" href="https://www.manualtoolsco.com/pusher-with-stamping-arrangement">
 
   <title>Pusher Machine With Stamping Arrangement | Manual Tools Company</title>
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="product">
-  <meta property="og:url" content="https://www.manualtoolsco.com/pusher-machine-with-stamping-arrangement">
+  <meta property="og:url" content="https://www.manualtoolsco.com/pusher-with-stamping-arrangement">
   <meta property="og:title" content="Pusher Machine With Stamping Arrangement | Manual Tools Company">
   <meta property="og:description" content="Industrial Pusher Machine with Roller Stamping System for Coke Ovens. 20m Beam, 40 HP Drive.">
   <meta property="og:image"
@@ -119,7 +119,7 @@
             </div>
 
             <p style="line-height: 1.6; color: #555;">
-              Designed for Coke Ovens, this machine integrates a heavy-duty **Pusher Beam** with a **Roller Stamping System**. It ensures uniform coal cake density and smooth discharging operation. Powered by a 40 HP main drive, it handles the toughest industrial cycles with ease.
+              Designed for Coke Ovens, this machine integrates a heavy-duty <strong>Pusher Beam</strong> with a <strong>Roller Stamping System</strong>. It ensures uniform coal cake density and smooth discharging operation. Powered by a 40 HP main drive, it handles the toughest industrial cycles with ease.
             </p>
 
             <div class="mtc-product-specs-grid">
@@ -212,7 +212,7 @@
 
                   <h3 class="mtc-tech-heading">Integrated Stamping & Pushing Solution</h3>
                   <p class="mtc-tech-paragraph">
-                    The Manual Tools Company **Pusher Machine with Stamping Arrangement** is a critical asset for modern Coke Oven Batteries. It combines two essential functions: compacting loose coal into a dense "cake" using a synchronized roller system, and pushing this cake into the oven for carbonization.
+                    The Manual Tools Company <strong>Pusher Machine with Stamping Arrangement</strong> is a critical asset for modern Coke Oven Batteries. It combines two essential functions: compacting loose coal into a dense "cake" using a synchronized roller system, and pushing this cake into the oven for carbonization.
                   </p>
                   <p class="mtc-tech-paragraph">
                     The machine travels on rails along the battery length, powered by a 15 HP Long Travel motor. The massive 20-meter Pusher Beam is driven by a powerful 40 HP motor through a heavy-duty Helical Gearbox, ensuring sufficient force to eject the finished coke mass after carbonization.
@@ -278,7 +278,7 @@
                               <span class="mtc-timeline-number">Step 01</span>
                               <h4 class="mtc-timeline-title"><i class="fas fa-layer-group"></i> Coal Stamping</h4>
                               <p class="mtc-timeline-desc">
-                                Coal fine are fed into the cove oven. The **Roller Stamping System** compacts the coal to achieve high density, essential for good coke quality.
+                                Coal fine are fed into the cove oven. The <strong>Roller Stamping System</strong> compacts the coal to achieve high density, essential for good coke quality.
                               </p>
                             </div>
                           </div>
@@ -435,7 +435,7 @@
     </section>
     <?php
     // 1. Set the current product's link/slug to exclude it
-    $current_page_slug = "pusher-machine-with-stamping-arrangement";
+    $current_page_slug = "pusher-with-stamping-arrangement";
 
     // 2. Include the reusable component
     include('related-products.php');

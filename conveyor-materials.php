@@ -180,7 +180,7 @@
             </div>
 
             <p style="line-height: 1.6; color: #555;">
-              Ensure continuous plant operation with our premium range of conveyor components. From heavy-duty **Head & Tail Pulleys** to frictionless **Idlers and Rollers**, our materials are engineered for the abrasive and dusty environments of Coke Ovens, Washeries, and Power Plants.
+              Ensure continuous plant operation with our premium range of conveyor components. From heavy-duty <strong>Head & Tail Pulleys</strong> to frictionless <strong>Idlers and Rollers</strong>, our materials are engineered for the abrasive and dusty environments of Coke Ovens, Washeries, and Power Plants.
             </p>
 
             <div class="mtc-product-specs-grid">

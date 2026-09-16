@@ -50,7 +50,7 @@ if(file_exists("webcounter.php")) {
                     <h4>Key Machinery</h4>
                     <ul>
                         <li><i class="bx bx-chevron-right"></i> <a href="coal-crusher">Coal Crusher</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="pusher-machine-with-stamping-arrangement">Pusher Machine</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="pusher-with-stamping-arrangement">Pusher Machine</a></li>
                         <li><i class="bx bx-chevron-right"></i> <a href="coal-charging-car">Charging Car</a></li>
                         <li><i class="bx bx-chevron-right"></i> <a href="power-winch">Power Winch</a></li>
                         <li><i class="bx bx-chevron-right"></i> <a href="vibrator-screen">Vibrator Screen</a></li>

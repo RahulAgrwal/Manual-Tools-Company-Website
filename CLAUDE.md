@@ -45,13 +45,18 @@ All share one layout:
 2. the Products dropdown in `header.php`
 3. `products.php` (card and filter class)
 4. `$carousel_items` in `index.php` (plus slide images in `assets/img/slide/` and `assets/img/slide-thumbnail/`)
-5. `sitemap.xml`
+5. `sitemap.xml`: use `https://www.manualtoolsco.com/<slug>` (www, no `.php`) to match the canonical tags
 6. the image folder under `assets/img/product-images/`
+
+Page copy is HTML. Use `<strong>`, not Markdown `**bold**`.
 
 ## Forms
 - A form joins the shared submit flow by having class `ajax-form php-email-form`, `action="forms/contact.php"`, `data-recaptcha-site-key` and `data-recaptcha-action`. It needs `.loading`, `.error-msg` and `.sent-message` elements inside.
 - `main.js` checks `[required]` fields and email format, gets a reCAPTCHA v3 token, POSTs `FormData`, and fires the GA4 `generate_lead` event plus a Google Ads conversion on success.
 - `forms/contact.php` returns JSON `{success, message}`. It checks reCAPTCHA (score ≥ 0.5) and sends mail with PHPMailer over Gmail SMTP, using `vendor/autoload.php`. SMTP and reCAPTCHA credentials come from `mtc_secrets()`, and the endpoint returns a JSON error if they are missing.
+- Email flow: the enquiry goes **to the company inbox** (`smtp_user`, CC the proprietor) with `Reply-To` set to the visitor. The visitor then gets a **fixed confirmation** email.
+  - Never put user-supplied text in any email sent to the visitor's address, or the form becomes a spam relay.
+  - Mailer errors are logged with `error_log()`. Visitors only see a generic message.
 
 ## Styling
 - `assets/css/style.css`: global theme. Brand colour is `--primary-color` (#f03c02). Custom classes use the `mtc-` prefix.
@@ -66,4 +71,4 @@ All share one layout:
 ## Known issues / cautions
 - Old credentials remain in git history (the repo is public). They must stay rotated. Don't reuse them.
 - Database access in `webcounter.php` uses mysqli prepared statements. Keep it that way for any new queries.
-- The footer links to `pusher-machine-with-stamping-arrangement`, but the real slug is `pusher-with-stamping-arrangement`.
+- "Quenching Coke Car" in the `header.php` dropdown has no page yet (`href="#"`).
