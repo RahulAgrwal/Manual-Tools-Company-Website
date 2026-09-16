@@ -1,11 +1,9 @@
 <?php
-// Ensure counter exists to prevent errors
-if(file_exists("webcounter.php")) {
-    include_once "webcounter.php";
-    $page_name = basename($_SERVER['PHP_SELF']);
-    $access_number = visitor($page_name) ?? 1000; // Fallback if DB is unavailable
-} else {
-    $access_number = 1000; // Fallback
+// Page key for the visitor counter (e.g. "about.php"). The count itself is
+// fetched after page load from track-visit.php so it never slows rendering.
+$page_name = basename($_SERVER['PHP_SELF']);
+if (substr($page_name, -4) !== '.php') {
+    $page_name .= '.php'; // local router reports extensionless names
 }
 ?>
 
@@ -95,10 +93,29 @@ if(file_exists("webcounter.php")) {
         </div>
         <div class="credits">
             Designed by <a href="https://github.com/RahulAgrwal" target="_blank">Rahul Agarwal</a>
-            <span class="visitor-count ms-2">| &nbsp; <i class="fas fa-chart-line"></i> Visitors: <b><?php echo $access_number; ?></b></span>
+            <span class="visitor-count ms-2" id="visitor-count" data-page="<?php echo htmlspecialchars($page_name); ?>" hidden>| &nbsp; <i class="fas fa-chart-line"></i> Visitors: <b></b></span>
         </div>
     </div>
 </footer>
+
+<!-- Visitor counter: record the visit after load; stays hidden if unavailable -->
+<script>
+  (function () {
+    var el = document.getElementById('visitor-count');
+    if (!el || !window.fetch) return;
+    window.addEventListener('load', function () {
+      fetch('/track-visit', { method: 'POST', body: new URLSearchParams({ page: el.getAttribute('data-page') }) })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (d) {
+          if (d && d.count) {
+            el.querySelector('b').textContent = d.count;
+            el.hidden = false;
+          }
+        })
+        .catch(function () {});
+    });
+  })();
+</script>
 
 <!-- Google Tag -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17669553737"></script>

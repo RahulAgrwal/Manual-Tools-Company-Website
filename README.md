@@ -48,6 +48,7 @@ Then open http://localhost:8080. `router.php` mimics the production `.htaccess` 
 ├── related-products.php, our-products.php, sidebar-quote-form.php, clients.php
 ├── forms/contact.php         # AJAX form endpoint (PHPMailer + reCAPTCHA v3)
 ├── webcounter.php            # Visitor counter (MySQL)
+├── track-visit.php           # Endpoint the footer calls after page load to record a visit
 ├── load-secrets.php          # Loads credentials from the secrets file
 ├── secrets.example.php       # Template for the secrets file
 ├── config/secrets.php        # Local secrets (git-ignored, not in repo)
@@ -61,3 +62,5 @@ Then open http://localhost:8080. `router.php` mimics the production `.htaccess` 
 ## Notes
 - Use `CTRL + C` to stop the server.
 - See `CLAUDE.md` for architecture details and how to add a new product.
+- See `BACKLOG.md` for pending work and completed fixes.
+- Pushing to `main` deploys to the live site automatically.

@@ -1,4 +1,9 @@
 RewriteEngine On
+
+# Redirect bare domain to www (single canonical host)
+RewriteCond %{HTTP_HOST} ^manualtoolsco\.com$ [NC]
+RewriteRule ^(.*)$ https://www.manualtoolsco.com/$1 [R=301,L]
+
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^([^\.]+)$ $1.php [NC,L]

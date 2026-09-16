@@ -39,9 +39,8 @@
     "url": "https://www.manualtoolsco.com/",
     "logo": "https://www.manualtoolsco.com/assets/img/MTC_Logo_Footer.png",
     "sameAs": [
-      "https://www.facebook.com/",
-      "https://www.linkedin.com/",
-      "https://www.youtube.com/"
+      "https://www.facebook.com/profile.php?id=61560479668542",
+      "https://www.instagram.com/manual_tools_company/"
     ]
   }
   </script>

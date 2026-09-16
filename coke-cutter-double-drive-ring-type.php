@@ -50,7 +50,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link href="assets/css/style.css" rel="stylesheet">
   <link href="assets/css/product-detail.css" rel="stylesheet">
-</head>
 
   <style>
     /* Specific styles for video thumbnails */
@@ -71,6 +70,7 @@
     }
     .mtc-product-thumb-item { position: relative; }
   </style>
+</head>
 
 <body>
 

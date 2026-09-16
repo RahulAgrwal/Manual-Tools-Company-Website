@@ -8,7 +8,9 @@ Marketing and lead-generation website for **Manual Tools Company** (coke oven ma
 
 - `router.php` does locally what `.htaccess` does in production: `/about` loads `about.php`, real files are served directly, and anything else gets `404.php`.
 - Local secrets live in `config/secrets.php` (the whole `config/` folder is git-ignored). Without it, pages still render.
-- The footer calls `webcounter.php` (ip-api.com lookup with a 3s timeout, then MySQL). If either fails, `visitor()` returns `null` and the footer shows a fallback count.
+- **Visitor counter:** after the page loads, `footer.php` POSTs the page key (`basename(PHP_SELF)`, e.g. `about.php`) to `/track-visit`.
+  - `track-visit.php` only accepts real top-level pages that include the footer. It calls `visitor()` in `webcounter.php` (ip-api.com lookup with a 3s timeout, then MySQL) and returns `{count}`.
+  - The count stays hidden if this fails. Never call `visitor()` during page rendering.
 
 ## Secrets
 - **Never hard-code credentials.** Read them with `mtc_secrets()` from `load-secrets.php`, which returns an array (empty if no file is found).
@@ -19,6 +21,8 @@ Marketing and lead-generation website for **Manual Tools Company** (coke oven ma
 
 ## URLs and links
 - Links have no extension (`href="haulage"`, not `haulage.php`). `.htaccess` sends `*.php` to the address without it (301).
+- The canonical host is `https://www.manualtoolsco.com`. `.htaccess` sends the bare domain to it (301). Always use `www` in absolute URLs.
+- Pushing to `main` deploys to the live site automatically.
 - Asset paths are relative (`assets/...`), so pages must stay at the repo root.
 
 ## Page structure
@@ -46,7 +50,7 @@ All share one layout:
 3. `products.php` (card and filter class)
 4. `$carousel_items` in `index.php` (plus slide images in `assets/img/slide/` and `assets/img/slide-thumbnail/`)
 5. `sitemap.xml`: use `https://www.manualtoolsco.com/<slug>` (www, no `.php`) to match the canonical tags
-6. the image folder under `assets/img/product-images/`
+6. the image folder under `assets/img/product-images/`. Name files `<Product-Name>-N.png` (for example `Vibrator-Screen-3.png`). They show up in the gallery automatically.
 
 Page copy is HTML. Use `<strong>`, not Markdown `**bold**`.
 
@@ -66,9 +70,11 @@ Page copy is HTML. Use `<strong>`, not Markdown `**bold**`.
 
 ## Other
 - `brochure/*.py`: fpdf2 scripts that build product PDF brochures. Run them from the repo root because image paths are relative.
-- `vendor/`: Composer autoloader and PHPMailer, committed to the repo (there is no `composer.json`). Don't delete it; `forms/contact.php` depends on it.
+- `vendor/`: Composer autoloader and PHPMailer (there is no `composer.json`). Don't delete it; `forms/contact.php` depends on it.
+  - `vendor/phpmailer/phpmailer` is a gitlink, not real files (see `BACKLOG.md`).
+  - `assets/vendor/` holds front-end libraries only.
 
 ## Known issues / cautions
 - Old credentials remain in git history (the repo is public). They must stay rotated. Don't reuse them.
 - Database access in `webcounter.php` uses mysqli prepared statements. Keep it that way for any new queries.
-- "Quenching Coke Car" in the `header.php` dropdown has no page yet (`href="#"`).
+- Open work and completed fixes are tracked in `BACKLOG.md`. Update it when you finish or discover something.

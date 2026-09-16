@@ -120,8 +120,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // Enquiry email to the company (contains the visitor's details)
   $body = "
   <body style='font-family: Arial, sans-serif; color:#333;'>
-    <a href='https://manualtoolsco.com' target='_blank'>
-      <img src='https://manualtoolsco.com/assets/img/MTC%20Logo.png' style='height:40px;' alt='Logo'/>
+    <a href='https://www.manualtoolsco.com' target='_blank'>
+      <img src='https://www.manualtoolsco.com/assets/img/MTC%20Logo.png' style='height:40px;' alt='Logo'/>
     </a>
     <h2 style='margin:16px 0 8px;'>New enquiry from the website</h2>
     <p style='margin:0 0 12px; color:#777;'>Reply to this email to respond directly to the customer.</p>
@@ -145,8 +145,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // so the form cannot be used to send arbitrary content to arbitrary addresses.
   $confirmationBody = "
   <body style='font-family: Arial, sans-serif; color:#333;'>
-    <a href='https://manualtoolsco.com' target='_blank'>
-      <img src='https://manualtoolsco.com/assets/img/MTC%20Logo.png' style='height:40px;' alt='Logo'/>
+    <a href='https://www.manualtoolsco.com' target='_blank'>
+      <img src='https://www.manualtoolsco.com/assets/img/MTC%20Logo.png' style='height:40px;' alt='Logo'/>
     </a>
     <h2 style='margin:16px 0 8px;'>Thank you for contacting Manual Tools Company</h2>
     <p>We have received your enquiry. Our team will review your requirements and get back to you shortly.</p>
