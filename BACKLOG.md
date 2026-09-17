@@ -16,9 +16,16 @@
 - [ ] **Search Console and Bing Webmaster Tools.** Submit `sitemap.xml` and request indexing for the changed pages. (IndexNow was already sent on 2026-09-17; see Done.)
 - [ ] **Ring Type coke cutter brochure.** The button is commented out in `coke-cutter-double-drive-ring-type.php`. Add the product to `brochure/generate_product_brochures.py` when the owner approves the content.
 - [ ] **`gallery-products.php` is unused** and points to image files that no longer exist. Delete it or wire it in.
+- [ ] **Unused JS.**
+  - The Swiper `.portfolio-details-slider` block in `assets/js/main.js` is dead code (Swiper was removed).
+  - `assets/vendor/php-email-form/validate.js` and `assets/vendor/waypoints/` are not loaded by any page.
 
 ## Done
 
+- [x] **2026-09-17: Unused CSS removed.**
+  - `style.css`: template rules no page uses (blog, pricing, testimonials, team, skills, portfolio details, CTA, old product showcase, specs and process blocks, video gallery), plus the unused `fadeInUp` keyframes. Down from 4818 to 2945 lines.
+  - `product-detail.css`: star-rating and old tech-features card rules.
+  - `assets/vendor/`: deleted animate.css, AOS, Swiper, and the Bootstrap, Boxicons, GLightbox and Bootstrap Icons files that no page loads. The files `common-head.php` loads are kept.
 - [x] **2026-09-17: IndexNow submitted.** `python tools/indexnow_submit.py` sent all 16 sitemap URLs (HTTP 202 accepted). Run it again after future content deploys (see `CLAUDE.md`).
 - [x] **2026-09-17: SEO audit fixes** (audit report: `manualtoolsco.com-audit/`, not committed).
   - **Downloads:** added the 6 missing brochure PDFs (`brochure/generate_product_brochures.py`).
