@@ -208,6 +208,9 @@
             </div>
 
             <div class="mtc-product-action-row">
+              <a href="brochure/Manual_Tools_Co_Conveyor_Components.pdf" class="mtc-btn-dark" download>
+                <i class="fas fa-download"></i> Brochure
+              </a>
               <a href="#quote-form" class="mtc-btn-orange">
                 <i class="fas fa-file-signature"></i> Request Quote
               </a>
@@ -243,6 +246,7 @@
               <ul>
               <li><strong>Lead time:</strong> Standard sizes (e.g. 800 mm and 1000 mm rollers) are often in stock. Custom pulleys usually take 2–3 weeks.</li>
               <li><strong>Custom builds:</strong> Capacity, motor power and dimensions can be matched to your plant and drawings.</li>
+              <li><strong>Brochure:</strong> <a href="brochure/Manual_Tools_Co_Conveyor_Components.pdf" download>Download PDF</a></li>
               </ul>
               <a href="#quote-form" class="mtc-btn-orange"><i class="fas fa-file-signature"></i> Request a Quotation</a>
             </div>

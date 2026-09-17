@@ -28,7 +28,7 @@ import sys
 
 from brochure_layout import (
     COL_R_X, COL_W, CONTENT_W, FONT_FAMILY, INK, INK_BODY, INK_SOFT, MARGIN,
-    PANEL, RED, RULE, MTCBrochure, clean, cutout_image, fit_image,
+    FOOTER_Y, PANEL, RED, RULE, MTCBrochure, clean, cutout_image, fit_image,
 )
 
 # Same wording as the "Buying information" box on every product page.
@@ -410,6 +410,55 @@ PRODUCTS = {
             ("Can it handle wet coal?", "Yes, the steep conical hoppers help wet coal flow."),
         ],
     },
+    "conveyor-materials": {
+        "output": "Manual_Tools_Co_Conveyor_Components.pdf",
+        "title": "Conveyor Components",
+        "subtitle": "Idlers, Rollers & Pulleys - Industrial Handling Systems",
+        "main_image": "assets/img/product-images/conveyor-materials/Conveyor-2.png",
+        "cover_image": "assets/img/slide/Conveyor-Materials.png",
+        "gallery": "assets/img/product-images/conveyor-materials/",
+        "summary": "Components for belt conveyors in coke oven plants, coal washeries and power plants: carrying idlers, return rollers, rubber-ringed impact rollers, and head and tail pulleys in plain steel or with rubber lagging. Rollers use seamless pipe on bright steel (EN-8) shafts with sealed ball bearings to keep dust out.",
+        "stats": [("600 - 1400 mm", "Belt widths"), ("EN-8", "Shaft material"), ("Sealed", "Ball bearings")],
+        "specs": [
+            ("Belt Width Compatibility", "600 - 1400 mm"),
+            ("Shaft Material", "Bright Steel Bar (EN-8)"),
+            ("Bearings", "Ball Bearings (6204, 6205, 6305)"),
+            ("Roller Pipe", "Heavy Gauge Seamless Steel"),
+            ("Pulley Lagging", "Diamond Groove or Plain"),
+            ("Idler Frames", "With Rollers or as Spares"),
+        ],
+        "features": [
+            "Carrying idlers in 30 degree troughing sets",
+            "Return rollers with a smooth surface to prevent belt wear",
+            "Impact rollers with shock-absorbing rubber rings",
+            "Head and tail pulleys with key-based locking assemblies",
+            "Coupling pair available for the head pulley",
+            "Bulk orders taken for plant-wide replacement",
+        ],
+        "steps": [
+            ("Loading Point", "Material drops onto the belt over impact rollers, whose rubber rings absorb the shock and stop falling lumps damaging the belt."),
+            ("Carrying Run", "Carrying idlers in 30 degree troughing sets shape the belt into a trough so it holds its load, running on sealed bearings that keep dust out."),
+            ("Return Run and Drive", "Return rollers support the empty underside of the belt with a smooth face, while the head pulley drives the belt and the tail pulley keeps it tensioned."),
+        ],
+        "apps": [
+            ("Coke Oven Plants", "Belt conveyors carrying coal to the ovens and coke away from them."),
+            ("Coal Washeries", "Abrasive, wet duty where sealed bearings and lagged pulleys hold up."),
+            ("Power Plants", "Continuous fuel handling from the yard to the bunkers."),
+        ],
+        "faqs": [
+            ("What belt sizes do you support?", "We manufacture components for all standard belt widths: 600 mm, 750 mm, 800 mm, 900 mm, 1000 mm, 1200 mm and 1400 mm."),
+            ("Are the impact rollers rubberized?", "Yes. Our impact rollers have robust rubber rings designed to absorb the shock of falling material at hopper loading points."),
+            ("Do pulleys come with lagging?", "We offer both plain steel face pulleys and rubber-lagged pulleys (diamond groove or plain) for better traction in wet conditions."),
+            ("Can you supply brackets?", "Yes. We can supply the idler frames (brackets) along with the rollers or separately as spares."),
+            ("What is the delivery time?", "Standard sizes such as 800 mm and 1000 mm rollers are often in stock. Custom pulleys typically take 2 - 3 weeks."),
+        ],
+        "buying": [
+            ("Lead time", "Standard sizes (800 mm and 1000 mm rollers) are often in stock. Custom pulleys usually take 2 - 3 weeks."),
+            ("Warranty", "1 year, as on all our machinery."),
+            ("Bulk orders", "Taken for plant-wide replacement of idlers, rollers and pulleys."),
+            ("Custom builds", "Sizes and lagging matched to your plant and drawings."),
+        ],
+    },
 }
 
 
@@ -467,7 +516,7 @@ def page_overview(pdf, p):
     right_bottom = pdf.feature_list(p["features"], COL_R_X, y + 5.5, COL_W)
 
     pdf.set_y(max(left_bottom, right_bottom) + 8)
-    pdf.buying_info(BUYING_INFO)
+    pdf.buying_info(p.get("buying", BUYING_INFO))
     pdf.quote_block()
 
 
@@ -540,26 +589,38 @@ def page_gallery(pdf, p, key):
     pdf.add_page()
     pdf.set_y(28)
 
+    others = [(q["title"], q["subtitle"]) for k, q in PRODUCTS.items() if k != key]
+
+    # Work out what the range list needs, then give the gallery the rest. The
+    # list grows with every new product, so fixed image heights would collide
+    # with the quotation panel.
+    index_h = 14 + ((len(others) + 1) // 2) * 9.5 if others else 0
+    quote_top = FOOTER_Y - 32
+    available = quote_top - 28 - index_h - 10
+
     images = gallery_images(p["gallery"], limit=3)
     if images:
         pdf.section("Product gallery", gap_before=0)
         y = pdf.get_y()
         gap = 6.0
+        room = max(50.0, available - (pdf.get_y() - 28))
         if len(images) == 1:
-            frame(pdf, images[0], MARGIN, y, CONTENT_W, 120)
-            y += 120
+            h = min(120.0, room)
+            frame(pdf, images[0], MARGIN, y, CONTENT_W, h)
+            y += h
         else:
             # One lead shot across the column, the rest side by side below it.
-            frame(pdf, images[0], MARGIN, y, CONTENT_W, 88)
-            y += 88 + gap
+            lead = min(88.0, room * 0.6)
+            small = min(55.0, room - lead - gap)
+            frame(pdf, images[0], MARGIN, y, CONTENT_W, lead)
+            y += lead + gap
             rest = images[1:]
             w = (CONTENT_W - gap * (len(rest) - 1)) / len(rest)
             for i, path in enumerate(rest):
-                frame(pdf, path, MARGIN + i * (w + gap), y, w, 55)
-            y += 55
+                frame(pdf, path, MARGIN + i * (w + gap), y, w, small)
+            y += small
         pdf.set_y(y)
 
-    others = [(q["title"], q["subtitle"]) for k, q in PRODUCTS.items() if k != key]
     if others:
         pdf.section("Also from Manual Tools Company")
         pdf.product_index(others)

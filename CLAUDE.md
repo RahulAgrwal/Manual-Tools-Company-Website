@@ -91,7 +91,7 @@ Page copy is HTML. Use `<strong>`, not Markdown `**bold**`.
 
 ## Other
 - `brochure/*.py`: fpdf2 scripts that build the product PDF brochures. Run them from the repo root because image paths are relative.
-  - `generate_product_brochures.py` builds all nine from one `PRODUCTS` table (copy only); `brochure_layout.py` holds the page furniture. The copy is taken from the product pages, so update both when specs change.
+  - `generate_product_brochures.py` builds all ten from one `PRODUCTS` table (copy only); `brochure_layout.py` holds the page furniture. The copy is taken from the product pages, so update both when specs change.
   - Four pages: dark cover (product name, hero cutout, three headline figures), overview and specification table with the Buying information box, process flow / applications / FAQ, then gallery and the rest of the range.
   - Cover art comes from the home-page carousel images in `assets/img/slide/`, which are transparent cutouts. `cutout_image()` keys out a plain white backdrop too; a photo of a real scene falls back to a white panel. That one image is written with `FlateDecode` because JPEG ringing round the cut edge would show as a box on the dark cover.
   - The logo and the 30-years badge are transparent PNGs, and the JPEG image filter has no alpha, so both are composited onto their background first (`logo_image()`). Drawing them directly renders a black box.
