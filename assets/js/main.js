@@ -89,27 +89,7 @@
     }, true);
 
     /**
-     * 5. SCROLLTO LINKS (Clicking nav links)
-     */
-    on('click', '.scrollto', function(e) {
-        if (select(this.hash)) {
-            e.preventDefault();
-
-            let navbar = select('#navbar');
-            if (navbar.classList.contains('navbar-mobile')) {
-                // Close mobile menu
-                navbar.classList.remove('navbar-mobile');
-                let navbarToggle = select('.mobile-nav-toggle');
-                navbarToggle.classList.toggle('bi-list');
-                navbarToggle.classList.toggle('bi-x');
-            }
-            // Use the custom scrollto function defined above
-            scrollto(this.hash);
-        }
-    }, true);
-
-    /**
-     * 6. PAGE LOAD & SCROLL EVENTS
+     * 5. PAGE LOAD & SCROLL EVENTS
      */
     window.addEventListener('load', () => {
         // Scroll to hash on load
@@ -153,53 +133,9 @@
 
 
     /**
-     * 7. COMPONENT INITIALIZATION (Carousel, Isotope, etc.)
+     * 6. PHOTO GALLERY (Isotope filters and GLightbox, photo-gallery.php only)
      */
     document.addEventListener('DOMContentLoaded', () => {
-
-        // Hero Carousel Indicators
-        let heroCarouselIndicators = select("#hero-carousel-indicators");
-        let heroCarouselItems = select('#heroCarousel .carousel-item', true);
-
-        if (heroCarouselIndicators && heroCarouselItems.length > 0) {
-            heroCarouselItems.forEach((item, index) => {
-                heroCarouselIndicators.innerHTML += `<li data-bs-target='#heroCarousel' data-bs-slide-to='${index}' ${index === 0 ? "class='active'" : ""}></li>`;
-            });
-        }
-
-        // Carousel & Image Lazy Loading
-        // Merged logic for cleaner execution
-        const allLazyItems = document.querySelectorAll('.carousel-item[data-lqip], img[data-full-src]');
-
-        allLazyItems.forEach(item => {
-            // Logic for Carousel Backgrounds
-            if (item.classList.contains('carousel-item')) {
-                const lqipPath = item.getAttribute('data-lqip');
-                const fullImagePath = item.getAttribute('data-full-image');
-                item.style.backgroundColor = '#f5f5f5';
-
-                if (lqipPath) item.style.backgroundImage = `url(${lqipPath})`;
-
-                if (fullImagePath) {
-                    const fullImage = new Image();
-                    fullImage.src = fullImagePath;
-                    fullImage.onload = () => {
-                        item.style.backgroundImage = `url(${fullImagePath})`;
-                    };
-                }
-            }
-            // Logic for Standard Images
-            else if (item.tagName === 'IMG') {
-                const fullSrc = item.getAttribute('data-full-src');
-                const loader = new Image();
-                loader.src = fullSrc;
-                loader.onload = () => {
-                    item.src = fullSrc;
-                    item.classList.add('lazy-loaded');
-                    item.removeAttribute('data-full-src');
-                };
-            }
-        });
 
         // Portfolio Isotope
         let portfolioContainer = select('.portfolio-container');
@@ -224,63 +160,6 @@
         if (typeof GLightbox !== 'undefined') {
             const portfolioLightbox = GLightbox({
                 selector: '.portfolio-lightbox'
-            });
-        }
-
-        // Portfolio Details Slider (Swiper)
-        if (select('.portfolio-details-slider') && typeof Swiper !== 'undefined') {
-            new Swiper('.portfolio-details-slider', {
-                speed: 400,
-                loop: true,
-                autoplay: {
-                    delay: 5000,
-                    disableOnInteraction: false
-                },
-                pagination: {
-                    el: '.swiper-pagination',
-                    type: 'bullets',
-                    clickable: true
-                }
-            });
-        }
-
-        // Number Counters (Intersection Observer)
-        const counters = document.querySelectorAll('.counter h3');
-        if (counters.length > 0) {
-            const speed = 200;
-            const animateCounter = (counterElement) => {
-                const target = +counterElement.closest('.counter').getAttribute('data-target');
-                let current = 0;
-                const updateCount = () => {
-                    const increment = target / speed;
-                    if (current < target) {
-                        current += increment;
-                        counterElement.innerText = Math.ceil(current) + "+";
-                        setTimeout(updateCount, 1);
-                    } else {
-                        counterElement.innerText = target + "+";
-                    }
-                };
-                updateCount();
-            };
-
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const counterElementH3 = entry.target.querySelector('h3');
-                        if (counterElementH3 && !counterElementH3.classList.contains('animated')) {
-                            animateCounter(counterElementH3);
-                            counterElementH3.classList.add('animated');
-                            observer.unobserve(entry.target);
-                        }
-                    }
-                });
-            }, {
-                threshold: 0.5
-            });
-
-            document.querySelectorAll('.counter').forEach(counterDiv => {
-                observer.observe(counterDiv);
             });
         }
 

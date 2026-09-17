@@ -9,7 +9,7 @@ RewriteCond %{THE_REQUEST} \s/+index(\.php)?[\s?] [NC]
 RewriteRule ^ / [R=301,L]
 
 # Include-only PHP files are not pages
-RewriteRule ^(header|footer|common-head|page-helpers|global-products|our-products|related-products|sidebar-quote-form|clients|gallery-products|load-secrets|webcounter|router|secrets\.example)(\.php)?$ - [R=404,L]
+RewriteRule ^(header|footer|common-head|page-helpers|global-products|our-products|related-products|sidebar-quote-form|clients|load-secrets|webcounter|router|secrets\.example)(\.php)?$ - [R=404,L]
 
 # Drop a trailing slash (e.g. /about/ -> /about)
 RewriteCond %{REQUEST_FILENAME} !-d

@@ -203,9 +203,9 @@
             </div>
 
             <div class="mtc-product-action-row">
-              <!-- <a href="brochure/Manual_Tools_Co_Coke_Cutter_Ring_Type.pdf" class="mtc-btn-dark" download>
+              <a href="brochure/Manual_Tools_Co_Coke_Cutter_Ring_Type.pdf" class="mtc-btn-dark" download>
                 <i class="fas fa-download"></i> Brochure
-              </a> -->
+              </a>
               <a href="#quote-form" class="mtc-btn-orange">
                 <i class="fas fa-file-signature"></i> Request Quote
               </a>
@@ -243,6 +243,7 @@
               <li><strong>Warranty:</strong> 1 year, as on all our machinery.</li>
               <li><strong>Installation:</strong> Installation supervision and commissioning available.</li>
               <li><strong>Custom builds:</strong> Capacity, motor power and dimensions can be matched to your plant and drawings.</li>
+              <li><strong>Brochure:</strong> <a href="brochure/Manual_Tools_Co_Coke_Cutter_Ring_Type.pdf" download>Download PDF</a></li>
               </ul>
               <a href="#quote-form" class="mtc-btn-orange"><i class="fas fa-file-signature"></i> Request a Quotation</a>
             </div>

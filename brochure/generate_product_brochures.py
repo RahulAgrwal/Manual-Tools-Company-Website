@@ -188,6 +188,35 @@ PRODUCTS = {
             ("What is the delivery timeline?", "Made to order; fabrication usually takes 4 - 5 weeks depending on the production queue."),
         ],
     },
+    "coke-cutter-ring-type": {
+        "output": "Manual_Tools_Co_Coke_Cutter_Ring_Type.pdf",
+        "title": "RING TYPE COKE CUTTER",
+        "subtitle": "DOUBLE DRIVE - SEGMENTED MANGANESE STEEL RINGS",
+        "main_image": "assets/img/about-us-products/Double Drive Coke Cutter Machine Ring Type.jpg",
+        "gallery": "assets/img/product-images/coke-cutter-ring-teeth/",
+        "summary": "A double drive coke cutter whose shafts carry separate toothed rings of high manganese steel instead of one lined drum. Two 25 HP motors, 20 TPH, adjustable 45 - 60 mm output.",
+        "left_title": "PERFORMANCE",
+        "left": ["Capacity: 20 Tons / Hour", "Motor: 25 HP + 25 HP (Total 50 HP)", "Input Feed Size: below 200 mm", "Output Size: 45 - 60 mm (Adjustable)"],
+        "right_title": "DURABILITY & DESIGN",
+        "right": ["Segmented Toothed Rings", "High Manganese Steel (Work-Hardening)", "Individually Replaceable Rings", "Double Drive: Equal Torque, Less Jamming"],
+        "steps": [
+            ("1. Feed Intake", "Large coke lumps fall into the cutting chamber. The robust housing is designed to withstand impact from heavy material."),
+            ("2. Ring Shearing", "As the shafts rotate, the toothed rings engage the coke. The segmented design concentrates force for cleaner cuts with less dust."),
+            ("3. Sized Output", "Sized coke (45 - 60 mm) passes through the gap. Oversized pieces remain until cut, for consistent furnace-grade coke."),
+        ],
+        "apps": [
+            ("Steel Plants", "Metallurgical coke for blast furnaces, where air flow permeability is key."),
+            ("Cupola Furnaces", "Consistent coke sizes for foundries: stable temperatures and melting rates."),
+            ("Ferro Alloys", "Specific carbon sizing for reduction processes."),
+        ],
+        "faqs": [
+            ("What is the benefit of the Ring Type design?", "Rings are keyed to the shaft individually, so a damaged section is replaced on its own instead of relining the whole drum. The cutting is also very aggressive on hard coke."),
+            ("Why are there two motors (Double Drive)?", "Equal torque on both ends of the cutting shaft prevents jamming on large or hard lumps and extends gear life."),
+            ("Can I adjust the output size?", "Yes. The gap between the ring shafts is adjustable from 45 mm to 60 mm."),
+            ("How durable are the rings?", "They are cast from High Manganese Steel, which work-hardens in use and withstands abrasive metallurgical coke."),
+            ("What capacity does this machine handle?", "This model is designed for 20 Tons Per Hour (TPH)."),
+        ],
+    },
 }
 
 # Helvetica (core font) only covers Latin-1.

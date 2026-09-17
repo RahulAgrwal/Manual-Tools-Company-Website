@@ -8,20 +8,20 @@
   - First, confirm how Hostinger deploys (git pull over existing files can fail when newly tracked files already exist untracked on the server).
 
 - [ ] **ISO 9001 certificate.** The certificate on `/about` (QMS/014551/0220) expired on 04-Feb-2023, but the badge still appears on the home page, About page and product pages. Upload the current certificate or remove the badges. (Left as is on request, 2026-09-17.)
-- [ ] **Unverified numbers.** "150+ Happy Clients" and "500+ Projects Done" on the home page were kept. Confirm them with the owner, or back them up with case studies (plant, machine, year).
 - [ ] **Off-site listings (manual).**
   - Check the Google Business Profile category, photos and reviews.
   - Claim or verify IndiaMART, TradeIndia and JustDial listings with the same name, address and phone.
   - Create LinkedIn and YouTube pages only if they will be used, then add them to the footer, header and `sameAs` in `index.php`.
 - [ ] **Search Console and Bing Webmaster Tools.** Submit `sitemap.xml` and request indexing for the changed pages. (IndexNow was already sent on 2026-09-17; see Done.)
-- [ ] **Ring Type coke cutter brochure.** The button is commented out in `coke-cutter-double-drive-ring-type.php`. Add the product to `brochure/generate_product_brochures.py` when the owner approves the content.
-- [ ] **`gallery-products.php` is unused** and points to image files that no longer exist. Delete it or wire it in.
-- [ ] **Unused JS.**
-  - The Swiper `.portfolio-details-slider` block in `assets/js/main.js` is dead code (Swiper was removed).
-  - `assets/vendor/php-email-form/validate.js` and `assets/vendor/waypoints/` are not loaded by any page.
 
 ## Done
 
+- [x] **2026-09-17: Ring Type coke cutter brochure.** The owner approved the page content. Added the product to `brochure/generate_product_brochures.py`, generated `Manual_Tools_Co_Coke_Cutter_Ring_Type.pdf`, and linked it from the page (Brochure button and the "Buying information" box).
+- [x] **2026-09-17: Home page numbers confirmed.** The owner confirmed "150+ Happy Clients" and "500+ Projects Done" are accurate. No change needed on the site.
+- [x] **2026-09-17: Unused JS and `gallery-products.php` removed.**
+  - Deleted `gallery-products.php` (not included anywhere, pointed to missing images) and dropped it from the blocked-file lists in `.htaccess` and `router.php`.
+  - `main.js`: removed blocks that matched nothing on the site (`.scrollto` links, hero carousel indicators, `data-lqip`/`data-full-src` lazy loading, Swiper slider, number counters). The counter code never ran: it looked for `.counter h3`, but the markup is `h3.counter`.
+  - Deleted files no page loads: `assets/js/replaceThumWithMain.js`, `php-email-form/validate.js`, `waypoints`, the unminified GLightbox and Isotope files, and every Bootstrap JS build except `bootstrap.bundle.min.js`.
 - [x] **2026-09-17: Unused CSS removed.**
   - `style.css`: template rules no page uses (blog, pricing, testimonials, team, skills, portfolio details, CTA, old product showcase, specs and process blocks, video gallery), plus the unused `fadeInUp` keyframes. Down from 4818 to 2945 lines.
   - `product-detail.css`: star-rating and old tech-features card rules.

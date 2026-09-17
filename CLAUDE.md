@@ -45,7 +45,8 @@ Shared parts:
 - `our-products.php`: card grid built from that list (home and about pages).
 - `related-products.php`: slider. Set `$current_page_slug` before including it so the current product is left out.
 - `sidebar-quote-form.php`: set `$_GET['page_url']` and `$_GET['page_title']` before including it.
-- `clients.php`: data arrays and a loop. (`gallery-products.php` is not included anywhere; `photo-gallery.php` builds its grid from the product image folders.)
+- `clients.php`: data arrays and a loop.
+- `photo-gallery.php` builds its grid from the product image folders.
 
 ## Product detail pages
 `coal-crusher-5-No-single-disc`, `coal-crusher-5-No-double-disc`, `coke-cutter-double-drive`, `coke-cutter-double-drive-ring-type`, `haulage`, `power-winch`, `vibrator-screen`, `conveyor-materials`, `coal-charging-car`, `pusher-with-stamping-arrangement`.
@@ -87,7 +88,7 @@ Page copy is HTML. Use `<strong>`, not Markdown `**bold**`.
 - Front-end libraries live in `assets/vendor/` and are loaded directly (no npm).
 
 ## Other
-- `brochure/*.py`: fpdf2 scripts that build product PDF brochures. Run them from the repo root because image paths are relative. `generate_product_brochures.py` builds six of them from one data table and reuses the layout class in `generate_brochure_coke_cutter.py`; its copy is taken from the product pages, so update both when specs change.
+- `brochure/*.py`: fpdf2 scripts that build product PDF brochures. Run them from the repo root because image paths are relative. `generate_product_brochures.py` builds seven of them from one data table and reuses the layout class in `generate_brochure_coke_cutter.py`; its copy is taken from the product pages, so update both when specs change.
 - `tools/optimize_images.py` (Pillow): WebP copies (max 1600px) and 320px gallery thumbnails next to the originals. Originals stay because the brochure scripts use them.
 - `tools/indexnow_submit.py`: tells Bing and other IndexNow search engines that pages changed. The key file `5980cefe6f533e8fca5d87e5d37f5339.txt` in the root must stay deployed; don't delete or rename it.
   - **After every deploy that changes page content**, run it for the changed pages once the push is live: `python tools/indexnow_submit.py /haulage /about` (paths), or with no arguments to send every URL in `sitemap.xml`.
