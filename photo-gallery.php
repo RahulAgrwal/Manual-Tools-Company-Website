@@ -12,6 +12,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.manualtoolsco.com/photo-gallery">
   <meta property="og:title" content="Photo Gallery – Coke Oven Machinery | Manual Tools Company">
+  <meta property="og:description" content="Photos of coke oven machinery built by Manual Tools Company in Dhanbad: coal crushers, coke cutters, haulage machines, winches, screens and charging cars.">
   <meta property="og:image" content="https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Coal-Crusher-single-disc.jpg">
   <meta property="og:site_name" content="Manual Tools Company">
 
@@ -19,6 +20,7 @@
   <?php mtc_breadcrumb_schema(['Photo Gallery' => 'photo-gallery']); ?>
 
   <link href="assets/css/product-detail.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
 
 </head>
 
@@ -144,7 +146,7 @@
   <!-- ======= Footer ======= -->
   <?php include("footer.php"); ?>
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="fas fa-arrow-up"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

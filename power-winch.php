@@ -5,20 +5,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="Door Lifting Power Winch for Coke Ovens. 2.5–5 Ton capacity, 5–7.5 HP motor, Worm Reducer Gearbox. Heavy-duty vertical lifting solution by Manual Tools Company.">
-  <meta name="keywords"
-    content="Door Lifting Winch, Coke Oven Power Winch, Industrial Winch, Worm Gear Winch, 5 Ton Winch, Manual Tools Company, Dhanbad, Jharkhand, India">
+    content="Power winch for lifting coke oven doors: 2.5–5 ton capacity, 5–7.5 HP motor, self-locking worm reducer gearbox. Made in Dhanbad, India. Get a quote.">
   <meta name="robots" content="index, follow">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="canonical" href="https://www.manualtoolsco.com/power-winch">
 
-  <title>Door Lifting Power Winch | Manual Tools Company</title>
+  <title>Door Lifting Power Winch for Coke Ovens | Manual Tools Company</title>
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="product">
   <meta property="og:url" content="https://www.manualtoolsco.com/power-winch">
-  <meta property="og:title" content="Door Lifting Power Winch | Manual Tools Company">
-  <meta property="og:description" content="Industrial Door Lifting Power Winch with 2.5–5 ton capacity and worm reducer gearbox.">
+  <meta property="og:title" content="Door Lifting Power Winch for Coke Ovens | Manual Tools Company">
+  <meta property="og:description" content="Power winch for lifting coke oven doors: 2.5–5 ton capacity, 5–7.5 HP motor, self-locking worm reducer gearbox. Made in Dhanbad, India. Get a quote.">
   <meta property="og:image"
     content="https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Power-Winchh.png">
   <meta property="og:site_name" content="Manual Tools Company">
@@ -91,7 +89,7 @@
             ?>
 
             <div class="mtc-product-main-frame text-center">
-              <img id="mainImage" src="<?php echo htmlspecialchars(mtc_img($currentMainSrc)); ?>" <?php echo mtc_img_size(mtc_img($currentMainSrc)); ?> fetchpriority="high" alt="Door Lifting Power Winch"
+              <img id="mainImage" src="<?php echo htmlspecialchars(mtc_img($currentMainSrc)); ?>" <?php echo mtc_img_size(mtc_img($currentMainSrc)); ?> fetchpriority="high" alt="Coke oven door lifting power winch"
                 class="img-fluid">
             </div>
 
@@ -106,7 +104,7 @@
           </div>
 
           <div class="col-lg-6 ps-lg-5">
-            <div class="mtc-product-eyebrow">Coke Oven Maintenance Equipment</div>
+            <div class="mtc-product-eyebrow">Coke Oven Gate Lifting Equipment</div>
             <h1 class="mtc-product-title">Door Lifting <br><span class="mtc-highlight">Power Winch</span></h1>
 
             <div class="mtc-product-review-row">

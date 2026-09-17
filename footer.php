@@ -24,9 +24,9 @@ if (substr($page_name, -4) !== '.php') {
                         Leading manufacturer of heavy-duty Coke Oven Machinery. Engineering excellence from Dhanbad to the world since 1995.
                     </p>
                     <div class="social-links mt-3">
-                        <a href="https://www.facebook.com/profile.php?id=61560479668542" class="facebook" target="_blank" rel="noopener" aria-label="Facebook"><i class="bx bxl-facebook"></i></a>
-                        <a href="https://www.instagram.com/manual_tools_company/" class="instagram" target="_blank" rel="noopener" aria-label="Instagram"><i class="bx bxl-instagram"></i></a>
-                        <a href="https://maps.app.goo.gl/SR7U9r1J5fXyFfF7A" class="googlemap" target="_blank" rel="noopener" aria-label="Google Maps location"><i class="bx bx-map"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61560479668542" class="facebook" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/manual_tools_company/" class="instagram" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://maps.app.goo.gl/SR7U9r1J5fXyFfF7A" class="googlemap" target="_blank" rel="noopener" aria-label="Google Maps location"><i class="fas fa-map-marker-alt"></i></a>
                     </div>
                 </div>
 
@@ -34,11 +34,11 @@ if (substr($page_name, -4) !== '.php') {
                 <div class="col-lg-2 col-md-6 footer-links">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><i class="bx bx-chevron-right"></i> <a href="/">Home</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="about">Company Profile</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="products">All Products</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="photo-gallery">Gallery</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="contact">Contact Us</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="/">Home</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="about">Company Profile</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="products">All Products</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="photo-gallery">Gallery</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="contact">Contact Us</a></li>
                     </ul>
                 </div>
 
@@ -46,11 +46,11 @@ if (substr($page_name, -4) !== '.php') {
                 <div class="col-lg-3 col-md-6 footer-links">
                     <h4>Key Machinery</h4>
                     <ul>
-                        <li><i class="bx bx-chevron-right"></i> <a href="coal-crusher">Coal Crusher</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="pusher-with-stamping-arrangement">Pusher Machine</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="coal-charging-car">Charging Car</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="power-winch">Power Winch</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="vibrator-screen">Vibrator Screen</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="coal-crusher">Coal Crusher</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="pusher-with-stamping-arrangement">Pusher Machine</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="coal-charging-car">Charging Car</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="power-winch">Power Winch</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="vibrator-screen">Vibrator Screen</a></li>
                     </ul>
                 </div>
 
@@ -59,17 +59,17 @@ if (substr($page_name, -4) !== '.php') {
                     <h4>Get In Touch</h4>
                     
                     <div class="contact-item">
-                        <i class="bx bx-map"></i>
+                        <i class="fas fa-map-marker-alt"></i>
                         <span>Bastacolla, P.O. Dhansar,<br>Dhanbad - 828106, Jharkhand</span>
                     </div>
                     
                     <div class="contact-item">
-                        <i class="bx bx-phone-call"></i>
+                        <i class="fas fa-phone-alt"></i>
                         <a href="tel:+919430707348">+91-9430707348</a>
                     </div>
                     
                     <div class="contact-item">
-                        <i class="bx bx-envelope"></i>
+                        <i class="fas fa-envelope"></i>
                         <span>ravindrakumaragarwal@rocketmail.com</span>
                     </div>
 
@@ -123,8 +123,8 @@ if (substr($page_name, -4) !== '.php') {
 $mtc_quote_href = isset($_GET['page_url']) ? '#quote-form' : 'contact';
 ?>
 <div class="mtc-mobile-cta d-lg-none">
-    <a href="tel:+919430707348" class="mtc-mobile-cta-call"><i class="bx bx-phone-call"></i> Call Now</a>
-    <a href="<?php echo $mtc_quote_href; ?>" class="mtc-mobile-cta-quote"><i class="bx bx-file"></i> Request Quote</a>
+    <a href="tel:+919430707348" class="mtc-mobile-cta-call"><i class="fas fa-phone-alt"></i> Call Now</a>
+    <a href="<?php echo $mtc_quote_href; ?>" class="mtc-mobile-cta-quote"><i class="fas fa-file-alt"></i> Request Quote</a>
 </div>
 
 <!-- Google tag (GA4 + Ads) is configured once in common-head.php. -->

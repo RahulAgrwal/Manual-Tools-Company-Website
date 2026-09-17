@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Compare our 5 No. coal crushers: Single Disc (8–10 TPH, 80–120 HP) and Double Disc (20–25 TPH, 160–200 HP). Both crush coal to below 2 mm. Made in Dhanbad.">
-  <meta name="keywords" content="Coal Crusher, 5 No. Coal Crusher, Coal Disintegrator, Single Disc Coal Crusher, Double Disc Coal Crusher, Coke Oven Coal Crusher, Manual Tools Company, Dhanbad">
   <meta name="robots" content="index, follow">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="canonical" href="https://www.manualtoolsco.com/coal-crusher">
@@ -180,7 +179,7 @@
   <?php include("footer.php"); ?>
   <!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="fas fa-arrow-up"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

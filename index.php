@@ -4,8 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Dhanbad-based manufacturer of coke oven machinery since 1995: coal crushers, coke cutters, haulage machines, power winches, pusher machines and coal charging cars.">
-  <meta name="keywords" content="Manual Tools Company, Manual Tools, Tools Company, Coke, Coke Oven, Coke Oven Machinery, Coal Crusher Machine, Coal Disintegrator, Double Disc Coal Crusher, Coke Cutter Machine, Haulage Machine, Door Lifting Power Winch, Vibrator Screen, Conveyor Materials, Industrial Equipment Manufacturer, Coke Oven Accessories, Coal Crusher Manufacturer, Power Winch Manufacturer, Industrial Conveyor, Dhanbad, Jharkhand, India">
+  <meta name="description" content="Coke oven machinery manufacturer in Dhanbad since 1995: coal crushers, coke cutters, haulage machines, winches, pusher machines and coal charging cars.">
   <meta name="robots" content="index, follow">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="canonical" href="https://www.manualtoolsco.com/">
@@ -18,17 +17,9 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.manualtoolsco.com/">
   <meta property="og:title" content="Coke Oven Machinery Manufacturer in Dhanbad | Manual Tools Company">
-  <meta property="og:description" content="Dhanbad-based manufacturer of coke oven machinery since 1995: coal crushers, coke cutters, haulage machines, power winches, pusher machines and coal charging cars.">
+  <meta property="og:description" content="Coke oven machinery manufacturer in Dhanbad since 1995: coal crushers, coke cutters, haulage machines, winches, pusher machines and coal charging cars.">
   <meta property="og:image" content="https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Coal-Crusher-single-disc.jpg">
   <meta property="og:site_name" content="Manual Tools Company">
-  <meta property="og:locale" content="en_IN">
-
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://www.manualtoolsco.com/">
-  <meta property="twitter:title" content="Coke Oven Machinery Manufacturer in Dhanbad | Manual Tools Company">
-  <meta property="twitter:description" content="Dhanbad-based manufacturer of coke oven machinery since 1995: coal crushers, coke cutters, haulage machines, power winches, pusher machines and coal charging cars.">
-  <meta property="twitter:image" content="https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Coal-Crusher-single-disc.jpg"> <!-- Consider using a more general logo/hero image -->
 
   <!-- JSON-LD Structured Data: business + website -->
   <script type="application/ld+json">
@@ -215,7 +206,7 @@ $carousel_items = [
 
                   <div class="mtc-hero-actions">
                     <a href="<?php echo $item['link']; ?>" class="mtc-btn">
-                      View Specifications <i class="bi bi-arrow-right"></i>
+                      View Specifications <i class="fas fa-arrow-right"></i>
                     </a>
                     <a href="contact" class="mtc-btn mtc-btn-ghost">Get a Quote</a>
                   </div>
@@ -253,10 +244,10 @@ $carousel_items = [
 
     <!-- MOBILE ARROWS -->
     <button class="carousel-control-prev " type="button" data-bs-target="#mtcIndustrialCarousel" data-bs-slide="prev" style="width:10%; justify-content:flex-start; padding-left:10px;">
-      <i class="bi bi-chevron-left" style="font-size: 2rem; color: var(--primary-color);"></i>
+      <i class="fas fa-chevron-left" style="font-size: 2rem; color: var(--primary-color);"></i>
     </button>
     <button class="carousel-control-next " type="button" data-bs-target="#mtcIndustrialCarousel" data-bs-slide="next" style="width:10%; justify-content:flex-end; padding-right:10px;">
-      <i class="bi bi-chevron-right" style="font-size: 2rem; color: var(--primary-color);"></i>
+      <i class="fas fa-chevron-right" style="font-size: 2rem; color: var(--primary-color);"></i>
     </button>
 
   </div>
@@ -288,7 +279,7 @@ $carousel_items = [
           <div class="mtc-action-row">
             <!-- Primary Button -->
             <a href="about" class="mtc-btn">
-              More Details <i class="bi bi-arrow-right"></i>
+              More Details <i class="fas fa-arrow-right"></i>
             </a>
 
             <!-- ISO Badge (Styled nicely next to button) -->
@@ -571,7 +562,7 @@ $carousel_items = [
   ?>
   <!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="fas fa-arrow-up"></i></a>
 
   <!-- Vendor JS Files -->
 

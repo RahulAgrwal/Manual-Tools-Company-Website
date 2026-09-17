@@ -5,9 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="Double Drive Coke Cutter (Ring Type) for heavy-duty coke sizing. Features Manganese Steel Toothed Rings, 25 HP x 2 motors, 20 TPH capacity. Manual Tools Company.">
-  <meta name="keywords"
-    content="Ring Type Coke Cutter, Double Drive Coke Cutter, Toothed Ring Coke Crusher, Coke Sizing Machine, Manual Tools Company, Dhanbad, Jharkhand, India">
+    content="Ring type coke cutter with double drive and manganese steel toothed rings: 2 x 25 HP, 20 TPH, adjustable 45–60 mm output. Made in Dhanbad, India.">
   <meta name="robots" content="index, follow">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <!-- Update canonical link to the new page slug -->
@@ -19,7 +17,7 @@
   <meta property="og:type" content="product">
   <meta property="og:url" content="https://www.manualtoolsco.com/coke-cutter-double-drive-ring-type">
   <meta property="og:title" content="Ring Type Coke Cutter (Double Drive, 20 TPH) | Manual Tools Company">
-  <meta property="og:description" content="Heavy-duty Ring Type Coke Cutter with double drive motors and segmented manganese rings for precise sizing.">
+  <meta property="og:description" content="Ring type coke cutter with double drive and manganese steel toothed rings: 2 x 25 HP, 20 TPH, adjustable 45–60 mm output. Made in Dhanbad, India.">
   <meta property="og:image"
     content="https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Double-Drive-Coke-Cutter-Machine-Ring-Type.jpg">
   <meta property="og:site_name" content="Manual Tools Company">

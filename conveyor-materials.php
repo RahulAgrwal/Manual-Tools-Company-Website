@@ -5,20 +5,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="Heavy Duty Conveyor Components: Idlers, Impact Rollers, Head & Tail Pulleys. Available for belt widths 600mm–1400mm. Manual Tools Company, India.">
-  <meta name="keywords"
-    content="Conveyor Idlers, Return Rollers, Impact Rollers, Head Pulley, Tail Pulley, Conveyor Belt Parts, Manual Tools Company, Dhanbad, Jharkhand, India">
+    content="Conveyor idlers, idler rollers, impact rollers and head &amp; tail pulleys for 600–1400 mm belts in coke and coal handling. Made in Dhanbad, India.">
   <meta name="robots" content="index, follow">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="canonical" href="https://www.manualtoolsco.com/conveyor-materials">
 
-  <title>Conveyor Materials & Components | Manual Tools Company</title>
+  <title>Conveyor Idlers, Rollers &amp; Pulleys | Manual Tools Company</title>
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="product">
   <meta property="og:url" content="https://www.manualtoolsco.com/conveyor-materials">
-  <meta property="og:title" content="Conveyor Materials & Components | Manual Tools Company">
-  <meta property="og:description" content="Industrial conveyor rollers, idlers, and pulleys for coke and coal handling systems.">
+  <meta property="og:title" content="Conveyor Idlers, Rollers &amp; Pulleys | Manual Tools Company">
+  <meta property="og:description" content="Conveyor idlers, idler rollers, impact rollers and head &amp; tail pulleys for 600–1400 mm belts in coke and coal handling. Made in Dhanbad, India.">
   <meta property="og:image"
     content="https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Conveyor-Material.png">
   <meta property="og:site_name" content="Manual Tools Company">
@@ -151,7 +149,7 @@
             ?>
 
             <div class="mtc-product-main-frame text-center">
-              <img id="mainImage" src="<?php echo htmlspecialchars(mtc_img($currentMainSrc)); ?>" <?php echo mtc_img_size(mtc_img($currentMainSrc)); ?> fetchpriority="high" alt="Conveyor Materials"
+              <img id="mainImage" src="<?php echo htmlspecialchars(mtc_img($currentMainSrc)); ?>" <?php echo mtc_img_size(mtc_img($currentMainSrc)); ?> fetchpriority="high" alt="Conveyor idlers, rollers and pulleys"
                 class="img-fluid">
             </div>
 
@@ -235,7 +233,7 @@
         <div class="row g-4">
           <div class="col-lg-8">
             <h2 class="mtc-overview-title">Which conveyor components do we make?</h2>
-            <p>Manual Tools Company manufactures components for belt conveyors in coke oven plants, coal washeries and power plants: carrying idlers, return rollers, rubber-ringed impact rollers for hopper loading points, and head and tail pulleys in plain steel or with rubber lagging (diamond groove or plain) for better grip in wet conditions.</p>
+            <p>Manual Tools Company manufactures components for belt conveyors in coke oven plants, coal washeries and power plants: carrying idlers (idler rollers), return rollers, rubber-ringed impact rollers for hopper loading points, and head and tail pulleys in plain steel or with rubber lagging (diamond groove or plain) for better grip in wet conditions.</p>
             <p>Rollers use seamless pipe on bright steel (EN-8) shafts with sealed ball bearings (6204, 6205 or 6305) to keep dust out. Components are available for belt widths of 600, 750, 800, 900, 1000, 1200 and 1400 mm, and idler frames (brackets) can be supplied with the rollers or separately as spares. We take bulk orders for plant-wide replacement.</p>
             <p class="mtc-overview-related">Grading material before it goes on the belt? <a href="vibrator-screen">See the Vibrator Screen Machine <i class="fas fa-arrow-right"></i></a></p>
           </div>

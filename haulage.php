@@ -5,9 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="Coke oven haulage machine (haulage winch) with 10 HP motor, worm reducer gearbox and 10-ton pull, for coke cake extraction, rail shunting and mines. Made in Dhanbad.">
-  <meta name="keywords"
-    content="Coke Oven Haulage Machine, Haulage Winch, Haulage Machine, Coke Oven Haulage, Industrial Winch, 10 Ton Haulage, Worm Reducer Gearbox, Manual Tools Company, Dhanbad, Jharkhand, India">
+    content="Coke oven haulage machine (haulage winch): 10 HP motor, worm reducer gearbox and 10-ton pull for coke cake extraction and rail shunting. Made in Dhanbad.">
   <meta name="robots" content="index, follow">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="canonical" href="https://www.manualtoolsco.com/haulage">
@@ -18,7 +16,7 @@
   <meta property="og:type" content="product">
   <meta property="og:url" content="https://www.manualtoolsco.com/haulage">
   <meta property="og:title" content="Coke Oven Haulage Machine (10 Ton, 10 HP) | Manual Tools Company">
-  <meta property="og:description" content="10 HP coke oven haulage machine with worm reducer gearbox and 10 ton pulling capacity.">
+  <meta property="og:description" content="Coke oven haulage machine (haulage winch): 10 HP motor, worm reducer gearbox and 10-ton pull for coke cake extraction and rail shunting. Made in Dhanbad.">
   <meta property="og:image"
     content="https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Haulage-Machine.png">
   <meta property="og:site_name" content="Manual Tools Company">

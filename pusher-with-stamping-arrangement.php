@@ -5,20 +5,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="Heavy Duty Pusher Machine with Stamping Arrangement (Roller System) for Coke Ovens. 20m Beam, 40 HP Main Drive, 15 HP Long Travel. Manual Tools Company, India.">
-  <meta name="keywords"
-    content="Pusher Machine, Stamping Arrangement, Coke Oven Pusher, Roller System Pusher, Furnace Charging Machine, Manual Tools Company, Dhanbad, Jharkhand, India">
+    content="Pusher machine with roller stamping arrangement for stamp-charged coke ovens: 20 m beam, 40 HP main drive, 15 HP long travel. Made in Dhanbad, India.">
   <meta name="robots" content="index, follow">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="canonical" href="https://www.manualtoolsco.com/pusher-with-stamping-arrangement">
 
-  <title>Pusher Machine With Stamping Arrangement | Manual Tools Company</title>
+  <title>Stamp Charging Pusher Machine for Coke Ovens | Manual Tools Company</title>
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="product">
   <meta property="og:url" content="https://www.manualtoolsco.com/pusher-with-stamping-arrangement">
-  <meta property="og:title" content="Pusher Machine With Stamping Arrangement | Manual Tools Company">
-  <meta property="og:description" content="Industrial Pusher Machine with Roller Stamping System for Coke Ovens. 20m Beam, 40 HP Drive.">
+  <meta property="og:title" content="Stamp Charging Pusher Machine for Coke Ovens | Manual Tools Company">
+  <meta property="og:description" content="Pusher machine with roller stamping arrangement for stamp-charged coke ovens: 20 m beam, 40 HP main drive, 15 HP long travel. Made in Dhanbad, India.">
   <meta property="og:image"
     content="https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Pusher-Machine-With-Stamping-Arrangement.png">
   <meta property="og:site_name" content="Manual Tools Company">
@@ -90,7 +88,7 @@
             ?>
 
             <div class="mtc-product-main-frame text-center">
-              <img id="mainImage" src="<?php echo htmlspecialchars(mtc_img($currentMainSrc)); ?>" <?php echo mtc_img_size(mtc_img($currentMainSrc)); ?> fetchpriority="high" alt="Pusher Machine With Stamping Arrangement"
+              <img id="mainImage" src="<?php echo htmlspecialchars(mtc_img($currentMainSrc)); ?>" <?php echo mtc_img_size(mtc_img($currentMainSrc)); ?> fetchpriority="high" alt="Stamp charging pusher machine with roller stamping arrangement"
                 class="img-fluid">
             </div>
 
@@ -177,7 +175,7 @@
         <div class="row g-4">
           <div class="col-lg-8">
             <h2 class="mtc-overview-title">What is a pusher machine with stamping arrangement?</h2>
-            <p>A pusher machine with stamping arrangement serves stamp-charged coke ovens and does two jobs. Its roller stamping system (7.5 HP) compacts loose coal fines into a dense coal cake, which gives better coke quality. Its 20-metre pusher beam, driven by a 40 HP motor through a heavy-duty helical gearbox and chain drive, pushes the finished coke out of the oven after carbonisation.</p>
+            <p>A pusher machine with stamping arrangement is a combined stamp charging and pushing machine for stamp-charged coke ovens, and it does two jobs. Its roller stamping system (7.5 HP) compacts loose coal fines into a dense coal cake, which gives better coke quality. Its 20-metre pusher beam, driven by a 40 HP motor through a heavy-duty helical gearbox and chain drive, pushes the finished coke out of the oven after carbonisation.</p>
             <p>The machine travels on rails along the battery, powered by a 15 HP long travel motor, and includes a 20-metre leveller beam with rack and pinion. Total connected load is about 65 to 70 HP. The standard beam suits ovens up to 11 metres long, and custom lengths are available. Travel and alignment are motorised, while stamping and pushing are controlled from a panel. Roller stamping is faster and needs less maintenance than drop-hammer systems.</p>
             <p class="mtc-overview-related">Top-charging your ovens instead? <a href="coal-charging-car">See the Coal Charging Car <i class="fas fa-arrow-right"></i></a></p>
           </div>

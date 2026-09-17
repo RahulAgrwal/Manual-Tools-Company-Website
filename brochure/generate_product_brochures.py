@@ -1,35 +1,238 @@
-"""Build the product brochures that have no dedicated script.
+"""Build every Manual Tools Company product brochure from one data table.
 
-Reuses the layout from generate_brochure_coke_cutter.py. All copy is taken
+Layout lives in brochure_layout.py; this file is copy only. All copy is taken
 from the matching product page, so keep the two in sync when specs change.
 
-Run from the repo root:
-    python brochure/generate_product_brochures.py            # all
+Run from the repo root (image paths are relative):
+    python brochure/generate_product_brochures.py            # all nine
     python brochure/generate_product_brochures.py haulage    # one
+
+Each entry needs:
+    output        file name written into brochure/
+    title         product name, printed in caps on the cover
+    subtitle      one line under the title
+    main_image    hero photo for page 2
+    cover_image   cover art, normally the home-page carousel cutout for this
+                  product (defaults to main_image)
+    gallery       folder scanned for up to three gallery photos
+    summary       130-170 words condensed to two or three sentences
+    stats         three headline figures, (value, caption)
+    specs         (label, value) rows for the specification table
+    features      design and durability points
+    steps         (title, description) process flow
+    apps          (sector, description)
+    faqs          (question, answer)
 """
 import glob
 import sys
 
-from PIL import Image
+from brochure_layout import (
+    COL_R_X, COL_W, CONTENT_W, FONT_FAMILY, INK, INK_BODY, INK_SOFT, MARGIN,
+    PANEL, RED, RULE, MTCBrochure, clean, cutout_image, fit_image,
+)
 
-from generate_brochure_coke_cutter import COLORS, FONT_FAMILY, MTCStyleBrochure
+# Same wording as the "Buying information" box on every product page.
+# Keep the two in sync: the contact-page FAQ has to agree with these terms.
+BUYING_INFO = [
+    ("Lead time", "Made to order. Ask us for the current lead time."),
+    ("Warranty", "1 year, as on all our machinery."),
+    ("Installation", "Installation supervision and commissioning available."),
+    ("Custom builds", "Capacity, motor power and dimensions matched to your plant and drawings."),
+]
 
 PRODUCTS = {
+    "coal-crusher-single": {
+        "output": "Manual_Tools_Co_Coal_Crusher_Single_Disc.pdf",
+        "title": "Coal Crusher (5 No.)",
+        "subtitle": "Single Disc - Fine Coal Disintegrator",
+        "main_image": "assets/img/product-images/coal-crusher-single-disc/coal-crusher-2.png",
+        "cover_image": "assets/img/slide/Coal-Crusher.png",
+        "gallery": "assets/img/product-images/coal-crusher-single-disc/",
+        "summary": "A single disc coal crusher that pulverises coal to below 2 mm for coke oven and boiler feed. Six manganese steel hammers run inside a 12 mm fabricated body, and the extra-wide disc keeps the output size uniform across the full 8 - 10 TPH range.",
+        "stats": [("8 - 10 TPH", "Crushing capacity"), ("80 - 120 HP", "Motor range"), ("< 2 mm", "Output size")],
+        "specs": [
+            ("Crushing Capacity", "8 - 10 Tons / Hour"),
+            ("Motor", "80 - 120 H.P."),
+            ("Input Feed Size", "Up to 125 mm"),
+            ("Output Size", "Below 2 mm"),
+            ("Hammers", "6 Nos., Manganese Steel"),
+            ("Body Thickness", "12 mm Fabricated Steel"),
+        ],
+        "features": [
+            "Manganese steel side and top liner jaw plates",
+            "Double row spherical roller bearings",
+            "Single-side easy feeding mouth",
+            "Extra-wide disc for uniform output",
+            "Hammers replaceable through the side access door",
+        ],
+        "steps": [
+            ("Gravity Feed", "Raw coal lumps up to 125 mm are delivered by conveyor and drop into the crushing chamber through the top hopper."),
+            ("High-Speed Impact", "The single disc rotates at speed. Six manganese steel hammers throw the coal against the liner plates and shatter it on contact."),
+            ("Fine Discharge", "The pulverised coal passes the grate bars below 2 mm and discharges onto the outgoing conveyor, ready for the oven or boiler."),
+        ],
+        "apps": [
+            ("Coke Ovens", "Preparing the fine coal blend charged into stamp and top-charged batteries."),
+            ("Thermal Power", "Consistent sub-2 mm fuel for fluidised bed combustion boilers."),
+            ("Coal Washeries", "Reducing raw coal ahead of washing and blending."),
+        ],
+        "faqs": [
+            ("What is the output size?", "The single disc crusher is calibrated to produce a fine output below 2 mm."),
+            ("What is the motor capacity?", "An electrical motor between 80 H.P. and 120 H.P., depending on the tons per hour you need."),
+            ("Are the hammers replaceable?", "Yes. The six manganese steel hammers are replaced through the side access door without dismantling the rotor."),
+            ("What is the delivery time?", "Made to order; fabrication usually takes 3 - 4 weeks depending on the production queue."),
+            ("What maintenance does it need?", "Check the liner plates and grease the bearings routinely. Replace the hammers when worn."),
+        ],
+    },
+    "coal-crusher-double": {
+        "output": "Manual_Tools_Co_Coal_Crusher_Double_Disc.pdf",
+        "title": "Coal Crusher (5 No.)",
+        "subtitle": "Double Disc - High Capacity Disintegrator",
+        "main_image": "assets/img/product-images/coal-crusher-double-disc/coal-crusher-2.png",
+        "cover_image": "assets/img/slide/Coal-Crusher-Double-disc.png",
+        "gallery": "assets/img/product-images/coal-crusher-double-disc/",
+        "summary": "A double disc coal crusher for high-volume plants: up to 25 TPH, with 12 manganese steel hammers that reduce coal lumps up to 150 mm to below 2 mm.",
+        "stats": [("20 - 25 TPH", "Crushing capacity"), ("160 - 200 HP", "Motor range"), ("< 2 mm", "Output size")],
+        "specs": [
+            ("Crushing Capacity", "20 - 25 Tons / Hour"),
+            ("Motor", "160 - 200 H.P."),
+            ("Input Feed Size", "Below 150 mm"),
+            ("Output Size", "Below 2 mm"),
+            ("Hammers", "12 Nos., Manganese Steel"),
+            ("Body Thickness", "12 mm Fabricated Steel"),
+        ],
+        "features": [
+            "Double disc rotor carrying 12 manganese hammers",
+            "Individually replaceable hammers",
+            "12 mm fabricated steel housing",
+            "Handles moisture up to 10 - 12%",
+        ],
+        "steps": [
+            ("Large Feed Intake", "Accepts lumps up to 150 mm; the wide hopper spreads material across both discs."),
+            ("Dual Rotor Impact", "Two discs carrying 12 manganese hammers create a dense impact zone."),
+            ("High Volume Discharge", "Crushed coal passes the calibrated grate bars at up to 25 TPH, below 2 mm."),
+        ],
+        "apps": [
+            ("Large Coke Ovens", "High-capacity recovery ovens needing continuous feed."),
+            ("Thermal Power", "Consistent fuel for larger FBC boilers."),
+            ("Briquetting Plants", "High volumes of fines for fuel briquettes."),
+        ],
+        "faqs": [
+            ("How does it differ from the Single Disc?", "Two rotors and 12 hammers give 20 - 25 TPH and accept 150 mm feed, versus 8 - 10 TPH for the Single Disc."),
+            ("What motor is required?", "A slip-ring or squirrel cage motor between 160 HP and 200 HP."),
+            ("Can it handle wet coal?", "Up to 10 - 12% moisture; clean the grate bars more often for sticky coal."),
+            ("Are the hammers replaceable individually?", "Yes, each hammer can be replaced or reversed without dismantling the rotor."),
+            ("What is the delivery timeline?", "Made to order; fabrication usually takes 4 - 5 weeks depending on the production queue."),
+        ],
+    },
+    "coke-cutter-double-drive": {
+        "output": "Manual_Tools_Co_Coke_Cutter_Double_Drive.pdf",
+        "title": "Coke Cutter Machine",
+        "subtitle": "Double Drive, Drum Type - Industrial Series",
+        "main_image": "assets/img/product-images/coke-cutter/4.png",
+        "cover_image": "assets/img/slide/Coke-Cutter-Machine.png",
+        "gallery": "assets/img/product-images/coke-cutter/",
+        "summary": "A double drive coke cutter built for torque. Two 20 HP motors drive cast steel gears on both ends of the cutting drums, and the adjustable drum distance holds output between 45 mm and 60 mm. Manganese steel liner teeth take the wear and are replaceable.",
+        "stats": [("12 - 15 TPH", "Breaking capacity"), ("20 HP x 2", "Double drive"), ("45 - 60 mm", "Output size")],
+        "specs": [
+            ("Breaking Capacity", "12 - 15 Tons / Hour"),
+            ("Motor", "20 H.P. x 2 (Double Drive)"),
+            ("Input Feed Size", "Below 200 mm"),
+            ("Output Size", "45 - 60 mm"),
+            ("Drum Adjustment", "Up to 30 mm"),
+            ("Teeth", "Manganese Steel Liner"),
+        ],
+        "features": [
+            "Manganese steel liner teeth, replaceable",
+            "Cast steel gears on both sides",
+            "Adjustable drum distance up to 30 mm",
+            "Double drive system prevents jamming",
+        ],
+        "steps": [
+            ("Material Feed", "Coke lumps up to 200 mm are delivered by the upper conveyor belt directly into the intake hopper."),
+            ("Double Drive Cutting", "The dual 20 HP motors power the cutting drums from both ends, breaking the material down without jamming."),
+            ("Sized Output", "Uniformly sized coke, 45 - 60 mm, discharges onto the lower conveyor belt for immediate transport."),
+        ],
+        "apps": [
+            ("Steel Plants", "Sizing metallurgical coke for blast furnace charging."),
+            ("Cupola Furnaces", "Consistent coke sizes for foundry melting rates."),
+            ("Coke Oven Plants", "Cutting oven-discharged coke to customer grades."),
+        ],
+        "faqs": [
+            ("What is the advantage of the Double Drive system?", "20 HP motors on both sides give balanced torque and consistent power, preventing jamming and cutting hard coke lumps uniformly."),
+            ("Can I adjust the output size?", "Yes. The adjustable drum distance lets you tune the finished coke size between 45 mm and 60 mm."),
+            ("What is the maximum feed size?", "This heavy-duty cutter accepts coke lumps up to 200 mm."),
+            ("How durable are the cutting teeth?", "High-grade manganese steel liner teeth, wear-resistant and fully replaceable."),
+            ("What is the delivery timeline?", "Made to order; fabrication usually takes 4 - 5 weeks depending on the production queue."),
+        ],
+    },
+    "coke-cutter-ring-type": {
+        "output": "Manual_Tools_Co_Coke_Cutter_Ring_Type.pdf",
+        "title": "Ring Type Coke Cutter",
+        "subtitle": "Double Drive - Segmented Manganese Steel Rings",
+        "main_image": "assets/img/product-images/coke-cutter-ring-teeth/2.png",
+        "cover_image": "assets/img/slide/Coke-Cutter-Machine-Ring-Type.png",
+        "gallery": "assets/img/product-images/coke-cutter-ring-teeth/",
+        "summary": "A double drive coke cutter whose shafts carry separate toothed rings of high manganese steel instead of one lined drum. Two 25 HP motors, 20 TPH, adjustable 45 - 60 mm output.",
+        "stats": [("20 TPH", "Cutting capacity"), ("25 HP x 2", "Double drive"), ("45 - 60 mm", "Output size")],
+        "specs": [
+            ("Cutting Capacity", "20 Tons / Hour"),
+            ("Motor", "25 H.P. + 25 H.P. (Total 50 HP)"),
+            ("Input Feed Size", "Below 200 mm"),
+            ("Output Size", "45 - 60 mm (Adjustable)"),
+            ("Cutting Element", "Segmented Toothed Rings"),
+            ("Ring Material", "High Manganese Steel"),
+        ],
+        "features": [
+            "Segmented toothed rings, keyed individually",
+            "High manganese steel that work-hardens in use",
+            "Individually replaceable rings",
+            "Double drive: equal torque, less jamming",
+        ],
+        "steps": [
+            ("Feed Intake", "Large coke lumps fall into the cutting chamber. The robust housing is designed to withstand impact from heavy material."),
+            ("Ring Shearing", "As the shafts rotate, the toothed rings engage the coke. The segmented design concentrates force for cleaner cuts with less dust."),
+            ("Sized Output", "Sized coke (45 - 60 mm) passes through the gap. Oversized pieces remain until cut, for consistent furnace-grade coke."),
+        ],
+        "apps": [
+            ("Steel Plants", "Metallurgical coke for blast furnaces, where air flow permeability is key."),
+            ("Cupola Furnaces", "Consistent coke sizes for foundries: stable temperatures and melting rates."),
+            ("Ferro Alloys", "Specific carbon sizing for reduction processes."),
+        ],
+        "faqs": [
+            ("What is the benefit of the Ring Type design?", "Rings are keyed to the shaft individually, so a damaged section is replaced on its own instead of relining the whole drum. The cutting is also very aggressive on hard coke."),
+            ("Why are there two motors (Double Drive)?", "Equal torque on both ends of the cutting shaft prevents jamming on large or hard lumps and extends gear life."),
+            ("Can I adjust the output size?", "Yes. The gap between the ring shafts is adjustable from 45 mm to 60 mm."),
+            ("How durable are the rings?", "They are cast from High Manganese Steel, which work-hardens in use and withstands abrasive metallurgical coke."),
+            ("What capacity does this machine handle?", "This model is designed for 20 Tons Per Hour (TPH)."),
+        ],
+    },
     "haulage": {
         "output": "Manual_Tools_Co_Haulage_Machine.pdf",
-        "title": "HAULAGE MACHINE",
-        "subtitle": "10 HP / 10 TON - COKE OVEN EXTRACTION SERIES",
-        "main_image": "assets/img/about-us-products/Haulage Machine.jpg",
+        "title": "Haulage Machine",
+        "subtitle": "10 HP / 10 Ton - Coke Oven Extraction Series",
+        "main_image": "assets/img/product-images/haulage/haulage-2.png",
+        "cover_image": "assets/img/slide/Haulage-Machine.png",
         "gallery": "assets/img/product-images/haulage/",
         "summary": "A heavy-duty haulage machine for coke ovens and mines. A 10 HP motor drives a high-torque worm reducer gearbox for steady, controlled pulling of up to 10 tons.",
-        "left_title": "PERFORMANCE",
-        "left": ["Pulling Capacity: 10 Tons (Horizontal)", "Motor: 10 H.P. (3-Phase, 440V)", "Gearbox: Heavy Duty Worm Reducer", "Application: Coke Oven / Mining"],
-        "right_title": "DURABILITY & DESIGN",
-        "right": ["Cast Steel Gears (Machine Cut)", "Fabricated C-Channel Steel Base Frame", "Manual / Electro-Hydraulic Thruster Brake (Optional)", "Non-reversible worm drive resists back-slip"],
+        "stats": [("10 Tons", "Pulling capacity"), ("10 HP", "Motor"), ("440 V", "3-phase supply")],
+        "specs": [
+            ("Pulling Capacity", "10 Tons (Horizontal)"),
+            ("Motor", "10 H.P. (3-Phase, 440V)"),
+            ("Gearbox", "Heavy Duty Worm Reducer"),
+            ("Base Frame", "Fabricated C-Channel Steel"),
+            ("Gears", "Cast Steel, Machine Cut"),
+            ("Application", "Coke Oven / Mining"),
+        ],
+        "features": [
+            "Cast steel gears, machine cut",
+            "Fabricated C-channel steel base frame",
+            "Manual or electro-hydraulic thruster brake (optional)",
+            "Non-reversible worm drive resists back-slip",
+        ],
         "steps": [
-            ("1. Electrical Input", "The 10 HP motor starts; a flexible coupling transmits power to the gearbox input shaft and absorbs start-up shock."),
-            ("2. Speed Reduction", "The worm reducer lowers the RPM and multiplies torque. The non-reversible gear action helps prevent load back-slip."),
-            ("3. Drum Traction", "The output shaft turns the rope drum, coiling the steel wire rope and applying a steady 10-ton pull on the connected load."),
+            ("Electrical Input", "The 10 HP motor starts; a flexible coupling transmits power to the gearbox input shaft and absorbs start-up shock."),
+            ("Speed Reduction", "The worm reducer lowers the RPM and multiplies torque. The non-reversible gear action helps prevent load back-slip."),
+            ("Drum Traction", "The output shaft turns the rope drum, coiling the steel wire rope and applying a steady 10-ton pull on the connected load."),
         ],
         "apps": [
             ("Coke Ovens", "Extracting heavy coke cakes and operating heavy door mechanisms."),
@@ -46,19 +249,31 @@ PRODUCTS = {
     },
     "power-winch": {
         "output": "Manual_Tools_Co_Power_Winch.pdf",
-        "title": "DOOR LIFTING POWER WINCH",
-        "subtitle": "COKE OVEN MAINTENANCE EQUIPMENT",
-        "main_image": "assets/img/about-us-products/Power Winchh.jpg",
+        "title": "Door Lifting Power Winch",
+        "subtitle": "Coke Oven Gate Lifting Equipment",
+        "main_image": "assets/img/product-images/power-winch/power-winch-2.png",
+        "cover_image": "assets/img/slide/Power-Winch.png",
         "gallery": "assets/img/product-images/power-winch/",
         "summary": "A power winch for lifting heavy coke oven doors. Its self-locking worm reducer gearbox holds the load steady even during a power failure. 5 - 7.5 HP motor, up to 5 tons.",
-        "left_title": "PERFORMANCE",
-        "left": ["Lifting Capacity: 2.5 - 5 Tons", "Motor: 5 - 7.5 HP (3-Phase)", "Operation: Vertical Lift", "Lifting Speed: approx. 2 - 4 m/min"],
-        "right_title": "SAFETY & DESIGN",
-        "right": ["Self-Locking Worm Reducer Gearbox", "Cast Steel / Phosphor Bronze Gears", "Grooved Steel Drum for Wire Rope", "Electro-Magnetic Motor Brake Available"],
+        "stats": [("2.5 - 5 T", "Lifting capacity"), ("5 - 7.5 HP", "Motor"), ("2 - 4 m/min", "Lifting speed")],
+        "specs": [
+            ("Lifting Capacity", "2.5 - 5 Tons"),
+            ("Motor", "5 - 7.5 H.P. (3-Phase)"),
+            ("Operation", "Vertical Lift"),
+            ("Lifting Speed", "Approx. 2 - 4 m / min"),
+            ("Gearbox", "Self-Locking Worm Reducer"),
+            ("Drum", "Grooved Steel"),
+        ],
+        "features": [
+            "Self-locking worm reducer gearbox",
+            "Cast steel and phosphor bronze gears",
+            "Grooved steel drum for wire rope",
+            "Electro-magnetic motor brake available",
+        ],
         "steps": [
-            ("1. Drive Activation", "The electric motor engages and drives the worm gearbox input shaft through a coupling."),
-            ("2. Torque Multiplication", "The worm shaft drives the worm wheel, cutting speed and multiplying torque for a smooth, non-jerky lift."),
-            ("3. Vertical Lift", "The output shaft turns the grooved drum, winding the wire rope and lifting the oven door to the required height."),
+            ("Drive Activation", "The electric motor engages and drives the worm gearbox input shaft through a coupling."),
+            ("Torque Multiplication", "The worm shaft drives the worm wheel, cutting speed and multiplying torque for a smooth, non-jerky lift."),
+            ("Vertical Lift", "The output shaft turns the grooved drum, winding the wire rope and lifting the oven door to the required height."),
         ],
         "apps": [
             ("Coke Oven Doors", "Lifting and positioning heavy oven doors during charging."),
@@ -75,19 +290,31 @@ PRODUCTS = {
     },
     "vibrator-screen": {
         "output": "Manual_Tools_Co_Vibrator_Screen.pdf",
-        "title": "VIBRATOR SCREEN MACHINE",
-        "subtitle": "MULTI-DECK SERIES - INDUSTRIAL GRADING & SORTING",
-        "main_image": "assets/img/about-us-products/Vibrator Screen Machine.jpg",
+        "title": "Vibrator Screen Machine",
+        "subtitle": "Multi-Deck Series - Industrial Grading & Sorting",
+        "main_image": "assets/img/product-images/vibrator-screen/Vibrator-Screen.png",
+        "cover_image": "assets/img/slide/Vibrator-Screen.png",
         "gallery": "assets/img/product-images/vibrator-screen/",
         "summary": "A heavy-duty vibrating screen for coke and coal. An eccentric shaft gives strong vibration and high screening efficiency, in 1 to 4 deck configurations.",
-        "left_title": "CONFIGURATION",
-        "left": ["Decks: 1, 2, 3 or 4 (Customisable)", "Screen Sizes: 4'x12', 4'x16', 5'x16'", "Motor: 7.5 - 15 HP (Based on Load)", "Mesh: High Carbon Steel"],
-        "right_title": "DESIGN",
-        "right": ["Eccentric Shaft Vibration Mechanism", "Heavy Coil Spring Suspension", "Interchangeable Mesh Decks", "Adjustable Amplitude (Counterweights)"],
+        "stats": [("1 - 4", "Screening decks"), ("7.5 - 15 HP", "Motor range"), ("5' x 16'", "Max screen size")],
+        "specs": [
+            ("Decks", "1, 2, 3 or 4 (Customisable)"),
+            ("Screen Sizes", "4'x12', 4'x16', 5'x16'"),
+            ("Motor", "7.5 - 15 H.P. (Based on Load)"),
+            ("Mesh", "High Carbon Steel"),
+            ("Vibration", "Eccentric Shaft Mechanism"),
+            ("Suspension", "Heavy Coil Spring"),
+        ],
+        "features": [
+            "Eccentric shaft vibration mechanism",
+            "Heavy coil spring suspension",
+            "Interchangeable mesh decks",
+            "Adjustable amplitude via counterweights",
+        ],
         "steps": [
-            ("1. Material Feed", "Mixed material is fed onto the top deck and spread across the full width of the screen cloth."),
-            ("2. Stratification", "Fines pass through the mesh to lower decks while oversize lumps ride over the top to the discharge chute."),
-            ("3. Multi-Output", "Each deck discharges its own size grade (e.g. +40mm, 20-40mm, -20mm) to separate hoppers or conveyors."),
+            ("Material Feed", "Mixed material is fed onto the top deck and spread across the full width of the screen cloth."),
+            ("Stratification", "Fines pass through the mesh to lower decks while oversize lumps ride over the top to the discharge chute."),
+            ("Multi-Output", "Each deck discharges its own size grade (e.g. +40mm, 20-40mm, -20mm) to separate hoppers or conveyors."),
         ],
         "apps": [
             ("Coke Oven Plants", "Separating coke breeze from usable blast furnace coke lumps."),
@@ -104,19 +331,31 @@ PRODUCTS = {
     },
     "pusher": {
         "output": "Manual_Tools_Co_Pusher_Machine.pdf",
-        "title": "PUSHER MACHINE",
-        "subtitle": "WITH ROLLER STAMPING ARRANGEMENT",
-        "main_image": "assets/img/about-us-products/Pusher Machine With Stamping Arrangement.jpg",
+        "title": "Pusher Machine",
+        "subtitle": "With Roller Stamping Arrangement",
+        "main_image": "assets/img/product-images/pusher-machine-with-stamping-arrangement/pusher-1.png",
+        "cover_image": "assets/img/slide/Pusher-with-stamping-arrangement.png",
         "gallery": "assets/img/product-images/pusher-machine-with-stamping-arrangement/",
         "summary": "A rail-mounted pusher machine for stamp-charged coke ovens. It combines a 20-metre pusher beam (40 HP drive) with a roller stamping system for uniform coal cake density.",
-        "left_title": "DRIVES",
-        "left": ["Main Pusher Motor: 40 HP", "Long Travel Motor: 15 HP", "Stamping Drive: 7.5 HP", "Total Connected Load: approx. 65 - 70 HP"],
-        "right_title": "CONSTRUCTION",
-        "right": ["Pusher Beam: 20 m (Heavy Fabrication)", "Leveller Beam: 20 m (Rack & Pinion)", "Helical Gearbox & Chain Drive", "Suits ovens up to 11 m long"],
+        "stats": [("65 - 70 HP", "Connected load"), ("20 m", "Pusher beam"), ("11 m", "Max oven length")],
+        "specs": [
+            ("Main Pusher Motor", "40 H.P."),
+            ("Long Travel Motor", "15 H.P."),
+            ("Stamping Drive", "7.5 H.P."),
+            ("Total Connected Load", "Approx. 65 - 70 H.P."),
+            ("Pusher Beam", "20 m (Heavy Fabrication)"),
+            ("Leveller Beam", "20 m (Rack & Pinion)"),
+        ],
+        "features": [
+            "Helical gearbox and chain drive",
+            "Rack and pinion leveller beam",
+            "Suits ovens up to 11 m long",
+            "Rail-mounted travel along the battery",
+        ],
         "steps": [
-            ("1. Coal Stamping", "Coal fines are fed in and the roller stamping system compacts them into a high-density cake."),
-            ("2. Charging", "The machine travels on rails along the battery and aligns with the oven."),
-            ("3. Coke Ejection", "After carbonisation, the pusher beam rams the finished coke mass out of the oven."),
+            ("Coal Stamping", "Coal fines are fed in and the roller stamping system compacts them into a high-density cake."),
+            ("Charging", "The machine travels on rails along the battery and aligns with the oven."),
+            ("Coke Ejection", "After carbonisation, the pusher beam rams the finished coke mass out of the oven."),
         ],
         "apps": [
             ("Coke Ovens", "Horizontal coke ovens that use stamping technology."),
@@ -133,19 +372,31 @@ PRODUCTS = {
     },
     "charging-car": {
         "output": "Manual_Tools_Co_Charging_Car.pdf",
-        "title": "COAL CHARGING CAR",
-        "subtitle": "TOP FEED - COKE OVEN MACHINERY SERIES",
-        "main_image": "assets/img/about-us-products/Coal-Charging-Car.jpg",
+        "title": "Coal Charging Car",
+        "subtitle": "Top Feed - Coke Oven Machinery Series",
+        "main_image": "assets/img/product-images/coal-charging-car/coal-charging-car-2.jpg",
+        "cover_image": "assets/img/slide/Coal-Charging-Car.png",
         "gallery": "assets/img/product-images/coal-charging-car/",
         "summary": "A rail-mounted charging car (larry car) for top charging of coke ovens. Four conical hoppers deliver measured coal into the oven chambers.",
-        "left_title": "PERFORMANCE",
-        "left": ["Hopper Capacity: 4 / 8 / 15 / 20 Tons", "Long Travel Motor: 15 HP", "Travel Speed: 60 - 80 m/min", "Charging Mouths: 4 Nos."],
-        "right_title": "CONSTRUCTION",
-        "right": ["4 Conical Hoppers, 8 mm Plate", "Worm Reducer Travel Gearbox", "Motorised Slide Gates (3 HP)", "Manual Override for Power Failure"],
+        "stats": [("4 - 20 T", "Hopper capacity"), ("4 Nos.", "Charging mouths"), ("60 - 80 m/min", "Travel speed")],
+        "specs": [
+            ("Hopper Capacity", "4 / 8 / 15 / 20 Tons"),
+            ("Long Travel Motor", "15 H.P."),
+            ("Travel Speed", "60 - 80 m / min"),
+            ("Charging Mouths", "4 Nos."),
+            ("Hopper Plate", "8 mm, Conical"),
+            ("Slide Gates", "Motorised, 3 H.P."),
+        ],
+        "features": [
+            "Four conical hoppers in 8 mm plate",
+            "Worm reducer travel gearbox",
+            "Motorised slide gates with manual override",
+            "Telescopic sleeves limit smoke leakage",
+        ],
         "steps": [
-            ("1. Bunker Filling", "The car stops under the coal tower and its 4 hoppers are filled with a measured coal blend."),
-            ("2. Alignment", "The car travels to the empty oven; telescopic sleeves align with the charging holes to limit smoke leakage."),
-            ("3. Gravity Discharge", "The bottom slide gates open and coal flows into the oven by gravity."),
+            ("Bunker Filling", "The car stops under the coal tower and its 4 hoppers are filled with a measured coal blend."),
+            ("Alignment", "The car travels to the empty oven; telescopic sleeves align with the charging holes to limit smoke leakage."),
+            ("Gravity Discharge", "The bottom slide gates open and coal flows into the oven by gravity."),
         ],
         "apps": [
             ("Coke Ovens", "Top-charged by-product recovery coke oven batteries."),
@@ -159,186 +410,170 @@ PRODUCTS = {
             ("Can it handle wet coal?", "Yes, the steep conical hoppers help wet coal flow."),
         ],
     },
-    "coal-crusher-double": {
-        "output": "Manual_Tools_Co_Coal_Crusher_Double_Disc.pdf",
-        "title": "COAL CRUSHER (5 NO.)",
-        "subtitle": "DOUBLE DISC - HIGH CAPACITY DISINTEGRATOR",
-        "main_image": "assets/img/about-us-products/Coal Crusher Double Disc.jpg",
-        "gallery": "assets/img/product-images/coal-crusher-double-disc/",
-        "summary": "A double disc coal crusher for high-volume plants: up to 25 TPH, with 12 manganese steel hammers that reduce coal lumps up to 150 mm to below 2 mm.",
-        "left_title": "PERFORMANCE",
-        "left": ["Capacity: 20 - 25 Tons / Hour", "Motor: 160 - 200 HP", "Input Feed Size: below 150 mm", "Output Size: below 2 mm"],
-        "right_title": "DURABILITY & DESIGN",
-        "right": ["Double Disc Rotor, 12 Manganese Hammers", "Individually Replaceable Hammers", "12 mm Fabricated Steel Housing", "Handles moisture up to 10 - 12%"],
-        "steps": [
-            ("1. Large Feed Intake", "Accepts lumps up to 150 mm; the wide hopper spreads material across both discs."),
-            ("2. Dual Rotor Impact", "Two discs carrying 12 manganese hammers create a dense impact zone."),
-            ("3. High Volume Discharge", "Crushed coal passes the calibrated grate bars at up to 25 TPH, below 2 mm."),
-        ],
-        "apps": [
-            ("Large Coke Ovens", "High-capacity recovery ovens needing continuous feed."),
-            ("Thermal Power", "Consistent fuel for larger FBC boilers."),
-            ("Briquetting Plants", "High volumes of fines for fuel briquettes."),
-        ],
-        "faqs": [
-            ("How does it differ from the Single Disc?", "Two rotors and 12 hammers give 20 - 25 TPH and accept 150 mm feed, versus 8 - 10 TPH for the Single Disc."),
-            ("What motor is required?", "A slip-ring or squirrel cage motor between 160 HP and 200 HP."),
-            ("Can it handle wet coal?", "Up to 10 - 12% moisture; clean the grate bars more often for sticky coal."),
-            ("Are the hammers replaceable individually?", "Yes, each hammer can be replaced or reversed without dismantling the rotor."),
-            ("What is the delivery timeline?", "Made to order; fabrication usually takes 4 - 5 weeks depending on the production queue."),
-        ],
-    },
-    "coke-cutter-ring-type": {
-        "output": "Manual_Tools_Co_Coke_Cutter_Ring_Type.pdf",
-        "title": "RING TYPE COKE CUTTER",
-        "subtitle": "DOUBLE DRIVE - SEGMENTED MANGANESE STEEL RINGS",
-        "main_image": "assets/img/about-us-products/Double Drive Coke Cutter Machine Ring Type.jpg",
-        "gallery": "assets/img/product-images/coke-cutter-ring-teeth/",
-        "summary": "A double drive coke cutter whose shafts carry separate toothed rings of high manganese steel instead of one lined drum. Two 25 HP motors, 20 TPH, adjustable 45 - 60 mm output.",
-        "left_title": "PERFORMANCE",
-        "left": ["Capacity: 20 Tons / Hour", "Motor: 25 HP + 25 HP (Total 50 HP)", "Input Feed Size: below 200 mm", "Output Size: 45 - 60 mm (Adjustable)"],
-        "right_title": "DURABILITY & DESIGN",
-        "right": ["Segmented Toothed Rings", "High Manganese Steel (Work-Hardening)", "Individually Replaceable Rings", "Double Drive: Equal Torque, Less Jamming"],
-        "steps": [
-            ("1. Feed Intake", "Large coke lumps fall into the cutting chamber. The robust housing is designed to withstand impact from heavy material."),
-            ("2. Ring Shearing", "As the shafts rotate, the toothed rings engage the coke. The segmented design concentrates force for cleaner cuts with less dust."),
-            ("3. Sized Output", "Sized coke (45 - 60 mm) passes through the gap. Oversized pieces remain until cut, for consistent furnace-grade coke."),
-        ],
-        "apps": [
-            ("Steel Plants", "Metallurgical coke for blast furnaces, where air flow permeability is key."),
-            ("Cupola Furnaces", "Consistent coke sizes for foundries: stable temperatures and melting rates."),
-            ("Ferro Alloys", "Specific carbon sizing for reduction processes."),
-        ],
-        "faqs": [
-            ("What is the benefit of the Ring Type design?", "Rings are keyed to the shaft individually, so a damaged section is replaced on its own instead of relining the whole drum. The cutting is also very aggressive on hard coke."),
-            ("Why are there two motors (Double Drive)?", "Equal torque on both ends of the cutting shaft prevents jamming on large or hard lumps and extends gear life."),
-            ("Can I adjust the output size?", "Yes. The gap between the ring shafts is adjustable from 45 mm to 60 mm."),
-            ("How durable are the rings?", "They are cast from High Manganese Steel, which work-hardens in use and withstands abrasive metallurgical coke."),
-            ("What capacity does this machine handle?", "This model is designed for 20 Tons Per Hour (TPH)."),
-        ],
-    },
 }
 
-# Helvetica (core font) only covers Latin-1.
-_ASCII = str.maketrans({"–": "-", "—": "-", "‘": "'", "’": "'", "“": '"', "”": '"'})
+
+def gallery_images(folder, limit=3):
+    return sorted(
+        f for f in glob.glob(folder + "*")
+        if f.lower().endswith((".jpg", ".jpeg", ".png"))
+        and "process-diagram" not in f
+        and ".thumb." not in f
+    )[:limit]
 
 
-def clean(text):
-    return text.translate(_ASCII)
+def page_overview(pdf, p):
+    """Page 2: title, summary, hero shot, headline figures, specifications."""
+    pdf.add_page()
+    pdf.set_y(30)
+
+    pdf.set_font(FONT_FAMILY, "B", 21)
+    pdf.set_text_color(*INK)
+    pdf.multi_cell(CONTENT_W, 9.5, clean(p["title"]), new_x="LMARGIN", new_y="NEXT")
+    pdf.set_font(FONT_FAMILY, "", 9.5)
+    pdf.set_text_color(*INK_SOFT)
+    pdf.multi_cell(CONTENT_W, 5, clean(p["subtitle"]), new_x="LMARGIN", new_y="NEXT")
+
+    top = pdf.get_y() + 7
+    hero_h = 58.0
+    pdf.set_fill_color(*PANEL)
+    pdf.rect(COL_R_X, top, COL_W, hero_h, "F", round_corners=True, corner_radius=2)
+    try:
+        art = cutout_image(p["main_image"], PANEL)
+        if art is not None:
+            scale = min((COL_W - 8) / art.width, (hero_h - 8) / art.height)
+            w, h = art.width * scale, art.height * scale
+            pdf.image(art, COL_R_X + (COL_W - w) / 2, top + (hero_h - h) / 2, w, h)
+        else:
+            fit_image(pdf, p["main_image"], COL_R_X + 4, top + 4, COL_W - 8, hero_h - 8)
+    except Exception:
+        pass
+
+    pdf.label("At a glance", MARGIN, top)
+    pdf.set_xy(MARGIN, top + 5.5)
+    pdf.set_font(FONT_FAMILY, "", 9.5)
+    pdf.set_text_color(*INK_BODY)
+    pdf.multi_cell(COL_W, 5.2, clean(p["summary"]), new_x="LMARGIN", new_y="NEXT")
+
+    y = max(pdf.get_y(), top + hero_h) + 9
+    y = pdf.stat_strip(p["stats"], y)
+
+    pdf.set_y(y)
+    pdf.section("Specifications")
+    y = pdf.get_y()
+    left_bottom = pdf.spec_table(p["specs"], MARGIN, y, COL_W)
+
+    pdf.label("Design & Durability", COL_R_X, y - 0.5, color=INK_SOFT)
+    right_bottom = pdf.feature_list(p["features"], COL_R_X, y + 5.5, COL_W)
+
+    pdf.set_y(max(left_bottom, right_bottom) + 8)
+    pdf.buying_info(BUYING_INFO)
+    pdf.quote_block()
 
 
-def load_image(path, max_px=1400):
-    """Downscale before embedding so the PDF stays small."""
-    im = Image.open(path)
-    im.thumbnail((max_px, max_px))
-    if im.mode not in ("RGB", "L"):
-        background = Image.new("RGB", im.size, (255, 255, 255))
-        background.paste(im, mask=im.convert("RGBA").split()[-1])
-        im = background
-    return im
+def page_process(pdf, p):
+    """Page 3: process flow, applications, common questions."""
+    pdf.add_page()
+    pdf.set_y(28)
+    pdf.section("How it works", gap_before=0)
+
+    for i, (title, desc) in enumerate(p["steps"], 1):
+        top = pdf.get_y()
+        pdf.set_xy(MARGIN, top)
+        pdf.set_font(FONT_FAMILY, "B", 16)
+        pdf.set_text_color(*RED)
+        pdf.cell(14, 8, f"{i:02d}")
+
+        pdf.set_xy(MARGIN + 16, top)
+        pdf.set_font(FONT_FAMILY, "B", 10)
+        pdf.set_text_color(*INK)
+        pdf.cell(CONTENT_W - 16, 5.5, clean(title), new_x="LMARGIN", new_y="NEXT")
+        pdf.set_x(MARGIN + 16)
+        pdf.set_font(FONT_FAMILY, "", 9)
+        pdf.set_text_color(*INK_BODY)
+        pdf.multi_cell(CONTENT_W - 16, 4.8, clean(desc), new_x="LMARGIN", new_y="NEXT")
+        pdf.ln(3.5)
+        if i < len(p["steps"]):
+            pdf.set_draw_color(*RULE)
+            pdf.set_line_width(0.2)
+            pdf.line(MARGIN + 16, pdf.get_y(), MARGIN + CONTENT_W, pdf.get_y())
+            pdf.ln(3.5)
+
+    pdf.section("Applications")
+    for name, desc in p["apps"]:
+        top = pdf.get_y()
+        pdf.set_xy(MARGIN, top)
+        pdf.set_font(FONT_FAMILY, "B", 9)
+        pdf.set_text_color(*INK)
+        pdf.cell(44, 5.2, clean(name))
+        pdf.set_xy(MARGIN + 44, top)
+        pdf.set_font(FONT_FAMILY, "", 9)
+        pdf.set_text_color(*INK_BODY)
+        pdf.multi_cell(CONTENT_W - 44, 5.2, clean(desc), new_x="LMARGIN", new_y="NEXT")
+        pdf.ln(1.8)
+
+    pdf.section("Common questions")
+    for q, a in p["faqs"]:
+        pdf.set_x(MARGIN)
+        pdf.set_font(FONT_FAMILY, "B", 9.5)
+        pdf.set_text_color(*INK)
+        pdf.multi_cell(CONTENT_W, 5, clean(q), new_x="LMARGIN", new_y="NEXT")
+        pdf.set_x(MARGIN)
+        pdf.set_font(FONT_FAMILY, "", 9)
+        pdf.set_text_color(*INK_BODY)
+        pdf.multi_cell(CONTENT_W, 4.8, clean(a), new_x="LMARGIN", new_y="NEXT")
+        pdf.ln(4)
 
 
-def fit_image(pdf, path, x, y, box_w, box_h):
-    im = load_image(path)
-    scale = min(box_w / im.width, box_h / im.height)
-    w, h = im.width * scale, im.height * scale
-    pdf.image(im, x + (box_w - w) / 2, y + (box_h - h) / 2, w, h)
+def frame(pdf, path, x, y, w, h):
+    pdf.set_draw_color(*RULE)
+    pdf.set_line_width(0.2)
+    pdf.rect(x, y, w, h, "D", round_corners=True, corner_radius=2)
+    try:
+        fit_image(pdf, path, x + 3, y + 3, w - 6, h - 6)
+    except Exception:
+        pass
 
 
-class ProductBrochure(MTCStyleBrochure):
-    def __init__(self):
-        super().__init__()
-        self.set_image_filter("DCTDecode")  # store photos as JPEG
+def page_gallery(pdf, p, key):
+    """Page 4: gallery spread, the rest of the range, and the closing CTA."""
+    pdf.add_page()
+    pdf.set_y(28)
 
-    def draw_gallery(self, folder):
-        images = sorted(
-            f for f in glob.glob(folder + "*")
-            if f.lower().endswith((".jpg", ".jpeg", ".png")) and "process-diagram" not in f
-        )[:3]
-        if not images:
-            return
-        top = self.get_y() + 5
-        self.draw_section_header("PRODUCT GALLERY", top)
-        margin, gap, img_h = 10, 15, 40
-        img_w = (210 - 2 * margin - 2 * gap) / 3
-        y = top + 15
-        for i, path in enumerate(images):
-            fit_image(self, path, margin + i * (img_w + gap), y, img_w, img_h)
+    images = gallery_images(p["gallery"], limit=3)
+    if images:
+        pdf.section("Product gallery", gap_before=0)
+        y = pdf.get_y()
+        gap = 6.0
+        if len(images) == 1:
+            frame(pdf, images[0], MARGIN, y, CONTENT_W, 120)
+            y += 120
+        else:
+            # One lead shot across the column, the rest side by side below it.
+            frame(pdf, images[0], MARGIN, y, CONTENT_W, 88)
+            y += 88 + gap
+            rest = images[1:]
+            w = (CONTENT_W - gap * (len(rest) - 1)) / len(rest)
+            for i, path in enumerate(rest):
+                frame(pdf, path, MARGIN + i * (w + gap), y, w, 55)
+            y += 55
+        pdf.set_y(y)
+
+    others = [(q["title"], q["subtitle"]) for k, q in PRODUCTS.items() if k != key]
+    if others:
+        pdf.section("Also from Manual Tools Company")
+        pdf.product_index(others)
+
+    pdf.quote_block()
 
 
 def build(key):
     p = PRODUCTS[key]
-    pdf = ProductBrochure()
-    pdf.drawer_first_page()
-
-    # Page 2: overview and specs
-    pdf.set_auto_page_break(auto=True, margin=20)
-    pdf.add_page()
-    pdf.set_y(35)
-    pdf.set_font(FONT_FAMILY, "B", 24)
-    pdf.set_text_color(*COLORS["text_main"])
-    pdf.cell(0, 14, clean(p["title"]), new_x="LMARGIN", new_y="NEXT")
-    pdf.set_font(FONT_FAMILY, "B", 12)
-    pdf.set_text_color(120)
-    pdf.cell(0, 8, clean(p["subtitle"]), new_x="LMARGIN", new_y="NEXT")
-    pdf.ln(5)
-
-    y_hero = pdf.get_y()
-    fit_image(pdf, p["main_image"], 10, y_hero, 105, 65)
-
-    pdf.set_xy(125, y_hero)
-    pdf.set_font(FONT_FAMILY, "B", 10)
-    pdf.set_text_color(*COLORS["accent_red"])
-    pdf.cell(0, 10, "KEY CAPABILITY:", new_x="LMARGIN", new_y="NEXT")
-    pdf.set_x(125)
-    pdf.set_font(FONT_FAMILY, "", 10)
-    pdf.set_text_color(*COLORS["text_main"])
-    pdf.multi_cell(75, 6, clean(p["summary"]))
-
-    y_cols = y_hero + 75
-    for x, title, items in ((10, p["left_title"], p["left"]), (110, p["right_title"], p["right"])):
-        pdf.set_xy(x, y_cols)
-        pdf.set_font(FONT_FAMILY, "B", 11)
-        pdf.set_text_color(*COLORS["text_main"])
-        pdf.set_draw_color(194, 24, 7)
-        pdf.set_line_width(0.4)
-        pdf.cell(90, 10, title, border="B")
-    bottom = y_cols + 12
-    for x, items in ((10, p["left"]), (110, p["right"])):
-        pdf.add_bullet_list([clean(i) for i in items], x, y_cols + 12)
-        bottom = max(bottom, pdf.get_y())
-    pdf.set_y(bottom)
-
-    pdf.draw_gallery(p["gallery"])
-    pdf.request_A_quotation()
-
-    # Page 3: process, applications, FAQ
-    pdf.add_page()
-    pdf.set_y(38)
-    pdf.draw_section_header("HOW IT WORKS", pdf.get_y())
-    pdf.ln(3)
-    for title, desc in p["steps"]:
-        pdf.set_font(FONT_FAMILY, "B", 10)
-        pdf.set_text_color(*COLORS["accent_red"])
-        pdf.cell(0, 6, clean(title), new_x="LMARGIN", new_y="NEXT")
-        pdf.set_font(FONT_FAMILY, "", 10)
-        pdf.set_text_color(*COLORS["text_main"])
-        pdf.multi_cell(0, 5, clean(desc), new_x="LMARGIN", new_y="NEXT")
-        pdf.ln(2)
-
-    pdf.ln(2)
-    pdf.draw_section_header("APPLICATIONS", pdf.get_y())
-    pdf.ln(3)
-    for title, desc in p["apps"]:
-        pdf.set_font(FONT_FAMILY, "B", 10)
-        pdf.set_text_color(*COLORS["text_main"])
-        pdf.cell(45, 6, clean(title))
-        pdf.set_font(FONT_FAMILY, "", 10)
-        pdf.multi_cell(0, 6, clean(desc), new_x="LMARGIN", new_y="NEXT")
-
-    faqs = [{"q": clean(q), "a": clean(a)} for q, a in p["faqs"]]
-    pdf.create_faq_section(faqs, y_start=pdf.get_y() + 5)
-    pdf.request_A_quotation()
+    pdf = MTCBrochure(product_name=f"{p['title']} - {p['subtitle']}")
+    pdf.cover(p["title"], p["subtitle"], p.get("cover_image", p["main_image"]), p["stats"])
+    page_overview(pdf, p)
+    page_process(pdf, p)
+    page_gallery(pdf, p, key)
 
     out = "brochure/" + p["output"]
     pdf.output(out)

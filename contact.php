@@ -7,8 +7,7 @@ $recaptchaSiteKey = '6Ldj7H0sAAAAAIIk3lL0kl9Y_Ohi8M_JcC5Qm13u';
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Contact Manual Tools Company, Bastacolla, Dhansar, Dhanbad (Jharkhand). Call +91 94307 07348 or send an enquiry for coal crushers, coke cutters and coke oven machinery.">
-  <meta name="keywords" content="Contact Manual Tools, Manual Tools Company Dhanbad, Coke Oven Machinery Contact, Industrial Machinery Inquiry">
+  <meta name="description" content="Contact Manual Tools Company in Dhansar, Dhanbad. Call +91 94307 07348 or send an enquiry for coal crushers, coke cutters and coke oven machinery.">
   <meta name="robots" content="index, follow">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="canonical" href="https://www.manualtoolsco.com/contact">
@@ -17,7 +16,8 @@ $recaptchaSiteKey = '6Ldj7H0sAAAAAIIk3lL0kl9Y_Ohi8M_JcC5Qm13u';
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.manualtoolsco.com/contact">
   <meta property="og:title" content="Contact Manual Tools Company">
-  <meta property="og:description" content="Request a quotation for coke oven machinery. Bastacolla, Dhansar, Dhanbad, Jharkhand.">
+  <meta property="og:description" content="Contact Manual Tools Company in Dhansar, Dhanbad. Call +91 94307 07348 or send an enquiry for coal crushers, coke cutters and coke oven machinery.">
+  <meta property="og:image" content="https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Coal-Crusher-single-disc.jpg">
   <meta property="og:site_name" content="Manual Tools Company">
   <script type="application/ld+json">
   {
@@ -287,7 +287,7 @@ $recaptchaSiteKey = '6Ldj7H0sAAAAAIIk3lL0kl9Y_Ohi8M_JcC5Qm13u';
   <?php include("footer.php"); ?>
   <!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="fas fa-arrow-up"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

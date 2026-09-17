@@ -5,20 +5,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="Coal Charging Car for Coke Oven Batteries. Rail-mounted, 4-20 Ton capacity, 4-Hopper design with automated gravity charging. Manufactured by Manual Tools Company, India.">
-  <meta name="keywords"
-    content="Coal Charging Car, Coke Oven Charging, Top Charging Machine, Larry Car, Furnace Charging, Manual Tools Company, Dhanbad, Jharkhand, India">
+    content="Coal charging car (larry car) for top-charged coke ovens: rail-mounted, 4 conical hoppers, 4–20 ton capacity, 15 HP travel drive. Made in Dhanbad, India.">
   <meta name="robots" content="index, follow">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="canonical" href="https://www.manualtoolsco.com/coal-charging-car">
 
-  <title>Coal Charging Car | Manual Tools Company</title>
+  <title>Coal Charging Car (Larry Car) for Coke Ovens | Manual Tools Company</title>
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="product">
   <meta property="og:url" content="https://www.manualtoolsco.com/coal-charging-car">
-  <meta property="og:title" content="Coal Charging Car | Manual Tools Company">
-  <meta property="og:description" content="Heavy-duty Coal Charging Car for coke ovens. 4-20 Ton capacity, rail-mounted travel system.">
+  <meta property="og:title" content="Coal Charging Car (Larry Car) for Coke Ovens | Manual Tools Company">
+  <meta property="og:description" content="Coal charging car (larry car) for top-charged coke ovens: rail-mounted, 4 conical hoppers, 4–20 ton capacity, 15 HP travel drive. Made in Dhanbad, India.">
   <meta property="og:image"
     content="https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Coal-Charging-Car.jpg">
   <meta property="og:site_name" content="Manual Tools Company">
@@ -90,7 +88,7 @@
             ?>
 
             <div class="mtc-product-main-frame text-center">
-              <img id="mainImage" src="<?php echo htmlspecialchars(mtc_img($currentMainSrc)); ?>" <?php echo mtc_img_size(mtc_img($currentMainSrc)); ?> fetchpriority="high" alt="Coal Charging Car"
+              <img id="mainImage" src="<?php echo htmlspecialchars(mtc_img($currentMainSrc)); ?>" <?php echo mtc_img_size(mtc_img($currentMainSrc)); ?> fetchpriority="high" alt="Coal charging car (larry car) for coke ovens"
                 class="img-fluid">
             </div>
 

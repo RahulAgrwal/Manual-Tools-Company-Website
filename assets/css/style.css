@@ -347,7 +347,8 @@
    5. MOBILE TOGGLE BUTTON
    ============================================== */
            
-           .mobile-nav-toggle {
+           i.mobile-nav-toggle {
+               /* i. prefix: must beat Font Awesome's .fas { display: inline-block } */
                color: var(--mtc-dark);
                font-size: 28px;
                cursor: pointer;
@@ -362,7 +363,7 @@
            
            @media (max-width: 991px) {
                /* 1. The Toggle Button (Hamburger / X) */
-               .mobile-nav-toggle {
+               i.mobile-nav-toggle {
                    display: block;
                    position: absolute;
                    right: 15px;
@@ -1490,18 +1491,6 @@
                object-fit: contain;
                margin: 15px auto 15px auto;
                filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.15));
-               animation: fadeInMobile 1s ease-out;
-           }
-           
-           @keyframes fadeInMobile {
-               from {
-                   opacity: 0;
-                   transform: scale(0.9);
-               }
-               to {
-                   opacity: 1;
-                   transform: scale(1);
-               }
            }
            
            @media (max-width: 991px) {

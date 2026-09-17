@@ -13,9 +13,39 @@
   - Claim or verify IndiaMART, TradeIndia and JustDial listings with the same name, address and phone.
   - Create LinkedIn and YouTube pages only if they will be used, then add them to the footer, header and `sameAs` in `index.php`.
 - [ ] **Search Console and Bing Webmaster Tools.** Submit `sitemap.xml` and request indexing for the changed pages. (IndexNow was already sent on 2026-09-17; see Done.)
+- [ ] **Low-resolution haulage cover image.** `assets/img/slide/Haulage-Machine.png` is only 612x408, about 90 dpi at brochure cover size: fine on screen, soft in print. Replace it with a larger cutout (it is also the home-page carousel slide) and rerun `python brochure/generate_product_brochures.py haulage`.
 
 ## Done
 
+- [x] **2026-09-17: Brochures rebuilt.** All nine PDFs now come from `brochure/generate_product_brochures.py` with a new layout in `brochure/brochure_layout.py`. File names are unchanged, so the product-page links still work.
+  - **Layout:** four pages. The cover is dark and names the product, with three headline figures. Page 2 has the overview, a specification table, design points, the Buying information box and a quotation panel. Page 3 has the process flow, applications and FAQ. Page 4 has the gallery and the rest of the range. Every interior page has a running header and footer with page numbers.
+  - **Images:** cover art is the home-page carousel cutout. Photos with the company name printed into them are no longer used. Plain studio backdrops (white, black or green) are removed.
+  - **Logo:** the black box behind the logo is gone. The transparent PNG was being flattened by the JPEG filter. The logo is also larger.
+  - **Copy:**
+    - "Proprietor" is written in full, and the site address uses `www`.
+    - The Single Disc and Drum Type coke cutter brochures moved into the shared table.
+    - The Single Disc brochure said 10 - 12 TPH. It now says 8 - 10 TPH, matching its product page and schema.
+- [x] **2026-09-17: Old brochure files deleted.** The owner approved the new design. Removed `generate_brochure_coke_cutter.py`, `generate_brochure_coal_crusher_single.py` and the old cover background `first_page.png`.
+- [x] **2026-09-17: Power winch cards match the product page.** The owner confirmed the page figures. `products.php` now shows 2.5 - 5 Tons, 5 - 7.5 HP, Worm Reducer and Vertical Lift (it said 7.5 HP and 3 tons), with the page's name and eyebrow. `global-products.php` (home, about, related-products slider, /products schema) now uses "Door Lifting Power Winch" / "Coke Oven Gate Lifting Equipment" and a matching short description.
+- [x] **2026-09-17: Power winch descriptor.** The eyebrow on `power-winch.php` and the brochure subtitle now read "Coke Oven Gate Lifting Equipment" instead of "Coke Oven Maintenance Equipment". The product name stays "Door Lifting Power Winch", because "door" is what buyers search for.
+
+- [x] **2026-09-17: SEO round 2 (speed and meta tags).**
+  - **Speed:**
+    - The mobile hero image no longer fades in from `opacity: 0`; that animation was delaying LCP (3.0 s in the lab).
+    - Boxicons and Bootstrap Icons were replaced with Font Awesome 5.15.4 and deleted.
+    - GLightbox CSS now loads only on `/photo-gallery`.
+    - Poppins and the italic fonts were dropped, and a preconnect to cdnjs was added.
+    - `i.mobile-nav-toggle` needs the `i.` prefix so Font Awesome's `display: inline-block` doesn't show the hamburger on desktop.
+  - **Meta:**
+    - New keyword-focused titles on /products, both 5 No. crushers, power-winch, vibrator-screen, conveyor-materials, pusher and coal-charging-car.
+    - Meta descriptions shortened to 140–155 characters, with `og:title`/`og:description` kept in sync.
+    - `meta keywords` removed from all pages.
+    - `twitter:card` and `og:locale` are now set once in `common-head.php`, and `/contact` has an `og:image`.
+    - Search terms buyers use ("vibrating screen", "larry car", "stamp charging", "coal disintegrator", "idler rollers") were added to the matching pages' descriptions, opening paragraphs and main image alt text.
+  - **After deploy:**
+    - Re-measure mobile LCP on `/`; the target is under 2.5 s.
+    - Run `python tools/indexnow_submit.py`.
+    - Request indexing for the retitled pages in Search Console.
 - [x] **2026-09-17: Ring Type coke cutter brochure.** The owner approved the page content. Added the product to `brochure/generate_product_brochures.py`, generated `Manual_Tools_Co_Coke_Cutter_Ring_Type.pdf`, and linked it from the page (Brochure button and the "Buying information" box).
 - [x] **2026-09-17: Home page numbers confirmed.** The owner confirmed "150+ Happy Clients" and "500+ Projects Done" are accurate. No change needed on the site.
 - [x] **2026-09-17: Unused JS and `gallery-products.php` removed.**

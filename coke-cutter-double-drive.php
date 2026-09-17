@@ -5,9 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="Coke Cutter Machine (Double Drive) for precision coke sizing. 20 HP x 2 motors, feed <200 mm, output 45–60 mm, 12–15 TPH capacity. Manual Tools Company, India.">
-  <meta name="keywords"
-    content="Coke Cutter Machine, Double Drive Coke Cutter, Coke Sizing Machine, Industrial Coke Cutter, Manual Tools Company, Dhanbad, Jharkhand, India">
+    content="Double drive coke cutter machine, drum type: 2 x 20 HP motors, 12–15 TPH, feed below 200 mm, adjustable 45–60 mm output. Made in Dhanbad, India.">
   <meta name="robots" content="index, follow">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="canonical" href="https://www.manualtoolsco.com/coke-cutter-double-drive">
@@ -18,7 +16,7 @@
   <meta property="og:type" content="product">
   <meta property="og:url" content="https://www.manualtoolsco.com/coke-cutter-double-drive">
   <meta property="og:title" content="Coke Cutter Machine – Double Drive, Drum Type | Manual Tools Company">
-  <meta property="og:description" content="Industrial Coke Cutter with 12–15 TPH capacity, adjustable output size (45-60 mm), and double drive motors.">
+  <meta property="og:description" content="Double drive coke cutter machine, drum type: 2 x 20 HP motors, 12–15 TPH, feed below 200 mm, adjustable 45–60 mm output. Made in Dhanbad, India.">
   <meta property="og:image"
     content="https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Double-Drive-Coke-Cutter-Machine.jpg">
   <meta property="og:site_name" content="Manual Tools Company">

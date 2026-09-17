@@ -38,7 +38,9 @@ Helpers in `page-helpers.php`:
 - `mtc_img_size($path)`: `width`/`height` attributes, so the browser reserves space.
 - `mtc_breadcrumb_schema(['Products' => 'products', 'Name' => 'slug'])`: prints BreadcrumbList JSON-LD (Home is added automatically).
 
-Font Awesome 5.15.4 is the only icon font version (plus Bootstrap Icons and Boxicons). Don't add other Font Awesome versions or re-include stylesheets that `common-head.php` already loads.
+Font Awesome 5.15.4 is the only icon library (Boxicons and Bootstrap Icons were removed). Don't add other icon libraries or Font Awesome versions, or re-include stylesheets that `common-head.php` already loads. GLightbox CSS is loaded only by `photo-gallery.php`.
+
+Meta tags: each page writes its own `<title>`, meta description, canonical and `og:*` tags. Keep titles at most about 65 characters and descriptions at 140–155, and keep `og:title`/`og:description` in sync with them. `common-head.php` adds `twitter:card` and `og:locale` for every page. Don't add `<meta name="keywords">`: search engines ignore it, so put target terms in the title, description, H1, opening paragraph and main image alt.
 
 Shared parts:
 - `global-products.php`: `$GLOBAL_PRODUCT_CARDS`, the master product list (image_path, title, subtitle, link slug, short_description).
@@ -67,7 +69,7 @@ All share one layout:
 5. `sitemap.xml`: use `https://www.manualtoolsco.com/<slug>` (www, no `.php`) to match the canonical tags
 6. the image folder under `assets/img/product-images/`. Name files `<Product-Name>-N.png` (for example `Vibrator-Screen-3.png`). They show up in the product gallery and `photo-gallery.php` automatically (add the folder to `$gallery_products` there).
 7. run `python tools/optimize_images.py` to create the `.webp` and `.thumb.webp` copies. Commit them with the originals.
-8. a brochure: add the product to `PRODUCTS` in `brochure/generate_product_brochures.py`, run it, and link the PDF from the page.
+8. a brochure: add the product to `PRODUCTS` in `brochure/generate_product_brochures.py` (including `cover_image`, `stats`, `specs` and `features`), run it, and link the PDF from the page.
 9. the overview section and "Buying information" box (see above).
 10. after deploying, `python tools/indexnow_submit.py /<slug>` (Bing and other IndexNow engines) and request indexing in Google Search Console.
 
@@ -88,7 +90,11 @@ Page copy is HTML. Use `<strong>`, not Markdown `**bold**`.
 - Front-end libraries live in `assets/vendor/` and are loaded directly (no npm).
 
 ## Other
-- `brochure/*.py`: fpdf2 scripts that build product PDF brochures. Run them from the repo root because image paths are relative. `generate_product_brochures.py` builds seven of them from one data table and reuses the layout class in `generate_brochure_coke_cutter.py`; its copy is taken from the product pages, so update both when specs change.
+- `brochure/*.py`: fpdf2 scripts that build the product PDF brochures. Run them from the repo root because image paths are relative.
+  - `generate_product_brochures.py` builds all nine from one `PRODUCTS` table (copy only); `brochure_layout.py` holds the page furniture. The copy is taken from the product pages, so update both when specs change.
+  - Four pages: dark cover (product name, hero cutout, three headline figures), overview and specification table with the Buying information box, process flow / applications / FAQ, then gallery and the rest of the range.
+  - Cover art comes from the home-page carousel images in `assets/img/slide/`, which are transparent cutouts. `cutout_image()` keys out a plain white backdrop too; a photo of a real scene falls back to a white panel. That one image is written with `FlateDecode` because JPEG ringing round the cut edge would show as a box on the dark cover.
+  - The logo and the 30-years badge are transparent PNGs, and the JPEG image filter has no alpha, so both are composited onto their background first (`logo_image()`). Drawing them directly renders a black box.
 - `tools/optimize_images.py` (Pillow): WebP copies (max 1600px) and 320px gallery thumbnails next to the originals. Originals stay because the brochure scripts use them.
 - `tools/indexnow_submit.py`: tells Bing and other IndexNow search engines that pages changed. The key file `5980cefe6f533e8fca5d87e5d37f5339.txt` in the root must stay deployed; don't delete or rename it.
   - **After every deploy that changes page content**, run it for the changed pages once the push is live: `python tools/indexnow_submit.py /haulage /about` (paths), or with no arguments to send every URL in `sitemap.xml`.

@@ -5,20 +5,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="Coal Crusher (5 No. Size) Single Disc for fine coal disintegration. 80–120 HP motor, feed <125 mm, output <2 mm, 8–10 TPH. Manual Tools Company, India.">
-  <meta name="keywords"
-    content="Coal Crusher Single Disc, Coal Disintegrator, Coal Pulverizer, 5 No. Size, Industrial Coal Crusher, Manual Tools Company, Dhanbad, Jharkhand, India">
+    content="Single disc coal crusher (coal disintegrator), 5 No. size: 80–120 HP, 8–10 TPH, feed up to 125 mm, output below 2 mm. Made in Dhanbad, India.">
   <meta name="robots" content="index, follow">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="canonical" href="https://www.manualtoolsco.com/coal-crusher-5-No-single-disc">
 
-  <title>Coal Crusher (5 No. Size) Single Disc | Manual Tools Company</title>
+  <title>Coal Crusher Single Disc (5 No., 8–10 TPH) | Manual Tools Company</title>
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="product">
   <meta property="og:url" content="https://www.manualtoolsco.com/coal-crusher-5-No-single-disc">
-  <meta property="og:title" content="Coal Crusher (5 No. Size) Single Disc | Manual Tools Company">
-  <meta property="og:description" content="80–120 HP single disc coal crusher with <2 mm output and 8–10 TPH capacity.">
+  <meta property="og:title" content="Coal Crusher Single Disc (5 No., 8–10 TPH) | Manual Tools Company">
+  <meta property="og:description" content="Single disc coal crusher (coal disintegrator), 5 No. size: 80–120 HP, 8–10 TPH, feed up to 125 mm, output below 2 mm. Made in Dhanbad, India.">
   <meta property="og:image"
     content="https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Coal-Crusher-single-disc.jpg">
   <meta property="og:site_name" content="Manual Tools Company">
@@ -90,7 +88,7 @@
             ?>
 
             <div class="mtc-product-main-frame text-center">
-              <img id="mainImage" src="<?php echo htmlspecialchars(mtc_img($currentMainSrc)); ?>" <?php echo mtc_img_size(mtc_img($currentMainSrc)); ?> fetchpriority="high" alt="Coal Crusher Single Disc"
+              <img id="mainImage" src="<?php echo htmlspecialchars(mtc_img($currentMainSrc)); ?>" <?php echo mtc_img_size(mtc_img($currentMainSrc)); ?> fetchpriority="high" alt="Single disc coal crusher (coal disintegrator)"
                 class="img-fluid">
             </div>
 

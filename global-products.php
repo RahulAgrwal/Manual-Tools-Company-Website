@@ -38,10 +38,10 @@ $GLOBAL_PRODUCT_CARDS = [
   ],
   [
     "image_path" => "assets/img/about-us-products-thumbnail/Power-Winchh.png",
-    "title" => "Power Winch",
-    "subtitle" => "Power Driven",
+    "title" => "Door Lifting Power Winch",
+    "subtitle" => "Coke Oven Gate Lifting Equipment",
     "link" => "power-winch",
-    "short_description" => "High-torque lifting solution designed for reliable heavy pulling and hoisting applications."
+    "short_description" => "Lifts heavy coke oven doors: 2.5 - 5 tons, 5 - 7.5 HP motor, self-locking worm reducer gearbox."
   ],
   [
     "image_path" => "assets/img/about-us-products-thumbnail/Vibrator-Screen-Machine.png",

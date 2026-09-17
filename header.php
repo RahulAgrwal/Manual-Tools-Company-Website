@@ -8,17 +8,17 @@ $page = basename($_SERVER['PHP_SELF'], '.php');
 <section id="topbar" class="d-flex align-items-center">
     <div class="container d-flex justify-content-center justify-content-md-between">
         <div class="contact-info d-flex align-items-center">
-            <i class="bi bi-envelope"></i>
+            <i class="fas fa-envelope"></i>
             <a href="mailto:manualtoolsco.dhn@gmail.com">manualtoolsco.dhn@gmail.com</a>
 
-            <i class="bi bi-phone ms-4"></i>
+            <i class="fas fa-mobile-alt ms-4"></i>
             <a href="tel:+919430707348">+91 9430707348</a>
         </div>
 
         <div class="social-links d-none d-md-flex align-items-center">
             <a href="https://maps.app.goo.gl/SR7U9r1J5fXyFfF7A" target="_blank" rel="noopener" title="Location" aria-label="Google Maps location"><i class="fas fa-location-arrow"></i></a>
-            <a href="https://www.facebook.com/profile.php?id=61560479668542" target="_blank" rel="noopener" class="facebook" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-            <a href="https://www.instagram.com/manual_tools_company/" target="_blank" rel="noopener" class="instagram" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61560479668542" target="_blank" rel="noopener" class="facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/manual_tools_company/" target="_blank" rel="noopener" class="instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         </div>
     </div>
 </section>
@@ -52,7 +52,7 @@ $page = basename($_SERVER['PHP_SELF'], '.php');
                 <!-- Products Dropdown -->
                 <li class="dropdown">
                     <a href="products" class="<?php echo ($page == 'products') ? 'active' : ''; ?>">
-                        <span>Products</span> <i class="bi bi-chevron-down dropdown-indicator "></i>
+                        <span>Products</span> <i class="fas fa-chevron-down dropdown-indicator"></i>
                     </a>
                     <ul>
                         <li><a href="coal-crusher-5-No-single-disc">Coal Crusher (5 No.) Single Disc</a></li>
@@ -81,7 +81,7 @@ $page = basename($_SERVER['PHP_SELF'], '.php');
             </ul>
 
             <!-- Mobile Toggle -->
-            <i class="bi bi-list mobile-nav-toggle"></i>
+            <i class="fas fa-bars mobile-nav-toggle"></i>
         </nav>
 
     </div>

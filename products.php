@@ -4,18 +4,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Coke oven machinery made in Dhanbad: coal crushers, coke cutters, haulage machines, power winches, vibrator screens, conveyors, pusher machines and charging cars.">
-  <meta name="keywords" content="Manual Tools Company, Coal Crusher, Coke Cutter, Haulage Machine, Power Winch, Vibrator Screen, Pusher Machine, Charging Car">
+  <meta name="description" content="Coke oven machinery and coal handling equipment made in Dhanbad: coal crushers, coke cutters, haulage machines, winches, vibrating screens and conveyors.">
   <meta name="robots" content="index, follow">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
   <link rel="canonical" href="https://www.manualtoolsco.com/products">
-  <title>Coke Oven Machinery Products | Manual Tools Company</title>
+  <title>Coke Oven &amp; Coal Handling Machinery | Manual Tools Company</title>
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.manualtoolsco.com/products">
-  <meta property="og:title" content="Coke Oven Machinery Products | Manual Tools Company">
-  <meta property="og:description" content="Coal crushers, coke cutters, haulage machines, power winches, vibrator screens, conveyors, pusher machines and coal charging cars.">
+  <meta property="og:title" content="Coke Oven &amp; Coal Handling Machinery | Manual Tools Company">
+  <meta property="og:description" content="Coke oven machinery and coal handling equipment made in Dhanbad: coal crushers, coke cutters, haulage machines, winches, vibrating screens and conveyors.">
   <meta property="og:image" content="https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Coal-Crusher-single-disc.jpg">
   <meta property="og:site_name" content="Manual Tools Company">
 
@@ -240,21 +239,21 @@
           <div class="row g-0">
             <div class="col-lg-5">
               <div class="mtc-card-img-wrapper">
-                <img src="<?php echo mtc_img('assets/img/about-us-products/Power Winchh.jpg'); ?>" <?php echo mtc_img_size(mtc_img('assets/img/about-us-products/Power Winchh.jpg')); ?> alt="Power Winch" loading="lazy">
+                <img src="<?php echo mtc_img('assets/img/about-us-products/Power Winchh.jpg'); ?>" <?php echo mtc_img_size(mtc_img('assets/img/about-us-products/Power Winchh.jpg')); ?> alt="Door Lifting Power Winch" loading="lazy">
               </div>
             </div>
             <div class="col-lg-7">
               <div class="mtc-card-content">
-                <span class="mtc-card-eyebrow">Heavy Door Lifter</span>
-                <h3 class="mtc-card-title">Power Winch</h3>
+                <span class="mtc-card-eyebrow">Coke Oven Gate Lifting Equipment</span>
+                <h3 class="mtc-card-title">Door Lifting Power Winch</h3>
                 <p class="mtc-card-desc">
                   Designed for vertical lifting of heavy Coke Oven doors. Self-locking worm gear design ensures safety and precise control during maintenance.
                 </p>
                 <div class="mtc-mini-specs">
-                  <div class="mtc-mini-spec-item"><i class="fas fa-bolt"></i> 7.5 HP Motor</div>
-                  <div class="mtc-mini-spec-item"><i class="fas fa-arrow-up"></i> 3 Ton Lifting</div>
-                  <div class="mtc-mini-spec-item"><i class="fas fa-lock"></i> Self-Locking</div>
+                  <div class="mtc-mini-spec-item"><i class="fas fa-weight-hanging"></i> 2.5 - 5 Tons</div>
+                  <div class="mtc-mini-spec-item"><i class="fas fa-bolt"></i> 5 - 7.5 HP</div>
                   <div class="mtc-mini-spec-item"><i class="fas fa-cogs"></i> Worm Reducer</div>
+                  <div class="mtc-mini-spec-item"><i class="fas fa-arrow-up"></i> Vertical Lift</div>
                 </div>
                 <a href="power-winch" class="mtc-btn-outline">View Details <i class="fas fa-arrow-right"></i></a>
               </div>
@@ -378,7 +377,7 @@
   <!-- ======= Footer ======= -->
   <?php include("footer.php"); ?>
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="fas fa-arrow-up"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

@@ -54,8 +54,8 @@
 
         // 1. Toggle the Main Menu
         navbar.classList.toggle('navbar-mobile');
-        this.classList.toggle('bi-list');
-        this.classList.toggle('bi-x');
+        this.classList.toggle('fa-bars');
+        this.classList.toggle('fa-times');
         document.body.classList.toggle('mobile-nav-active');
 
         // 2. CHECK STATE
@@ -82,8 +82,8 @@
             // Rotate the arrow icon
             let icon = this.querySelector('i');
             if (icon) {
-                icon.classList.toggle('bi-chevron-up');
-                icon.classList.toggle('bi-chevron-down');
+                icon.classList.toggle('fa-chevron-up');
+                icon.classList.toggle('fa-chevron-down');
             }
         }
     }, true);

@@ -5,20 +5,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="Industrial Vibrator Screen Machine for Coke & Coal. Multi-deck options (1-4 decks), 7.5–15 HP motor, High-efficiency grading. Manual Tools Company, India.">
-  <meta name="keywords"
-    content="Vibrator Screen Machine, Coke Screening, Vibrating Screen, Multi-Deck Screen, Coal Sorter, Manual Tools Company, Dhanbad, Jharkhand, India">
+    content="Vibrator screen machine (vibrating screen) for grading coke and coal: 1–4 decks, 7.5–15 HP motor, interchangeable mesh. Made in Dhanbad, India.">
   <meta name="robots" content="index, follow">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="canonical" href="https://www.manualtoolsco.com/vibrator-screen">
 
-  <title>Vibrator Screen Machine | Manual Tools Company</title>
+  <title>Vibrating Screen for Coke &amp; Coal (1–4 Deck) | Manual Tools Company</title>
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="product">
   <meta property="og:url" content="https://www.manualtoolsco.com/vibrator-screen">
-  <meta property="og:title" content="Vibrator Screen Machine | Manual Tools Company">
-  <meta property="og:description" content="Heavy-duty Vibrator Screen Machine for grading coke and coal. Available in 1 to 4 deck configurations.">
+  <meta property="og:title" content="Vibrating Screen for Coke &amp; Coal (1–4 Deck) | Manual Tools Company">
+  <meta property="og:description" content="Vibrator screen machine (vibrating screen) for grading coke and coal: 1–4 decks, 7.5–15 HP motor, interchangeable mesh. Made in Dhanbad, India.">
   <meta property="og:image"
     content="https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Vibrator-Screen-Machine.png">
   <meta property="og:site_name" content="Manual Tools Company">
@@ -90,7 +88,7 @@
             ?>
 
             <div class="mtc-product-main-frame text-center">
-              <img id="mainImage" src="<?php echo htmlspecialchars(mtc_img($currentMainSrc)); ?>" <?php echo mtc_img_size(mtc_img($currentMainSrc)); ?> fetchpriority="high" alt="Vibrator Screen Machine"
+              <img id="mainImage" src="<?php echo htmlspecialchars(mtc_img($currentMainSrc)); ?>" <?php echo mtc_img_size(mtc_img($currentMainSrc)); ?> fetchpriority="high" alt="Vibrator screen machine (vibrating screen) for coke and coal"
                 class="img-fluid">
             </div>
 
@@ -177,7 +175,7 @@
         <div class="row g-4">
           <div class="col-lg-8">
             <h2 class="mtc-overview-title">What is a vibrator screen machine?</h2>
-            <p>A vibrator screen machine separates bulk material such as coke, coal and iron ore into size grades. An eccentric shaft, driven by a 7.5 to 15 HP, 1440 RPM motor, shakes the screen deck in a circular motion: fine particles fall through the mesh while oversize lumps travel to the discharge chute. Each deck discharges its own grade, for example +40 mm, 20–40 mm and below 20 mm.</p>
+            <p>A vibrator screen machine, also called a vibrating screen, separates bulk material such as coke, coal and iron ore into size grades. An eccentric shaft, driven by a 7.5 to 15 HP, 1440 RPM motor, shakes the screen deck in a circular motion: fine particles fall through the mesh while oversize lumps travel to the discharge chute. Each deck discharges its own grade, for example +40 mm, 20–40 mm and below 20 mm.</p>
             <p>Machines are built with one to four decks, and a three-deck screen gives four output sizes. Standard screen sizes are 4'×12', 4'×16' and 5'×16', with interchangeable high carbon steel mesh for changing the grading. Coil spring suspension keeps vibration away from the foundation, and the amplitude is adjusted with counterweights. In coke oven plants it separates coke breeze from blast furnace coke; it is also used in coal washeries and stone crushing plants.</p>
             <p class="mtc-overview-related">Need rollers or pulleys for the conveyors around it? <a href="conveyor-materials">See our Conveyor Materials <i class="fas fa-arrow-right"></i></a></p>
           </div>

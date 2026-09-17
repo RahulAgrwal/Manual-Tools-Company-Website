@@ -4,8 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Manual Tools Company has made coke oven machinery in Dhanbad, Jharkhand since 1995. Founded by the late Shobha Ram Agarwal and run by proprietor Ravindra Kr. Agarwal.">
-  <meta name="keywords" content="Manual Tools Company, Manual Tools Co, Coal Crusher, Coke Cutter, Haulage, Winch, Vibrator, Manual Tools, Dhanbad, Manufacturer, Coke Oven,Conveyor, Coal, Coke, Machinery">
+  <meta name="description" content="Manual Tools Company has built coke oven machinery in Dhanbad, Jharkhand since 1995. Founded by the late Shobha Ram Agarwal, run by Ravindra Kr. Agarwal.">
   <meta name="robots" content="index, follow">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="canonical" href="https://www.manualtoolsco.com/about">
@@ -14,7 +13,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.manualtoolsco.com/about">
   <meta property="og:title" content="About Manual Tools Company">
-  <meta property="og:description" content="Coke oven machinery manufacturer in Dhanbad, Jharkhand, since 1995.">
+  <meta property="og:description" content="Manual Tools Company has built coke oven machinery in Dhanbad, Jharkhand since 1995. Founded by the late Shobha Ram Agarwal, run by Ravindra Kr. Agarwal.">
   <meta property="og:image" content="https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Coal-Crusher-single-disc.jpg">
   <meta property="og:site_name" content="Manual Tools Company">
   <script type="application/ld+json">
@@ -320,7 +319,7 @@
   include("footer.php");
   ?><!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="fas fa-arrow-up"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

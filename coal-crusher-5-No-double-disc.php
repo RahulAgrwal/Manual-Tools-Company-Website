@@ -5,20 +5,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="Coal Crusher (5 No. Size) Double Disc for high-capacity coal disintegration. 160–200 HP motor, feed <150 mm, output <2 mm, 20–25 TPH. Manual Tools Company, India.">
-  <meta name="keywords"
-    content="Coal Crusher Double Disc, Coal Disintegrator, Coal Pulverizer, 5 No. Size, High Capacity Crusher, Manual Tools Company, Dhanbad, Jharkhand, India">
+    content="Double disc coal crusher (coal disintegrator), 5 No. size: 160–200 HP, 20–25 TPH, feed below 150 mm, output below 2 mm. Made in Dhanbad, India.">
   <meta name="robots" content="index, follow">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="canonical" href="https://www.manualtoolsco.com/coal-crusher-5-No-double-disc">
 
-  <title>Coal Crusher (5 No. Size) Double Disc | Manual Tools Company</title>
+  <title>Coal Crusher Double Disc (5 No., 20–25 TPH) | Manual Tools Company</title>
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="product">
   <meta property="og:url" content="https://www.manualtoolsco.com/coal-crusher-5-No-double-disc">
-  <meta property="og:title" content="Coal Crusher (5 No. Size) Double Disc | Manual Tools Company">
-  <meta property="og:description" content="160–200 HP double disc coal crusher with <2 mm output and 20–25 TPH capacity.">
+  <meta property="og:title" content="Coal Crusher Double Disc (5 No., 20–25 TPH) | Manual Tools Company">
+  <meta property="og:description" content="Double disc coal crusher (coal disintegrator), 5 No. size: 160–200 HP, 20–25 TPH, feed below 150 mm, output below 2 mm. Made in Dhanbad, India.">
   <meta property="og:image"
     content="https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Coal-Crusher-Double-Disc.jpg">
   <meta property="og:site_name" content="Manual Tools Company">
@@ -90,7 +88,7 @@
             ?>
 
             <div class="mtc-product-main-frame text-center">
-              <img id="mainImage" src="<?php echo htmlspecialchars(mtc_img($currentMainSrc)); ?>" <?php echo mtc_img_size(mtc_img($currentMainSrc)); ?> fetchpriority="high" alt="Coal Crusher Double Disc"
+              <img id="mainImage" src="<?php echo htmlspecialchars(mtc_img($currentMainSrc)); ?>" <?php echo mtc_img_size(mtc_img($currentMainSrc)); ?> fetchpriority="high" alt="Double disc coal crusher (coal disintegrator)"
                 class="img-fluid">
             </div>
 
