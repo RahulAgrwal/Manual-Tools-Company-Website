@@ -89,7 +89,11 @@ Page copy is HTML. Use `<strong>`, not Markdown `**bold**`.
 ## Other
 - `brochure/*.py`: fpdf2 scripts that build product PDF brochures. Run them from the repo root because image paths are relative. `generate_product_brochures.py` builds six of them from one data table and reuses the layout class in `generate_brochure_coke_cutter.py`; its copy is taken from the product pages, so update both when specs change.
 - `tools/optimize_images.py` (Pillow): WebP copies (max 1600px) and 320px gallery thumbnails next to the originals. Originals stay because the brochure scripts use them.
-- `tools/indexnow_submit.py`: pings IndexNow. The key file `<key>.txt` in the root must stay deployed.
+- `tools/indexnow_submit.py`: tells Bing and other IndexNow search engines that pages changed. The key file `5980cefe6f533e8fca5d87e5d37f5339.txt` in the root must stay deployed; don't delete or rename it.
+  - **After every deploy that changes page content**, run it for the changed pages once the push is live: `python tools/indexnow_submit.py /haulage /about` (paths), or with no arguments to send every URL in `sitemap.xml`.
+  - HTTP 202 means the request was accepted; the search engines then verify the key and crawl over the next few days.
+  - Google doesn't use IndexNow: for Google, request indexing in Search Console.
+  - First run: 2026-09-17, all 16 sitemap URLs, HTTP 202.
 - `sitemap.xml`: update `<lastmod>` when a page's content changes. No `priority`/`changefreq` (search engines ignore them).
 - `vendor/`: Composer autoloader and PHPMailer (there is no `composer.json`). Don't delete it; `forms/contact.php` depends on it.
   - `vendor/phpmailer/phpmailer` is a gitlink, not real files (see `BACKLOG.md`).

@@ -13,12 +13,13 @@
   - Check the Google Business Profile category, photos and reviews.
   - Claim or verify IndiaMART, TradeIndia and JustDial listings with the same name, address and phone.
   - Create LinkedIn and YouTube pages only if they will be used, then add them to the footer, header and `sameAs` in `index.php`.
-- [ ] **Search Console and Bing Webmaster Tools.** Submit `sitemap.xml`, request indexing for the changed pages, and run `python tools/indexnow_submit.py` once the SEO update is live.
+- [ ] **Search Console and Bing Webmaster Tools.** Submit `sitemap.xml` and request indexing for the changed pages. (IndexNow was already sent on 2026-09-17; see Done.)
 - [ ] **Ring Type coke cutter brochure.** The button is commented out in `coke-cutter-double-drive-ring-type.php`. Add the product to `brochure/generate_product_brochures.py` when the owner approves the content.
 - [ ] **`gallery-products.php` is unused** and points to image files that no longer exist. Delete it or wire it in.
 
 ## Done
 
+- [x] **2026-09-17: IndexNow submitted.** `python tools/indexnow_submit.py` sent all 16 sitemap URLs (HTTP 202 accepted). Run it again after future content deploys (see `CLAUDE.md`).
 - [x] **2026-09-17: SEO audit fixes** (audit report: `manualtoolsco.com-audit/`, not committed).
   - **Downloads:** added the 6 missing brochure PDFs (`brochure/generate_product_brochures.py`).
   - **Images:**
