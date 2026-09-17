@@ -24,7 +24,7 @@
             
             <!-- Image Area -->
             <div class="card-img-wrap">
-              <img src="<?php echo $card['image_path']; ?>" 
+              <img src="<?php echo mtc_img($card['image_path']); ?>" 
                    alt="<?php echo $card['title']; ?>" 
                    loading="lazy">
               <!-- Overlay for hover effect -->

@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>404 Not Found - Manual Tools Company</title>
   <meta name="robots" content="noindex, follow">
+  <!-- This page is also shown for missing nested URLs, so resolve assets from the site root. -->
+  <base href="/">
   <?php include('common-head.php'); ?>
 </head>
 <body>

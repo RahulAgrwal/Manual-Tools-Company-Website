@@ -32,7 +32,9 @@
     "image": "https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Power-Winchh.png",
     "description": "Heavy-duty electric winch designed for lifting coke oven doors. Features worm reducer gearbox and 5 ton capacity.",
     "sku": "MTC-PW-DL",
-    "brand": { "@type": "Organization", "name": "Manual Tools Company" },
+    "brand": { "@type": "Brand", "name": "Manual Tools Company" },
+    "manufacturer": { "@type": "Organization", "name": "Manual Tools Company", "url": "https://www.manualtoolsco.com/" },
+    "url": "https://www.manualtoolsco.com/power-winch",
     "additionalProperty": [
       { "@type": "PropertyValue", "name": "Motor Power", "value": "5 – 7.5 H.P." },
       { "@type": "PropertyValue", "name": "Lifting Capacity", "value": "2.5 – 5 Tons" },
@@ -43,11 +45,7 @@
   </script>
 
   <?php include('common-head.php'); ?>
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link href="assets/css/style.css" rel="stylesheet">
+  <?php mtc_breadcrumb_schema(['Products' => 'products', 'Door Lifting Power Winch' => 'power-winch']); ?>
   <link href="assets/css/product-detail.css" rel="stylesheet">
 </head>
 
@@ -66,6 +64,7 @@
           <h2>Power Winch</h2>
           <ol>
             <li><a href="/">Home</a></li>
+            <li><a href="products">Products</a></li>
             <li>Door Lifting Power Winch</li>
           </ol>
         </div>
@@ -92,15 +91,15 @@
             ?>
 
             <div class="mtc-product-main-frame text-center">
-              <img id="mainImage" src="<?php echo htmlspecialchars($currentMainSrc); ?>" alt="Door Lifting Power Winch"
+              <img id="mainImage" src="<?php echo htmlspecialchars(mtc_img($currentMainSrc)); ?>" <?php echo mtc_img_size(mtc_img($currentMainSrc)); ?> fetchpriority="high" alt="Door Lifting Power Winch"
                 class="img-fluid">
             </div>
 
             <div class="mtc-product-thumb-grid">
               <?php foreach ($allImages as $index => $image): ?>
-                <div class="mtc-product-thumb-item <?php echo $index === 0 ? 'active' : ''; ?>" onclick="swapImage(this)">
-                  <img src="<?php echo htmlspecialchars($image); ?>"
-                    alt="<?php echo htmlspecialchars(pathinfo($image, PATHINFO_FILENAME)); ?>">
+                <div class="mtc-product-thumb-item <?php echo $index === 0 ? 'active' : ''; ?>" onclick="swapImage(this)" data-full="<?php echo htmlspecialchars(mtc_img($image)); ?>">
+                  <img src="<?php echo htmlspecialchars(mtc_thumb($image)); ?>" loading="lazy"
+                    alt="<?php echo htmlspecialchars('Door Lifting Power Winch photo ' . ($index + 1)); ?>">
                 </div>
               <?php endforeach; ?>
             </div>
@@ -111,10 +110,6 @@
             <h1 class="mtc-product-title">Door Lifting <br><span class="mtc-highlight">Power Winch</span></h1>
 
             <div class="mtc-product-review-row">
-              <div class="mtc-product-stars">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                  class="fas fa-star"></i><i class="fas fa-star"></i>
-              </div>
               <span>Model: MTC-PW-DL</span>
               <span class="mtc-product-stock-badge">In Stock</span>
             </div>
@@ -172,6 +167,33 @@
               <span><i class="fas fa-tools"></i> Heavy Duty</span>
             </div>
 
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= Overview & buying information ======= -->
+    <section class="mtc-product-overview">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-8">
+            <h2 class="mtc-overview-title">What is a door lifting power winch?</h2>
+            <p>A door lifting power winch is an electric winch that raises and lowers heavy coke oven doors on the battery bench. It is built for safe, controlled lifting rather than speed: a 5 to 7.5 HP motor drives a self-locking worm reducer gearbox, so the weight of the door cannot turn the motor backwards if the power fails. We also recommend an electro-magnetic brake on the motor shaft for double safety.</p>
+            <p>The output shaft turns a grooved steel drum that winds the wire rope at about 2 to 4 metres per minute. Lifting capacity is 2.5 to 5 tons, which covers most standard coke oven doors, depending on battery height and door weight. Besides oven doors, the winch lifts isolation dampers in power plants and steel mills and serves maintenance bays without an overhead crane.</p>
+            <p class="mtc-overview-related">Need horizontal pulling instead of lifting? <a href="haulage">See the Coke Oven Haulage Machine <i class="fas fa-arrow-right"></i></a></p>
+          </div>
+          <div class="col-lg-4">
+            <div class="mtc-buyer-box">
+              <h3>Buying information</h3>
+              <ul>
+              <li><strong>Lead time:</strong> Often in stock. Confirm availability when you enquire.</li>
+              <li><strong>Warranty:</strong> 1 year, as on all our machinery.</li>
+              <li><strong>Installation:</strong> Installation supervision and commissioning available.</li>
+              <li><strong>Custom builds:</strong> Capacity, motor power and dimensions can be matched to your plant and drawings.</li>
+              <li><strong>Brochure:</strong> <a href="brochure/Manual_Tools_Co_Power_Winch.pdf" download>Download PDF</a></li>
+              </ul>
+              <a href="#quote-form" class="mtc-btn-orange"><i class="fas fa-file-signature"></i> Request a Quotation</a>
+            </div>
           </div>
         </div>
       </div>
@@ -434,10 +456,10 @@
           </div>
 
           <div class="col-lg-4 mt-5 mt-lg-0" id="quote-form">
-            <?php 
+            <?php
               $_GET['page_url'] = 'power-winch';
               $_GET['page_title'] = 'Door Lifting Power Winch';
-              include('sidebar-quote-form.php'); 
+              include('sidebar-quote-form.php');
             ?>
         </div>
       </div>
@@ -457,7 +479,7 @@
   <script>
     function swapImage(el) {
       // 1. Change Main Image
-      var newSrc = el.querySelector('img').src;
+      var newSrc = el.getAttribute('data-full') || el.querySelector('img').src;
       document.getElementById('mainImage').src = newSrc;
 
       // 2. Update Active Class

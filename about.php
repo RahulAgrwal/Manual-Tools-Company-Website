@@ -4,14 +4,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Leading manufacturer of Coke Oven Machineries since 1995. Specializing in high-quality accessories for hard coke ovens, with customizable solutions for global clients.">
-  <meta name="keywords" content="Manual Toools Company, Manual Tools Co, Coal Crusher, Coke Cutter, Haulage, Winch, Vibrator, Manual Tools, Dhanbad, Manufacturer, Coke Oven,Conveyor, Coal, Coke, Machinery">
+  <meta name="description" content="Manual Tools Company has made coke oven machinery in Dhanbad, Jharkhand since 1995. Founded by the late Shobha Ram Agarwal and run by proprietor Ravindra Kr. Agarwal.">
+  <meta name="keywords" content="Manual Tools Company, Manual Tools Co, Coal Crusher, Coke Cutter, Haulage, Winch, Vibrator, Manual Tools, Dhanbad, Manufacturer, Coke Oven,Conveyor, Coal, Coke, Machinery">
   <meta name="robots" content="index, follow">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>About us | Manual Tools Company</title>
+  <link rel="canonical" href="https://www.manualtoolsco.com/about">
+  <title>About Us – Coke Oven Machinery Maker Since 1995 | Manual Tools Company</title>
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.manualtoolsco.com/about">
+  <meta property="og:title" content="About Manual Tools Company">
+  <meta property="og:description" content="Coke oven machinery manufacturer in Dhanbad, Jharkhand, since 1995.">
+  <meta property="og:image" content="https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Coal-Crusher-single-disc.jpg">
+  <meta property="og:site_name" content="Manual Tools Company">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About Manual Tools Company",
+    "url": "https://www.manualtoolsco.com/about",
+    "isPartOf": { "@id": "https://www.manualtoolsco.com/#website" },
+    "about": {
+      "@type": "Organization",
+      "@id": "https://www.manualtoolsco.com/#organization",
+      "name": "Manual Tools Company",
+      "url": "https://www.manualtoolsco.com/",
+      "foundingDate": "1995",
+      "founder": { "@type": "Person", "name": "Shobha Ram Agarwal" },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Bastacolla, P.O. Dhansar",
+        "addressLocality": "Dhanbad",
+        "addressRegion": "Jharkhand",
+        "postalCode": "828106",
+        "addressCountry": "IN"
+      }
+    }
+  }
+  </script>
 
   <?php
   include('common-head.php');
+  mtc_breadcrumb_schema(['About' => 'about']);
   ?>
 </head>
 
@@ -30,7 +64,7 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>About</h2>
+          <h1>About Manual Tools Company</h1>
           <ol>
             <li><a href="/">Home</a></li>
             <li>About</li>
@@ -46,14 +80,14 @@
 <section id="about-us" class="mtc-about-cert-section">
   <div class="container">
     <div class="row align-items-center">
-      
+
       <!-- LEFT COLUMN: The Certificate Showcase -->
       <div class="col-lg-5 mb-5 mb-lg-0 text-center position-relative">
         <div class="mtc-cert-wrapper">
           <!-- Main Certificate Image -->
           <!-- Make sure this points to your ISO image file -->
           <img src="assets/img/ISO.jpg" alt="ISO 9001:2015 Certificate" class="img-fluid mtc-cert-img">
-          
+
           <!-- Decorative Frame Element -->
           <div class="mtc-cert-frame"></div>
 
@@ -68,21 +102,25 @@
       <!-- RIGHT COLUMN: Content & Values -->
       <div class="col-lg-7 ps-lg-5">
         <div class="mtc-about-text">
-          
+
           <span class="mtc-section-tagline">Since 1995</span>
-          <h2 class="mtc-section-header">Manual Tools <span class="text-orange">Company</span></h2>
-          
+          <h2 class="mtc-section-header">Coke Oven Machinery <span class="text-orange">Since 1995</span></h2>
+
           <p class="mtc-lead-paragraph">
             We are a premier manufacturer of Coke Oven Machineries, based in Dhanbad, Jharkhand. For over three decades, we have set the industry standard for quality and reliability.
           </p>
-          
+
           <p class="mtc-body-paragraph">
-             With a reputation for impeccable finishes and high stability, our products are preferred by clients globally. We offer complete customization to meet specific plant requirements, cementing our position as a trusted industry leader.
+             We design and fabricate coal crushers, coke cutters, haulage machines, door lifting power winches, vibrator screens, conveyor materials, pusher machines and coal charging cars for coke oven plants, coal washeries and steel plants. Every machine can be built to the plant's own capacity and dimensions, and we support installation and commissioning on site.
+          </p>
+
+          <p class="mtc-body-paragraph">
+             The company was founded in 1995 by the late Mr. Shobha Ram Agarwal and is run today by proprietor <strong>Mr. Ravindra Kr. Agarwal</strong>, from our workshop at Bastacolla, Dhansar, in Dhanbad. Our clients include coke, refractory, cement and steel companies across India, and we also supply buyers abroad.
           </p>
 
           <!-- The 4 Values Grid -->
           <div class="row g-4 mt-2">
-            
+
             <!-- Item 1 -->
             <div class="col-md-6">
               <div class="mtc-feature-box">
@@ -162,11 +200,11 @@
     </div>
 
     <div class="row g-4 align-items-center">
-      
+
       <!-- LEFT COLUMN: The Navigation Tabs -->
       <div class="col-lg-4">
         <div class="nav flex-column nav-pills mtc-vertical-tabs" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-          
+
           <!-- Tab 1: History -->
           <button class="nav-link active" id="v-pills-history-tab" data-bs-toggle="pill" data-bs-target="#v-pills-history" type="button" role="tab">
             <div class="d-flex align-items-center justify-content-between w-100">
@@ -205,7 +243,7 @@
       <!-- RIGHT COLUMN: The Content Cards -->
       <div class="col-lg-7 offset-lg-1">
         <div class="tab-content mtc-tab-content" id="v-pills-tabContent">
-          
+
           <!-- Content 1: History -->
           <div class="tab-pane fade show active" id="v-pills-history" role="tabpanel">
             <div class="mtc-value-card">
@@ -213,9 +251,9 @@
               <h3>A Legacy of <span class="text-orange">Excellence</span></h3>
               <p class="lead">Established in 1995 in Dhanbad.</p>
               <p>
-                A small beginning destined for a glorious future was made by <strong>Late Mr. Shobha Ram Agarwal</strong>. 
-                From a small firm indigenously manufacturing coke oven machinery, MTC has spread its wings to become 
-                a dominant force in the unexplored industrial sectors of Eastern India.
+                A small beginning destined for a glorious future was made by <strong>Late Mr. Shobha Ram Agarwal</strong>.
+                From a small firm indigenously manufacturing coke oven machinery, MTC has spread its wings to become
+                a trusted supplier to coke oven plants across Eastern India and beyond.
               </p>
             </div>
           </div>
@@ -226,8 +264,8 @@
               <i class="fas fa-eye watermark-icon"></i>
               <h3>Future <span class="text-orange">Outlook</span></h3>
               <p>
-                To be the <strong>top-of-the-chart company</strong> manufacturing Coke Oven machinery, Conveyor Materials, 
-                and fabricated goods. We aim to deliver both standard and custom-built solutions that exceed customer 
+                To be the <strong>top-of-the-chart company</strong> manufacturing Coke Oven machinery, Conveyor Materials,
+                and fabricated goods. We aim to deliver both standard and custom-built solutions that exceed customer
                 expectations globally.
               </p>
             </div>
@@ -239,8 +277,8 @@
               <i class="fas fa-rocket watermark-icon"></i>
               <h3>Our <span class="text-orange">Mission</span></h3>
               <p>
-                To develop a nationwide market for our products and assure a growing volume of business. 
-                We strive to maintain our reputation for the <strong>finest quality products</strong> and the 
+                To develop a nationwide market for our products and assure a growing volume of business.
+                We strive to maintain our reputation for the <strong>finest quality products</strong> and the
                 best service available anywhere in the industry.
               </p>
             </div>
@@ -252,8 +290,8 @@
               <i class="fas fa-balance-scale watermark-icon"></i>
               <h3>Core <span class="text-orange">Ethics</span></h3>
               <p>
-                At MTC, we are firmly dedicated to achieving <strong>customer delight</strong>. 
-                We promise premium products at the most economical prices, ensuring punctual delivery, 
+                At MTC, we are firmly dedicated to achieving <strong>customer delight</strong>.
+                We promise premium products at the most economical prices, ensuring punctual delivery,
                 and strictly adhering to fair and transparent business practices.
               </p>
             </div>
@@ -285,13 +323,7 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>

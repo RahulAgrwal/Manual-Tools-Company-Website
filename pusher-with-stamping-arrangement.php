@@ -32,7 +32,9 @@
     "image": "https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Pusher-Machine-With-Stamping-Arrangement.png",
     "description": "Heavy-duty Pusher Machine with Stamping Arrangement (Roller System) designed for furnaces and ovens with 20m beams and synchronized roller system.",
     "sku": "MTC-PM-SA",
-    "brand": { "@type": "Organization", "name": "Manual Tools Company" },
+    "brand": { "@type": "Brand", "name": "Manual Tools Company" },
+    "manufacturer": { "@type": "Organization", "name": "Manual Tools Company", "url": "https://www.manualtoolsco.com/" },
+    "url": "https://www.manualtoolsco.com/pusher-with-stamping-arrangement",
     "additionalProperty": [
       { "@type": "PropertyValue", "name": "Pusher Beam", "value": "20 Meters" },
       { "@type": "PropertyValue", "name": "Main Drive", "value": "40 HP Motor" },
@@ -43,11 +45,7 @@
   </script>
 
   <?php include('common-head.php'); ?>
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link href="assets/css/style.css" rel="stylesheet">
+  <?php mtc_breadcrumb_schema(['Products' => 'products', 'Pusher Machine with Stamping Arrangement' => 'pusher-with-stamping-arrangement']); ?>
   <link href="assets/css/product-detail.css" rel="stylesheet">
 </head>
 
@@ -66,6 +64,7 @@
           <h2>Pusher Machine</h2>
           <ol>
             <li><a href="/">Home</a></li>
+            <li><a href="products">Products</a></li>
             <li>Pusher Machine</li>
           </ol>
         </div>
@@ -91,15 +90,15 @@
             ?>
 
             <div class="mtc-product-main-frame text-center">
-              <img id="mainImage" src="<?php echo htmlspecialchars($currentMainSrc); ?>" alt="Pusher Machine With Stamping Arrangement"
+              <img id="mainImage" src="<?php echo htmlspecialchars(mtc_img($currentMainSrc)); ?>" <?php echo mtc_img_size(mtc_img($currentMainSrc)); ?> fetchpriority="high" alt="Pusher Machine With Stamping Arrangement"
                 class="img-fluid">
             </div>
 
             <div class="mtc-product-thumb-grid">
               <?php foreach ($allImages as $index => $image): ?>
-                <div class="mtc-product-thumb-item <?php echo $index === 0 ? 'active' : ''; ?>" onclick="swapImage(this)">
-                  <img src="<?php echo htmlspecialchars($image); ?>"
-                    alt="<?php echo htmlspecialchars(pathinfo($image, PATHINFO_FILENAME)); ?>">
+                <div class="mtc-product-thumb-item <?php echo $index === 0 ? 'active' : ''; ?>" onclick="swapImage(this)" data-full="<?php echo htmlspecialchars(mtc_img($image)); ?>">
+                  <img src="<?php echo htmlspecialchars(mtc_thumb($image)); ?>" loading="lazy"
+                    alt="<?php echo htmlspecialchars('Pusher Machine with Stamping Arrangement photo ' . ($index + 1)); ?>">
                 </div>
               <?php endforeach; ?>
             </div>
@@ -110,10 +109,6 @@
             <h1 class="mtc-product-title">Pusher Machine <br><span class="mtc-highlight">With Stamping Arrangement</span></h1>
 
             <div class="mtc-product-review-row">
-              <div class="mtc-product-stars">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                  class="fas fa-star"></i><i class="fas fa-star"></i>
-              </div>
               <span>Model: MTC-PM-SA</span>
               <span class="mtc-product-stock-badge">Made to Order</span>
             </div>
@@ -171,6 +166,33 @@
               <span><i class="fas fa-cog"></i> Precision Stamping</span>
             </div>
 
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= Overview & buying information ======= -->
+    <section class="mtc-product-overview">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-8">
+            <h2 class="mtc-overview-title">What is a pusher machine with stamping arrangement?</h2>
+            <p>A pusher machine with stamping arrangement serves stamp-charged coke ovens and does two jobs. Its roller stamping system (7.5 HP) compacts loose coal fines into a dense coal cake, which gives better coke quality. Its 20-metre pusher beam, driven by a 40 HP motor through a heavy-duty helical gearbox and chain drive, pushes the finished coke out of the oven after carbonisation.</p>
+            <p>The machine travels on rails along the battery, powered by a 15 HP long travel motor, and includes a 20-metre leveller beam with rack and pinion. Total connected load is about 65 to 70 HP. The standard beam suits ovens up to 11 metres long, and custom lengths are available. Travel and alignment are motorised, while stamping and pushing are controlled from a panel. Roller stamping is faster and needs less maintenance than drop-hammer systems.</p>
+            <p class="mtc-overview-related">Top-charging your ovens instead? <a href="coal-charging-car">See the Coal Charging Car <i class="fas fa-arrow-right"></i></a></p>
+          </div>
+          <div class="col-lg-4">
+            <div class="mtc-buyer-box">
+              <h3>Buying information</h3>
+              <ul>
+              <li><strong>Lead time:</strong> Made to order. Ask us for the current lead time.</li>
+              <li><strong>Warranty:</strong> 1 year, as on all our machinery.</li>
+              <li><strong>Installation:</strong> Installation supervision and commissioning available.</li>
+              <li><strong>Custom builds:</strong> Capacity, motor power and dimensions can be matched to your plant and drawings.</li>
+              <li><strong>Brochure:</strong> <a href="brochure/Manual_Tools_Co_Pusher_Machine.pdf" download>Download PDF</a></li>
+              </ul>
+              <a href="#quote-form" class="mtc-btn-orange"><i class="fas fa-file-signature"></i> Request a Quotation</a>
+            </div>
           </div>
         </div>
       </div>
@@ -425,10 +447,10 @@
           </div>
 
           <div class="col-lg-4 mt-5 mt-lg-0" id="quote-form">
-            <?php 
+            <?php
               $_GET['page_url'] = 'pusher-machine-with-stamping-arrangement';
               $_GET['page_title'] = 'Pusher Machine With Stamping';
-              include('sidebar-quote-form.php'); 
+              include('sidebar-quote-form.php');
             ?>
         </div>
       </div>
@@ -448,7 +470,7 @@
   <script>
     function swapImage(el) {
       // 1. Change Main Image
-      var newSrc = el.querySelector('img').src;
+      var newSrc = el.getAttribute('data-full') || el.querySelector('img').src;
       document.getElementById('mainImage').src = newSrc;
 
       // 2. Update Active Class

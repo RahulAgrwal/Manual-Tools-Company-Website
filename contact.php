@@ -7,13 +7,54 @@ $recaptchaSiteKey = '6Ldj7H0sAAAAAIIk3lL0kl9Y_Ohi8M_JcC5Qm13u';
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Contact Manual Tools Company - Leading Coke Oven Machinery Manufacturer in India. Get quotes for Coke Cutters, Coal Crushers, and more.">
+  <meta name="description" content="Contact Manual Tools Company, Bastacolla, Dhansar, Dhanbad (Jharkhand). Call +91 94307 07348 or send an enquiry for coal crushers, coke cutters and coke oven machinery.">
   <meta name="keywords" content="Contact Manual Tools, Manual Tools Company Dhanbad, Coke Oven Machinery Contact, Industrial Machinery Inquiry">
   <meta name="robots" content="index, follow">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Contact Us - Manual Tools Company</title>
-  
+  <link rel="canonical" href="https://www.manualtoolsco.com/contact">
+  <title>Contact Us – Request a Quotation | Manual Tools Company, Dhanbad</title>
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.manualtoolsco.com/contact">
+  <meta property="og:title" content="Contact Manual Tools Company">
+  <meta property="og:description" content="Request a quotation for coke oven machinery. Bastacolla, Dhansar, Dhanbad, Jharkhand.">
+  <meta property="og:site_name" content="Manual Tools Company">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Manual Tools Company",
+    "url": "https://www.manualtoolsco.com/contact",
+    "isPartOf": { "@id": "https://www.manualtoolsco.com/#website" },
+    "about": {
+      "@type": "LocalBusiness",
+      "@id": "https://www.manualtoolsco.com/#organization",
+      "name": "Manual Tools Company",
+      "url": "https://www.manualtoolsco.com/",
+      "telephone": ["+91-9430707348", "+91-6204307367"],
+      "email": "manualtoolsco.dhn@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Bastacolla, P.O. Dhansar",
+        "addressLocality": "Dhanbad",
+        "addressRegion": "Jharkhand",
+        "postalCode": "828106",
+        "addressCountry": "IN"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "opens": "08:00",
+          "closes": "17:00"
+        }
+      ]
+    }
+  }
+  </script>
+
   <?php include('common-head.php'); ?>
+  <?php mtc_breadcrumb_schema(['Contact' => 'contact']); ?>
 
 
 </head>
@@ -30,7 +71,7 @@ $recaptchaSiteKey = '6Ldj7H0sAAAAAIIk3lL0kl9Y_Ohi8M_JcC5Qm13u';
     <section id="breadcrumbs" class="breadcrumbs">
       <div class="container">
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Contact Us</h2>
+          <h1>Contact Manual Tools Company</h1>
           <ol>
             <li><a href="/">Home</a></li>
             <li>Contact</li>
@@ -42,7 +83,7 @@ $recaptchaSiteKey = '6Ldj7H0sAAAAAIIk3lL0kl9Y_Ohi8M_JcC5Qm13u';
     <!-- ======= Contact Info Grid ======= -->
     <section class="contact-section">
       <div class="container">
-        
+
         <!-- Info Cards Row -->
         <div class="row mb-5">
           <!-- Address -->
@@ -69,8 +110,8 @@ $recaptchaSiteKey = '6Ldj7H0sAAAAAIIk3lL0kl9Y_Ohi8M_JcC5Qm13u';
             <div class="contact-info-card w-100">
               <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
               <h4>Call Us</h4>
-              <p><a href="tel:9430707348">+91 94307 07348</a></p>
-              <p><a href="tel:6204307367">+91 62043 07367</a></p>
+              <p><a href="tel:+919430707348">+91 94307 07348</a></p>
+              <p><a href="tel:+916204307367">+91 62043 07367</a></p>
             </div>
           </div>
 
@@ -88,7 +129,7 @@ $recaptchaSiteKey = '6Ldj7H0sAAAAAIIk3lL0kl9Y_Ohi8M_JcC5Qm13u';
 
         <!-- Form & Map Row -->
         <div class="row">
-          
+
           <!-- Contact Form -->
           <div class="col-lg-6">
             <div class="form-wrapper">
@@ -98,7 +139,7 @@ $recaptchaSiteKey = '6Ldj7H0sAAAAAIIk3lL0kl9Y_Ohi8M_JcC5Qm13u';
               </div>
 
               <form action="forms/contact.php" method="post" class="ajax-form php-email-form" id="contact_form" role="form" data-recaptcha-site-key="<?php echo htmlspecialchars($recaptchaSiteKey, ENT_QUOTES, 'UTF-8'); ?>" data-recaptcha-action="contact_form_submit">
-                
+
                 <!-- Feedback Messages -->
                 <div class="loading">Sending...</div>
                 <div class="error-msg"></div>
@@ -169,7 +210,7 @@ $recaptchaSiteKey = '6Ldj7H0sAAAAAIIk3lL0kl9Y_Ohi8M_JcC5Qm13u';
         ],
         [
             "question" => "What is the typical delivery timeline?",
-            "answer" => "Delivery timelines depend on the order volume and machine complexity. Standard spare parts are often in stock, while heavy machinery (like Coal Crushers, Coke Cutters) typically takes 4-8 weeks for manufacturing."
+            "answer" => "Delivery timelines depend on the order volume and machine complexity. Standard spare parts and common conveyor rollers are often in stock. Custom conveyor pulleys usually take 2-3 weeks, and heavy machinery such as coal crushers and coke cutters typically takes 3-8 weeks depending on the model and our production queue. Each product page lists its usual lead time."
         ],
         [
             "question" => "Do you provide fitting and commissioning support?",
@@ -184,7 +225,7 @@ $recaptchaSiteKey = '6Ldj7H0sAAAAAIIk3lL0kl9Y_Ohi8M_JcC5Qm13u';
             "answer" => "Our manufacturing unit and workshop are located in Bastacolla, Dhansar, Dhanbad, Jharkhand. You are welcome to visit us for a physical inspection of our machinery."
         ],
         [
-            "question" => "Do we provide delivery on Weekends?",
+            "question" => "Do you deliver on weekends?",
             "answer" => "Yes, we offer weekend delivery options for urgent orders."
         ]
     ];
@@ -206,11 +247,11 @@ $recaptchaSiteKey = '6Ldj7H0sAAAAAIIk3lL0kl9Y_Ohi8M_JcC5Qm13u';
       <div class="card">
         <div class="card-header" id="<?php echo $headingId; ?>">
           <h5 class="mb-0">
-            <button class="btn btn-link w-100 text-left <?php echo $btnCollapsed; ?>" 
-                    type="button" 
-                    data-bs-toggle="collapse" 
-                    data-bs-target="#<?php echo $collapseId; ?>" 
-                    aria-expanded="<?php echo $ariaExpanded; ?>" 
+            <button class="btn btn-link w-100 text-left <?php echo $btnCollapsed; ?>"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#<?php echo $collapseId; ?>"
+                    aria-expanded="<?php echo $ariaExpanded; ?>"
                     aria-controls="<?php echo $collapseId; ?>">
               <?php echo $faq['question']; ?>
               <i class="fas fa-plus float-right"></i>
@@ -218,9 +259,9 @@ $recaptchaSiteKey = '6Ldj7H0sAAAAAIIk3lL0kl9Y_Ohi8M_JcC5Qm13u';
           </h5>
         </div>
 
-        <div id="<?php echo $collapseId; ?>" 
-             class="accordion-collapse collapse <?php echo $showClass; ?>" 
-             aria-labelledby="<?php echo $headingId; ?>" 
+        <div id="<?php echo $collapseId; ?>"
+             class="accordion-collapse collapse <?php echo $showClass; ?>"
+             aria-labelledby="<?php echo $headingId; ?>"
              data-bs-parent="#faqAccordion">
           <div class="card-body">
             <?php echo $faq['answer']; ?>
@@ -228,7 +269,7 @@ $recaptchaSiteKey = '6Ldj7H0sAAAAAIIk3lL0kl9Y_Ohi8M_JcC5Qm13u';
         </div>
       </div>
 
-    <?php 
+    <?php
     } // End foreach
     ?>
 
@@ -249,12 +290,7 @@ $recaptchaSiteKey = '6Ldj7H0sAAAAAIIk3lL0kl9Y_Ohi8M_JcC5Qm13u';
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>

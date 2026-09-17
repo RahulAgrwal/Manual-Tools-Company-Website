@@ -7,6 +7,7 @@ Marketing website for Manual Tools Company (coke oven machinery, Dhanbad). Plain
 ## Prerequisites
 - PHP 7.4+ with the `mysqli` extension
 - A web browser
+- Optional, for the tools: Python 3 with `Pillow` (images) and `fpdf2` (brochures)
 
 ## Configure secrets
 
@@ -44,6 +45,7 @@ Then open http://localhost:8080. `router.php` mimics the production `.htaccess` 
 ├── index.php, about.php, products.php, contact.php, photo-gallery.php
 ├── <product-slug>.php        # Product detail pages
 ├── header.php, footer.php, common-head.php
+├── page-helpers.php          # mtc_img(), mtc_thumb(), mtc_img_size(), mtc_breadcrumb_schema()
 ├── global-products.php       # Master product list
 ├── related-products.php, our-products.php, sidebar-quote-form.php, clients.php
 ├── forms/contact.php         # AJAX form endpoint (PHPMailer + reCAPTCHA v3)
@@ -53,11 +55,23 @@ Then open http://localhost:8080. `router.php` mimics the production `.htaccess` 
 ├── secrets.example.php       # Template for the secrets file
 ├── config/secrets.php        # Local secrets (git-ignored, not in repo)
 ├── router.php                # Router for PHP built-in server
-├── .htaccess                 # Production URL rewriting
+├── .htaccess                 # Production URL rewriting, redirects, security and cache headers
+├── robots.txt, sitemap.xml
+├── <key>.txt                 # IndexNow key file (must stay deployed)
 ├── brochure/                 # Python scripts that generate PDF brochures
+├── tools/                    # optimize_images.py (WebP copies), indexnow_submit.py
 ├── vendor/                   # PHPMailer (Composer autoload)
 └── assets/                   # CSS, JS, images, front-end vendor libraries
 ```
+
+## After changing images, products or pages
+
+```bash
+python tools/optimize_images.py                 # WebP copies + gallery thumbnails for new/changed images
+python brochure/generate_product_brochures.py   # rebuild brochures after spec changes
+```
+
+After deploying, update `<lastmod>` in `sitemap.xml` for the changed pages and run `python tools/indexnow_submit.py`.
 
 ## Notes
 - Use `CTRL + C` to stop the server.

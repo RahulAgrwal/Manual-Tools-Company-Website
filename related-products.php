@@ -49,7 +49,7 @@
         <div class="related-card">
           <div class="related-img">
             <img 
-              src="<?php echo htmlspecialchars($product['image_path']); ?>" 
+              src="<?php echo htmlspecialchars(mtc_img($product['image_path'])); ?>" 
               alt="<?php echo htmlspecialchars($product['title']); ?>"
               loading="lazy"
             >

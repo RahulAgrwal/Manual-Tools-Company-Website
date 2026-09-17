@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /forms/
+Disallow: /config/
+
+Sitemap: https://www.manualtoolsco.com/sitemap.xml

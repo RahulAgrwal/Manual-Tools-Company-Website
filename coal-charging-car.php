@@ -32,7 +32,9 @@
     "image": "https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Coal-Charging-Car.jpg",
     "description": "Rail-mounted Coal Charging Car for top-charging coke ovens. Features 4 hoppers, gravity feed system, and heavy-duty travel mechanism.",
     "sku": "MTC-CCC-Series",
-    "brand": { "@type": "Organization", "name": "Manual Tools Company" },
+    "brand": { "@type": "Brand", "name": "Manual Tools Company" },
+    "manufacturer": { "@type": "Organization", "name": "Manual Tools Company", "url": "https://www.manualtoolsco.com/" },
+    "url": "https://www.manualtoolsco.com/coal-charging-car",
     "additionalProperty": [
       { "@type": "PropertyValue", "name": "Capacity", "value": "4T / 8T / 15T / 20T" },
       { "@type": "PropertyValue", "name": "Travel Motor", "value": "15 HP" },
@@ -43,11 +45,7 @@
   </script>
 
   <?php include('common-head.php'); ?>
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link href="assets/css/style.css" rel="stylesheet">
+  <?php mtc_breadcrumb_schema(['Products' => 'products', 'Coal Charging Car' => 'coal-charging-car']); ?>
   <link href="assets/css/product-detail.css" rel="stylesheet">
 </head>
 
@@ -66,6 +64,7 @@
           <h2>Coal Charging Car</h2>
           <ol>
             <li><a href="/">Home</a></li>
+            <li><a href="products">Products</a></li>
             <li>Coal Charging Car</li>
           </ol>
         </div>
@@ -91,15 +90,15 @@
             ?>
 
             <div class="mtc-product-main-frame text-center">
-              <img id="mainImage" src="<?php echo htmlspecialchars($currentMainSrc); ?>" alt="Coal Charging Car"
+              <img id="mainImage" src="<?php echo htmlspecialchars(mtc_img($currentMainSrc)); ?>" <?php echo mtc_img_size(mtc_img($currentMainSrc)); ?> fetchpriority="high" alt="Coal Charging Car"
                 class="img-fluid">
             </div>
 
             <div class="mtc-product-thumb-grid">
               <?php foreach ($allImages as $index => $image): ?>
-                <div class="mtc-product-thumb-item <?php echo $index === 0 ? 'active' : ''; ?>" onclick="swapImage(this)">
-                  <img src="<?php echo htmlspecialchars($image); ?>"
-                    alt="<?php echo htmlspecialchars(pathinfo($image, PATHINFO_FILENAME)); ?>">
+                <div class="mtc-product-thumb-item <?php echo $index === 0 ? 'active' : ''; ?>" onclick="swapImage(this)" data-full="<?php echo htmlspecialchars(mtc_img($image)); ?>">
+                  <img src="<?php echo htmlspecialchars(mtc_thumb($image)); ?>" loading="lazy"
+                    alt="<?php echo htmlspecialchars('Coal Charging Car photo ' . ($index + 1)); ?>">
                 </div>
               <?php endforeach; ?>
             </div>
@@ -110,10 +109,6 @@
             <h1 class="mtc-product-title">Coal <br><span class="mtc-highlight">Charging Car</span> (Top Feed)</h1>
 
             <div class="mtc-product-review-row">
-              <div class="mtc-product-stars">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                  class="fas fa-star"></i><i class="fas fa-star"></i>
-              </div>
               <span>Model: MTC-CCC-Series</span>
               <span class="mtc-product-stock-badge">Made to Order</span>
             </div>
@@ -170,6 +165,33 @@
               <span><i class="fas fa-shield-alt"></i> Heavy Structure</span>
             </div>
 
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= Overview & buying information ======= -->
+    <section class="mtc-product-overview">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-8">
+            <h2 class="mtc-overview-title">What is a coal charging car?</h2>
+            <p>A coal charging car, also called a larry car, is a rail-mounted machine that runs along the top of a coke oven battery and charges coal into the ovens from above. It takes a measured coal blend from the overhead service bunker into four conical hoppers, travels to the empty oven, and lines up its telescopic sleeves with the oven's four charging holes to limit smoke leakage. Motorised slide gates (3 HP) then open and the coal flows in by gravity, with a manual override wheel for power failures.</p>
+            <p>A 15 HP motor with a worm reducer gearbox moves the car at 60 to 80 metres per minute and positions it precisely. Hoppers are made from 8 mm tapered steel plate with steep sides so that wet coal flows, in capacities of 4, 8, 15 or 20 tons. Safety features include hydraulic buffers, electromagnetic brakes, travel alarms and heat shields for the operator cabin.</p>
+            <p class="mtc-overview-related">Running a stamp-charged battery? <a href="pusher-with-stamping-arrangement">See the Pusher Machine with Stamping Arrangement <i class="fas fa-arrow-right"></i></a></p>
+          </div>
+          <div class="col-lg-4">
+            <div class="mtc-buyer-box">
+              <h3>Buying information</h3>
+              <ul>
+              <li><strong>Lead time:</strong> Made to order. Ask us for the current lead time.</li>
+              <li><strong>Warranty:</strong> 1 year, as on all our machinery.</li>
+              <li><strong>Installation:</strong> Installation supervision and commissioning available.</li>
+              <li><strong>Custom builds:</strong> Capacity, motor power and dimensions can be matched to your plant and drawings.</li>
+              <li><strong>Brochure:</strong> <a href="brochure/Manual_Tools_Co_Charging_Car.pdf" download>Download PDF</a></li>
+              </ul>
+              <a href="#quote-form" class="mtc-btn-orange"><i class="fas fa-file-signature"></i> Request a Quotation</a>
+            </div>
           </div>
         </div>
       </div>
@@ -425,10 +447,10 @@
           </div>
 
           <div class="col-lg-4 mt-5 mt-lg-0" id="quote-form">
-            <?php 
+            <?php
               $_GET['page_url'] = 'coal-charging-car';
               $_GET['page_title'] = 'Coal Charging Car';
-              include('sidebar-quote-form.php'); 
+              include('sidebar-quote-form.php');
             ?>
         </div>
       </div>
@@ -448,7 +470,7 @@
   <script>
     function swapImage(el) {
       // 1. Change Main Image
-      var newSrc = el.querySelector('img').src;
+      var newSrc = el.getAttribute('data-full') || el.querySelector('img').src;
       document.getElementById('mainImage').src = newSrc;
 
       // 2. Update Active Class

@@ -32,7 +32,9 @@
     "image": "https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Vibrator-Screen-Machine.png",
     "description": "Multi-deck vibrating screen machine for precise size separation of coke, coal, and minerals.",
     "sku": "MTC-VS-MD",
-    "brand": { "@type": "Organization", "name": "Manual Tools Company" },
+    "brand": { "@type": "Brand", "name": "Manual Tools Company" },
+    "manufacturer": { "@type": "Organization", "name": "Manual Tools Company", "url": "https://www.manualtoolsco.com/" },
+    "url": "https://www.manualtoolsco.com/vibrator-screen",
     "additionalProperty": [
       { "@type": "PropertyValue", "name": "Motor Power", "value": "7.5 – 15 H.P." },
       { "@type": "PropertyValue", "name": "Decks", "value": "1 to 4 Decks" },
@@ -43,11 +45,7 @@
   </script>
 
   <?php include('common-head.php'); ?>
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link href="assets/css/style.css" rel="stylesheet">
+  <?php mtc_breadcrumb_schema(['Products' => 'products', 'Vibrator Screen Machine' => 'vibrator-screen']); ?>
   <link href="assets/css/product-detail.css" rel="stylesheet">
 </head>
 
@@ -66,6 +64,7 @@
           <h2>Vibrator Screen Machine</h2>
           <ol>
             <li><a href="/">Home</a></li>
+            <li><a href="products">Products</a></li>
             <li>Vibrator Screen</li>
           </ol>
         </div>
@@ -91,15 +90,15 @@
             ?>
 
             <div class="mtc-product-main-frame text-center">
-              <img id="mainImage" src="<?php echo htmlspecialchars($currentMainSrc); ?>" alt="Vibrator Screen Machine"
+              <img id="mainImage" src="<?php echo htmlspecialchars(mtc_img($currentMainSrc)); ?>" <?php echo mtc_img_size(mtc_img($currentMainSrc)); ?> fetchpriority="high" alt="Vibrator Screen Machine"
                 class="img-fluid">
             </div>
 
             <div class="mtc-product-thumb-grid">
               <?php foreach ($allImages as $index => $image): ?>
-                <div class="mtc-product-thumb-item <?php echo $index === 0 ? 'active' : ''; ?>" onclick="swapImage(this)">
-                  <img src="<?php echo htmlspecialchars($image); ?>"
-                    alt="<?php echo htmlspecialchars(pathinfo($image, PATHINFO_FILENAME)); ?>">
+                <div class="mtc-product-thumb-item <?php echo $index === 0 ? 'active' : ''; ?>" onclick="swapImage(this)" data-full="<?php echo htmlspecialchars(mtc_img($image)); ?>">
+                  <img src="<?php echo htmlspecialchars(mtc_thumb($image)); ?>" loading="lazy"
+                    alt="<?php echo htmlspecialchars('Vibrator Screen Machine photo ' . ($index + 1)); ?>">
                 </div>
               <?php endforeach; ?>
             </div>
@@ -110,10 +109,6 @@
             <h1 class="mtc-product-title">Vibrator Screen <br><span class="mtc-highlight">Multi-Deck Series</span></h1>
 
             <div class="mtc-product-review-row">
-              <div class="mtc-product-stars">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                  class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-              </div>
               <span>Model: MTC-VS-MD</span>
               <span class="mtc-product-stock-badge">Custom Config</span>
             </div>
@@ -171,6 +166,33 @@
               <span><i class="fas fa-cogs"></i> Low Maintenance</span>
             </div>
 
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= Overview & buying information ======= -->
+    <section class="mtc-product-overview">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-8">
+            <h2 class="mtc-overview-title">What is a vibrator screen machine?</h2>
+            <p>A vibrator screen machine separates bulk material such as coke, coal and iron ore into size grades. An eccentric shaft, driven by a 7.5 to 15 HP, 1440 RPM motor, shakes the screen deck in a circular motion: fine particles fall through the mesh while oversize lumps travel to the discharge chute. Each deck discharges its own grade, for example +40 mm, 20–40 mm and below 20 mm.</p>
+            <p>Machines are built with one to four decks, and a three-deck screen gives four output sizes. Standard screen sizes are 4'×12', 4'×16' and 5'×16', with interchangeable high carbon steel mesh for changing the grading. Coil spring suspension keeps vibration away from the foundation, and the amplitude is adjusted with counterweights. In coke oven plants it separates coke breeze from blast furnace coke; it is also used in coal washeries and stone crushing plants.</p>
+            <p class="mtc-overview-related">Need rollers or pulleys for the conveyors around it? <a href="conveyor-materials">See our Conveyor Materials <i class="fas fa-arrow-right"></i></a></p>
+          </div>
+          <div class="col-lg-4">
+            <div class="mtc-buyer-box">
+              <h3>Buying information</h3>
+              <ul>
+              <li><strong>Lead time:</strong> Built to your deck and screen-size configuration. Ask us for the current lead time.</li>
+              <li><strong>Warranty:</strong> 1 year, as on all our machinery.</li>
+              <li><strong>Installation:</strong> Installation supervision and commissioning available.</li>
+              <li><strong>Custom builds:</strong> Capacity, motor power and dimensions can be matched to your plant and drawings.</li>
+              <li><strong>Brochure:</strong> <a href="brochure/Manual_Tools_Co_Vibrator_Screen.pdf" download>Download PDF</a></li>
+              </ul>
+              <a href="#quote-form" class="mtc-btn-orange"><i class="fas fa-file-signature"></i> Request a Quotation</a>
+            </div>
           </div>
         </div>
       </div>
@@ -431,10 +453,10 @@
           </div>
 
           <div class="col-lg-4 mt-5 mt-lg-0" id="quote-form">
-            <?php 
+            <?php
               $_GET['page_url'] = 'vibrator-screen';
               $_GET['page_title'] = 'Vibrator Screen Machine';
-              include('sidebar-quote-form.php'); 
+              include('sidebar-quote-form.php');
             ?>
         </div>
       </div>
@@ -454,7 +476,7 @@
   <script>
     function swapImage(el) {
       // 1. Change Main Image
-      var newSrc = el.querySelector('img').src;
+      var newSrc = el.getAttribute('data-full') || el.querySelector('img').src;
       document.getElementById('mainImage').src = newSrc;
 
       // 2. Update Active Class

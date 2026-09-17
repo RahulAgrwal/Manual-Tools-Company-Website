@@ -12,12 +12,12 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="canonical" href="https://www.manualtoolsco.com/coke-cutter-double-drive">
 
-  <title>Coke Cutter Machine (Double Drive) | Manual Tools Company</title>
+  <title>Coke Cutter Machine – Double Drive, Drum Type | Manual Tools Company</title>
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="product">
   <meta property="og:url" content="https://www.manualtoolsco.com/coke-cutter-double-drive">
-  <meta property="og:title" content="Coke Cutter Machine (Double Drive) | Manual Tools Company">
+  <meta property="og:title" content="Coke Cutter Machine – Double Drive, Drum Type | Manual Tools Company">
   <meta property="og:description" content="Industrial Coke Cutter with 12–15 TPH capacity, adjustable output size (45-60 mm), and double drive motors.">
   <meta property="og:image"
     content="https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Double-Drive-Coke-Cutter-Machine.jpg">
@@ -28,11 +28,13 @@
   {
     "@context": "https://schema.org",
     "@type": "Product",
-    "name": "Coke Cutter Machine (Double Drive)",
+    "name": "Coke Cutter Machine (Double Drive, Drum Type)",
     "image": "https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Double-Drive-Coke-Cutter-Machine.jpg",
     "description": "Double drive coke cutter machine with 12-15 TPH capacity, 45-60mm adjustable output, and manganese steel teeth.",
     "sku": "MTC-CCM-DD",
-    "brand": { "@type": "Organization", "name": "Manual Tools Company" },
+    "brand": { "@type": "Brand", "name": "Manual Tools Company" },
+    "manufacturer": { "@type": "Organization", "name": "Manual Tools Company", "url": "https://www.manualtoolsco.com/" },
+    "url": "https://www.manualtoolsco.com/coke-cutter-double-drive",
     "additionalProperty": [
       { "@type": "PropertyValue", "name": "Motor Power", "value": "20 H.P. x 2 (Double Drive)" },
       { "@type": "PropertyValue", "name": "Feed Size", "value": "< 200 mm" },
@@ -43,11 +45,7 @@
   </script>
 
   <?php include('common-head.php'); ?>
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link href="assets/css/style.css" rel="stylesheet">
+  <?php mtc_breadcrumb_schema(['Products' => 'products', 'Coke Cutter Machine (Double Drive, Drum Type)' => 'coke-cutter-double-drive']); ?>
   <link href="assets/css/product-detail.css" rel="stylesheet">
 </head>
 
@@ -66,6 +64,7 @@
           <h2>Coke Cutter Machine</h2>
           <ol>
             <li><a href="/">Home</a></li>
+            <li><a href="products">Products</a></li>
             <li>Coke Cutter</li>
           </ol>
         </div>
@@ -91,15 +90,15 @@
             ?>
 
             <div class="mtc-product-main-frame text-center">
-              <img id="mainImage" src="<?php echo htmlspecialchars($currentMainSrc); ?>" alt="Coke Cutter Double Drive"
+              <img id="mainImage" src="<?php echo htmlspecialchars(mtc_img($currentMainSrc)); ?>" <?php echo mtc_img_size(mtc_img($currentMainSrc)); ?> fetchpriority="high" alt="Coke Cutter Double Drive"
                 class="img-fluid">
             </div>
 
             <div class="mtc-product-thumb-grid">
               <?php foreach ($allImages as $index => $image): ?>
-                <div class="mtc-product-thumb-item <?php echo $index === 0 ? 'active' : ''; ?>" onclick="swapImage(this)">
-                  <img src="<?php echo htmlspecialchars($image); ?>"
-                    alt="<?php echo htmlspecialchars(pathinfo($image, PATHINFO_FILENAME)); ?>">
+                <div class="mtc-product-thumb-item <?php echo $index === 0 ? 'active' : ''; ?>" onclick="swapImage(this)" data-full="<?php echo htmlspecialchars(mtc_img($image)); ?>">
+                  <img src="<?php echo htmlspecialchars(mtc_thumb($image)); ?>" loading="lazy"
+                    alt="<?php echo htmlspecialchars('Coke Cutter Machine (Double Drive, Drum Type) photo ' . ($index + 1)); ?>">
                 </div>
               <?php endforeach; ?>
             </div>
@@ -107,13 +106,9 @@
 
           <div class="col-lg-6 ps-lg-5">
             <div class="mtc-product-eyebrow">Industrial Coke Sizing Equipment</div>
-            <h1 class="mtc-product-title">Coke Cutter Machine <br><span class="mtc-highlight">Double Drive</span></h1>
+            <h1 class="mtc-product-title">Coke Cutter Machine <br><span class="mtc-highlight">Double Drive, Drum Type</span></h1>
 
             <div class="mtc-product-review-row">
-              <div class="mtc-product-stars">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                  class="fas fa-star"></i><i class="fas fa-star"></i>
-              </div>
               <span>Model: MTC-CCM-DD</span>
               <span class="mtc-product-stock-badge">Made to Order</span>
             </div>
@@ -171,6 +166,33 @@
               <span><i class="fas fa-tools"></i> Manganese Teeth</span>
             </div>
 
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= Overview & buying information ======= -->
+    <section class="mtc-product-overview">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-8">
+            <h2 class="mtc-overview-title">What is a double drive coke cutter?</h2>
+            <p>A double drive coke cutter is a sizing machine that cuts hard coke lumps into uniform pieces instead of smashing them, so it produces much less dust than a hammer crusher. This drum-type model takes lumps up to 200 mm and delivers 45 to 60 mm coke, set by adjusting the gap between its drums, at 12 to 15 tons per hour.</p>
+            <p>Each side of the cutter has its own 20 HP motor (40 HP in total). The balanced torque from the two drives stops the machine stalling on hard metallurgical coke and extends gear life. Gears are heavy-duty cast steel, and the cutting teeth are replaceable manganese steel liner plates. It is used by coke oven plants that supply sized coke to blast furnaces and foundries.</p>
+            <p class="mtc-overview-related">Need 20 TPH or individually replaceable teeth? <a href="coke-cutter-double-drive-ring-type">See the Ring Type coke cutter <i class="fas fa-arrow-right"></i></a></p>
+          </div>
+          <div class="col-lg-4">
+            <div class="mtc-buyer-box">
+              <h3>Buying information</h3>
+              <ul>
+              <li><strong>Lead time:</strong> Made to order. Ask us for the current lead time.</li>
+              <li><strong>Warranty:</strong> 1 year, as on all our machinery.</li>
+              <li><strong>Installation:</strong> Installation supervision and commissioning available.</li>
+              <li><strong>Custom builds:</strong> Capacity, motor power and dimensions can be matched to your plant and drawings.</li>
+              <li><strong>Brochure:</strong> <a href="brochure/Manual_Tools_Co_Coke_Cutter_Double_Drive.pdf" download>Download PDF</a></li>
+              </ul>
+              <a href="#quote-form" class="mtc-btn-orange"><i class="fas fa-file-signature"></i> Request a Quotation</a>
+            </div>
           </div>
         </div>
       </div>
@@ -449,10 +471,10 @@
           </div>
 
           <div class="col-lg-4 mt-5 mt-lg-0" id="quote-form">
-            <?php 
+            <?php
               $_GET['page_url'] = 'coke-cutter-double-drive';
-              $_GET['page_title'] = 'Coke Cutter Machine (Double Drive)';
-              include('sidebar-quote-form.php'); 
+              $_GET['page_title'] = 'Coke Cutter Machine (Double Drive, Drum Type)';
+              include('sidebar-quote-form.php');
             ?>
         </div>
       </div>
@@ -472,7 +494,7 @@
   <script>
     function swapImage(el) {
       // 1. Change Main Image
-      var newSrc = el.querySelector('img').src;
+      var newSrc = el.getAttribute('data-full') || el.querySelector('img').src;
       document.getElementById('mainImage').src = newSrc;
 
       // 2. Update Active Class

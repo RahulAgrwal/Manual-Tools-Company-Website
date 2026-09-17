@@ -5,20 +5,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="Industrial Haulage Machine for Coke Ovens. 10 HP motor, 10-Ton pulling capacity, Worm Reducer Gearbox. Heavy-duty traction system by Manual Tools Company.">
+    content="Coke oven haulage machine (haulage winch) with 10 HP motor, worm reducer gearbox and 10-ton pull, for coke cake extraction, rail shunting and mines. Made in Dhanbad.">
   <meta name="keywords"
-    content="Haulage Machine, Coke Oven Haulage, Industrial Winch, 10 Ton Haulage, Worm Reducer Gearbox, Manual Tools Company, Dhanbad, Jharkhand, India">
+    content="Coke Oven Haulage Machine, Haulage Winch, Haulage Machine, Coke Oven Haulage, Industrial Winch, 10 Ton Haulage, Worm Reducer Gearbox, Manual Tools Company, Dhanbad, Jharkhand, India">
   <meta name="robots" content="index, follow">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="canonical" href="https://www.manualtoolsco.com/haulage">
 
-  <title>Haulage Machine (10 Ton) | Manual Tools Company</title>
+  <title>Coke Oven Haulage Machine (10 Ton, 10 HP) | Manual Tools Company</title>
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="product">
   <meta property="og:url" content="https://www.manualtoolsco.com/haulage">
-  <meta property="og:title" content="Haulage Machine (10 Ton) | Manual Tools Company">
-  <meta property="og:description" content="10 HP Electric Haulage Machine with Worm Reducer Gearbox and 10 Ton pulling capacity.">
+  <meta property="og:title" content="Coke Oven Haulage Machine (10 Ton, 10 HP) | Manual Tools Company">
+  <meta property="og:description" content="10 HP coke oven haulage machine with worm reducer gearbox and 10 ton pulling capacity.">
   <meta property="og:image"
     content="https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Haulage-Machine.png">
   <meta property="og:site_name" content="Manual Tools Company">
@@ -28,11 +28,13 @@
   {
     "@context": "https://schema.org",
     "@type": "Product",
-    "name": "Haulage Machine (Coke Oven)",
+    "name": "Coke Oven Haulage Machine (10 Ton)",
     "image": "https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Haulage-Machine.png",
     "description": "Electric Haulage Machine designed for coke oven extraction. Features 10 HP motor, worm reducer gearbox, and 10-ton pulling capacity.",
     "sku": "MTC-HM-10T",
-    "brand": { "@type": "Organization", "name": "Manual Tools Company" },
+    "brand": { "@type": "Brand", "name": "Manual Tools Company" },
+    "manufacturer": { "@type": "Organization", "name": "Manual Tools Company", "url": "https://www.manualtoolsco.com/" },
+    "url": "https://www.manualtoolsco.com/haulage",
     "additionalProperty": [
       { "@type": "PropertyValue", "name": "Motor Power", "value": "10 H.P. Electrical" },
       { "@type": "PropertyValue", "name": "Pulling Capacity", "value": "10 Tons" },
@@ -43,13 +45,9 @@
   </script>
 
   <?php include('common-head.php'); ?>
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link href="assets/css/style.css" rel="stylesheet">
+  <?php mtc_breadcrumb_schema(['Products' => 'products', 'Coke Oven Haulage Machine' => 'haulage']); ?>
   <link href="assets/css/product-detail.css" rel="stylesheet">
-  
+
   <style>
     /* Specific styles for video thumbnails */
     .mtc-video-thumb-overlay {
@@ -83,10 +81,11 @@
     <section id="breadcrumbs" class="breadcrumbs">
       <div class="container">
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Haulage Machine</h2>
+          <h2>Coke Oven Haulage Machine</h2>
           <ol>
             <li><a href="/">Home</a></li>
-            <li>Haulage</li>
+            <li><a href="products">Products</a></li>
+            <li>Coke Oven Haulage Machine</li>
           </ol>
         </div>
       </div>
@@ -101,19 +100,19 @@
             // 1. Define Main Static Image
             $mainImgObj = [
                 'type' => 'image',
-                'src' => 'assets/img/about-us-products/Haulage Machine.jpg',
-                'thumb' => 'assets/img/about-us-products/Haulage Machine.jpg'
+                'src' => mtc_img('assets/img/about-us-products/Haulage Machine.jpg'),
+                'thumb' => mtc_thumb('assets/img/about-us-products/Haulage Machine.jpg')
             ];
 
             // 2. Fetch Gallery Images from Folder
             $directory = "assets/img/product-images/haulage/";
-            
+
             // Get Images
             $images = glob($directory . "*.{jpg,jpeg,png,gif}", GLOB_BRACE);
             $galleryImgs = [];
             if($images) {
                 foreach($images as $img) {
-                    $galleryImgs[] = ['type' => 'image', 'src' => $img, 'thumb' => $img];
+                    $galleryImgs[] = ['type' => 'image', 'src' => mtc_img($img), 'thumb' => mtc_thumb($img)];
                 }
             }
 
@@ -123,7 +122,7 @@
             if($videos) {
                 foreach($videos as $vid) {
                     // Use main image as placeholder thumb for video if no specific thumb exists
-                    $galleryVids[] = ['type' => 'video', 'src' => $vid, 'thumb' => 'assets/img/about-us-products/Haulage Machine.jpg'];
+                    $galleryVids[] = ['type' => 'video', 'src' => $vid, 'thumb' => mtc_thumb('assets/img/about-us-products/Haulage Machine.jpg')];
                 }
             }
 
@@ -134,19 +133,19 @@
             <!-- Main Display Area (Image or Video) -->
             <div class="mtc-product-main-frame text-center" id="mtc-main-display">
               <!-- Default loads the first image -->
-              <img src="<?php echo htmlspecialchars($mediaList[0]['src']); ?>" alt="Haulage Machine" class="img-fluid">
+              <img src="<?php echo htmlspecialchars($mediaList[0]['src']); ?>" <?php echo mtc_img_size($mediaList[0]['src']); ?> fetchpriority="high" alt="Coke oven haulage machine, 10 HP / 10 ton" class="img-fluid">
             </div>
 
             <!-- Thumbnails Grid -->
             <div class="mtc-product-thumb-grid">
               <?php foreach ($mediaList as $index => $media): ?>
-                <div class="mtc-product-thumb-item <?php echo $index === 0 ? 'active' : ''; ?>" 
+                <div class="mtc-product-thumb-item <?php echo $index === 0 ? 'active' : ''; ?>"
                      onclick="swapMedia(this)"
                      data-type="<?php echo $media['type']; ?>"
                      data-src="<?php echo htmlspecialchars($media['src']); ?>">
-                  
-                  <img src="<?php echo htmlspecialchars($media['thumb']); ?>" alt="Thumbnail">
-                  
+
+                  <img src="<?php echo htmlspecialchars($media['thumb']); ?>" loading="lazy" alt="<?php echo htmlspecialchars('Coke Oven Haulage Machine ' . ($media['type'] === 'video' ? 'video ' : 'photo ') . ($index + 1)); ?>">
+
                   <?php if($media['type'] === 'video'): ?>
                     <div class="mtc-video-thumb-overlay">
                         <i class="fas fa-play-circle"></i>
@@ -160,13 +159,9 @@
 
           <div class="col-lg-6 ps-lg-5">
             <div class="mtc-product-eyebrow">Coke Oven Extraction Series</div>
-            <h1 class="mtc-product-title">Haulage Machine <br><span class="mtc-highlight">10 HP / 10 Ton</span></h1>
+            <h1 class="mtc-product-title">Coke Oven Haulage Machine <br><span class="mtc-highlight">10 HP / 10 Ton</span></h1>
 
             <div class="mtc-product-review-row">
-              <div class="mtc-product-stars">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                  class="fas fa-star"></i><i class="fas fa-star"></i>
-              </div>
               <span>Model: MTC-HM-10T</span>
               <span class="mtc-product-stock-badge">Made to Order</span>
             </div>
@@ -224,6 +219,33 @@
               <span><i class="fas fa-wrench"></i> Low Maintenance</span>
             </div>
 
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= Overview & buying information ======= -->
+    <section class="mtc-product-overview">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-8">
+            <h2 class="mtc-overview-title">What is a coke oven haulage machine?</h2>
+            <p>A coke oven haulage machine is an electric winch that pulls heavy loads horizontally or up an incline. In coke oven plants it is used to extract coke cakes and to move charging cars and heavy door mechanisms. This model has a 10 HP, 3-phase motor driving a heavy-duty worm reducer gearbox with machine-cut cast steel gears.</p>
+            <p>The worm drive cuts the motor speed and multiplies torque for a steady pull of up to 10 tons, and because it cannot run backwards it helps stop the load slipping back. The wire rope winds onto a drum mounted on a fabricated C-channel steel base frame, and a manual or electro-hydraulic thruster brake is available. The same machine is used for rail shunting inside plants and for hauling tubs up inclines in mines. It is not a lifting hoist: for lifting oven doors, see the Door Lifting Power Winch.</p>
+            <p class="mtc-overview-related">Need to lift oven doors vertically? <a href="power-winch">See the Door Lifting Power Winch <i class="fas fa-arrow-right"></i></a></p>
+          </div>
+          <div class="col-lg-4">
+            <div class="mtc-buyer-box">
+              <h3>Buying information</h3>
+              <ul>
+              <li><strong>Lead time:</strong> Made to order. Ask us for the current lead time.</li>
+              <li><strong>Warranty:</strong> 1 year, as on all our machinery.</li>
+              <li><strong>Installation:</strong> Installation supervision and commissioning available.</li>
+              <li><strong>Custom builds:</strong> Capacity, motor power and dimensions can be matched to your plant and drawings.</li>
+              <li><strong>Brochure:</strong> <a href="brochure/Manual_Tools_Co_Haulage_Machine.pdf" download>Download PDF</a></li>
+              </ul>
+              <a href="#quote-form" class="mtc-btn-orange"><i class="fas fa-file-signature"></i> Request a Quotation</a>
+            </div>
           </div>
         </div>
       </div>
@@ -353,7 +375,7 @@
                               <span class="mtc-timeline-number">Stage 03</span>
                               <h4 class="mtc-timeline-title"><i class="fas fa-anchor"></i> Drum Traction</h4>
                               <p class="mtc-timeline-desc">
-                                The output shaft rotates the main rope drum. The steel wire rope coils onto the drum, exerting a steady 10-ton pull on the connected Coke Bake.
+                                The output shaft rotates the main rope drum. The steel wire rope coils onto the drum, exerting a steady 10-ton pull on the connected load, such as a coke cake or charging car.
                               </p>
                             </div>
                           </div>
@@ -417,8 +439,8 @@
                   <div class="col-md-6">
                     <h5 class="mtc-maintenance-col-title">Lubrication Schedule</h5>
                     <ul class="mtc-maintenance-list">
-                      <li><strong>Gearbox Oil:</strong> Check level weekly. Change SAE-90/140 oil every 1000 running hours.</li>
-                      <li><strong>Bearings:</strong> Grease monthly with grease.</li>
+                      <li><strong>Gearbox Oil:</strong> Check level weekly. Change the gear oil (SAE 140 or Servo Mesh SP 320, depending on ambient temperature) every 1000 running hours.</li>
+                      <li><strong>Bearings:</strong> Re-grease monthly.</li>
                       <li><strong>Wire Rope:</strong> Apply oil to prevent rust and internal friction.</li>
                     </ul>
                   </div>
@@ -487,10 +509,10 @@
           </div>
 
           <div class="col-lg-4 mt-5 mt-lg-0" id="quote-form">
-            <?php 
+            <?php
               $_GET['page_url'] = 'haulage';
-              $_GET['page_title'] = 'Haulage Machine (10 Ton)';
-              include('sidebar-quote-form.php'); 
+              $_GET['page_title'] = 'Coke Oven Haulage Machine (10 Ton)';
+              include('sidebar-quote-form.php');
             ?>
         </div>
       </div>
@@ -531,7 +553,7 @@
             </div>`;
       } else {
           // Render Image
-          displayArea.innerHTML = `<img src="${src}" alt="Haulage Machine" class="img-fluid" style="height: 450px; width: 100%; object-fit: contain;">`;
+          displayArea.innerHTML = `<img src="${src}" alt="Coke oven haulage machine, 10 HP / 10 ton" class="img-fluid" style="height: 450px; width: 100%; object-fit: contain;">`;
       }
     }
   </script>

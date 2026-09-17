@@ -4727,3 +4727,92 @@
   background-color: var(--primary-color);
   color: #fff;
 }
+
+/* ==============================================
+   SEO/UX UPDATES (Sep 2026)
+   ============================================== */
+
+/* Page titles in the breadcrumb bar can be the page's H1 */
+.breadcrumbs h1 {
+  font-size: 28px;
+  font-weight: 300;
+  color: #fff;
+  margin: 0;
+}
+
+/* Home hero: two buttons side by side */
+.mtc-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.mtc-btn.mtc-btn-ghost {
+  background: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  padding: 13px 30px;
+}
+
+.mtc-btn.mtc-btn-ghost:hover {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+/* Mobile call / quote bar (footer.php) */
+.mtc-mobile-cta {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 995;
+  display: flex;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.mtc-mobile-cta a {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 8px;
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+}
+
+.mtc-mobile-cta-call {
+  background: #2b2320;
+}
+
+.mtc-mobile-cta-quote {
+  background: var(--primary-color);
+}
+
+@media (max-width: 991.98px) {
+  body {
+    padding-bottom: 48px; /* room for the call / quote bar */
+  }
+  .back-to-top {
+    bottom: 60px;
+  }
+}
+
+/* Products page: filter pills scroll sideways on phones instead of wrapping */
+@media (max-width: 767.98px) {
+  #product-filter-flters {
+    max-width: 100%;
+    white-space: nowrap;
+    overflow-x: auto;
+    text-align: left;
+    padding-bottom: 6px;
+    -webkit-overflow-scrolling: touch;
+  }
+  #product-filter-flters li {
+    margin-bottom: 4px;
+  }
+}

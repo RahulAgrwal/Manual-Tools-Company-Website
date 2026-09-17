@@ -4,10 +4,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Photo Gallery | Manual Tools Company</title>
-  
+  <meta name="description" content="Photos of coke oven machinery built by Manual Tools Company in Dhanbad: coal crushers, coke cutters, haulage machines, winches, screens and charging cars.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.manualtoolsco.com/photo-gallery">
+  <title>Photo Gallery – Coke Oven Machinery | Manual Tools Company</title>
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.manualtoolsco.com/photo-gallery">
+  <meta property="og:title" content="Photo Gallery – Coke Oven Machinery | Manual Tools Company">
+  <meta property="og:image" content="https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Coal-Crusher-single-disc.jpg">
+  <meta property="og:site_name" content="Manual Tools Company">
+
   <?php include('common-head.php'); ?>
-  
+  <?php mtc_breadcrumb_schema(['Photo Gallery' => 'photo-gallery']); ?>
+
   <link href="assets/css/product-detail.css" rel="stylesheet">
 
 </head>
@@ -23,7 +33,7 @@
     <section id="breadcrumbs" class="breadcrumbs">
       <div class="container">
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Photo Gallery</h2>
+          <h1>Photo Gallery</h1>
           <ol>
             <li><a href="/">Home</a></li>
             <li>Gallery</li>
@@ -35,6 +45,11 @@
     <!-- ======= Portfolio Section ======= -->
     <section id="portfolio" class="portfolio">
       <div class="container">
+
+        <p class="text-muted text-center mx-auto mb-4" style="max-width: 800px;">
+          Photos of machines built in our Dhanbad workshop and installed at client plants. Filter by machine type, and
+          open any product page for full specifications.
+        </p>
 
         <!-- Filters -->
         <div class="row">
@@ -53,21 +68,34 @@
         <div class="row portfolio-container">
 
           <?php
-          // SAFE ARRAY DEFINITION
-          $gallery_items = array(
-              array('filter-crusher', 'assets/img/about-us-products/Coal Crusher.jpg', 'Single Disc Crusher', '5 No. Size'),
-              array('filter-crusher', 'assets/img/about-us-products/Coal Crusher Double Disc.jpg', 'Double Disc Crusher', 'High Capacity'),
-              array('filter-crusher', 'assets/img/about-us-products/Double Drive Coke Cutter Machine.jpg', 'Coke Cutter', 'Double Drive'),
-              
-              array('filter-oven', 'assets/img/about-us-products/Pusher Machine With Stamping Arrangement.jpg', 'Pusher Machine', 'Roller Stamping'),
-              array('filter-oven', 'assets/img/about-us-products/Coal-Charging-Car.jpg', 'Coal Charging Car', 'Top Charging'),
-              
-              array('filter-winch', 'assets/img/about-us-products/Haulage Machine.jpg', 'Haulage Machine', '10 Ton Pulling'),
-              array('filter-winch', 'assets/img/about-us-products/Power Winchh.jpg', 'Power Winch', 'Door Lifter'),
-              
-              array('filter-screen', 'assets/img/about-us-products/Vibrator Screen Machine.jpg', 'Vibrator Screen', 'Multi-Deck'),
-              array('filter-screen', 'assets/img/about-us-products/Conveyor Material.jpeg', 'Conveyor Parts', 'Idlers & Pulleys')
+          // [filter, main photo, product folder, title, caption, product page]
+          $gallery_products = array(
+              array('filter-crusher', 'assets/img/about-us-products/Coal Crusher.jpg', 'coal-crusher-single-disc', 'Single Disc Coal Crusher', '5 No. Size', 'coal-crusher-5-No-single-disc'),
+              array('filter-crusher', 'assets/img/about-us-products/Coal Crusher Double Disc.jpg', 'coal-crusher-double-disc', 'Double Disc Coal Crusher', 'High Capacity', 'coal-crusher-5-No-double-disc'),
+              array('filter-crusher', 'assets/img/about-us-products/Double Drive Coke Cutter Machine.jpg', 'coke-cutter', 'Coke Cutter', 'Double Drive, Drum Type', 'coke-cutter-double-drive'),
+              array('filter-crusher', 'assets/img/about-us-products/Double Drive Coke Cutter Machine Ring Type.jpg', 'coke-cutter-ring-teeth', 'Ring Type Coke Cutter', 'Double Drive, Toothed Rings', 'coke-cutter-double-drive-ring-type'),
+
+              array('filter-oven', 'assets/img/about-us-products/Pusher Machine With Stamping Arrangement.jpg', 'pusher-machine-with-stamping-arrangement', 'Pusher Machine', 'Roller Stamping', 'pusher-with-stamping-arrangement'),
+              array('filter-oven', 'assets/img/about-us-products/Coal-Charging-Car.jpg', 'coal-charging-car', 'Coal Charging Car', 'Top Charging', 'coal-charging-car'),
+
+              array('filter-winch', 'assets/img/about-us-products/Haulage Machine.jpg', 'haulage', 'Coke Oven Haulage Machine', '10 Ton Pulling', 'haulage'),
+              array('filter-winch', 'assets/img/about-us-products/Power Winchh.jpg', 'power-winch', 'Door Lifting Power Winch', 'Door Lifter', 'power-winch'),
+
+              array('filter-screen', 'assets/img/about-us-products/Vibrator Screen Machine.jpg', 'vibrator-screen', 'Vibrator Screen', 'Multi-Deck', 'vibrator-screen'),
+              array('filter-screen', 'assets/img/about-us-products/Conveyor Material.jpeg', 'conveyor-materials', 'Conveyor Components', 'Idlers & Pulleys', 'conveyor-materials')
           );
+
+          $gallery_items = array();
+          foreach ($gallery_products as $p) {
+              $photos = glob('assets/img/product-images/' . $p[2] . '/*.{jpg,jpeg,png}', GLOB_BRACE) ?: array();
+              $photos = array_values(array_filter($photos, function ($f) {
+                  return strpos($f, 'process-diagram') === false;
+              }));
+              array_unshift($photos, $p[1]);
+              foreach ($photos as $n => $photo) {
+                  $gallery_items[] = array($p[0], $photo, $p[3], $n === 0 ? $p[4] : 'Photo ' . ($n + 1), $p[5]);
+              }
+          }
 
           if (!empty($gallery_items)) {
               foreach ($gallery_items as $item) {
@@ -75,28 +103,32 @@
                   $imgSrc = $item[1];
                   $title = $item[2];
                   $desc = $item[3];
-                  
+                  $link = $item[4];
+
                   // Check if image exists to prevent broken icons (Optional Check)
-                  // if (!file_exists($imgSrc)) { continue; } 
+                  // if (!file_exists($imgSrc)) { continue; }
           ?>
             <div class="col-lg-4 col-md-6 portfolio-item <?php echo $filterClass; ?>">
               <div class="portfolio-wrap">
-                <img src="<?php echo $imgSrc; ?>" class="img-fluid" alt="<?php echo $title; ?>">
-                
+                <img src="<?php echo htmlspecialchars(mtc_thumb($imgSrc)); ?>" class="img-fluid" alt="<?php echo htmlspecialchars($title . ' – ' . $desc); ?>" loading="lazy" decoding="async">
+
                 <div class="portfolio-info">
-                  <h4><?php echo $title; ?></h4>
-                  <p><?php echo $desc; ?></p>
+                  <h4><?php echo htmlspecialchars($title); ?></h4>
+                  <p><?php echo htmlspecialchars($desc); ?></p>
                   <div class="portfolio-links">
-                    <a href="<?php echo $imgSrc; ?>" data-gallery="portfolioGallery" class="portfolio-lightbox" title="<?php echo $title; ?>">
+                    <a href="<?php echo htmlspecialchars(mtc_img($imgSrc)); ?>" data-gallery="portfolioGallery" class="portfolio-lightbox" title="<?php echo htmlspecialchars($title); ?>" aria-label="Enlarge photo">
                       <i class="fas fa-plus"></i>
+                    </a>
+                    <a href="<?php echo $link; ?>" title="View product" aria-label="View <?php echo htmlspecialchars($title); ?>">
+                      <i class="fas fa-link"></i>
                     </a>
                   </div>
                 </div>
 
               </div>
             </div>
-          <?php 
-              } 
+          <?php
+              }
           } else {
               echo '<div class="col-12 text-center"><p>No images found in gallery configuration.</p></div>';
           }
@@ -118,8 +150,6 @@
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
@@ -138,6 +168,10 @@
         let portfolioIsotope = new Isotope(portfolioContainer, {
           itemSelector: '.portfolio-item',
           layoutMode: 'fitRows'
+        });
+
+        portfolioContainer.querySelectorAll('img').forEach(function(img) {
+          img.addEventListener('load', function() { portfolioIsotope.layout(); });
         });
 
         let portfolioFilters = document.querySelectorAll('#portfolio-flters li');

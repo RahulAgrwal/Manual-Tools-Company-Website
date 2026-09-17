@@ -1,3 +1,7 @@
 # Credentials - never commit (see secrets.example.php)
 /config/
 secrets.local.php
+
+# SEO audit output (local reports and screenshots)
+manualtoolsco.com-audit/
+__pycache__/

@@ -31,7 +31,9 @@
     "name": "Conveyor Components Series",
     "image": "https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Conveyor-Material.png",
     "description": "Comprehensive range of conveyor components including Idlers, Return Rollers, Impact Rollers, and Pulleys for belt widths up to 1400mm.",
-    "brand": { "@type": "Organization", "name": "Manual Tools Company" },
+    "brand": { "@type": "Brand", "name": "Manual Tools Company" },
+    "manufacturer": { "@type": "Organization", "name": "Manual Tools Company", "url": "https://www.manualtoolsco.com/" },
+    "url": "https://www.manualtoolsco.com/conveyor-materials",
     "additionalProperty": [
       { "@type": "PropertyValue", "name": "Belt Widths", "value": "600mm – 1400mm" },
       { "@type": "PropertyValue", "name": "Roller Type", "value": "MS Seamless / Impact Rubber" },
@@ -42,11 +44,7 @@
   </script>
 
   <?php include('common-head.php'); ?>
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link href="assets/css/style.css" rel="stylesheet">
+  <?php mtc_breadcrumb_schema(['Products' => 'products', 'Conveyor Materials & Components' => 'conveyor-materials']); ?>
   <link href="assets/css/product-detail.css" rel="stylesheet">
 
   <!-- Custom CSS for Component Grid -->
@@ -127,6 +125,7 @@
           <h2>Conveyor Materials</h2>
           <ol>
             <li><a href="/">Home</a></li>
+            <li><a href="products">Products</a></li>
             <li>Conveyor Materials</li>
           </ol>
         </div>
@@ -152,15 +151,15 @@
             ?>
 
             <div class="mtc-product-main-frame text-center">
-              <img id="mainImage" src="<?php echo htmlspecialchars($currentMainSrc); ?>" alt="Conveyor Materials"
+              <img id="mainImage" src="<?php echo htmlspecialchars(mtc_img($currentMainSrc)); ?>" <?php echo mtc_img_size(mtc_img($currentMainSrc)); ?> fetchpriority="high" alt="Conveyor Materials"
                 class="img-fluid">
             </div>
 
             <div class="mtc-product-thumb-grid">
               <?php foreach ($allImages as $index => $image): ?>
-                <div class="mtc-product-thumb-item <?php echo $index === 0 ? 'active' : ''; ?>" onclick="swapImage(this)">
-                  <img src="<?php echo htmlspecialchars($image); ?>"
-                    alt="<?php echo htmlspecialchars(pathinfo($image, PATHINFO_FILENAME)); ?>">
+                <div class="mtc-product-thumb-item <?php echo $index === 0 ? 'active' : ''; ?>" onclick="swapImage(this)" data-full="<?php echo htmlspecialchars(mtc_img($image)); ?>">
+                  <img src="<?php echo htmlspecialchars(mtc_thumb($image)); ?>" loading="lazy"
+                    alt="<?php echo htmlspecialchars('Conveyor Materials & Components photo ' . ($index + 1)); ?>">
                 </div>
               <?php endforeach; ?>
             </div>
@@ -171,10 +170,6 @@
             <h1 class="mtc-product-title">Conveyor Materials <br><span class="mtc-highlight">& Components</span></h1>
 
             <div class="mtc-product-review-row">
-              <div class="mtc-product-stars">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                  class="fas fa-star"></i><i class="fas fa-star"></i>
-              </div>
               <span>Category: MTC-CM-SERIES</span>
               <span class="mtc-product-stock-badge">In Stock / Made to Order</span>
             </div>
@@ -234,6 +229,30 @@
       </div>
     </section>
 
+    <!-- ======= Overview & buying information ======= -->
+    <section class="mtc-product-overview">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-8">
+            <h2 class="mtc-overview-title">Which conveyor components do we make?</h2>
+            <p>Manual Tools Company manufactures components for belt conveyors in coke oven plants, coal washeries and power plants: carrying idlers, return rollers, rubber-ringed impact rollers for hopper loading points, and head and tail pulleys in plain steel or with rubber lagging (diamond groove or plain) for better grip in wet conditions.</p>
+            <p>Rollers use seamless pipe on bright steel (EN-8) shafts with sealed ball bearings (6204, 6205 or 6305) to keep dust out. Components are available for belt widths of 600, 750, 800, 900, 1000, 1200 and 1400 mm, and idler frames (brackets) can be supplied with the rollers or separately as spares. We take bulk orders for plant-wide replacement.</p>
+            <p class="mtc-overview-related">Grading material before it goes on the belt? <a href="vibrator-screen">See the Vibrator Screen Machine <i class="fas fa-arrow-right"></i></a></p>
+          </div>
+          <div class="col-lg-4">
+            <div class="mtc-buyer-box">
+              <h3>Buying information</h3>
+              <ul>
+              <li><strong>Lead time:</strong> Standard sizes (e.g. 800 mm and 1000 mm rollers) are often in stock. Custom pulleys usually take 2–3 weeks.</li>
+              <li><strong>Custom builds:</strong> Capacity, motor power and dimensions can be matched to your plant and drawings.</li>
+              </ul>
+              <a href="#quote-form" class="mtc-btn-orange"><i class="fas fa-file-signature"></i> Request a Quotation</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section-bg" style="padding: 60px 0;">
       <div class="container">
         <div class="row">
@@ -257,15 +276,15 @@
             </ul>
 
             <div class="tab-content" id="myTabContent">
-              
+
               <!-- Tab 1: Component Cards -->
               <div class="tab-pane fade show active" id="components" role="tabpanel">
                 <div class="mtc-tech-wrapper">
                   <h3 class="mtc-tech-heading">Comprehensive Conveyor Solutions</h3>
                   <p class="mtc-tech-paragraph">We manufacture key components that ensure the smooth running of your belt conveyor systems. Select a component below to see details.</p>
-                  
+
                   <div class="mtc-component-grid">
-                    
+
                     <!-- Card 1: Idlers -->
                     <div class="mtc-component-card">
                       <div class="mtc-card-icon"><i class="fas fa-ellipsis-h"></i></div>
@@ -330,7 +349,7 @@
                       <tbody>
                         <tr>
                           <td><strong>Belt Width Compatibility</strong></td>
-                          <td>600, 750, 800, 1000, 1200, 1400 mm</td>
+                          <td>600, 750, 800, 900, 1000, 1200, 1400 mm</td>
                         </tr>
                         <tr>
                           <td><strong>Shaft Material</strong></td>
@@ -396,10 +415,10 @@
           </div>
 
           <div class="col-lg-4 mt-5 mt-lg-0" id="quote-form">
-            <?php 
+            <?php
               $_GET['page_url'] = 'conveyor-materials';
               $_GET['page_title'] = 'Conveyor Materials';
-              include('sidebar-quote-form.php'); 
+              include('sidebar-quote-form.php');
             ?>
         </div>
       </div>
@@ -419,7 +438,7 @@
   <script>
     function swapImage(el) {
       // 1. Change Main Image
-      var newSrc = el.querySelector('img').src;
+      var newSrc = el.getAttribute('data-full') || el.querySelector('img').src;
       document.getElementById('mainImage').src = newSrc;
 
       // 2. Update Active Class

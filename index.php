@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Experience quality and trust with Manual Tools Company, a manufacturer of Coke Oven Machinery in India. Browse our comprehensive range of premium industrial equipment, featuring coal crushers, power winches, conveyor systems, and more. Enhance your operations with our reliable, high-performance machinery solutions.">
+  <meta name="description" content="Dhanbad-based manufacturer of coke oven machinery since 1995: coal crushers, coke cutters, haulage machines, power winches, pusher machines and coal charging cars.">
   <meta name="keywords" content="Manual Tools Company, Manual Tools, Tools Company, Coke, Coke Oven, Coke Oven Machinery, Coal Crusher Machine, Coal Disintegrator, Double Disc Coal Crusher, Coke Cutter Machine, Haulage Machine, Door Lifting Power Winch, Vibrator Screen, Conveyor Materials, Industrial Equipment Manufacturer, Coke Oven Accessories, Coal Crusher Manufacturer, Power Winch Manufacturer, Industrial Conveyor, Dhanbad, Jharkhand, India">
   <meta name="robots" content="index, follow">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -13,67 +13,83 @@
   <link rel="alternate" href="https://www.manualtoolsco.com/" hreflang="x-default">
   <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 
-  <title>Home | Manual Tools Co.</title>
+  <title>Coke Oven Machinery Manufacturer in Dhanbad | Manual Tools Company</title>
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.manualtoolsco.com/">
-  <meta property="og:title" content="Home | Manual Tools Company">
-  <meta property="og:description" content="Experience quality and trust with Manual Tools Company, a manufacturer of Coke Oven Machinery in India. Browse our comprehensive range of premium industrial equipment, featuring coal crushers, power winches, conveyor systems, and more. Enhance your operations with our reliable, high-performance machinery solutions.">
-  <meta property="twitter:image" content="https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Coal-Crusher-single-disc.jpg"> <!-- Consider using a more general logo/hero image -->
+  <meta property="og:title" content="Coke Oven Machinery Manufacturer in Dhanbad | Manual Tools Company">
+  <meta property="og:description" content="Dhanbad-based manufacturer of coke oven machinery since 1995: coal crushers, coke cutters, haulage machines, power winches, pusher machines and coal charging cars.">
+  <meta property="og:image" content="https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Coal-Crusher-single-disc.jpg">
   <meta property="og:site_name" content="Manual Tools Company">
   <meta property="og:locale" content="en_IN">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://www.manualtoolsco.com/">
-  <meta property="twitter:title" content="Home | Manual Tools Company">
-  <meta property="twitter:description" content="Experience quality and trust with Manual Tools Company, a manufacturer of Coke Oven Machinery in India. Browse our comprehensive range of premium industrial equipment, featuring coal crushers, power winches, conveyor systems, and more. Enhance your operations with our reliable, high-performance machinery solutions.">
+  <meta property="twitter:title" content="Coke Oven Machinery Manufacturer in Dhanbad | Manual Tools Company">
+  <meta property="twitter:description" content="Dhanbad-based manufacturer of coke oven machinery since 1995: coal crushers, coke cutters, haulage machines, power winches, pusher machines and coal charging cars.">
   <meta property="twitter:image" content="https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Coal-Crusher-single-disc.jpg"> <!-- Consider using a more general logo/hero image -->
 
-  <!-- JSON-LD Structured Data: Organization -->
+  <!-- JSON-LD Structured Data: business + website -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Manual Tools Company",
-    "url": "https://www.manualtoolsco.com/",
-    "logo": "https://www.manualtoolsco.com/assets/img/MTC_Logo_Footer.png",
-    "sameAs": [
-      "https://www.facebook.com/profile.php?id=61560479668542",
-      "https://www.instagram.com/manual_tools_company/"
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://www.manualtoolsco.com/#organization",
+        "name": "Manual Tools Company",
+        "alternateName": "Manual Tools Co.",
+        "description": "Manufacturer of coke oven machinery in Dhanbad, Jharkhand: coal crushers, coke cutters, haulage machines, door lifting power winches, vibrator screens, conveyor materials, pusher machines and coal charging cars.",
+        "url": "https://www.manualtoolsco.com/",
+        "logo": "https://www.manualtoolsco.com/assets/img/MTC_Logo_Footer.png",
+        "image": "https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Coal-Crusher-single-disc.jpg",
+        "foundingDate": "1995",
+        "founder": { "@type": "Person", "name": "Shobha Ram Agarwal" },
+        "telephone": "+91-9430707348",
+        "email": "manualtoolsco.dhn@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Bastacolla, P.O. Dhansar",
+          "addressLocality": "Dhanbad",
+          "addressRegion": "Jharkhand",
+          "postalCode": "828106",
+          "addressCountry": "IN"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 23.7682293,
+          "longitude": 86.4114906
+        },
+        "hasMap": "https://maps.app.goo.gl/SR7U9r1J5fXyFfF7A",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            "opens": "08:00",
+            "closes": "17:00"
+          }
+        ],
+        "areaServed": { "@type": "Country", "name": "India" },
+        "sameAs": [
+          "https://www.facebook.com/profile.php?id=61560479668542",
+          "https://www.instagram.com/manual_tools_company/"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.manualtoolsco.com/#website",
+        "url": "https://www.manualtoolsco.com/",
+        "name": "Manual Tools Company",
+        "publisher": { "@id": "https://www.manualtoolsco.com/#organization" },
+        "inLanguage": "en-IN"
+      }
     ]
-  }
-  </script>
-
-  <!-- JSON-LD Structured Data: LocalBusiness -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Manual Tools Company",
-    "image": "https://www.manualtoolsco.com/assets/img/MTC_Logo_Footer.png",
-    "url": "https://www.manualtoolsco.com/",
-    "telephone": "+91-9430707348",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Bastacolla",
-      "addressLocality": "Dhanbad",
-      "addressRegion": "Jharkhand",
-      "postalCode": "828106",
-      "addressCountry": "IN"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 23.7682293,
-      "longitude": 86.4114906
-    },
-    "openingHours": "Mo-Sa 08:00-17:00",
-    "priceRange": "₹₹"
   }
   </script>
   <?php
   include('common-head.php');
-  
+
 $carousel_items = [
     [
       "image_path" => "assets/img/slide/Coal-Crusher.png",
@@ -147,13 +163,11 @@ $carousel_items = [
     ]
   ];
   ?>
-</head><!-- Google tag (gtag.js) -->
+</head>
 
 
 
 <body>
-  <h1 class="visually-hidden">Manual Tools Company - Coke Oven Machinery Manufacturer in India</h1>
-  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
   <!-- ======= Top Bar ======= -->
 
 
@@ -165,50 +179,57 @@ $carousel_items = [
 <!-- MTC INDUSTRIAL SPLIT HERO (FINAL)            -->
 <!-- ============================================ -->
 <section class="mtc-hero-section">
-  
+
   <div id="mtcIndustrialCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="6000">
 
     <div class="carousel-inner">
       <?php foreach ($carousel_items as $index => $item) : ?>
         <div class="carousel-item <?php echo ($index === 0) ? 'active' : ''; ?>">
-          
+
           <div class="container h-100">
             <div class="row h-100 align-items-center mtc-slide-grid">
-              
+
               <!-- LEFT: Text Info -->
               <div class="col-lg-5 col-md-12 mtc-text-col">
                 <div class="mtc-info-box">
-                  
+
                   <!-- 1. BADGE -->
                   <span class="mtc-badge">Heavy Industry Series</span>
-                  
+
                   <!-- 2. MOBILE IMAGE (Visible on Tablet/Mobile ONLY) -->
                   <!-- Positioned exactly between Badge and Title -->
-                  <img src="<?php echo $item['lqip_path']; ?>" 
-                       data-full-src="<?php echo $item['image_path']; ?>" 
-                       class="mtc-mobile-hero-img d-lg-none mtc-blur-up" 
-                       alt="<?php echo $item['title']; ?>">
+                  <img src="<?php echo mtc_img($item['lqip_path']); ?>"
+                       srcset="<?php echo mtc_img($item['lqip_path']); ?> 480w, <?php echo mtc_img($item['image_path']); ?> 1600w"
+                       sizes="350px"
+                       <?php echo mtc_img_size(mtc_img($item['lqip_path'])); ?>
+                       class="mtc-mobile-hero-img d-lg-none"
+                       <?php echo ($index === 0) ? 'fetchpriority="high"' : 'loading="lazy"'; ?>
+                       alt="<?php echo htmlspecialchars($item['title']); ?>">
 
                   <!-- 3. TITLE -->
-                  <h1 class="mtc-title"><?php echo $item['title']; ?></h1>
-                  
+                  <h2 class="mtc-title"><?php echo $item['title']; ?></h2>
+
                   <p class="mtc-subtitle">
                     <?php echo !empty($item['subtitle']) ? $item['subtitle'] : 'Engineered with Manganese Steel for maximum durability and high-capacity performance.'; ?>
                   </p>
 
-                  <a href="<?php echo $item['link']; ?>" class="mtc-btn">
-                    View Specifications <i class="bi bi-arrow-right"></i>
-                  </a>
+                  <div class="mtc-hero-actions">
+                    <a href="<?php echo $item['link']; ?>" class="mtc-btn">
+                      View Specifications <i class="bi bi-arrow-right"></i>
+                    </a>
+                    <a href="contact" class="mtc-btn mtc-btn-ghost">Get a Quote</a>
+                  </div>
                 </div>
               </div>
 
               <!-- RIGHT: Desktop Image (Visible on Desktop ONLY) -->
               <!-- Added 'd-none d-lg-flex' to hide this entire column on mobile -->
               <div class="col-lg-7 d-none d-lg-flex mtc-img-col">
-                   <img src="<?php echo $item['lqip_path']; ?>" 
-                        data-full-src="<?php echo $item['image_path']; ?>" 
-                        class="mtc-product-img mtc-blur-up" 
-                        alt="<?php echo $item['title']; ?>">
+                   <img src="<?php echo mtc_img($item['image_path']); ?>"
+                        <?php echo mtc_img_size(mtc_img($item['image_path'])); ?>
+                        class="mtc-product-img"
+                        <?php echo ($index === 0) ? 'fetchpriority="high"' : 'loading="lazy"'; ?>
+                        alt="<?php echo htmlspecialchars($item['title']); ?>">
               </div>
             </div>
           </div>
@@ -223,13 +244,13 @@ $carousel_items = [
         <div class="mtc-thumb-scroll">
           <?php foreach ($carousel_items as $index => $item) : ?>
             <div class="mtc-thumb-item <?php echo ($index === 0) ? 'active' : ''; ?>" onclick="moveMtcSlide(<?php echo $index; ?>)">
-              <img src="<?php echo $item['lqip_path']; ?>" alt="Thumb">
+              <img src="<?php echo mtc_img($item['lqip_path']); ?>" <?php echo mtc_img_size(mtc_img($item['lqip_path'])); ?> alt="<?php echo htmlspecialchars($item['title']); ?> thumbnail">
             </div>
           <?php endforeach; ?>
         </div>
       </div>
     </div>
-    
+
     <!-- MOBILE ARROWS -->
     <button class="carousel-control-prev " type="button" data-bs-target="#mtcIndustrialCarousel" data-bs-slide="prev" style="width:10%; justify-content:flex-start; padding-left:10px;">
       <i class="bi bi-chevron-left" style="font-size: 2rem; color: var(--primary-color);"></i>
@@ -249,19 +270,19 @@ $carousel_items = [
 <section id="about" class="mtc-about-section">
   <div class="container">
     <div class="row align-items-center">
-      
+
       <!-- LEFT COLUMN: The Pitch -->
       <div class="col-lg-6 mb-5 mb-lg-0">
         <div class="mtc-about-content">
           <span class="mtc-section-subtitle">Est. 1995 — Dhanbad, India</span>
-          <h2 class="mtc-section-title">Welcome to <span class="text-orange">Manual Tools Company</span></h2>
-          
+          <h1 class="mtc-section-title">Coke Oven Machinery Manufacturer <span class="text-orange">in Dhanbad</span></h1>
+
           <p class="mtc-lead-text">
-            Dhanbad's premier manufacturer of heavy-duty Coke Oven Machinery. Specializing in Coal Crushers and Power Winches.
+            Manual Tools Company designs and builds heavy-duty coke oven machinery in Dhanbad, Jharkhand, including coal crushers, coke cutters, haulage machines and power winches.
           </p>
-          
+
           <p class="mtc-body-text">
-            We deliver high-capacity industrial solutions engineered specifically for the coke oven and coal washery sectors. From design to commissioning, we serve clients across India and the global market with a commitment to uncompromising quality and reliability.
+            Founded in 1995, we build machinery for coke oven plants, coal washeries and steel plants: crushing and cutting coal and coke, hauling and charging ovens, lifting oven doors, and screening and conveying material. We handle design, fabrication, installation supervision and commissioning, and supply spare parts, for clients across India and abroad.
           </p>
 
           <div class="mtc-action-row">
@@ -283,7 +304,7 @@ $carousel_items = [
       <div class="col-lg-5 offset-lg-1">
         <div class="mtc-stats-wrapper">
           <div class="row g-4">
-            
+
             <!-- Stat Card 1 -->
             <div class="col-6">
               <div class="mtc-stat-card">
@@ -321,7 +342,7 @@ $carousel_items = [
             </div>
 
           </div>
-          
+
           <!-- Decorative Background Element -->
           <div class="stat-bg-decoration"></div>
         </div>
@@ -338,15 +359,15 @@ $carousel_items = [
 <section id="services" class="mtc-modern-services">
   <div class="container">
     <div class="row align-items-center">
-      
+
       <!-- LEFT COLUMN: Image with Technical styling -->
       <div class="col-lg-5 mb-5 mb-lg-0 relative-holder">
         <div class="mtc-tech-img-wrapper">
           <!-- Dot Pattern Background -->
           <div class="tech-pattern"></div>
-          
-          <img src="assets/img/flames-fire-heat-3092318-1024x669.jpg" alt="Industrial Engineering" class="img-fluid main-img">
-          
+
+          <img src="<?php echo mtc_img('assets/img/flames-fire-heat-3092318-1024x669.jpg'); ?>" <?php echo mtc_img_size(mtc_img('assets/img/flames-fire-heat-3092318-1024x669.jpg')); ?> alt="Hot coke in an industrial coke oven" class="img-fluid main-img" loading="lazy">
+
           <!-- Modern Floating Badge -->
           <div class="mtc-glass-badge">
             <i class="fas fa-certificate text-orange"></i>
@@ -361,19 +382,19 @@ $carousel_items = [
       <!-- RIGHT COLUMN: Service Grid -->
       <div class="col-lg-7 ps-lg-5">
         <div class="mtc-service-content">
-          
+
           <div class="section-header text-start mb-4">
             <span class="text-uppercase text-orange fw-bold ls-2" style="font-size: 12px; letter-spacing: 2px;">What We Do</span>
             <h2 class="fw-bold mt-2">Comprehensive <span class="text-orange">Industrial Services</span></h2>
           </div>
-          
+
           <p class="text-muted mb-5">
             Beyond manufacturing, Manual Tools Company provides end-to-end support for Coke Oven machinery. From the initial blueprint to the final handover and maintenance.
           </p>
 
           <!-- MODERN 2-COLUMN GRID -->
           <div class="mtc-service-cards-grid">
-            
+
             <!-- Card 1 -->
             <div class="mtc-service-card">
               <div class="card-icon">
@@ -451,7 +472,7 @@ $carousel_items = [
 <!-- ============================================ -->
 <section id="strengths" class="mtc-strengths-section">
   <div class="container">
-    
+
     <!-- Section Header -->
     <div class="section-title text-center mb-5">
       <h2 class="mtc-section-header">Why Choose <span class="text-orange">MTC?</span></h2>
@@ -459,7 +480,7 @@ $carousel_items = [
     </div>
 
     <div class="row g-4">
-      
+
       <!-- Item 1 -->
       <div class="col-lg-4 col-md-6">
         <div class="mtc-feature-card">
@@ -504,7 +525,7 @@ $carousel_items = [
             <i class="fas fa-headset"></i>
           </div>
           <h4>On-Site Support</h4>
-          <p>Expert engineers available for installation, commissioning, and on-site troubleshooting to ensure zero downtime.</p>
+          <p>Our engineers support installation, commissioning and on-site troubleshooting to keep downtime to a minimum.</p>
         </div>
       </div>
 
@@ -516,7 +537,7 @@ $carousel_items = [
             <i class="fas fa-bolt"></i>
           </div>
           <h4>Quick Response</h4>
-          <p>We prioritize rapid action with 24/7 technical support and fast dispatch of spare parts.</p>
+          <p>We respond quickly to breakdown calls and dispatch spare parts fast, so your plant gets back to work sooner.</p>
         </div>
       </div>
 
@@ -553,12 +574,8 @@ $carousel_items = [
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  
+
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
@@ -566,7 +583,7 @@ $carousel_items = [
   (function() {
     const carouselEl = document.getElementById('mtcIndustrialCarousel');
     const thumbContainer = document.querySelector('.mtc-thumb-scroll');
-    
+
     if (!carouselEl || !thumbContainer) return;
 
     const mtcCarousel = new bootstrap.Carousel(carouselEl);
@@ -574,8 +591,8 @@ $carousel_items = [
     // 1. CLICK HANDLING (Prevents Page Jump)
     thumbContainer.addEventListener('click', function(e) {
         // Stop any default browser jumping behavior
-        e.preventDefault(); 
-        
+        e.preventDefault();
+
         const clickedThumb = e.target.closest('.mtc-thumb-item');
         if (clickedThumb) {
             const index = [...thumbContainer.children].indexOf(clickedThumb);
@@ -584,6 +601,15 @@ $carousel_items = [
             }
         }
     });
+
+    // Start fetching the next slide's images so they are ready when it appears.
+    function warmSlide(index) {
+      const slide = carouselEl.querySelectorAll('.carousel-item')[index];
+      if (slide) slide.querySelectorAll('img[loading="lazy"]').forEach(img => { img.loading = 'eager'; });
+    }
+    const slideCount = carouselEl.querySelectorAll('.carousel-item').length;
+    window.addEventListener('load', () => warmSlide(1));
+    carouselEl.addEventListener('slid.bs.carousel', e => warmSlide((e.to + 1) % slideCount));
 
     // 2. SLIDE CHANGE HANDLING (Manual Scroll Calculation)
     let currentActive = document.querySelector('.mtc-thumb-item.active');
@@ -601,7 +627,7 @@ $carousel_items = [
 
             // --- THE FIX: CALCULATE SCROLL MANUALLY ---
             // This ensures ONLY the thumbnail bar scrolls, not your window
-            
+
             const thumbLeft = nextThumb.offsetLeft;
             const thumbWidth = nextThumb.offsetWidth;
             const containerWidth = thumbContainer.offsetWidth;

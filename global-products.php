@@ -18,7 +18,7 @@ $GLOBAL_PRODUCT_CARDS = [
   [
     "image_path" => "assets/img/about-us-products-thumbnail/Double-Drive-Coke-Cutter-Machine.jpg",
     "title" => "Coke Cutter Machine",
-    "subtitle" => "Double Drive",
+    "subtitle" => "Double Drive, Drum Type",
     "link" => "coke-cutter-double-drive",
     "short_description" => "Heavy-duty double drive system designed for precise coke cutting and specific sizing requirements."
   ],
@@ -31,7 +31,7 @@ $GLOBAL_PRODUCT_CARDS = [
   ],
   [
     "image_path" => "assets/img/about-us-products-thumbnail/Haulage-Machine.png",
-    "title" => "Haulage Machine",
+    "title" => "Coke Oven Haulage Machine",
     "subtitle" => "Power Driven",
     "link" => "haulage",
     "short_description" => "Robust power-driven system engineered for efficient material transport in mining and industrial sites."

@@ -43,7 +43,7 @@ $international_clients = [
                     <!-- Using col-6 (mobile) to col-lg-2 (desktop) for a dense, neat grid -->
                     <div class="col-lg-2 col-md-3 col-4">
                         <div class="mtc-client-card">
-                            <img src="<?php echo $client['image_path']; ?>" 
+                            <img src="<?php echo mtc_img($client['image_path']); ?>" 
                                  alt="<?php echo $client['image_name']; ?>" 
                                  title="<?php echo $client['image_name']; ?>" 
                                  loading="lazy" decoding="async">
@@ -79,7 +79,7 @@ $international_clients = [
                 <!-- 3. Use the standard .mtc-client-card (Remove 'international' class) -->
                 <!-- 4. Remove the <p> name and globe icon to match domestic style -->
                 <div class="mtc-client-card">
-                    <img src="<?php echo $client['image_path']; ?>" 
+                    <img src="<?php echo mtc_img($client['image_path']); ?>" 
                          alt="<?php echo $client['image_name']; ?>" 
                          title="<?php echo $client['image_name']; ?>" 
                          loading="lazy" decoding="async">

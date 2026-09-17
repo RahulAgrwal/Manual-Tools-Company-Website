@@ -10,16 +10,15 @@ $page = basename($_SERVER['PHP_SELF'], '.php');
         <div class="contact-info d-flex align-items-center">
             <i class="bi bi-envelope"></i>
             <a href="mailto:manualtoolsco.dhn@gmail.com">manualtoolsco.dhn@gmail.com</a>
-            
+
             <i class="bi bi-phone ms-4"></i>
-            <a href="tel:9430707348">+91 9430707348</a>
+            <a href="tel:+919430707348">+91 9430707348</a>
         </div>
-        
+
         <div class="social-links d-none d-md-flex align-items-center">
-            <a href="https://maps.app.goo.gl/SR7U9r1J5fXyFfF7A" target="_blank" title="Location"><i class="fas fa-location-arrow"></i></a>
-            <a href="https://www.facebook.com/profile.php?id=61560479668542" target="_blank" class="facebook"><i class="bi bi-facebook"></i></a>
-            <a href="https://www.instagram.com/manual_tools_company/" target="_blank" class="instagram"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="youtube"><i class="bi bi-youtube"></i></a>
+            <a href="https://maps.app.goo.gl/SR7U9r1J5fXyFfF7A" target="_blank" rel="noopener" title="Location" aria-label="Google Maps location"><i class="fas fa-location-arrow"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61560479668542" target="_blank" rel="noopener" class="facebook" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/manual_tools_company/" target="_blank" rel="noopener" class="instagram" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
         </div>
     </div>
 </section>
@@ -33,7 +32,7 @@ $page = basename($_SERVER['PHP_SELF'], '.php');
         <!-- LOGO -->
         <div class="logo">
             <a href="/">
-                <img src="assets/img/MTC Logo.png" alt="Manual Tools Company - Coke Oven Machinery" class="img-fluid">
+                <img src="<?php echo mtc_img('assets/img/MTC Logo.png'); ?>" alt="Manual Tools Company - Coke Oven Machinery" class="img-fluid" width="3069" height="499">
             </a>
         </div>
 
@@ -58,9 +57,9 @@ $page = basename($_SERVER['PHP_SELF'], '.php');
                     <ul>
                         <li><a href="coal-crusher-5-No-single-disc">Coal Crusher (5 No.) Single Disc</a></li>
                         <li><a href="coal-crusher-5-No-double-disc">Coal Crusher (5 No.) Double Disc</a></li>
-                        <li><a href="coke-cutter-double-drive">Coke Cutter Machine</a></li>
-                        <li><a href="coke-cutter-double-drive-ring-type">Coke Cutter Machine Ring Type Teeth</a></li>
-                        <li><a href="haulage">Haulage Machine</a></li>
+                        <li><a href="coke-cutter-double-drive">Coke Cutter (Double Drive, Drum Type)</a></li>
+                        <li><a href="coke-cutter-double-drive-ring-type">Coke Cutter (Ring Type)</a></li>
+                        <li><a href="haulage">Coke Oven Haulage Machine</a></li>
                         <li><a href="power-winch">Door Lifting Power Winch</a></li>
                         <li><a href="vibrator-screen">Vibrator Screen Machine</a></li>
                         <li><a href="conveyor-materials">Conveyor Materials</a></li>
@@ -80,7 +79,7 @@ $page = basename($_SERVER['PHP_SELF'], '.php');
                     <a class="nav-link <?php echo ($page == 'contact') ? 'active' : ''; ?>" href="contact">Contact Us</a>
                 </li>
             </ul>
-            
+
             <!-- Mobile Toggle -->
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>

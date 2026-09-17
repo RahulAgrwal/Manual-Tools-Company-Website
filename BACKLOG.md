@@ -7,8 +7,51 @@
   - Fix: commit the library files properly.
   - First, confirm how Hostinger deploys (git pull over existing files can fail when newly tracked files already exist untracked on the server).
 
+- [ ] **ISO 9001 certificate.** The certificate on `/about` (QMS/014551/0220) expired on 04-Feb-2023, but the badge still appears on the home page, About page and product pages. Upload the current certificate or remove the badges. (Left as is on request, 2026-09-17.)
+- [ ] **Unverified numbers.** "150+ Happy Clients" and "500+ Projects Done" on the home page were kept. Confirm them with the owner, or back them up with case studies (plant, machine, year).
+- [ ] **Off-site listings (manual).**
+  - Check the Google Business Profile category, photos and reviews.
+  - Claim or verify IndiaMART, TradeIndia and JustDial listings with the same name, address and phone.
+  - Create LinkedIn and YouTube pages only if they will be used, then add them to the footer, header and `sameAs` in `index.php`.
+- [ ] **Search Console and Bing Webmaster Tools.** Submit `sitemap.xml`, request indexing for the changed pages, and run `python tools/indexnow_submit.py` once the SEO update is live.
+- [ ] **Ring Type coke cutter brochure.** The button is commented out in `coke-cutter-double-drive-ring-type.php`. Add the product to `brochure/generate_product_brochures.py` when the owner approves the content.
+- [ ] **`gallery-products.php` is unused** and points to image files that no longer exist. Delete it or wire it in.
+
 ## Done
 
+- [x] **2026-09-17: SEO audit fixes** (audit report: `manualtoolsco.com-audit/`, not committed).
+  - **Downloads:** added the 6 missing brochure PDFs (`brochure/generate_product_brochures.py`).
+  - **Images:**
+    - WebP copies and gallery thumbnails of all images (`tools/optimize_images.py`). The carousel dropped from about 13 MB to 0.8 MB.
+    - The first hero slide loads with `fetchpriority="high"`; the other slides load when they come up.
+  - **Page head:**
+    - Removed duplicate stylesheets and the extra Font Awesome versions (4.7 and 6.0).
+    - Removed unused CSS/JS (animate, AOS, swiper, cookieconsent).
+    - One Google tag now covers GA4 and Ads.
+    - jQuery moved to the end of the page.
+  - **Headings and canonicals:** one H1 and a canonical tag on every page.
+  - **Metadata:** new titles and descriptions for the home, about, products, contact and gallery pages, and Open Graph tags where missing.
+  - **Structured data:**
+    - The home page has a single LocalBusiness + WebSite graph.
+    - BreadcrumbList on every page.
+    - CollectionPage/ItemList on `/products` and `/coal-crusher`, AboutPage, and ContactPage.
+  - **`/coal-crusher`:** rebuilt as a Single vs Double Disc comparison page.
+  - **Product pages:**
+    - Overview section and buying-information box added.
+    - The fake 5-star rows are gone.
+    - The breadcrumb now includes "Products".
+    - Thumbnails have descriptive alt text.
+  - **Copy fixes:**
+    - Haulage retargeted to "coke oven haulage machine", and its copy slips fixed.
+    - The two coke cutters now have distinct names (Drum Type vs Ring Type).
+    - The "24/7" and "zero downtime" claims were removed.
+    - Lead times are now consistent between product pages and the contact FAQ.
+  - **Links:** the footer logo links to `/`; the dead LinkedIn and YouTube links were removed.
+  - **Mobile:** call/quote bar at the bottom, a quote button in the hero, and scrollable product filters.
+  - **Crawling and headers:**
+    - Added `robots.txt` and an IndexNow key.
+    - `.htaccess` now redirects `/index` and trailing slashes, blocks include-only files, sets security and cache headers, and serves the custom 404 page.
+    - Sitemap: `lastmod` refreshed, `priority`/`changefreq` removed.
 - [x] **2026-09-16: Secrets out of code.** Passwords moved to git-ignored `config/secrets.php` (see `load-secrets.php`). Gmail app password, MySQL password and reCAPTCHA keys rotated, and verified on the live site by the owner.
 - [x] **2026-09-16: Contact form.** Enquiries go to the company inbox with Reply-To set to the visitor. The visitor gets a fixed confirmation.
 - [x] **2026-09-16: Broken links and markup.**

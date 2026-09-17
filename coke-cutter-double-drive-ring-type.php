@@ -13,12 +13,12 @@
   <!-- Update canonical link to the new page slug -->
   <link rel="canonical" href="https://www.manualtoolsco.com/coke-cutter-double-drive-ring-type">
 
-  <title>Double Drive Coke Cutter (Ring Type) | Manual Tools Company</title>
+  <title>Ring Type Coke Cutter (Double Drive, 20 TPH) | Manual Tools Company</title>
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="product">
   <meta property="og:url" content="https://www.manualtoolsco.com/coke-cutter-double-drive-ring-type">
-  <meta property="og:title" content="Double Drive Coke Cutter (Ring Type) | Manual Tools Company">
+  <meta property="og:title" content="Ring Type Coke Cutter (Double Drive, 20 TPH) | Manual Tools Company">
   <meta property="og:description" content="Heavy-duty Ring Type Coke Cutter with double drive motors and segmented manganese rings for precise sizing.">
   <meta property="og:image"
     content="https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Double-Drive-Coke-Cutter-Machine-Ring-Type.jpg">
@@ -29,11 +29,13 @@
   {
     "@context": "https://schema.org",
     "@type": "Product",
-    "name": "Double Drive Coke Cutter (Ring Type)",
+    "name": "Ring Type Coke Cutter (Double Drive)",
     "image": "https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Double-Drive-Coke-Cutter-Machine-Ring-Type.jpg",
     "description": "Double drive coke cutter machine featuring segmented manganese steel rings, 20 TPH capacity, and adjustable output.",
     "sku": "MTC-CCM-DD-RT",
-    "brand": { "@type": "Organization", "name": "Manual Tools Company" },
+    "brand": { "@type": "Brand", "name": "Manual Tools Company" },
+    "manufacturer": { "@type": "Organization", "name": "Manual Tools Company", "url": "https://www.manualtoolsco.com/" },
+    "url": "https://www.manualtoolsco.com/coke-cutter-double-drive-ring-type",
     "additionalProperty": [
       { "@type": "PropertyValue", "name": "Motor Power", "value": "25 H.P. x 2 (Double Drive)" },
       { "@type": "PropertyValue", "name": "Teeth Type", "value": "Manganese Steel Rings" },
@@ -44,11 +46,7 @@
   </script>
 
   <?php include('common-head.php'); ?>
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link href="assets/css/style.css" rel="stylesheet">
+  <?php mtc_breadcrumb_schema(['Products' => 'products', 'Ring Type Coke Cutter (Double Drive)' => 'coke-cutter-double-drive-ring-type']); ?>
   <link href="assets/css/product-detail.css" rel="stylesheet">
 
   <style>
@@ -87,6 +85,7 @@
           <h2>Coke Cutter Machine</h2>
           <ol>
             <li><a href="/">Home</a></li>
+            <li><a href="products">Products</a></li>
             <li>Double Drive (Ring Type)</li>
           </ol>
         </div>
@@ -102,19 +101,19 @@
             // 1. Define Main Static Image
             $mainImgObj = [
                 'type' => 'image',
-                'src' => 'assets/img/about-us-products/Double Drive Coke Cutter Machine Ring Type.jpg',
-                'thumb' => 'assets/img/about-us-products/Double Drive Coke Cutter Machine Ring Type.jpg'
+                'src' => mtc_img('assets/img/about-us-products/Double Drive Coke Cutter Machine Ring Type.jpg'),
+                'thumb' => mtc_thumb('assets/img/about-us-products/Double Drive Coke Cutter Machine Ring Type.jpg')
             ];
 
             // 2. Fetch Gallery Images from Folder
             $directory = "assets/img/product-images/coke-cutter-ring-teeth/";
-            
+
             // Get Images
             $images = glob($directory . "*.{jpg,jpeg,png,gif}", GLOB_BRACE);
             $galleryImgs = [];
             if($images) {
                 foreach($images as $img) {
-                    $galleryImgs[] = ['type' => 'image', 'src' => $img, 'thumb' => $img];
+                    $galleryImgs[] = ['type' => 'image', 'src' => mtc_img($img), 'thumb' => mtc_thumb($img)];
                 }
             }
 
@@ -124,7 +123,7 @@
             if($videos) {
                 foreach($videos as $vid) {
                     // Use main image as placeholder thumb for video if no specific thumb exists
-                    $galleryVids[] = ['type' => 'video', 'src' => $vid, 'thumb' => 'assets/img/about-us-products/Double Drive Coke Cutter Machine Ring Type.jpg'];
+                    $galleryVids[] = ['type' => 'video', 'src' => $vid, 'thumb' => mtc_thumb('assets/img/about-us-products/Double Drive Coke Cutter Machine Ring Type.jpg')];
                 }
             }
 
@@ -135,19 +134,19 @@
             <!-- Main Display Area (Image or Video) -->
             <div class="mtc-product-main-frame text-center" id="mtc-main-display">
               <!-- Default loads the first image -->
-              <img src="<?php echo htmlspecialchars($mediaList[0]['src']); ?>" alt="Double Drive Coke Cutter Machine Ring Type" class="img-fluid">
+              <img src="<?php echo htmlspecialchars($mediaList[0]['src']); ?>" <?php echo mtc_img_size($mediaList[0]['src']); ?> fetchpriority="high" alt="Double Drive Coke Cutter Machine Ring Type" class="img-fluid">
             </div>
 
             <!-- Thumbnails Grid -->
             <div class="mtc-product-thumb-grid">
               <?php foreach ($mediaList as $index => $media): ?>
-                <div class="mtc-product-thumb-item <?php echo $index === 0 ? 'active' : ''; ?>" 
+                <div class="mtc-product-thumb-item <?php echo $index === 0 ? 'active' : ''; ?>"
                      onclick="swapMedia(this)"
                      data-type="<?php echo $media['type']; ?>"
                      data-src="<?php echo htmlspecialchars($media['src']); ?>">
-                  
-                  <img src="<?php echo htmlspecialchars($media['thumb']); ?>" alt="Thumbnail">
-                  
+
+                  <img src="<?php echo htmlspecialchars($media['thumb']); ?>" loading="lazy" alt="<?php echo htmlspecialchars('Ring Type Coke Cutter (Double Drive) ' . ($media['type'] === 'video' ? 'video ' : 'photo ') . ($index + 1)); ?>">
+
                   <?php if($media['type'] === 'video'): ?>
                     <div class="mtc-video-thumb-overlay">
                         <i class="fas fa-play-circle"></i>
@@ -161,13 +160,9 @@
 
           <div class="col-lg-6 ps-lg-5">
             <div class="mtc-product-eyebrow">Industrial Coke Sizing Equipment</div>
-            <h1 class="mtc-product-title">Double Drive Coke Cutter <br><span class="mtc-highlight">Ring Type</span></h1>
+            <h1 class="mtc-product-title">Ring Type Coke Cutter <br><span class="mtc-highlight">Double Drive, Toothed Rings</span></h1>
 
             <div class="mtc-product-review-row">
-              <div class="mtc-product-stars">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                  class="fas fa-star"></i><i class="fas fa-star"></i>
-              </div>
               <span>Model: MTC-CCM-DD-RT</span>
               <span class="mtc-product-stock-badge">Heavy Duty</span>
             </div>
@@ -225,6 +220,32 @@
               <span><i class="fas fa-shield-alt"></i> Manganese Steel</span>
             </div>
 
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= Overview & buying information ======= -->
+    <section class="mtc-product-overview">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-8">
+            <h2 class="mtc-overview-title">What is a ring type coke cutter?</h2>
+            <p>A ring type coke cutter is a double drive coke sizing machine whose shafts carry separate toothed rings of high manganese steel instead of one lined drum. Each ring is keyed to the shaft on its own, so a worn or damaged section can be replaced without relining the whole drum, which shortens maintenance stops. The rings cut hard coke aggressively, limit flat "slabs" and fines, and work-harden in use.</p>
+            <p>Two 25 HP motors (50 HP in total) drive the counter-rotating shafts, so lumps up to 200 mm pass without jamming. The gap between the ring shafts is adjustable for an output of 45 to 60 mm, and the machine handles 20 tons per hour. It is the higher-capacity choice for coke oven plants that supply blast furnace coke.</p>
+            <p class="mtc-overview-related">Need 12–15 TPH with lined drums? <a href="coke-cutter-double-drive">See the Drum Type double drive coke cutter <i class="fas fa-arrow-right"></i></a></p>
+          </div>
+          <div class="col-lg-4">
+            <div class="mtc-buyer-box">
+              <h3>Buying information</h3>
+              <ul>
+              <li><strong>Lead time:</strong> Made to order. Ask us for the current lead time.</li>
+              <li><strong>Warranty:</strong> 1 year, as on all our machinery.</li>
+              <li><strong>Installation:</strong> Installation supervision and commissioning available.</li>
+              <li><strong>Custom builds:</strong> Capacity, motor power and dimensions can be matched to your plant and drawings.</li>
+              </ul>
+              <a href="#quote-form" class="mtc-btn-orange"><i class="fas fa-file-signature"></i> Request a Quotation</a>
+            </div>
           </div>
         </div>
       </div>
@@ -504,11 +525,11 @@
           </div>
 
           <div class="col-lg-4 mt-5 mt-lg-0" id="quote-form">
-            <?php 
+            <?php
               // Updated page context for the Sidebar Quote Form
               $_GET['page_url'] = 'coke-cutter-double-drive-ring-type';
-              $_GET['page_title'] = 'Double Drive Coke Cutter (Ring Type)';
-              include('sidebar-quote-form.php'); 
+              $_GET['page_title'] = 'Ring Type Coke Cutter (Double Drive)';
+              include('sidebar-quote-form.php');
             ?>
         </div>
       </div>

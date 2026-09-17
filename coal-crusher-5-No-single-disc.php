@@ -32,7 +32,9 @@
     "image": "https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Coal-Crusher-single-disc.jpg",
     "description": "5 No. single disc coal crusher — 8–10 TPH capacity, crushed size <2 mm, 80–120 HP motor range, manganese liners, 12 mm body thickness, six hammers.",
     "sku": "MTC-CC-5-SD",
-    "brand": { "@type": "Organization", "name": "Manual Tools Company" },
+    "brand": { "@type": "Brand", "name": "Manual Tools Company" },
+    "manufacturer": { "@type": "Organization", "name": "Manual Tools Company", "url": "https://www.manualtoolsco.com/" },
+    "url": "https://www.manualtoolsco.com/coal-crusher-5-No-single-disc",
     "additionalProperty": [
       { "@type": "PropertyValue", "name": "Motor Power", "value": "80 – 120 H.P." },
       { "@type": "PropertyValue", "name": "Feed Size", "value": "< 125 mm" },
@@ -43,11 +45,7 @@
   </script>
 
   <?php include('common-head.php'); ?>
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link href="assets/css/style.css" rel="stylesheet">
+  <?php mtc_breadcrumb_schema(['Products' => 'products', 'Coal Crusher (5 No.) Single Disc' => 'coal-crusher-5-No-single-disc']); ?>
   <link href="assets/css/product-detail.css" rel="stylesheet">
 </head>
 
@@ -66,6 +64,7 @@
           <h2>Coal Crusher Single Disc</h2>
           <ol>
             <li><a href="/">Home</a></li>
+            <li><a href="products">Products</a></li>
             <li>Coal Crusher</li>
           </ol>
         </div>
@@ -91,15 +90,15 @@
             ?>
 
             <div class="mtc-product-main-frame text-center">
-              <img id="mainImage" src="<?php echo htmlspecialchars($currentMainSrc); ?>" alt="Coal Crusher Single Disc"
+              <img id="mainImage" src="<?php echo htmlspecialchars(mtc_img($currentMainSrc)); ?>" <?php echo mtc_img_size(mtc_img($currentMainSrc)); ?> fetchpriority="high" alt="Coal Crusher Single Disc"
                 class="img-fluid">
             </div>
 
             <div class="mtc-product-thumb-grid">
               <?php foreach ($allImages as $index => $image): ?>
-                <div class="mtc-product-thumb-item <?php echo $index === 0 ? 'active' : ''; ?>" onclick="swapImage(this)">
-                  <img src="<?php echo htmlspecialchars($image); ?>"
-                    alt="<?php echo htmlspecialchars(pathinfo($image, PATHINFO_FILENAME)); ?>">
+                <div class="mtc-product-thumb-item <?php echo $index === 0 ? 'active' : ''; ?>" onclick="swapImage(this)" data-full="<?php echo htmlspecialchars(mtc_img($image)); ?>">
+                  <img src="<?php echo htmlspecialchars(mtc_thumb($image)); ?>" loading="lazy"
+                    alt="<?php echo htmlspecialchars('Coal Crusher (5 No.) Single Disc photo ' . ($index + 1)); ?>">
                 </div>
               <?php endforeach; ?>
             </div>
@@ -110,10 +109,6 @@
             <h1 class="mtc-product-title">Coal Crusher <br><span class="mtc-highlight">Single Disc</span> (5 No.)</h1>
 
             <div class="mtc-product-review-row">
-              <div class="mtc-product-stars">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                  class="fas fa-star"></i><i class="fas fa-star"></i>
-              </div>
               <span>Model: MTC-CC-5-SD</span>
               <span class="mtc-product-stock-badge">In Stock</span>
             </div>
@@ -179,6 +174,33 @@
       </div>
     </section>
 
+    <!-- ======= Overview & buying information ======= -->
+    <section class="mtc-product-overview">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-8">
+            <h2 class="mtc-overview-title">What is a 5 No. single disc coal crusher?</h2>
+            <p>A 5 No. single disc coal crusher is a coal disintegrator that reduces coal lumps of up to 125 mm to fine particles below 2 mm, the size needed for charging coke ovens and firing boilers. Inside a 12 mm fabricated steel body lined with manganese steel plates, a single rotating disc carries six manganese steel hammers. Coal fed into the hopper is struck repeatedly by the hammers until it is fine enough to discharge.</p>
+            <p>The crusher is driven by an 80 to 120 HP electric motor, chosen to suit the output you need, and handles 8 to 10 tons of coal per hour. The hammers are replaced through a side access door, and routine care is limited to checking the liner plates and greasing the bearings. It suits coke oven plants and thermal power units with moderate throughput.</p>
+            <p class="mtc-overview-related">Need 20–25 TPH or feed up to 150 mm? <a href="coal-crusher-5-No-double-disc">See the Double Disc coal crusher <i class="fas fa-arrow-right"></i></a></p>
+          </div>
+          <div class="col-lg-4">
+            <div class="mtc-buyer-box">
+              <h3>Buying information</h3>
+              <ul>
+              <li><strong>Lead time:</strong> Standard models are often in stock. Custom builds take 3–4 weeks.</li>
+              <li><strong>Warranty:</strong> 1 year, as on all our machinery.</li>
+              <li><strong>Installation:</strong> Installation supervision and commissioning available.</li>
+              <li><strong>Custom builds:</strong> Capacity, motor power and dimensions can be matched to your plant and drawings.</li>
+              <li><strong>Brochure:</strong> <a href="brochure/Manual_Tools_Co_Coal_Crusher_Single_Disc.pdf" download>Download PDF</a></li>
+              </ul>
+              <a href="#quote-form" class="mtc-btn-orange"><i class="fas fa-file-signature"></i> Request a Quotation</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section-bg" style="padding: 60px 0;">
       <div class="container">
         <div class="row">
@@ -212,17 +234,17 @@
 <div class="tab-pane fade show active" id="desc" role="tabpanel">
 
   <div class="mtc-tech-wrapper">
-    
+
     <h3 class="mtc-tech-heading">Engineered for Tough Environments</h3>
     <p class="mtc-tech-paragraph">
-      The Manual Tools Company Single Disc Coal Crusher utilizes a unique high-speed impact action that is highly effective for reducing coal to specific sizes required for coke ovens and thermal power plants. Unlike traditional hammer mills, the single disc design minimizes the creation of excessive fines (dust), ensuring a higher yield of usable product.
+      The Manual Tools Company Single Disc Coal Crusher utilizes a unique high-speed impact action that is highly effective for reducing coal to specific sizes required for coke ovens and thermal power plants. The six hammers are mounted on one balanced disc, which gives controlled, uniform crushing and a consistent output below 2 mm.
     </p>
     <p class="mtc-tech-paragraph">
-      Constructed with heavy-duty fabricated steel housing and lined with wear-resistant manganese steel plates, this machine is built to withstand the rigorous demands of 24/7 industrial operation.
+      Constructed with heavy-duty fabricated steel housing and lined with wear-resistant manganese steel plates, this machine is built for continuous, heavy-duty industrial operation.
     </p>
 
     <h3 class="mtc-tech-heading" style="font-size: 20px; margin-top: 40px;">Technical Parameters</h3>
-    
+
     <div class="mtc-tech-table-container">
       <table class="mtc-modern-tech-table">
         <thead>
@@ -457,10 +479,10 @@
           </div>
 
           <div class="col-lg-4 mt-5 mt-lg-0" id="quote-form">
-            <?php 
+            <?php
               $_GET['page_url'] = 'coal-crusher-5-No-single-disc';
               $_GET['page_title'] = 'Coal Crusher Single Disc';
-              include('sidebar-quote-form.php'); 
+              include('sidebar-quote-form.php');
             ?>
         </div>
       </div>
@@ -480,11 +502,11 @@
   <script>
     function swapImage(el) {
       // 1. Change Main Image
-      var newSrc = el.querySelector('img').src;
+      var newSrc = el.getAttribute('data-full') || el.querySelector('img').src;
       document.getElementById('mainImage').src = newSrc;
 
       // 2. Update Active Class
-      document.querySelectorAll('.thumb-item').forEach(item => item.classList.remove('active'));
+      document.querySelectorAll('.mtc-product-thumb-item').forEach(item => item.classList.remove('active'));
       el.classList.add('active');
     }
   </script>

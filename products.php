@@ -4,15 +4,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Explore Manual Tools Company's range of Coke Oven Machinery: Coal Crushers, Coke Cutters, Haulage, Winches, and Pusher Machines.">
+  <meta name="description" content="Coke oven machinery made in Dhanbad: coal crushers, coke cutters, haulage machines, power winches, vibrator screens, conveyors, pusher machines and charging cars.">
   <meta name="keywords" content="Manual Tools Company, Coal Crusher, Coke Cutter, Haulage Machine, Power Winch, Vibrator Screen, Pusher Machine, Charging Car">
   <meta name="robots" content="index, follow">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <title>Our Products | Manual Tools Company</title>
+  <link rel="canonical" href="https://www.manualtoolsco.com/products">
+  <title>Coke Oven Machinery Products | Manual Tools Company</title>
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.manualtoolsco.com/products">
+  <meta property="og:title" content="Coke Oven Machinery Products | Manual Tools Company">
+  <meta property="og:description" content="Coal crushers, coke cutters, haulage machines, power winches, vibrator screens, conveyors, pusher machines and coal charging cars.">
+  <meta property="og:image" content="https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Coal-Crusher-single-disc.jpg">
+  <meta property="og:site_name" content="Manual Tools Company">
 
   <?php include('common-head.php'); ?>
-    <!-- <link href="assets/css/style.css" rel="stylesheet"> -->
+  <?php
+  include_once('global-products.php');
+  $list_items = [];
+  foreach ($GLOBAL_PRODUCT_CARDS as $i => $card) {
+    $list_items[] = [
+      '@type' => 'ListItem',
+      'position' => $i + 1,
+      'name' => trim($card['title'] . ' ' . $card['subtitle']),
+      'url' => 'https://www.manualtoolsco.com/' . $card['link'],
+    ];
+  }
+  $collection = [
+    '@context' => 'https://schema.org',
+    '@type' => 'CollectionPage',
+    'name' => 'Coke Oven Machinery Products',
+    'url' => 'https://www.manualtoolsco.com/products',
+    'isPartOf' => ['@id' => 'https://www.manualtoolsco.com/#website'],
+    'mainEntity' => ['@type' => 'ItemList', 'itemListElement' => $list_items],
+  ];
+  ?>
+  <script type="application/ld+json"><?php echo json_encode($collection, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?></script>
+  <?php mtc_breadcrumb_schema(['Products' => 'products']); ?>
   <link href="assets/css/product-detail.css" rel="stylesheet">
 </head>
 
@@ -28,12 +57,21 @@
     <section id="breadcrumbs" class="breadcrumbs">
       <div class="container">
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Our Products</h2>
+          <h1>Coke Oven Machinery Products</h1>
           <ol>
             <li><a href="/">Home</a></li>
             <li>Products</li>
           </ol>
         </div>
+      </div>
+    </section>
+
+    <section class="mtc-products-intro" style="padding: 30px 0 0;">
+      <div class="container">
+        <p class="text-muted mb-0" style="max-width: 900px;">
+          Machinery for coke oven plants, coal washeries and steel plants, built in Dhanbad to your plant's requirements.
+          Open a product for full specifications, or <a href="contact">contact us for a quotation</a>.
+        </p>
       </div>
     </section>
 
@@ -60,13 +98,13 @@
     <!-- ======= Product Listing Section ======= -->
     <section class="products-listing" style="background-color: #fbfbfb; padding: 40px 0;">
       <div class="container">
-        
+
         <!-- 1. Coal Crusher Single Disc -->
         <div class="mtc-product-card product-item coal-crusher">
           <div class="row g-0">
             <div class="col-lg-5">
               <div class="mtc-card-img-wrapper">
-                <img src="assets/img/about-us-products/Coal Crusher.jpg" alt="Coal Crusher Single Disc">
+                <img src="<?php echo mtc_img('assets/img/about-us-products/Coal Crusher.jpg'); ?>" <?php echo mtc_img_size(mtc_img('assets/img/about-us-products/Coal Crusher.jpg')); ?> alt="Coal Crusher Single Disc">
               </div>
             </div>
             <div class="col-lg-7">
@@ -93,7 +131,7 @@
           <div class="row g-0">
             <div class="col-lg-5">
               <div class="mtc-card-img-wrapper">
-                <img src="assets/img/about-us-products/Coal Crusher Double Disc.jpg" alt="Coal Crusher Double Disc">
+                <img src="<?php echo mtc_img('assets/img/about-us-products/Coal Crusher Double Disc.jpg'); ?>" <?php echo mtc_img_size(mtc_img('assets/img/about-us-products/Coal Crusher Double Disc.jpg')); ?> alt="Coal Crusher Double Disc" loading="lazy">
               </div>
             </div>
             <div class="col-lg-7">
@@ -120,7 +158,7 @@
           <div class="row g-0">
             <div class="col-lg-5">
               <div class="mtc-card-img-wrapper">
-                <img src="assets/img/about-us-products/Double Drive Coke Cutter Machine.jpg" alt="Coke Cutter Machine">
+                <img src="<?php echo mtc_img('assets/img/about-us-products/Double Drive Coke Cutter Machine.jpg'); ?>" <?php echo mtc_img_size(mtc_img('assets/img/about-us-products/Double Drive Coke Cutter Machine.jpg')); ?> alt="Coke Cutter Machine" loading="lazy">
               </div>
             </div>
             <div class="col-lg-7">
@@ -147,7 +185,7 @@
           <div class="row g-0">
             <div class="col-lg-5">
               <div class="mtc-card-img-wrapper">
-                <img src="assets/img/about-us-products/Double Drive Coke Cutter Machine Ring Type.jpg" alt="Coke Cutter Machine Ring Type">
+                <img src="<?php echo mtc_img('assets/img/about-us-products/Double Drive Coke Cutter Machine Ring Type.jpg'); ?>" <?php echo mtc_img_size(mtc_img('assets/img/about-us-products/Double Drive Coke Cutter Machine Ring Type.jpg')); ?> alt="Coke Cutter Machine Ring Type" loading="lazy">
               </div>
             </div>
             <div class="col-lg-7">
@@ -175,7 +213,7 @@
           <div class="row g-0">
             <div class="col-lg-5">
               <div class="mtc-card-img-wrapper">
-                <img src="assets/img/about-us-products/Haulage Machine.jpg" alt="Haulage Machine">
+                <img src="<?php echo mtc_img('assets/img/about-us-products/Haulage Machine.jpg'); ?>" <?php echo mtc_img_size(mtc_img('assets/img/about-us-products/Haulage Machine.jpg')); ?> alt="Haulage Machine" loading="lazy">
               </div>
             </div>
             <div class="col-lg-7">
@@ -202,7 +240,7 @@
           <div class="row g-0">
             <div class="col-lg-5">
               <div class="mtc-card-img-wrapper">
-                <img src="assets/img/about-us-products/Power Winchh.jpg" alt="Power Winch">
+                <img src="<?php echo mtc_img('assets/img/about-us-products/Power Winchh.jpg'); ?>" <?php echo mtc_img_size(mtc_img('assets/img/about-us-products/Power Winchh.jpg')); ?> alt="Power Winch" loading="lazy">
               </div>
             </div>
             <div class="col-lg-7">
@@ -229,7 +267,7 @@
           <div class="row g-0">
             <div class="col-lg-5">
               <div class="mtc-card-img-wrapper">
-                <img src="assets/img/about-us-products/Vibrator Screen Machine.jpg" alt="Vibrator Screen Machine">
+                <img src="<?php echo mtc_img('assets/img/about-us-products/Vibrator Screen Machine.jpg'); ?>" <?php echo mtc_img_size(mtc_img('assets/img/about-us-products/Vibrator Screen Machine.jpg')); ?> alt="Vibrator Screen Machine" loading="lazy">
               </div>
             </div>
             <div class="col-lg-7">
@@ -256,7 +294,7 @@
           <div class="row g-0">
             <div class="col-lg-5">
               <div class="mtc-card-img-wrapper">
-                <img src="assets/img/about-us-products/Conveyor Material.jpeg" alt="Conveyor Materials">
+                <img src="<?php echo mtc_img('assets/img/about-us-products/Conveyor Material.jpeg'); ?>" <?php echo mtc_img_size(mtc_img('assets/img/about-us-products/Conveyor Material.jpeg')); ?> alt="Conveyor Materials" loading="lazy">
               </div>
             </div>
             <div class="col-lg-7">
@@ -283,7 +321,7 @@
           <div class="row g-0">
             <div class="col-lg-5">
               <div class="mtc-card-img-wrapper">
-                <img src="assets/img/about-us-products/Pusher Machine With Stamping Arrangement.jpg" alt="Pusher Machine">
+                <img src="<?php echo mtc_img('assets/img/about-us-products/Pusher Machine With Stamping Arrangement.jpg'); ?>" <?php echo mtc_img_size(mtc_img('assets/img/about-us-products/Pusher Machine With Stamping Arrangement.jpg')); ?> alt="Pusher Machine" loading="lazy">
               </div>
             </div>
             <div class="col-lg-7">
@@ -310,7 +348,7 @@
           <div class="row g-0">
             <div class="col-lg-5">
               <div class="mtc-card-img-wrapper">
-                <img src="assets/img/about-us-products/Coal-Charging-Car.jpg" alt="Coal Charging Car">
+                <img src="<?php echo mtc_img('assets/img/about-us-products/Coal-Charging-Car.jpg'); ?>" <?php echo mtc_img_size(mtc_img('assets/img/about-us-products/Coal-Charging-Car.jpg')); ?> alt="Coal Charging Car" loading="lazy">
               </div>
             </div>
             <div class="col-lg-7">

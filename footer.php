@@ -16,18 +16,17 @@ if (substr($page_name, -4) !== '.php') {
 
                 <!-- Col 1: Brand & Socials -->
                 <div class="col-lg-4 col-md-6 footer-about">
-                    <a href="index.php" class="logo d-flex align-items-center mb-3">
-                        <img src="assets/img/MTC_Logo_Footer.png" alt="MTC Logo" class="img-fluid" style="max-height: 60px;">
-                        <span class="ms-2 text-white fw-bold fs-4">MANUAL TOOLS CO.</span>
+                    <a href="/" class="logo d-flex align-items-center mb-3">
+                        <img src="assets/img/MTC_Logo_Footer.png" alt="Manual Tools Company logo" class="img-fluid" width="60" height="60" style="max-height: 60px; width: auto;" loading="lazy">
+                        <span class="ms-2 text-white fw-bold fs-4">MANUAL TOOLS COMPANY</span>
                     </a>
                     <p class="footer-desc">
                         Leading manufacturer of heavy-duty Coke Oven Machinery. Engineering excellence from Dhanbad to the world since 1995.
                     </p>
                     <div class="social-links mt-3">
-                        <a href="https://www.facebook.com/profile.php?id=61560479668542" class="facebook" target="_blank"><i class="bx bxl-facebook"></i></a>
-                        <a href="https://www.instagram.com/manual_tools_company/" class="instagram" target="_blank"><i class="bx bxl-instagram"></i></a>
-                        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-                        <a href="https://maps.app.goo.gl/SR7U9r1J5fXyFfF7A" class="googlemap" target="_blank"><i class="bx bx-map"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61560479668542" class="facebook" target="_blank" rel="noopener" aria-label="Facebook"><i class="bx bxl-facebook"></i></a>
+                        <a href="https://www.instagram.com/manual_tools_company/" class="instagram" target="_blank" rel="noopener" aria-label="Instagram"><i class="bx bxl-instagram"></i></a>
+                        <a href="https://maps.app.goo.gl/SR7U9r1J5fXyFfF7A" class="googlemap" target="_blank" rel="noopener" aria-label="Google Maps location"><i class="bx bx-map"></i></a>
                     </div>
                 </div>
 
@@ -66,7 +65,7 @@ if (substr($page_name, -4) !== '.php') {
                     
                     <div class="contact-item">
                         <i class="bx bx-phone-call"></i>
-                        <span>+91-9430707348</span>
+                        <a href="tel:+919430707348">+91-9430707348</a>
                     </div>
                     
                     <div class="contact-item">
@@ -75,7 +74,7 @@ if (substr($page_name, -4) !== '.php') {
                     </div>
 
                     <div class="mt-3">
-                        <iframe 
+                        <iframe title="Manual Tools Company location on Google Maps"
                             src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14605.66029759085!2d86.4114906!3d23.7682293!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f6a356034dbf29%3A0x3fd82229c2edb25e!2sMANUAL%20TOOLS%20COMPANY!5e0!3m2!1sen!2sin!4v1715487885451!5m2!1sen!2sin" 
                             width="100%" height="120" style="border:0; border-radius: 6px; opacity: 0.8;" allowfullscreen="" loading="lazy">
                         </iframe>
@@ -117,11 +116,17 @@ if (substr($page_name, -4) !== '.php') {
   })();
 </script>
 
-<!-- Google Tag -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17669553737"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'AW-17669553737');
-</script>
+<?php
+// Mobile call / quote bar. Product pages include sidebar-quote-form.php
+// (which sets page_url) before the footer, so the quote button can jump
+// to the on-page form; other pages link to the contact page.
+$mtc_quote_href = isset($_GET['page_url']) ? '#quote-form' : 'contact';
+?>
+<div class="mtc-mobile-cta d-lg-none">
+    <a href="tel:+919430707348" class="mtc-mobile-cta-call"><i class="bx bx-phone-call"></i> Call Now</a>
+    <a href="<?php echo $mtc_quote_href; ?>" class="mtc-mobile-cta-quote"><i class="bx bx-file"></i> Request Quote</a>
+</div>
+
+<!-- Google tag (GA4 + Ads) is configured once in common-head.php. -->
+<!-- jQuery: loaded here (not in <head>) so it doesn't block rendering. Pages load main.js after the footer. -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
