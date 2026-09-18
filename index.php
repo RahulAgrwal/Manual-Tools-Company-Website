@@ -296,15 +296,15 @@ $carousel_items = [
     <?php include("clients.php"); ?>
 
     <!-- ======= Quote band: the conversion path ======= -->
-    <section class="home-cta">
-      <div class="wrap home-cta__inner">
+    <section class="cta-band">
+      <div class="wrap cta-band__inner">
         <div>
           <h2>Tell us what your plant needs</h2>
           <p>Send us the capacity, your drawings and the delivery site, and we build to your requirements.</p>
         </div>
-        <div class="home-cta__actions">
+        <div class="cta-band__actions">
           <a href="contact" class="btn btn--primary">Request a quote</a>
-          <a href="tel:+919430707348" class="home-cta__call">+91 94307 07348</a>
+          <a href="tel:+919430707348" class="cta-band__call">+91 94307 07348</a>
         </div>
       </div>
     </section>

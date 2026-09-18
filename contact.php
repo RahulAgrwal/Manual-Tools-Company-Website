@@ -53,21 +53,17 @@ $recaptchaSiteKey = '6Ldj7H0sAAAAAIIk3lL0kl9Y_Ohi8M_JcC5Qm13u';
   }
   </script>
 
+  <?php $mtc_page_css = ['assets/css/contact.css']; ?>
   <?php include('common-head.php'); ?>
   <?php mtc_breadcrumb_schema(['Contact' => 'contact']); ?>
-
-
 </head>
 
 <body>
 
-  <!-- ======= Header ======= -->
   <?php include('header.php'); ?>
-  <!-- End Header -->
 
   <main id="main">
 
-    <!-- ======= Breadcrumbs ======= -->
     <section id="breadcrumbs" class="breadcrumbs">
       <div class="container">
         <div class="d-flex justify-content-between align-items-center">
@@ -80,220 +76,176 @@ $recaptchaSiteKey = '6Ldj7H0sAAAAAIIk3lL0kl9Y_Ohi8M_JcC5Qm13u';
       </div>
     </section>
 
-    <!-- ======= Contact Info Grid ======= -->
-    <section class="contact-section">
-      <div class="container">
+    <section class="section contact-page">
+      <div class="wrap contact__grid">
 
-        <!-- Info Cards Row -->
-        <div class="row mb-5">
-          <!-- Address -->
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-            <div class="contact-info-card w-100">
-              <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-              <h4>Our Location</h4>
-              <p>Bastacolla, P.O. Dhansar,<br>Dhanbad, Jharkhand - 828106</p>
-            </div>
-          </div>
+        <!-- ======= Enquiry form =======
+             The form contract is unchanged: action, the ajax-form php-email-form
+             classes, the reCAPTCHA data attributes, every field's name, id and
+             required flag, the .loading / .error-msg / .sent-message elements
+             and #mailsubmit are what main.js and forms/contact.php rely on.
+             What changed: every field has a visible label (a placeholder is not
+             a label; it vanishes as soon as someone types), and autocomplete
+             tokens replace autocomplete="off" so phones can fill them in. -->
+        <div class="contact-form">
+          <h2>Send an enquiry</h2>
+          <p class="contact-form__lede">Tell us what you need and we will get back to you with a quotation. Fields marked <span class="contact-form__req">*</span> are required.</p>
 
-          <!-- Contact Person -->
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-            <div class="contact-info-card w-100">
-              <div class="contact-icon"><i class="fas fa-user-tie"></i></div>
-              <h4>Contact Person</h4>
-              <p>Mr. Ravindra Kr. Agarwal</p>
-              <p class="text-muted small">(Proprietor)</p>
-            </div>
-          </div>
+          <form action="forms/contact.php" method="post" class="ajax-form php-email-form" id="contact_form" role="form" data-recaptcha-site-key="<?php echo htmlspecialchars($recaptchaSiteKey, ENT_QUOTES, 'UTF-8'); ?>" data-recaptcha-action="contact_form_submit">
 
-          <!-- Phone -->
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-            <div class="contact-info-card w-100">
-              <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
-              <h4>Call Us</h4>
-              <p><a href="tel:+919430707348">+91 94307 07348</a></p>
-              <p><a href="tel:+916204307367">+91 62043 07367</a></p>
-            </div>
-          </div>
+            <div class="loading form-status" style="display:none;">Sending...</div>
+            <div class="error-msg form-status form-status--error" style="display:none;" role="alert"></div>
+            <div class="sent-message form-status form-status--ok" style="display:none;" role="status">Your message has been sent. Thank you!</div>
 
-          <!-- Email / Hours -->
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-            <div class="contact-info-card w-100">
-              <div class="contact-icon"><i class="fas fa-clock"></i></div>
-              <h4>Hours & Email</h4>
-              <p>Mon - Sat: 8:00 AM - 5:00 PM</p>
-              <p><a href="mailto:ravindrakumaragarwal@rocketmail.com">ravindrakumaragarwal@rocketmail.com</a></p>
-              <p><a href="mailto:manualtoolsco.dhn@gmail.com">manualtoolsco.dhn@gmail.com</a></p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Form & Map Row -->
-        <div class="row">
-
-          <!-- Contact Form -->
-          <div class="col-lg-6">
-            <div class="form-wrapper">
-              <div class="section-header-small">
-                <h3>Get In Touch</h3>
-                <p>Fill out the form below and we will get back to you shortly.</p>
+            <div class="contact-form__fields">
+              <div class="field">
+                <label for="first_name">First name <span class="contact-form__req">*</span></label>
+                <input type="text" name="first_name" id="first_name" autocomplete="given-name" required>
               </div>
-
-              <form action="forms/contact.php" method="post" class="ajax-form php-email-form" id="contact_form" role="form" data-recaptcha-site-key="<?php echo htmlspecialchars($recaptchaSiteKey, ENT_QUOTES, 'UTF-8'); ?>" data-recaptcha-action="contact_form_submit">
-
-                <!-- Feedback Messages -->
-                <div class="loading">Sending...</div>
-                <div class="error-msg"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                <div class="row">
-                  <div class="col-md-6 form-group">
-                    <input type="text" name="first_name" class="form-control" id="first_name" placeholder="First Name *" autocomplete="off" required>
-                  </div>
-                  <div class="col-md-6 form-group">
-                    <input type="text" name="last_name" class="form-control" id="last_name" placeholder="Last Name" autocomplete="off">
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="col-md-6 form-group">
-                    <input type="text" class="form-control" name="company_name" id="company_name" placeholder="Company Name *" autocomplete="off" required>
-                  </div>
-                  <div class="col-md-6 form-group">
-                    <input type="text" class="form-control" name="company_gstin" id="company_gstin" placeholder="Company GSTIN" autocomplete="off">
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="col-md-6 form-group">
-                    <input type="text" class="form-control" name="contact" id="contact" placeholder="Mobile Number *" autocomplete="off" required>
-                  </div>
-                  <div class="col-md-6 form-group">
-                    <input type="text" class="form-control" name="address" id="address" placeholder="Location/Address *" autocomplete="off" required>
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email *" autocomplete="off" required>
-                </div>
-
-                <div class="form-group">
-                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject *" autocomplete="off" required>
-                </div>
-
-                <div class="form-group">
-                  <textarea class="form-control" id="message" name="message" rows="5" placeholder="Tell us about your requirements *" autocomplete="off" required></textarea>
-                </div>
-
-                <div class="text-center mt-3">
-                  <button id="mailsubmit" class="btn-submit" type="submit">Send Message</button>
-                </div>
-              </form>
+              <div class="field">
+                <label for="last_name">Last name <span class="field__opt">optional</span></label>
+                <input type="text" name="last_name" id="last_name" autocomplete="family-name">
+              </div>
+              <div class="field">
+                <label for="company_name">Company name <span class="contact-form__req">*</span></label>
+                <input type="text" name="company_name" id="company_name" autocomplete="organization" required>
+              </div>
+              <div class="field">
+                <label for="company_gstin">Company GSTIN <span class="field__opt">optional</span></label>
+                <input type="text" name="company_gstin" id="company_gstin" autocomplete="off">
+              </div>
+              <div class="field">
+                <label for="contact">Mobile number <span class="contact-form__req">*</span></label>
+                <input type="tel" name="contact" id="contact" autocomplete="tel" inputmode="tel" required>
+              </div>
+              <div class="field">
+                <label for="address">Location / address <span class="contact-form__req">*</span></label>
+                <input type="text" name="address" id="address" autocomplete="street-address" required>
+              </div>
+              <div class="field field--wide">
+                <label for="email">Email <span class="contact-form__req">*</span></label>
+                <input type="email" name="email" id="email" autocomplete="email" inputmode="email" required>
+              </div>
+              <div class="field field--wide">
+                <label for="subject">Subject <span class="contact-form__req">*</span></label>
+                <input type="text" name="subject" id="subject" placeholder="For example: coke cutter, 20 TPH" autocomplete="off" required>
+              </div>
+              <div class="field field--wide">
+                <label for="message">Your requirements <span class="contact-form__req">*</span></label>
+                <textarea id="message" name="message" rows="5" placeholder="Capacity, drawings, delivery site..." required></textarea>
+              </div>
             </div>
-          </div>
 
-          <!-- Google Map -->
-          <div class="col-lg-6">
-<div class="faq-wrapper">
-  <div class="section-header-small">
-    <h3>Frequently Asked Questions</h3>
-    <p>Quick answers about our machinery and services.</p>
-  </div>
-
-  <div class="accordion custom-accordion" id="faqAccordion">
-
-    <?php
-    // 1. Define your FAQ Data Array
-    $faqs = [
-        [
-            "question" => "Can you customize machinery specs?",
-            "answer" => "Yes, Manual Tools Company specializes in custom fabrication. We can modify motor power, dimensions, and capacity (TPH) based on your specific Coke Oven requirements and technical drawings."
-        ],
-        [
-            "question" => "What is the typical delivery timeline?",
-            "answer" => "Delivery timelines depend on the order volume and machine complexity. Standard spare parts and common conveyor rollers are often in stock. Custom conveyor pulleys usually take 2-3 weeks, and heavy machinery such as coal crushers and coke cutters typically takes 3-8 weeks depending on the model and our production queue. Each product page lists its usual lead time."
-        ],
-        [
-            "question" => "Do you provide fitting and commissioning support?",
-            "answer" => "Yes, based on the project scope, we offer on-site installation assistance and commissioning support to ensure your machinery operates optimally from day one."
-        ],
-        [
-            "question" => "How do I request a formal quotation?",
-            "answer" => "You can request a quote by filling out the form on the left, sending an email to <strong>ravindrakumaragarwal@rocketmail.com</strong>, or calling us directly at <strong>+91 94307 07348</strong>."
-        ],
-        [
-            "question" => "Where is your workshop located?",
-            "answer" => "Our manufacturing unit and workshop are located in Bastacolla, Dhansar, Dhanbad, Jharkhand. You are welcome to visit us for a physical inspection of our machinery."
-        ],
-        [
-            "question" => "Do you deliver on weekends?",
-            "answer" => "Yes, we offer weekend delivery options for urgent orders."
-        ]
-    ];
-
-    // 2. Iterate through the array
-    foreach ($faqs as $index => $faq) {
-        // Generate unique IDs based on the index (0, 1, 2...)
-        $headingId = "heading" . $index;
-        $collapseId = "collapse" . $index;
-
-        // Logic to make the FIRST item open by default
-        $isFirst = ($index === 0);
-        $showClass = $isFirst ? "show" : "";           // Adds 'show' class to body
-        $btnCollapsed = $isFirst ? "" : "collapsed";   // Adds 'collapsed' class to button
-        $ariaExpanded = $isFirst ? "true" : "false";   // Accessibility attribute
-    ?>
-
-      <!-- Single FAQ Card -->
-      <div class="card">
-        <div class="card-header" id="<?php echo $headingId; ?>">
-          <h5 class="mb-0">
-            <button class="btn btn-link w-100 text-left <?php echo $btnCollapsed; ?>"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#<?php echo $collapseId; ?>"
-                    aria-expanded="<?php echo $ariaExpanded; ?>"
-                    aria-controls="<?php echo $collapseId; ?>">
-              <?php echo $faq['question']; ?>
-              <i class="fas fa-plus float-right"></i>
-            </button>
-          </h5>
+            <button id="mailsubmit" class="btn btn--primary contact-form__submit" type="submit">Send message</button>
+          </form>
         </div>
 
-        <div id="<?php echo $collapseId; ?>"
-             class="accordion-collapse collapse <?php echo $showClass; ?>"
-             aria-labelledby="<?php echo $headingId; ?>"
-             data-bs-parent="#faqAccordion">
-          <div class="card-body">
-            <?php echo $faq['answer']; ?>
-          </div>
+        <!-- ======= Direct contact ======= -->
+        <aside class="contact-direct" aria-labelledby="contact-direct-title">
+          <h2 id="contact-direct-title">Talk to us directly</h2>
+          <ul class="contact-direct__list">
+            <li>
+              <i class="fas fa-phone-alt" aria-hidden="true"></i>
+              <div>
+                <span class="contact-direct__label">Call</span>
+                <a href="tel:+919430707348">+91 94307 07348</a><br>
+                <a href="tel:+916204307367">+91 62043 07367</a>
+              </div>
+            </li>
+            <li>
+              <i class="fas fa-envelope" aria-hidden="true"></i>
+              <div>
+                <span class="contact-direct__label">Email</span>
+                <a href="mailto:ravindrakumaragarwal@rocketmail.com">ravindrakumaragarwal@rocketmail.com</a><br>
+                <a href="mailto:manualtoolsco.dhn@gmail.com">manualtoolsco.dhn@gmail.com</a>
+              </div>
+            </li>
+            <li>
+              <i class="fas fa-user-tie" aria-hidden="true"></i>
+              <div>
+                <span class="contact-direct__label">Contact person</span>
+                Mr. Ravindra Kr. Agarwal (Proprietor)
+              </div>
+            </li>
+            <li>
+              <i class="fas fa-clock" aria-hidden="true"></i>
+              <div>
+                <span class="contact-direct__label">Hours</span>
+                Mon - Sat: 8:00 AM - 5:00 PM
+              </div>
+            </li>
+            <li>
+              <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+              <div>
+                <span class="contact-direct__label">Workshop</span>
+                Bastacolla, P.O. Dhansar,<br>Dhanbad, Jharkhand - 828106<br>
+                <a href="https://maps.app.goo.gl/SR7U9r1J5fXyFfF7A" target="_blank" rel="noopener">Get directions <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+              </div>
+            </li>
+          </ul>
+          <a href="tel:+919430707348" class="btn btn--quiet contact-direct__call"><i class="fas fa-phone-alt" aria-hidden="true"></i> Call now</a>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- ======= FAQ =======
+         Native <details> elements, which need no JavaScript (this was a
+         Bootstrap collapse accordion). The shared name makes them exclusive,
+         like the old accordion, in browsers that support it. -->
+    <section class="section section--sunk contact-faq">
+      <div class="wrap wrap--narrow">
+        <div class="section-head">
+          <h2>Frequently asked questions</h2>
+          <p>Quick answers about our machinery and services.</p>
+        </div>
+        <?php
+        $faqs = [
+            [
+                "question" => "Can you customize machinery specs?",
+                "answer" => "Yes, Manual Tools Company specializes in custom fabrication. We can modify motor power, dimensions, and capacity (TPH) based on your specific Coke Oven requirements and technical drawings."
+            ],
+            [
+                "question" => "What is the typical delivery timeline?",
+                "answer" => "Delivery timelines depend on the order volume and machine complexity. Standard spare parts and common conveyor rollers are often in stock. Custom conveyor pulleys usually take 2-3 weeks, and heavy machinery such as coal crushers and coke cutters typically takes 3-8 weeks depending on the model and our production queue. Each product page lists its usual lead time."
+            ],
+            [
+                "question" => "Do you provide fitting and commissioning support?",
+                "answer" => "Yes, based on the project scope, we offer on-site installation assistance and commissioning support to ensure your machinery operates optimally from day one."
+            ],
+            [
+                "question" => "How do I request a formal quotation?",
+                "answer" => "You can request a quote by filling out the form above, sending an email to <strong>ravindrakumaragarwal@rocketmail.com</strong>, or calling us directly at <strong>+91 94307 07348</strong>."
+            ],
+            [
+                "question" => "Where is your workshop located?",
+                "answer" => "Our manufacturing unit and workshop are located in Bastacolla, Dhansar, Dhanbad, Jharkhand. You are welcome to visit us for a physical inspection of our machinery."
+            ],
+            [
+                "question" => "Do you deliver on weekends?",
+                "answer" => "Yes, we offer weekend delivery options for urgent orders."
+            ]
+        ];
+        ?>
+        <div class="contact-faq__list">
+          <?php foreach ($faqs as $i => $faq) : ?>
+            <details name="contact-faq"<?php echo $i === 0 ? ' open' : ''; ?>>
+              <summary><?php echo $faq['question']; ?><span class="contact-faq__icon" aria-hidden="true"></span></summary>
+              <p><?php echo $faq['answer']; ?></p>
+            </details>
+          <?php endforeach; ?>
         </div>
       </div>
-
-    <?php
-    } // End foreach
-    ?>
-
-              </div><!-- /#faqAccordion -->
-            </div><!-- /.faq-wrapper -->
-          </div><!-- /.col-lg-6 -->
-
-        </div><!-- /.row -->
-      </div><!-- /.container -->
     </section>
 
   </main>
 
-  <!-- ======= Footer ======= -->
   <?php include("footer.php"); ?>
-  <!-- End Footer -->
 
-  <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+  <a href="#" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <!-- No Bootstrap bundle: the FAQ accordion was its only user on this page. -->
+  <script src="<?php echo mtc_asset('assets/js/main.js'); ?>"></script>
 
 </body>
 </html>

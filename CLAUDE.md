@@ -52,7 +52,7 @@ Shared parts:
 - `related-products.php`: slider. Set `$current_page_slug` before including it so the current product is left out.
 - `sidebar-quote-form.php`: set `$_GET['page_url']` and `$_GET['page_title']` before including it.
 - `clients.php`: data arrays and a loop.
-- `photo-gallery.php` builds its grid from the product image folders.
+- `photo-gallery.php` builds its grid from the product image folders; `assets/js/gallery.js` does the filter and the GLightbox view (no Isotope).
 
 ## Product detail pages
 `coal-crusher-5-No-single-disc`, `coal-crusher-5-No-double-disc`, `coke-cutter-double-drive`, `coke-cutter-double-drive-ring-type`, `haulage`, `power-winch`, `vibrator-screen`, `conveyor-materials`, `coal-charging-car`, `pusher-with-stamping-arrangement`.

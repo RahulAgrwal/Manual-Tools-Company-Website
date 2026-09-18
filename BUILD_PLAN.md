@@ -58,7 +58,7 @@ optional tidy-up.** A step is not finished until this document says so.
 | 4 | Catalogue — `products.php` driven from data | `[x]` |
 | 5 | Product detail pages — template + restyle | `[x]` |
 | 6 | Home page sections | `[x]` |
-| 7 | About, contact, gallery, 404, coal-crusher hub | `[ ]` |
+| 7 | About, contact, gallery, 404, coal-crusher hub | `[x]` |
 | 8 | Drop Bootstrap JS; delete `compat.css` | `[ ]` |
 | 9 | QA sweep, Lighthouse, accessibility | `[ ]` |
 | 10 | Deploy + post-deploy SEO | `[ ]` |
@@ -440,15 +440,67 @@ hero → proof → about → machinery → services → reasons → clients → 
      single implicit grid track was 407px in a 358px card, so text ran under
      the right edge → explicit `minmax(0, 1fr)` column. 10/10 rows now inside.
 
-## Phase 7 — Remaining pages `[ ]`
+## Phase 7 — Remaining pages `[x]`
 
-`about.php` (incl. vertical value tabs; note: it opens with the **expired**
-certificate image at full size — owner's call, do not enlarge), `contact.php`
-(form untouched),
-`photo-gallery.php` (Isotope is currently constructed **twice**), `404.php`.
+Every page is now on the design system. New page stylesheets: `about.css`,
+`contact.css`, `gallery.css`, `hub.css`, `error.css`; new `assets/js/gallery.js`.
+None of these five pages loads the Bootstrap bundle any more.
+
+- `[x]` **about** — text first, the ISO certificate beside it at the 5-of-12
+  width it had (not enlarged; on phones it now follows the text instead of
+  opening the page). "What we stand by" as ruled items. The four Bootstrap
+  vertical pill tabs (history, vision, mission, ethics) are four cards shown at
+  once: three quarters of the copy was hidden behind clicks. Shared quote band.
+  Copy unchanged (the "premier ... industry standard" line is flagged below).
+- `[x]` **contact** — form contract unchanged (action, classes, reCAPTCHA
+  attributes, every name/id/required, status elements, `#mailsubmit`). Added
+  visible labels, required/optional marks and autocomplete tokens (`given-name`,
+  `organization`, `tel`, `email`...); mobile number is `type="tel"`. Direct
+  contact card beside the form (sticky on desktop). FAQ is native `<details
+  name>` instead of Bootstrap collapse. One FAQ answer said "the form on the
+  left"; it now says "above".
+- `[x]` **photo-gallery** — Isotope (43 KB) and the duplicate set-up removed:
+  it and GLightbox were each initialised twice (inline and in `main.js`
+  section 6, now deleted). CSS grid (2/3/4 columns) + `gallery.js` toggling
+  `hidden`; the lightbox is rebuilt from the visible photos after a filter.
+  Filters are real `<button>`s with `aria-pressed` and counts. All 59 photos
+  have width/height (was a check_pages warning).
+- `[x]` **coal-crusher hub** — comparison as a real table (row headers,
+  caption), the two models as the catalogue's `.product-row` with the clean
+  cutouts instead of the watermarked photos, shared quote band.
+- `[x]` **404** — tokens only (was inline styles and a hard-coded red), and a
+  list of the ten machines. Still HTTP 404 and `noindex`; checked at a nested
+  URL (`/does/not/exist`) so `<base href="/">` still resolves the assets.
+- Shared moves: the quote band is `.cta-band` in `mtc.css` (was `.home-cta` in
+  `home.css`); `.field` / `.form-status` moved from `product.css` to `mtc.css`;
+  `.filter-bar` also styles `<button>`s and has a 44px minimum height.
+- Owner request, same session: the **phone menu opens with Products expanded**
+  (`main.js` section 3); tapping Products still folds it, and closing the menu
+  resets it.
+- **Visually verified** (1440 and 390 mobile/touch): about, contact (empty
+  submit -> browser validation as before; FAQ exclusivity), gallery (filter,
+  lightbox with 12 slides after filtering, touch tap), hub (table fits 390 with
+  no scroll), 404 (nested URL), plus regressions from the shared moves: the
+  haulage quote form and the home quote band. check_pages: 0 failures,
+  12 warnings (was 14), no SEO drift.
+- **Defects found by looking, and fixed:** the contact section was named
+  `.contact`, which pulled in old template rules (`.contact .php-email-form`:
+  white card, shadow, padding) from legacy.css -> renamed `.contact-page`;
+  gallery tiles used `object-fit: cover` and cut tall shots to a sliver ->
+  `contain` in a well; the hub table caption rendered under the table (Bootstrap
+  reboot's `caption-side: bottom`) -> `top`; about headline broke as
+  "designed and / built" -> wider measure; phone history cards 1,575px -> icon
+  beside heading, 1,428px; gallery pills 42px -> 44px.
+- Not changed, for the owner: the about intro says "premier manufacturer" and
+  "set the industry standard"; the vision says "top-of-the-chart company".
+  These are the site's existing words; CLAUDE.md asks to claim only what the
+  owner can back up.
 
 ## Phase 8 — Drop Bootstrap JS `[ ]`
 
+After phase 7 only `product-page.php` (tabs + FAQ collapse) and `products.php`
+still load the bundle, and `products.php` does not use it (its filter is its
+own script). The contact FAQ shows the `<details name>` pattern to reuse.
 Only tabs, collapse/accordion, carousel and fade are used. Replace with ~90 lines
 (`<details name>` for the accordions), delete the 79 KB bundle, then delete
 `compat.css`. Keep jQuery for now — `main.js:170-352` is the lead-gen path and
@@ -478,6 +530,16 @@ belongs in its own change.
 
 Newest first. One entry per session or per notable event: what was done, what
 went wrong, what the next session should pick up. Required — see the rule at the top.
+
+### 2026-09-18 — session 2, part 6 (phase 7)
+- Owner requests handled first: catalogue cards checked against every product
+  page (5 fixes), pusher is for stamp-charged ovens everywhere, Key
+  specifications box in the brochures (read from product-data.php), no
+  quotation panel on brochure page 2, footer map in full colour. All committed
+  and pushed to `origin/redesign/ui` (not merged).
+- Phase 7 done (details above). Also: phone menu opens with Products expanded.
+- Next: phase 8 (Bootstrap JS off the product pages and products.php, then
+  delete compat.css).
 
 ### 2026-09-18 — session 2, part 5 (home page, phase 6)
 - User chose `#CC3202` for the action colour; applied and seen in the browser.

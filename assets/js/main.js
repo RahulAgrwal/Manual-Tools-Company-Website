@@ -59,7 +59,20 @@
         document.body.classList.toggle('mobile-nav-active');
 
         // 2. CHECK STATE
-        if (!navbar.classList.contains('navbar-mobile')) {
+        if (navbar.classList.contains('navbar-mobile')) {
+            // === CASE: MENU OPENED ===
+            // The owner wants the product list visible straight away: the
+            // machines are what most visitors open the menu for. Tapping
+            // "Products" still folds it away (section 4).
+            navbar.querySelectorAll('.dropdown > ul').forEach(function(list) {
+                list.classList.add('dropdown-active');
+                let icon = list.previousElementSibling && list.previousElementSibling.querySelector('i');
+                if (icon) {
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                }
+            });
+        } else {
             // === CASE: MENU CLOSED ===
             // Find all items with active classes and remove them
             let activeDropdowns = navbar.querySelectorAll('.dropdown-active');
@@ -67,6 +80,10 @@
 
             activeDropdowns.forEach(el => el.classList.remove('dropdown-active'));
             activeLinks.forEach(el => el.classList.remove('active'));
+            navbar.querySelectorAll('.dropdown > a .fa-chevron-up').forEach(function(icon) {
+                icon.classList.remove('fa-chevron-up');
+                icon.classList.add('fa-chevron-down');
+            });
 
         }
     });
@@ -146,38 +163,9 @@
     });
 
 
-    /**
-     * 6. PHOTO GALLERY (Isotope filters and GLightbox, photo-gallery.php only)
-     */
-    document.addEventListener('DOMContentLoaded', () => {
-
-        // Portfolio Isotope
-        let portfolioContainer = select('.portfolio-container');
-        if (portfolioContainer && typeof Isotope !== 'undefined') {
-            let portfolioIsotope = new Isotope(portfolioContainer, {
-                itemSelector: '.portfolio-item',
-                layoutMode: 'fitRows'
-            });
-
-            let portfolioFilters = select('#portfolio-flters li', true);
-            on('click', '#portfolio-flters li', function(e) {
-                e.preventDefault();
-                portfolioFilters.forEach(el => el.classList.remove('filter-active'));
-                this.classList.add('filter-active');
-                portfolioIsotope.arrange({
-                    filter: this.getAttribute('data-filter')
-                });
-            }, true);
-        }
-
-        // Portfolio Lightbox
-        if (typeof GLightbox !== 'undefined') {
-            const portfolioLightbox = GLightbox({
-                selector: '.portfolio-lightbox'
-            });
-        }
-
-    });
+    // 6. The photo gallery's filter and lightbox live in assets/js/gallery.js,
+    //    loaded only by photo-gallery.php. They used to be set up here AND in
+    //    an inline script on that page, so Isotope and GLightbox both ran twice.
 
 })();
 

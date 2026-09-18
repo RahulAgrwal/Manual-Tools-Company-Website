@@ -506,7 +506,11 @@ table, .tnum { font-variant-numeric: tabular-nums; }
   scrollbar-width: thin;
   -webkit-overflow-scrolling: touch;
 }
-.filter-bar li {
+/* <li> on the products page; <button> on the gallery (keyboard-reachable). */
+.filter-bar li,
+.filter-bar button {
+  font-family: inherit;
+  min-height: 2.75rem;   /* 44px touch target */
   flex: none;
   padding: var(--s-2) var(--s-4);
   font-size: var(--fs-sm);
@@ -521,8 +525,10 @@ table, .tnum { font-variant-numeric: tabular-nums; }
               background-color var(--dur-1) var(--ease),
               border-color var(--dur-1) var(--ease);
 }
-.filter-bar li:hover { border-color: var(--c-line-strong); color: var(--c-ink); }
-.filter-bar li.filter-active {
+.filter-bar li:hover,
+.filter-bar button:hover { border-color: var(--c-line-strong); color: var(--c-ink); }
+.filter-bar li.filter-active,
+.filter-bar button[aria-pressed="true"] {
   color: var(--c-surface);
   background: var(--c-ink);
   border-color: var(--c-ink);
@@ -732,3 +738,100 @@ table, .tnum { font-variant-numeric: tabular-nums; }
   }
   .grid:has(> .product-card) { gap: var(--s-3); }
 }
+
+
+/* --------------------------------------------------------------------------
+   Quote band (.cta-band) -- the conversion path at the foot of the home and
+   about pages. On the dark ink surface so it reads as the end of the page's
+   argument rather than one more section.
+   -------------------------------------------------------------------------- */
+.cta-band {
+  padding: var(--s-8) 0;
+  overflow: visible;
+  color: var(--c-ink-on-dark);
+  background: var(--c-ink-surface);
+  /* The footer below is the same dark surface; without a rule the two read as
+     one block and the call to action loses its edge (seen in the browser). */
+  border-bottom: 1px solid rgb(255 255 255 / 0.1);
+}
+.cta-band__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-5) var(--s-7);
+}
+.cta-band h2 { margin: 0 0 var(--s-2); color: #fff; }
+.cta-band p { margin: 0; max-width: 52ch; color: rgb(232 236 239 / 0.75); }
+.cta-band__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-5); }
+.cta-band__call {
+  font-weight: var(--fw-bold);
+  font-variant-numeric: tabular-nums;
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-color: rgb(255 255 255 / 0.35);
+  text-underline-offset: 3px;
+}
+.cta-band__call:hover { text-decoration-color: #fff; }
+
+
+/* --------------------------------------------------------------------------
+   Forms -- labelled fields and status lines, shared by the product-page
+   quote card and the contact page. main.js adds .error-border to an empty
+   required field and fades the .form-status lines in and out.
+   -------------------------------------------------------------------------- */
+.field { margin-bottom: var(--s-4); }
+.field label {
+  display: block;
+  margin-bottom: var(--s-2);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-med);
+  color: var(--c-ink);
+}
+.field__opt {
+  margin-left: var(--s-1);
+  font-weight: var(--fw-body);
+  color: var(--c-ink-3);
+}
+.field input,
+.field textarea {
+  display: block;
+  width: 100%;
+  min-height: 2.75rem;
+  padding: var(--s-2) var(--s-3);
+  font: inherit;
+  font-size: var(--fs-body);
+  color: var(--c-ink);
+  background: var(--c-surface);
+  border: 1px solid var(--c-line-strong);
+  border-radius: var(--r-1);
+  transition: border-color var(--dur-1) var(--ease), box-shadow var(--dur-1) var(--ease);
+}
+.field textarea { resize: vertical; min-height: 6rem; }
+.field input::placeholder,
+.field textarea::placeholder { color: var(--c-ink-3); }
+.field input:hover,
+.field textarea:hover { border-color: var(--c-ink-3); }
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--c-focus);
+  box-shadow: 0 0 0 3px rgb(26 95 208 / 0.18);
+}
+/* main.js adds .error-border to a required field left empty. */
+.field .error-border {
+  border-color: var(--c-err);
+  box-shadow: 0 0 0 3px rgb(179 38 30 / 0.12);
+}
+
+/* Status lines; main.js fades them in and out. */
+.form-status {
+  margin-bottom: var(--s-4);
+  padding: var(--s-3) var(--s-4);
+  font-size: var(--fs-sm);
+  border-radius: var(--r-1);
+  background: var(--c-canvas-sunk);
+  color: var(--c-ink);
+}
+.form-status--error { background: #FDECEA; color: var(--c-err); }
+.form-status--ok { background: #E8F4ED; color: var(--c-ok); }

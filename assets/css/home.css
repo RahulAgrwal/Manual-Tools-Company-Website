@@ -288,35 +288,4 @@
   .home-why__item p { grid-column: 2; }
 }
 
-/* --------------------------------------------------------------------------
-   Quote band -- the conversion path, on the dark ink surface so it reads as
-   the end of the page's argument rather than one more section.
-   -------------------------------------------------------------------------- */
-.home-cta {
-  padding: var(--s-8) 0;
-  overflow: visible;
-  color: var(--c-ink-on-dark);
-  background: var(--c-ink-surface);
-  /* The footer below is the same dark surface; without a rule the two read as
-     one block and the call to action loses its edge (seen in the browser). */
-  border-bottom: 1px solid rgb(255 255 255 / 0.1);
-}
-.home-cta__inner {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--s-5) var(--s-7);
-}
-.home-cta h2 { margin: 0 0 var(--s-2); color: #fff; }
-.home-cta p { margin: 0; max-width: 52ch; color: rgb(232 236 239 / 0.75); }
-.home-cta__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-5); }
-.home-cta__call {
-  font-weight: var(--fw-bold);
-  font-variant-numeric: tabular-nums;
-  color: #fff;
-  text-decoration: underline;
-  text-decoration-color: rgb(255 255 255 / 0.35);
-  text-underline-offset: 3px;
-}
-.home-cta__call:hover { text-decoration-color: #fff; }
+/* The quote band at the foot of the page is shared: .cta-band in mtc.css. */

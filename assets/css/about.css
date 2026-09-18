@@ -1,0 +1,107 @@
+/* ==========================================================================
+   about.css -- the about page, on the tokens in mtc.css.
+
+   Who we are (text + certificate) -> what we stand by -> machinery ->
+   history and values -> clients -> quote band. Every rebuilt <section> has
+   the .section class, which outranks legacy.css's bare `section` rule.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Who we are
+   -------------------------------------------------------------------------- */
+.about-intro__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s-7);
+  align-items: start;
+}
+@media (min-width: 62rem) {
+  /* Text first, certificate beside it at the 5-of-12 width it had before. */
+  .about-intro__grid {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: var(--s-8);
+  }
+}
+.about-intro__text > * { margin: 0; }
+.about-intro__text > * + * { margin-top: var(--s-4); }
+.about-intro__text h2 { max-width: 26ch; }
+.about-intro__text p:not(.lede):not(.about-eyebrow) { max-width: var(--measure); }
+.about-eyebrow { font-size: var(--fs-sm); color: var(--c-ink-3); }
+.about-intro__actions { padding-top: var(--s-3); }
+
+.about-cert { margin: 0; }
+.about-cert img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-2);
+  background: var(--c-surface);
+}
+
+/* What we stand by: four commitments, ruled like the home page's reasons. */
+.about-values {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: var(--s-6) var(--s-5);
+  margin: var(--s-8) 0 0;
+  padding: 0;
+  list-style: none;
+}
+.about-values li { padding-top: var(--s-5); border-top: 2px solid var(--c-ink); }
+.about-values i { font-size: 1.125rem; color: var(--c-ink-3); }
+.about-values h3 { margin: var(--s-3) 0 var(--s-2); font-size: var(--fs-h4); }
+.about-values p { margin: 0; font-size: var(--fs-sm); color: var(--c-ink-2); }
+
+/* --------------------------------------------------------------------------
+   History and values -- four short texts shown side by side, not tabbed.
+   -------------------------------------------------------------------------- */
+.about-story { border-bottom: 1px solid var(--c-line); }
+.about-story__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr));
+  gap: var(--s-5);
+}
+.about-story article {
+  padding: var(--s-6);
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-2);
+}
+.about-story article i {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1rem;
+  color: var(--c-ink);
+  background: var(--c-canvas-sunk);
+  border-radius: var(--r-2);
+}
+.about-story h3 { margin: var(--s-4) 0 var(--s-2); font-size: var(--fs-h4); }
+.about-story p { margin: 0; color: var(--c-ink-2); }
+.about-story strong { color: var(--c-ink); }
+
+/* Phones: icon beside the heading and less padding, as on the home page. */
+@media (max-width: 47.99rem) {
+  .about-values { gap: var(--s-5); }
+  .about-values li {
+    display: grid;
+    grid-template-columns: 1.5rem minmax(0, 1fr);
+    column-gap: var(--s-3);
+    align-items: baseline;
+    padding-top: var(--s-4);
+  }
+  .about-values h3 { margin: 0 0 var(--s-2); }
+  .about-values p { grid-column: 2; }
+  .about-story article {
+    display: grid;
+    grid-template-columns: 2.25rem minmax(0, 1fr);
+    column-gap: var(--s-3);
+    align-items: center;
+    padding: var(--s-5);
+  }
+  .about-story article i { width: 2.25rem; height: 2.25rem; font-size: 0.9rem; }
+  .about-story h3 { margin: 0; }
+  .about-story p { grid-column: 1 / -1; margin-top: var(--s-3); }
+}
