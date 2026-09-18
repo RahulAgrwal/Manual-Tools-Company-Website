@@ -16,20 +16,59 @@ Each entry needs:
                   product (defaults to main_image)
     gallery       folder scanned for up to three gallery photos
     summary       130-170 words condensed to two or three sentences
-    stats         three headline figures, (value, caption)
+    stats         three headline figures for the cover, (value, caption)
     specs         (label, value) rows for the specification table
     features      design and durability points
     steps         (title, description) process flow
     apps          (sector, description)
     faqs          (question, answer)
+
+The "Key specifications" box on page 2 is not copied here: it is read from
+the product page's `specs` in product-data.php (via the php CLI), so the
+brochure always shows the same four figures as the website.
 """
 import glob
+import json
+import shutil
+import subprocess
 import sys
 
 from brochure_layout import (
     COL_R_X, COL_W, CONTENT_W, FONT_FAMILY, INK, INK_BODY, INK_SOFT, MARGIN,
     FOOTER_Y, PANEL, RED, RULE, MTCBrochure, clean, cutout_image, fit_image,
 )
+
+# Brochure key -> product page slug in product-data.php.
+SITE_SLUG = {
+    "coal-crusher-single": "coal-crusher-5-No-single-disc",
+    "coal-crusher-double": "coal-crusher-5-No-double-disc",
+    "coke-cutter-double-drive": "coke-cutter-double-drive",
+    "coke-cutter-ring-type": "coke-cutter-double-drive-ring-type",
+    "haulage": "haulage",
+    "power-winch": "power-winch",
+    "vibrator-screen": "vibrator-screen",
+    "pusher": "pusher-with-stamping-arrangement",
+    "charging-car": "coal-charging-car",
+    "conveyor-materials": "conveyor-materials",
+}
+
+_site_specs = None
+
+
+def site_specs(key):
+    """[(icon, label, value)] from the product page's spec grid."""
+    global _site_specs
+    if _site_specs is None:
+        php = shutil.which("php")
+        if not php:
+            sys.exit("php is needed to read product-data.php (the Key specifications box).")
+        out = subprocess.run(
+            [php, "-r", 'include "product-data.php"; echo json_encode(array_map('
+                        'fn($p) => $p["specs"], $MTC_PRODUCTS));'],
+            capture_output=True, text=True, check=True, encoding="utf-8")
+        _site_specs = json.loads(out.stdout)
+    return [tuple(s) for s in _site_specs[SITE_SLUG[key]]]
+
 
 # Same wording as the "Buying information" box on every product page.
 # Keep the two in sync: the contact-page FAQ has to agree with these terms.
@@ -471,8 +510,8 @@ def gallery_images(folder, limit=3):
     )[:limit]
 
 
-def page_overview(pdf, p):
-    """Page 2: title, summary, hero shot, headline figures, specifications."""
+def page_overview(pdf, p, key):
+    """Page 2: title, summary, hero shot, key specifications, full table."""
     pdf.add_page()
     pdf.set_y(30)
 
@@ -484,7 +523,7 @@ def page_overview(pdf, p):
     pdf.multi_cell(CONTENT_W, 5, clean(p["subtitle"]), new_x="LMARGIN", new_y="NEXT")
 
     top = pdf.get_y() + 7
-    hero_h = 58.0
+    hero_h = 50.0
     pdf.set_fill_color(*PANEL)
     pdf.rect(COL_R_X, top, COL_W, hero_h, "F", round_corners=True, corner_radius=2)
     try:
@@ -504,8 +543,10 @@ def page_overview(pdf, p):
     pdf.set_text_color(*INK_BODY)
     pdf.multi_cell(COL_W, 5.2, clean(p["summary"]), new_x="LMARGIN", new_y="NEXT")
 
-    y = max(pdf.get_y(), top + hero_h) + 9
-    y = pdf.stat_strip(p["stats"], y)
+    # The cover already carries the three headline figures; this box shows
+    # the product page's own four specs instead of repeating them.
+    y = max(pdf.get_y(), top + hero_h) + 8
+    y = pdf.key_specs(site_specs(key), y)
 
     pdf.set_y(y)
     pdf.section("Specifications")
@@ -516,8 +557,10 @@ def page_overview(pdf, p):
     right_bottom = pdf.feature_list(p["features"], COL_R_X, y + 5.5, COL_W)
 
     pdf.set_y(max(left_bottom, right_bottom) + 8)
-    pdf.buying_info(p.get("buying", BUYING_INFO))
-    pdf.quote_block()
+    bottom = pdf.buying_info(p.get("buying", BUYING_INFO))
+    quote_top = pdf.quote_block() - 26.0
+    if bottom > quote_top - 6:
+        sys.exit(f"{key}: page 2 content ends at {bottom:.1f} mm, into the quotation panel at {quote_top:.1f} mm")
 
 
 def page_process(pdf, p):
@@ -632,7 +675,7 @@ def build(key):
     p = PRODUCTS[key]
     pdf = MTCBrochure(product_name=f"{p['title']} - {p['subtitle']}")
     pdf.cover(p["title"], p["subtitle"], p.get("cover_image", p["main_image"]), p["stats"])
-    page_overview(pdf, p)
+    page_overview(pdf, p, key)
     page_process(pdf, p)
     page_gallery(pdf, p, key)
 
