@@ -5,3 +5,6 @@ secrets.local.php
 # SEO audit output (local reports and screenshots)
 manualtoolsco.com-audit/
 __pycache__/
+
+# Redesign QA reports (local only)
+.redesign-reports/
