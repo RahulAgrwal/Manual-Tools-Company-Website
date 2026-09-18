@@ -108,7 +108,7 @@ $GLOBAL_PRODUCT_CARDS = [
     "eyebrow" => "Sorting & Grading",
     "mini_specs" => [
       ["fa-bolt", "7.5 - 15 HP"],
-      ["fa-layer-group", "1 to 3 Decks"],
+      ["fa-layer-group", "1 to 4 Decks"],
       ["fa-expand-arrows-alt", "Customizable Mesh"],
       ["fa-industry", "High Throughput"]
     ]
@@ -125,7 +125,7 @@ $GLOBAL_PRODUCT_CARDS = [
     "mini_specs" => [
       ["fa-check-circle", "Idlers & Rollers"],
       ["fa-check-circle", "Head/Tail Pulleys"],
-      ["fa-ruler-horizontal", "All Belt Sizes"],
+      ["fa-ruler-horizontal", "600 - 1400 mm Belts"],
       ["fa-shield-alt", "Dust Proof"]
     ]
   ],
@@ -158,7 +158,7 @@ $GLOBAL_PRODUCT_CARDS = [
       ["fa-weight-hanging", "4 - 20 Ton Cap."],
       ["fa-truck-moving", "15 HP Travel"],
       ["fa-th", "4 Hoppers"],
-      ["fa-cogs", "Auto Gates"]
+      ["fa-cogs", "Motorised Gates"]
     ]
   ]
 ];

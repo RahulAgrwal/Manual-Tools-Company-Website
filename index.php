@@ -128,7 +128,7 @@ $carousel_items = [
     [
       "image_path" => "assets/img/slide/Conveyor-Materials.png",
       "title" => "Conveyor Materials",
-      "subtitle" => "Premium grade belts and heavy-duty rollers designed to withstand continuous bulk material transport.",
+      "subtitle" => "Heavy-duty idlers, rollers and pulleys designed to withstand continuous bulk material transport.",
       "link" => "conveyor-materials"
     ],
     [
