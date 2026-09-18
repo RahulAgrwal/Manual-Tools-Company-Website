@@ -42,9 +42,9 @@
   }
   </script>
 
+  <?php $mtc_page_css = ['assets/css/legacy-product.css']; ?>
   <?php include('common-head.php'); ?>
   <?php mtc_breadcrumb_schema(['Products' => 'products', 'Pusher Machine with Stamping Arrangement' => 'pusher-with-stamping-arrangement']); ?>
-  <link href="assets/css/product-detail.css" rel="stylesheet">
 </head>
 
 <body>

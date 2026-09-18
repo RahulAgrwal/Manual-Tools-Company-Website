@@ -24,6 +24,15 @@ if (!function_exists('mtc_img')) {
         return $info ? 'width="' . $info[0] . '" height="' . $info[1] . '"' : '';
     }
 
+    // An asset URL with ?v=<mtime>, so a deploy invalidates it immediately.
+    // .htaccess caches CSS and JS for a week and filenames are not hashed, so
+    // without this a returning visitor gets new markup with the old stylesheet.
+    function mtc_asset($path)
+    {
+        $mtime = @filemtime(__DIR__ . '/' . $path);
+        return $mtime ? $path . '?v=' . $mtime : $path;
+    }
+
     // BreadcrumbList JSON-LD. $trail maps page names to slugs ('' = home),
     // e.g. ['Products' => 'products', 'Haulage Machine' => 'haulage'].
     function mtc_breadcrumb_schema(array $trail)

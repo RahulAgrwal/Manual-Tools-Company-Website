@@ -2,13 +2,6 @@
 /* PRODUCT DETAIL PAGE STYLES                    */
 /* ============================================ */
 
-:root {
-  --mtc-gray-bg: #f9f9f9;
-  --mtc-border: #e0e0e0;
-  --mtc-primary: var(--primary-color, #f03c02);
-  --mtc-text-dark: #222;
-  --mtc-text-muted: #666;
-}
 
 /* ============================================ */
 /* PRODUCT HERO SECTION                         */

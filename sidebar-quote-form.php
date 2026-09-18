@@ -7,7 +7,7 @@ $recaptchaSiteKey = '6Ldj7H0sAAAAAIIk3lL0kl9Y_Ohi8M_JcC5Qm13u';
 
 <div class="mtc-sidebar-quote-card">
   <div class="mtc-sidebar-title">
-    <i class="far fa-envelope"></i>
+    <i class="fas fa-envelope"></i>
     <div>
       <span style="display:block; font-size:12px; color:#999; font-weight:600;">QUESTIONS?</span>
       GET A QUOTE

@@ -18,6 +18,7 @@
   <meta property="og:image" content="https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Coal-Crusher-single-disc.jpg">
   <meta property="og:site_name" content="Manual Tools Company">
 
+  <?php $mtc_page_css = ['assets/css/legacy-product.css']; ?>
   <?php include('common-head.php'); ?>
   <?php
   include_once('global-products.php');
@@ -41,7 +42,6 @@
   ?>
   <script type="application/ld+json"><?php echo json_encode($collection, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?></script>
   <?php mtc_breadcrumb_schema(['Products' => 'products']); ?>
-  <link href="assets/css/product-detail.css" rel="stylesheet">
 </head>
 
 <body>

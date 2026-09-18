@@ -16,11 +16,10 @@
   <meta property="og:image" content="https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Coal-Crusher-single-disc.jpg">
   <meta property="og:site_name" content="Manual Tools Company">
 
+  <?php $mtc_page_css = ['assets/css/legacy-product.css', 'assets/vendor/glightbox/css/glightbox.min.css']; ?>
   <?php include('common-head.php'); ?>
   <?php mtc_breadcrumb_schema(['Photo Gallery' => 'photo-gallery']); ?>
 
-  <link href="assets/css/product-detail.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
 
 </head>
 

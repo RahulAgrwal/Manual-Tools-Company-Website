@@ -43,9 +43,9 @@
   }
   </script>
 
+  <?php $mtc_page_css = ['assets/css/legacy-product.css']; ?>
   <?php include('common-head.php'); ?>
   <?php mtc_breadcrumb_schema(['Products' => 'products', 'Ring Type Coke Cutter (Double Drive)' => 'coke-cutter-double-drive-ring-type']); ?>
-  <link href="assets/css/product-detail.css" rel="stylesheet">
 
   <style>
     /* Specific styles for video thumbnails */

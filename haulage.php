@@ -42,9 +42,9 @@
   }
   </script>
 
+  <?php $mtc_page_css = ['assets/css/legacy-product.css']; ?>
   <?php include('common-head.php'); ?>
   <?php mtc_breadcrumb_schema(['Products' => 'products', 'Coke Oven Haulage Machine' => 'haulage']); ?>
-  <link href="assets/css/product-detail.css" rel="stylesheet">
 
   <style>
     /* Specific styles for video thumbnails */
