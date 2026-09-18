@@ -76,7 +76,7 @@ if (substr($page_name, -4) !== '.php') {
                     <div class="mt-3">
                         <iframe title="Manual Tools Company location on Google Maps"
                             src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14605.66029759085!2d86.4114906!3d23.7682293!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f6a356034dbf29%3A0x3fd82229c2edb25e!2sMANUAL%20TOOLS%20COMPANY!5e0!3m2!1sen!2sin!4v1715487885451!5m2!1sen!2sin" 
-                            width="100%" height="120" style="border:0; border-radius: 6px; opacity: 0.8;" allowfullscreen="" loading="lazy">
+                            width="100%" height="120" style="border:0;" allowfullscreen="" loading="lazy">
                         </iframe>
                     </div>
                 </div>

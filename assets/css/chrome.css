@@ -411,14 +411,11 @@ i.mobile-nav-toggle {
   border-color: rgb(255 255 255 / 0.32);
 }
 
+/* Full colour: the owner wants the map shown as Google draws it, not greyed. */
 #footer iframe {
   width: 100%;
   border-radius: var(--r-2);
-  filter: grayscale(1) contrast(0.9);
-  opacity: 0.6;
-  transition: opacity var(--dur-2) var(--ease), filter var(--dur-2) var(--ease);
 }
-#footer iframe:hover { opacity: 1; filter: none; }
 
 #footer .footer-bottom {
   padding-block: var(--s-5);

@@ -486,6 +486,10 @@ went wrong, what the next session should pick up. Required — see the rule at t
 - The owed phone-width retro check of phases 1–4 was done for home, about and
   products; it caught a real overflow on the products page (phase 6, item 8).
 - Next: phase 7 (about, contact, gallery, 404, coal-crusher hub).
+- Owner asked for the footer map in full colour: removed phase 3's greyscale +
+  60% opacity (`chrome.css`) and an inline `opacity: 0.8` left in `footer.php`
+  from the old template. Seen at 390px (home) and 1440px (about): filter none,
+  opacity 1.
 
 ### 2026-09-18 — session 2, part 4 (restyle + visual verification)
 - Product pages restyled; design research first (`ui-ux-pro-max` UX queries,
