@@ -1887,7 +1887,7 @@ alignment.',
       'description' => 'Pusher machine with roller stamping arrangement for stamp-charged coke ovens: 20 m beam, 40 HP main drive, 15 HP long travel. Made in Dhanbad, India.',
       'og_image' => 'assets/img/about-us-products-thumbnail/Pusher-Machine-With-Stamping-Arrangement.png',
       'schema_name' => 'Pusher Machine With Stamping Arrangement',
-      'schema_description' => 'Heavy-duty Pusher Machine with Stamping Arrangement (Roller System) designed for furnaces and ovens with 20m beams and synchronized roller system.',
+      'schema_description' => 'Heavy-duty Pusher Machine with Stamping Arrangement (Roller System) designed for stamp-charged coke ovens, with a 20m pusher beam and synchronized roller system.',
       'sku' => 'MTC-PM-SA',
       'schema_props' => [
           [
@@ -1920,7 +1920,7 @@ alignment.',
       'model_label' => 'Model',
       'model' => 'MTC-PM-SA',
       'stock' => 'Made to Order',
-      'intro_html' => 'Designed for Coke Ovens, this machine integrates a heavy-duty <strong>Pusher Beam</strong> with a <strong>Roller Stamping System</strong>. It ensures uniform coal cake density and smooth discharging operation. Powered by a 40 HP main drive, it handles the toughest industrial cycles with ease.',
+      'intro_html' => 'Designed for stamp-charged coke ovens, this machine integrates a heavy-duty <strong>Pusher Beam</strong> with a <strong>Roller Stamping System</strong>. It ensures uniform coal cake density and smooth discharging operation. Powered by a 40 HP main drive, it handles the toughest industrial cycles with ease.',
       'specs' => [
           [
               'fa-ruler-horizontal',
@@ -2032,12 +2032,12 @@ alignment.',
           [
               'fa-layer-group',
               'Coal Stamping',
-              'Coal fine are fed into the cove oven. The <strong>Roller Stamping System</strong> compacts the coal to achieve high density, essential for good coke quality.'
+              'Coal fines are fed in and the <strong>Roller Stamping System</strong> compacts them into a high-density cake, essential for good coke quality.'
           ],
           [
               'fa-sign-out-alt',
               'Coke Ejection',
-              'After carbonization,the Pusher Beam rams the finished red-hot coke mass out the other side.'
+              'After carbonization, the Pusher Beam rams the finished red-hot coke mass out the other side.'
           ]
       ],
       'process_diagram' => null,
@@ -2047,7 +2047,7 @@ alignment.',
           [
               'fa-fire-alt',
               'Coke Ovens',
-              'The primary machinery for horizontal coke ovens requiring stamping technology.'
+              'The primary machinery for stamp-charged horizontal coke ovens.'
           ],
           [
               'fa-industry',

@@ -134,7 +134,7 @@ $carousel_items = [
     [
       "image_path" => "assets/img/slide/Pusher-with-stamping-arrangement.png",
       "title" => "Pusher Machine With Stamping",
-      "subtitle" => "Integrated stamping arrangement ensures compact coal cake formation for optimal coke production.",
+      "subtitle" => "Integrated stamping arrangement for stamp-charged coke ovens, forming a compact, high-density coal cake.",
       "link" => "pusher-with-stamping-arrangement"
     ],
     [

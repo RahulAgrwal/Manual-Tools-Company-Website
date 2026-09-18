@@ -358,7 +358,7 @@ PRODUCTS = {
             ("Coke Ejection", "After carbonisation, the pusher beam rams the finished coke mass out of the oven."),
         ],
         "apps": [
-            ("Coke Ovens", "Horizontal coke ovens that use stamping technology."),
+            ("Coke Ovens", "Stamp-charged horizontal coke ovens."),
             ("Steel Plants", "Producing high-density metallurgical coke for blast furnaces."),
             ("Coal Carbonisation", "Consistent coal cake density for uniform carbonisation."),
         ],
