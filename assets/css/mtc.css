@@ -75,6 +75,7 @@
   --fs-h2:      clamp(1.625rem, 1.38rem + 1vw, 2.25rem);
   --fs-h3:      1.375rem;
   --fs-h4:      1.125rem;
+  --fs-lg:      1.1875rem;
   --fs-body:    1.0625rem;
   --fs-sm:      0.9375rem;
   --fs-xs:      0.8125rem;
@@ -421,10 +422,196 @@ table, .tnum { font-variant-numeric: tabular-nums; }
 .section-head h2 { margin: 0 0 var(--s-3); }
 .section-head p {
   margin: 0;
-  font-size: var(--fs-lg, 1.1875rem);
+  font-size: var(--fs-lg);
   color: var(--c-ink-2);
 }
 .section-head--center {
   margin-inline: auto;
   text-align: center;
 }
+
+/* --------------------------------------------------------------------------
+   Breadcrumb bar
+   Was a heavy dark band across the top of every page, which gave the most
+   minor information on the page the most visual weight. Now a hairline rail.
+   -------------------------------------------------------------------------- */
+.breadcrumbs {
+  padding-block: var(--s-6) var(--s-5);
+  background: var(--c-canvas);
+  border-bottom: 1px solid var(--c-line);
+}
+.breadcrumbs .container > div,
+.breadcrumbs .wrap > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-3);
+}
+.breadcrumbs h1,
+.breadcrumbs h2 {
+  margin: 0;
+  font-size: var(--fs-h2);
+}
+.breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  margin: 0;
+  padding: 0;
+  font-size: var(--fs-xs);
+  color: var(--c-ink-3);
+  list-style: none;
+}
+.breadcrumbs ol li + li::before {
+  content: "/";
+  margin-right: var(--s-2);
+  color: var(--c-line-strong);
+}
+.breadcrumbs ol a { color: var(--c-ink-2); text-decoration: none; }
+.breadcrumbs ol a:hover { color: var(--c-action); }
+
+/* --------------------------------------------------------------------------
+   Filter pills
+   The active pill is a selection, not an action, so it is ink rather than
+   orange. Orange here would compete with the real call to action.
+   -------------------------------------------------------------------------- */
+.filter-bar {
+  display: flex;
+  gap: var(--s-2);
+  margin: 0 0 var(--s-6);
+  padding: 0 0 var(--s-2);
+  overflow-x: auto;
+  list-style: none;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}
+.filter-bar li {
+  flex: none;
+  padding: var(--s-2) var(--s-4);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-med);
+  color: var(--c-ink-2);
+  white-space: nowrap;
+  cursor: pointer;
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-pill);
+  transition: color var(--dur-1) var(--ease),
+              background-color var(--dur-1) var(--ease),
+              border-color var(--dur-1) var(--ease);
+}
+.filter-bar li:hover { border-color: var(--c-line-strong); color: var(--c-ink); }
+.filter-bar li.filter-active {
+  color: var(--c-surface);
+  background: var(--c-ink);
+  border-color: var(--c-ink);
+}
+
+/* --------------------------------------------------------------------------
+   Product listing row
+   -------------------------------------------------------------------------- */
+.product-rows { display: grid; gap: var(--s-5); }
+
+.product-row {
+  display: grid;
+  gap: 0;
+  overflow: hidden;
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-2);
+}
+@media (min-width: 48rem) {
+  .product-row { grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); }
+}
+
+.product-row__well {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 3;
+  padding: var(--s-5);
+  background: var(--c-canvas-sunk);
+  border-bottom: 1px solid var(--c-line);
+}
+@media (min-width: 48rem) {
+  .product-row__well {
+    aspect-ratio: auto;
+    border-bottom: 0;
+    border-right: 1px solid var(--c-line);
+  }
+}
+.product-row__well img {
+  max-width: 100%;
+  max-height: 16rem;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.product-row__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--s-3);
+  padding: var(--s-6);
+}
+
+.product-row__eyebrow {
+  margin: 0;
+  font-size: var(--fs-xs);
+  color: var(--c-ink-3);
+}
+
+.product-row__title {
+  margin: 0;
+  font-size: var(--fs-h3);
+  line-height: var(--lh-head);
+}
+.product-row__title span {
+  display: block;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-body);
+  color: var(--c-ink-2);
+  letter-spacing: 0;
+}
+
+.product-row__desc {
+  max-width: 60ch;
+  margin: 0;
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  color: var(--c-ink-2);
+}
+
+/* Spec chips -- reference figures, so they read as data, not as buttons. */
+.spec-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  width: 100%;
+  margin: var(--s-2) 0;
+  padding: 0;
+  list-style: none;
+}
+.spec-chips li {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: var(--s-2) var(--s-3);
+  font-size: var(--fs-xs);
+  font-variant-numeric: tabular-nums;
+  color: var(--c-ink);
+  background: var(--c-canvas-sunk);
+  border-radius: var(--r-1);
+}
+.spec-chips i { color: var(--c-ink-3); font-size: 0.9em; }
+
+/* Lead paragraph: the one-sentence orientation under a page title. */
+.lede {
+  margin: 0;
+  font-size: var(--fs-lg);
+  line-height: 1.55;
+  color: var(--c-ink-2);
+}
+.lede a { color: var(--c-action); text-decoration: none; }
+.lede a:hover { text-decoration: underline; }
