@@ -62,3 +62,63 @@
     if (item) warm(item);
   });
 })();
+
+/**
+ * Proof band: the four figures count up from 0 when the band scrolls into
+ * view (owner request, 2026-09-18).
+ *
+ * The real figure stays in the HTML, so search engines, screen readers and
+ * visitors without JavaScript get "150+", never "0". The moving number is an
+ * aria-hidden copy beside a visually hidden final one. With reduced motion
+ * requested, nothing animates.
+ */
+(function () {
+  'use strict';
+
+  var figures = document.querySelectorAll('.home-proof dd');
+  if (!figures.length || !('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var DURATION = 1400;
+  var items = [];
+
+  figures.forEach(function (dd) {
+    var m = dd.textContent.trim().match(/^(\d+)(.*)$/);
+    if (!m) return;
+    var target = parseInt(m[1], 10), suffix = m[2];
+    var shown = document.createElement('span');
+    shown.setAttribute('aria-hidden', 'true');
+    shown.textContent = '0' + suffix;
+    var real = document.createElement('span');
+    real.className = 'sr-only';
+    real.textContent = dd.textContent.trim();
+    dd.textContent = '';
+    dd.appendChild(shown);
+    dd.appendChild(real);
+    items.push({ el: shown, target: target, suffix: suffix });
+  });
+  if (!items.length) return;
+
+  function run() {
+    var start = null;
+    function frame(now) {
+      if (start === null) start = now;
+      var t = Math.min((now - start) / DURATION, 1);
+      var eased = 1 - Math.pow(1 - t, 3);   // ease-out: fast start, gentle landing
+      items.forEach(function (it) {
+        it.el.textContent = Math.round(it.target * eased) + it.suffix;
+      });
+      if (t < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  // All four together, once, when most of the band is on screen.
+  var io = new IntersectionObserver(function (entries) {
+    if (entries.some(function (e) { return e.isIntersecting; })) {
+      io.disconnect();
+      run();
+    }
+  }, { threshold: 0.6 });
+  io.observe(document.querySelector('.home-proof'));
+})();

@@ -145,7 +145,8 @@
 
 /* --------------------------------------------------------------------------
    Proof band -- the four figures the site already states. No new claims,
-   no gradient, no counting animation: figures a buyer can read at a glance.
+   no gradient. The count-up from 0 (home.js) was the owner's request; the
+   real figure stays in the HTML and reduced motion shows it straight away.
    -------------------------------------------------------------------------- */
 .home-proof {
   padding: 0;

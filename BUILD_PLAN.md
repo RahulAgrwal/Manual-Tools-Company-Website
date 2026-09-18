@@ -408,6 +408,11 @@ hero → proof → about → machinery → services → reasons → clients → 
   user there): −79 KB on the busiest page. Home loads `home.js` + `main.js`.
 - `[x]` Stats → a `<dl>` proof band of the four existing figures (no new claims,
   no counting animation); the dead `.counter` / `data-target` hook is gone.
+  Later (owner request, 2026-09-18): the figures **count up from 0** when the
+  band scrolls into view (`home.js`, 1.4 s ease-out, once). The real figures
+  stay in the HTML (search engines, no-JS); screen readers get a visually
+  hidden final value; reduced motion skips the animation. Seen at 1440 and 390:
+  mid-count values, final values, and on phones it waits at 0 until scrolled to.
 - `[x]` About, services (5 items), "Why choose MTC" (6 items, no 01–06
   numerals: not a sequence), quote band on the ink surface. ISO lines kept at
   their existing weight (owner's call, see BACKLOG).
