@@ -1,14 +1,13 @@
 <?php require_once __DIR__ . '/page-helpers.php';
 
 // Stylesheets this page needs on top of the site-wide ones. Set it before
-// including this file, e.g. $mtc_page_css = ['assets/css/legacy-product.css'];
+// including this file, e.g. $mtc_page_css = ['assets/css/about.css'];
 $mtc_css = array_merge([
     // compat.css (the Bootstrap stand-in) was deleted in phase 8; the few
     // Reboot rules still needed open mtc.css.
     'assets/css/mtc.css',                    // tokens, reboot, base, layout primitives
     'assets/css/chrome.css',                 // header, nav, footer, mobile bars
     'assets/fontawesome/css/icons.css',      // subset, built by tools/subset_fontawesome.py
-    'assets/css/legacy.css',                 // being replaced, page by page
 ], $mtc_page_css ?? []);
 ?>
 <link rel="icon" type="image/png" href="assets/img/MTC_Logo_Footer.png">

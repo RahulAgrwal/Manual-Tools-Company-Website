@@ -80,8 +80,11 @@
     $counts = array_count_values(array_column($gallery_items, 0));
     ?>
 
-    <section class="section gallery">
+    <section class="section gallery" aria-labelledby="gallery-title">
       <div class="wrap">
+        <!-- Screen-reader heading: without it the page went from its h1 to the
+             footer's h3 (Lighthouse heading-order, phase 9). -->
+        <h2 id="gallery-title" class="sr-only">Machinery photos</h2>
         <p class="lede measure gallery__lede">
           Photos of machines built in our Dhanbad workshop and installed at client plants. Filter by machine type, tap a photo to enlarge it, and open any product page for full specifications.
         </p>

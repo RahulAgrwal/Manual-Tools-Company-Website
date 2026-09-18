@@ -32,7 +32,7 @@ if (substr($page_name, -4) !== '.php') {
 
                 <!-- Col 2: Useful Links -->
                 <div class="footer-links">
-                    <h4>Quick Links</h4>
+                    <h3>Quick Links</h3>
                     <ul>
                         <li><a href="/">Home</a></li>
                         <li><a href="about">Company Profile</a></li>
@@ -44,7 +44,7 @@ if (substr($page_name, -4) !== '.php') {
 
                 <!-- Col 3: Key Products -->
                 <div class="footer-links">
-                    <h4>Key Machinery</h4>
+                    <h3>Key Machinery</h3>
                     <ul>
                         <li><a href="coal-crusher">Coal Crusher</a></li>
                         <li><a href="pusher-with-stamping-arrangement">Pusher Machine</a></li>
@@ -56,7 +56,7 @@ if (substr($page_name, -4) !== '.php') {
 
                 <!-- Col 4: Contact & Map -->
                 <div class="footer-contact">
-                    <h4>Get In Touch</h4>
+                    <h3>Get In Touch</h3>
                     
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>

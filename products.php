@@ -18,7 +18,6 @@
   <meta property="og:image" content="https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Coal-Crusher-single-disc.jpg">
   <meta property="og:site_name" content="Manual Tools Company">
 
-  <?php $mtc_page_css = ['assets/css/legacy-product.css']; ?>
   <?php include('common-head.php'); ?>
   <?php
   include_once('global-products.php');
@@ -96,7 +95,10 @@
     <!-- One loop over $GLOBAL_PRODUCT_CARDS. These rows used to be ten
          hand-written copies that duplicated the data and had already drifted
          from it once. -->
-    <section class="section">
+    <!-- The filter bar above already ends with its own bottom margin, so the
+         listing only needs a small top pad (phase 9: without legacy.css the
+         full section padding left ~135px between the pills and the first row). -->
+    <section class="section" style="padding-top: 0;">
       <div class="wrap">
         <div class="product-rows">
           <?php foreach ($GLOBAL_PRODUCT_CARDS as $i => $card) : ?>

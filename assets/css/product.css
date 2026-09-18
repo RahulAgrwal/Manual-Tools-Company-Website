@@ -333,7 +333,7 @@
 /* The row scrolls sideways (overflow-x), which clips anything drawn outside
    a tab: seen in the browser, the keyboard focus ring lost its top and bottom.
    Draw it just inside the button instead. */
-.pd-tabs .nav-link:focus-visible { outline-offset: -2px; }
+.pd-tabs .nav-link:focus-visible { outline-offset: -3px; }
 .pd-tabs .nav-link.active { color: var(--c-ink); font-weight: var(--fw-bold); }
 .pd-tabs .nav-link.active::after {
   content: "";

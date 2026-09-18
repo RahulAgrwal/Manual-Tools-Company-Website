@@ -328,13 +328,10 @@ i.mobile-nav-toggle {
 .back-to-top.active { opacity: 1; visibility: visible; }
 .back-to-top:hover { border-color: var(--c-ink); }
 @media (max-width: 61.99rem) {
-  /* Clear the mobile call/quote bar. */
-  .back-to-top { bottom: 4.75rem; }
-}
-@media (max-width: 47.99rem) {
-  /* Hidden on phones. Verified at 390px: it sat over the corner of the quote
-     form's message field, and would cover a field being typed in. The call /
-     quote bar already holds the bottom edge, and touch scrolling is fast. */
+  /* Hidden wherever the call / quote bar shows (phones and tablets).
+     Verified at 390px: it sat over the corner of the quote form's message
+     field. At 768px (phase 9) it floated over the machinery cards above the
+     bar. The bar already holds the bottom edge, and touch scrolling is fast. */
   .back-to-top { display: none; }
 }
 

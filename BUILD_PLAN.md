@@ -60,7 +60,7 @@ optional tidy-up.** A step is not finished until this document says so.
 | 6 | Home page sections | `[x]` |
 | 7 | About, contact, gallery, 404, coal-crusher hub | `[x]` |
 | 8 | Drop Bootstrap JS; delete `compat.css` | `[x]` |
-| 9 | QA sweep, Lighthouse, accessibility | `[ ]` |
+| 9 | QA sweep, Lighthouse, accessibility | `[~]` |
 | 10 | Deploy + post-deploy SEO | `[ ]` |
 
 ---
@@ -545,15 +545,42 @@ belongs in its own change.
   (the `.container` was the bar itself); copyright and visitor count now sit
   at opposite ends on desktop.
 
-## Phase 9 — QA `[ ]`
+## Phase 9 — QA `[~]`
 
-- `[ ]` 18 pages at 390 / 768 / 1440, no PHP notices.
+- `[x]` 17 pages (16 + nested 404) at 390 / 768 / 1440, no PHP notices. All
+  rendered through the PHP CLI with E_ALL: clean; dev-server log: clean. Sweeps
+  at each width: no overflow, no broken images. Found by looking at 768: the
+  machinery grid ran 3 columns and left the tenth card alone (-> 2 columns at
+  48-62rem), and back-to-top floated over the cards above the call/quote bar
+  (-> hidden wherever that bar shows, below 62rem).
 - `[ ]` Lead-gen end to end: both forms, reCAPTCHA, emails, GA4 `generate_lead`,
   Ads conversion `AW-17669553737/4NI3CPisnNgbEMn8v-lB`.
-- `[ ]` Visitor counter still appears on a product page (the `track-visit` trap).
-- `[ ]` `check_pages.py --diff` against the phase-0 baseline.
-- `[ ]` Lighthouse mobile: LCP < 2.5 s on `/`, CLS < 0.05.
-- `[ ]` Focus ring 2px → 3px (design-driver finding).
+- `[x]` Visitor counter still appears on a product page (vibrator-screen showed
+  "Visitors: 1224" in phase 8).
+- `[x]` `check_pages.py --diff` against the phase-0 baseline: 0 failures,
+  12 warnings (titles 66-68 chars on six product pages, /contact og:title),
+  no drift.
+- `[~]` Lighthouse mobile. **Accessibility 100, SEO 100** on `/` and a product
+  page (was 98: footer headings were h4 after h2 -> h3; the gallery had no h2
+  -> screen-reader "Machinery photos"). Best practices 77: only the Google Ads
+  tag's third-party cookies, which stay (conversion tracking).
+  **CLS 0.00.** LCP (Slow 4G, 4x CPU, local): 3.4-3.5 s, all render delay; the
+  LCP element is the hero lede *text*, waiting on CSS. The local server is
+  single-request HTTP/1.1 with no compression, so this does not predict
+  production (LiteSpeed, Brotli verified on the live site). Real fix made:
+  **`legacy.css` (67 KB) and `legacy-product.css` (20 KB) are no longer
+  loaded** -- home render-blocking CSS 129 KB -> 62 KB raw (~17 KB gzip).
+  A scripted before/after of every element's computed style on 10 pages at
+  both widths showed legacy.css still did only four things: removed link
+  underlines (moved to mtc.css), set body text to its warm #4D4643 over the
+  token #55606B (the design colour now applies), gave the products filter an
+  orange active pill against the design rule (now the shared ink pill), and
+  restyled the form status lines (now the shared .form-status). Visually
+  checked: products pills + filter, contact status lines and error border,
+  all 17 pages at 1440 and 390. **Measure LCP on the live site after deploy
+  (PageSpeed Insights) -- moved to phase 10.**
+- `[x]` Focus ring 2px -> 3px (mtc.css; product tab ring inset -3px). Seen on
+  the contact page by keyboard.
 - `[ ]` Catalogue on phones is ~9,300px (746px per row); consider the compact
   row treatment used on home.
 
@@ -562,6 +589,9 @@ belongs in its own change.
 - `[ ]` Owner sign-off, then merge to `main` (auto-deploys).
 - `[ ]` `sitemap.xml` `lastmod`; `python tools/indexnow_submit.py`; Search Console.
 - `[ ]` Update `CLAUDE.md` §Styling and move finished items into `BACKLOG.md`.
+- `[ ]` On the live site: PageSpeed Insights mobile for `/` and a product page
+  (LCP < 2.5 s, CLS < 0.05), moved here from phase 9 because the local dev
+  server cannot represent production (no compression, one request at a time).
 
 ---
 
