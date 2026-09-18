@@ -14,12 +14,20 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-// Only count real top-level pages (a .php file in this folder that renders the footer)
+// Only count real top-level pages: a .php file in this folder that renders the
+// footer, either directly or by delegating to product-page.php (the ten product
+// detail pages are three-line stubs that do exactly that). Without the second
+// name here those ten pages stop being counted, silently.
 $page = basename((string)($_POST['page'] ?? ''));
 $file = __DIR__ . '/' . $page;
+// The stubs write `require __DIR__ . '/product-page.php';`, so allow anything
+// up to the file name within the same statement. product-page.php itself is
+// the template, not a page: it is on the include-only 404 list, and counting it
+// would let a POST inflate a counter for a URL that does not exist.
 $isPage = preg_match('/^[A-Za-z0-9-]+\.php$/', $page)
+    && $page !== 'product-page.php'
     && is_file($file)
-    && preg_match('/include(_once)?\s*\(?\s*["\']footer\.php["\']/', file_get_contents($file));
+    && preg_match('/\b(include|require)(_once)?\b[^;]*["\'\/](footer|product-page)\.php["\']/', file_get_contents($file));
 
 if (!$isPage) {
     http_response_code(400);

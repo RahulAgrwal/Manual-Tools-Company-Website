@@ -2,6 +2,7 @@
 
 ## Pending
 
+- [ ] **Ring-type coke cutter shows the wrong process diagram.** Its "Operational" tab displays the drum-type cutter's diagram (`assets/img/product-images/coke-cutter/process-diagram.jpg`), with a leftover comment "keep the generic one", although `coke-cutter-ring-teeth/process-diagram.jpg` exists in its own folder. Found during the UI redesign (2026-09-18) and deliberately left as-is. Owner to confirm which diagram is correct; the fix is one line (`process_diagram`) in `product-data.php`.
 - [ ] **Quenching Coke Car product page.** Waiting on specs from the owner (capacity, motor HP, dimensions, material, key features) and photos. The `header.php` dropdown link is still `href="#"`. Follow "Adding a product" in `CLAUDE.md`.
 - [ ] **PHPMailer is not really in git.** `vendor/phpmailer/phpmailer` is stored as a git *gitlink* (a nested repo reference with no `.gitmodules`), so a fresh clone or deploy gets an empty folder and the contact form fails. The live server works only because its copy was uploaded earlier.
   - Fix: commit the library files properly.

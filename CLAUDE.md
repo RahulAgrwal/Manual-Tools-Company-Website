@@ -2,6 +2,10 @@
 
 Marketing and lead-generation website for **Manual Tools Company** (coke oven machinery, Dhanbad). Live at https://www.manualtoolsco.com/. Plain PHP pages on a Bootstrap 5 template, with no framework, no build step and no tests.
 
+## UI redesign in progress
+
+A whole-site redesign is under way on branch `redesign/ui` (not yet merged; `main` auto-deploys). **`BUILD_PLAN.md` is the source of truth for it.** Updating `BUILD_PLAN.md` is a **mandatory** part of every redesign step: mark a step `[~]` before starting it and `[x]` with a one-line note when it lands, record problems in its Session log, and commit it in the same commit as the code it describes. Read it before touching any page.
+
 ## Run locally
 
     php -S localhost:8080 router.php
