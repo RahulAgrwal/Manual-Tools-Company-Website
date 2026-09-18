@@ -55,8 +55,11 @@
   --c-line-strong:  #C8CFD6;
 
   /* ---- Action. Orange is ONLY for primary actions --------------------- */
-  --c-action:       #F03C02;
-  --c-action-hover: #CC3202;
+  /* Owner decision 2026-09-18: fills use #CC3202 -- the brand hue a shade
+     deeper -- because white on #F03C02 is 3.92:1 and fails WCAG AA at button
+     text size. #CC3202 is 5.22:1. The logo keeps the original #F03C02. */
+  --c-action:       #CC3202;
+  --c-action-hover: #A82901;
   --c-action-ink:   #FFFFFF;
   --c-action-tint:  #FFF1EC;
   --c-focus:        #1A5FD0;   /* deliberately not orange: it must read as UI */

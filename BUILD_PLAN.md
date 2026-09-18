@@ -56,8 +56,8 @@ optional tidy-up.** A step is not finished until this document says so.
 | 2 | Imagery — clean cutouts, trim, product card | `[x]` |
 | 3 | Global chrome — header, nav, footer | `[x]` |
 | 4 | Catalogue — `products.php` driven from data | `[x]` |
-| 5 | Product detail pages — template + restyle | `[~]` |
-| 6 | Home page sections | `[ ]` |
+| 5 | Product detail pages — template + restyle | `[x]` |
+| 6 | Home page sections | `[~]` |
 | 7 | About, contact, gallery, 404, coal-crusher hub | `[ ]` |
 | 8 | Drop Bootstrap JS; delete `compat.css` | `[ ]` |
 | 9 | QA sweep, Lighthouse, accessibility | `[ ]` |
@@ -166,7 +166,7 @@ optional tidy-up.** A step is not finished until this document says so.
 - `coal-crusher.php` comparison hub moved to **Phase 7** (it is a content page,
   not a catalogue listing).
 
-## Phase 5 — Product detail pages `[~]`
+## Phase 5 — Product detail pages `[x]`
 
 The ten pages are near-literal clones — a normalised skeleton diff of
 `power-winch` vs `vibrator-screen` is 12 hunks, of which 6 are icon-class swaps.
@@ -342,7 +342,12 @@ Measured structure of the ten (confirmed by the extractor, matches the survey):
       color: #fff }` rule later in legacy.css. Deleted.
   17. Contact page: long email **overflowed its card** after the container width
       change. `a[href^="mailto:"] { overflow-wrap: anywhere }` site-wide.
-- `[~]` **Fixes 16 and 17 are applied but not yet looked at.** The dev server and
+- `[x]` **Fixes 16 and 17 visually re-checked** after the user restarted the
+  server and browser: contact page at 1440 — breadcrumb h1 dark `#10161C` at
+  36px, both email addresses wrap inside their cards (22px and 31px clear);
+  about, products, contact, photo-gallery and coal-crusher at 390 — h1 dark, no
+  horizontal overflow. `#CC3202` confirmed on the header button.
+- (Superseded note, kept for the record:) **Fixes 16 and 17 were applied but not yet looked at.** The dev server and
   the headless Chrome were both stopped by Claude Code (machine low on memory)
   right after the screenshot that revealed them; neither is restarted without
   the user's go-ahead. Verified so far only by CLI render (every page renders,
@@ -377,13 +382,13 @@ variance 6, density 4. What was taken, and what was not:
     tags). `[x]` Changed to **`#63707C`: 4.52–5.07:1**. Visual re-check pending
     (server/browser stopped).
   - White on brand orange `#F03C02` is **3.92:1** — AA only for large text; the
-    buttons are 15px bold. `[ ]` **Owner decision:** use `#CC3202` for button
-    fills (**5.22:1**, already the hover shade — same hue, deeper tone), or keep
-    `#F03C02` and enlarge button text to AA "large" (≥18.7px bold).
+    buttons are 15px bold. `[x]` **Owner decision (2026-09-18): use `#CC3202`**
+    (5.22:1) — `--c-action` changed; hover deepens to `#A82901`. The logo keeps
+    `#F03C02`. Visual check pending with the phase 5 re-check.
   - Also noted: focus ring 2px (it suggests 3–4px); filter pills below the 44px
     touch height. To address with phase 6.
 
-## Phase 6 — Home `[ ]`
+## Phase 6 — Home `[~]`
 
 - `[ ]` Hero carousel. **LCP-critical**: keep `fetchpriority="high"` on slide 1
   and the next-slide pre-warmer; do **not** add an entry animation (an
