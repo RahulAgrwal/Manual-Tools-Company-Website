@@ -31,7 +31,6 @@
   font-variant-numeric: tabular-nums;
 }
 .hub-compare caption {
-  caption-side: top;   /* compat.css keeps Bootstrap's reboot, which puts it below */
   padding: var(--s-4) var(--s-5) var(--s-2);
   font-size: var(--fs-xs);
   font-weight: var(--fw-bold);

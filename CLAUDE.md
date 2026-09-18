@@ -62,7 +62,7 @@ All share one layout:
 - Gallery: a main image plus `glob()` over `assets/img/product-images/<folder>/` (images and mp4/webm). Thumbnails use `mtc_thumb()`, the main view uses `mtc_img()`, and the inline `swapImage()`/`swapMedia()` switches it.
 - Spec grid and Brochure / Request Quote / Call buttons (no star ratings: there are no reviews).
 - An overview section: a question-style `<h2>`, a 130–170 word answer written from the page's own specs, a link to the closest related product, and a "Buying information" box (lead time, warranty, installation, custom builds, brochure).
-- Bootstrap tabs (Description, Process Flow, Applications, Maintenance, FAQ from a `$product_faqs` array). Don't add FAQPage markup: Google no longer shows FAQ rich results.
+- Tabs (Description, Process Flow, Applications, Maintenance, FAQ), driven by `assets/js/product-tabs.js`; the FAQ is native `<details>`. Bootstrap's JS and `compat.css` are gone (redesign phase 8), so don't add `data-bs-*` markup. Don't add FAQPage markup: Google no longer shows FAQ rich results.
 - Sidebar quote form, then related products, then the footer.
 
 **Adding a product:** copy an existing detail page (for example `coke-cutter-double-drive-ring-type.php`), then update all of:

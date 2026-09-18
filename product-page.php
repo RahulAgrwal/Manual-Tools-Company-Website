@@ -254,28 +254,27 @@ echo json_encode([
       <div class="wrap pd-details__grid">
 
         <div class="pd-detail-body">
-          <!-- Bootstrap's tab JS still drives these (removed in phase 8), so the
-               nav-link / tab-pane / fade / show / active classes must stay. -->
+          <!-- WAI-ARIA tabs, driven by assets/js/product-tabs.js (Bootstrap's tab
+               plugin until phase 8). Inactive panels carry `hidden`, so without
+               JavaScript only the first shows, and the tab buttons do nothing. -->
           <div class="pd-tabs-scroll">
-            <ul class="nav pd-tabs" id="myTab" role="tablist">
+            <div class="pd-tabs" role="tablist" aria-label="Product details">
               <?php foreach ($p['tabs'] as $i => $tab) : ?>
-                <li role="presentation">
-                  <button class="nav-link<?php echo $i === 0 ? ' active' : ''; ?>"
-                    id="<?php echo $tab['id']; ?>-tab" data-bs-toggle="tab"
-                    data-bs-target="#<?php echo $tab['id']; ?>" type="button" role="tab"
-                    aria-controls="<?php echo $tab['id']; ?>"
-                    aria-selected="<?php echo $i === 0 ? 'true' : 'false'; ?>"><?php echo htmlspecialchars($tab['label']); ?></button>
-                </li>
+                <button class="nav-link<?php echo $i === 0 ? ' active' : ''; ?>"
+                  id="<?php echo $tab['id']; ?>-tab" type="button" role="tab"
+                  aria-controls="<?php echo $tab['id']; ?>"
+                  aria-selected="<?php echo $i === 0 ? 'true' : 'false'; ?>"
+                  tabindex="<?php echo $i === 0 ? '0' : '-1'; ?>"><?php echo htmlspecialchars($tab['label']); ?></button>
               <?php endforeach; ?>
-            </ul>
+            </div>
           </div>
 
-          <div class="tab-content pd-panes" id="myTabContent">
+          <div class="pd-panes">
             <?php foreach ($p['tabs'] as $i => $tab) :
               $id = $tab['id'];
             ?>
-              <div class="tab-pane fade<?php echo $i === 0 ? ' show active' : ''; ?>" id="<?php echo $id; ?>"
-                role="tabpanel" aria-labelledby="<?php echo $id; ?>-tab">
+              <div class="pd-pane" id="<?php echo $id; ?>" role="tabpanel" tabindex="0"
+                aria-labelledby="<?php echo $id; ?>-tab"<?php echo $i === 0 ? '' : ' hidden'; ?>>
 
                 <?php if ($id === 'desc') : ?>
                   <div class="pd-prose">
@@ -366,24 +365,16 @@ echo json_encode([
 
                 <?php elseif ($id === 'faq') : ?>
                   <div class="pd-faq">
-                    <?php foreach ($p['faqs'] as $n => [$q, $a]) :
-                      $open = $n === 0;
-                      $cid = 'localFaq' . $n;
-                    ?>
-                      <div class="pd-faq__item">
-                        <h3 class="pd-faq__h">
-                          <button class="pd-faq__q<?php echo $open ? '' : ' collapsed'; ?>" type="button"
-                            data-bs-toggle="collapse" data-bs-target="#<?php echo $cid; ?>"
-                            aria-controls="<?php echo $cid; ?>"
-                            aria-expanded="<?php echo $open ? 'true' : 'false'; ?>">
-                            <span><?php echo htmlspecialchars($q); ?></span>
-                            <span class="pd-faq__icon" aria-hidden="true"></span>
-                          </button>
-                        </h3>
-                        <div id="<?php echo $cid; ?>" class="collapse<?php echo $open ? ' show' : ''; ?>" data-bs-parent="#faq">
-                          <p class="pd-faq__a"><?php echo htmlspecialchars($a); ?></p>
-                        </div>
-                      </div>
+                    <?php foreach ($p['faqs'] as $n => [$q, $a]) : ?>
+                      <!-- Native <details>; the shared name opens one at a time,
+                           as the Bootstrap accordion did. -->
+                      <details class="pd-faq__item" name="product-faq"<?php echo $n === 0 ? ' open' : ''; ?>>
+                        <summary class="pd-faq__q">
+                          <span><?php echo htmlspecialchars($q); ?></span>
+                          <span class="pd-faq__icon" aria-hidden="true"></span>
+                        </summary>
+                        <p class="pd-faq__a"><?php echo htmlspecialchars($a); ?></p>
+                      </details>
                     <?php endforeach; ?>
                   </div>
 
@@ -420,7 +411,9 @@ echo json_encode([
 
   <a href="#" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
 
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- No Bootstrap bundle (79 KB): product-tabs.js replaces its tab plugin,
+       and the FAQ is native <details>. -->
+  <script src="<?php echo mtc_asset('assets/js/product-tabs.js'); ?>"></script>
   <script src="<?php echo mtc_asset('assets/js/product-gallery.js'); ?>"></script>
   <script src="<?php echo mtc_asset('assets/js/main.js'); ?>"></script>
 

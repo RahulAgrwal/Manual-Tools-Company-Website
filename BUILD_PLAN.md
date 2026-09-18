@@ -59,7 +59,7 @@ optional tidy-up.** A step is not finished until this document says so.
 | 5 | Product detail pages — template + restyle | `[x]` |
 | 6 | Home page sections | `[x]` |
 | 7 | About, contact, gallery, 404, coal-crusher hub | `[x]` |
-| 8 | Drop Bootstrap JS; delete `compat.css` | `[ ]` |
+| 8 | Drop Bootstrap JS; delete `compat.css` | `[x]` |
 | 9 | QA sweep, Lighthouse, accessibility | `[ ]` |
 | 10 | Deploy + post-deploy SEO | `[ ]` |
 
@@ -496,15 +496,40 @@ None of these five pages loads the Bootstrap bundle any more.
   These are the site's existing words; CLAUDE.md asks to claim only what the
   owner can back up.
 
-## Phase 8 — Drop Bootstrap JS `[ ]`
+## Phase 8 — Drop Bootstrap JS `[x]`
 
-After phase 7 only `product-page.php` (tabs + FAQ collapse) and `products.php`
-still load the bundle, and `products.php` does not use it (its filter is its
-own script). The contact FAQ shows the `<details name>` pattern to reuse.
-Only tabs, collapse/accordion, carousel and fade are used. Replace with ~90 lines
-(`<details name>` for the accordions), delete the 79 KB bundle, then delete
-`compat.css`. Keep jQuery for now — `main.js:170-352` is the lead-gen path and
+No page loads Bootstrap any more (JS or CSS), and **`compat.css` is deleted**
+(11.7 KB) — the acceptance test the migration set itself in phase 1.
+jQuery stays for now: `main.js` uses it for the lead-gen form path, which
 belongs in its own change.
+
+- `[x]` Product pages: Bootstrap's tab plugin -> `assets/js/product-tabs.js`
+  (47 lines, WAI-ARIA tabs: roving tabindex, Left/Right/Home/End, inactive
+  panels `hidden`). FAQ collapse -> native `<details name="product-faq">`.
+  Bundle removed from `product-page.php` and `products.php` (which never used it).
+- `[x]` `compat.css` inventory (scripted: every class it defines, grepped across
+  the PHP and JS). Still used were only the breadcrumb bar's `container d-flex
+  ...` (5 pages -> `.wrap`, already styled by mtc.css), the footer's
+  `row`/`col-*`/utilities (-> `.footer-grid__cols` grid in chrome.css), one
+  `text-center mt-5` (-> `.our-products__more`), and the tab/collapse classes
+  above. The Reboot rules moved to the top of mtc.css (minus `caption-side:
+  bottom`, so the hub table no longer needs its override).
+- **Visually verified**: all 17 pages (16 + a nested 404) swept at 1440 and 390
+  — no horizontal overflow, no broken images, one h1, footer 4 / 1-2 columns,
+  `bootstrap` undefined, no compat.css, exactly one visible tab panel on every
+  product page. Screenshots: haulage tabs (click, arrow keys, End) and FAQ at
+  1440; conveyor-materials' bespoke tabs and component grid; vibrator-screen
+  tabs and FAQ by touch at 390; footer at both widths; contact breadcrumb bar
+  at 390. check_pages: 0 failures, 12 warnings, no SEO drift.
+- **Defects found by looking, and fixed:** the tab focus ring lost its top and
+  bottom (clipped by the scrolling row) -> drawn inside the button; on phones
+  the selected last tab (FAQ) stayed half under the edge fade -> trailing
+  padding + scroll padding on the row; FAQ questions stayed orange after a tap
+  (sticky :hover on touch) -> hover colour only under `(hover: hover)`, on the
+  product and contact FAQs; phone footer 1,296px -> the two link lists side by
+  side, 1,032px. Bonus: the footer bottom bar's flex rule never matched before
+  (the `.container` was the bar itself); copyright and visitor count now sit
+  at opposite ends on desktop.
 
 ## Phase 9 — QA `[ ]`
 
@@ -530,6 +555,12 @@ belongs in its own change.
 
 Newest first. One entry per session or per notable event: what was done, what
 went wrong, what the next session should pick up. Required — see the rule at the top.
+
+### 2026-09-18 — session 2, part 7 (phase 8)
+- Session resumed after a usage-limit pause; dev server and headless Chrome
+  had stopped with the old session and were restarted on the user's "continue".
+- Phase 8 done (details above). Next: phase 9 (QA sweep, Lighthouse, lead-gen
+  end to end).
 
 ### 2026-09-18 — session 2, part 6 (phase 7)
 - Owner requests handled first: catalogue cards checked against every product

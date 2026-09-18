@@ -231,7 +231,7 @@
 .pd-related-link i { font-size: 0.8em; margin-left: var(--s-1); }
 
 .pd-h3 { margin: var(--s-7) 0 var(--s-4); font-size: var(--fs-h3); }
-.pd-panes > .tab-pane > .pd-h3:first-child,
+.pd-panes > .pd-pane > .pd-h3:first-child,
 .pd-flow .pd-h3 { margin-top: 0; }
 
 /* --------------------------------------------------------------------------
@@ -294,6 +294,9 @@
   list-style: none;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
+  /* product-tabs.js scrolls the chosen tab into view; stop it clear of the
+     edge fade rather than half under it (seen at 390px). */
+  scroll-padding-inline: 1.5rem;
 }
 .pd-tabs::-webkit-scrollbar { display: none; }
 @media (max-width: 47.99rem) {
@@ -302,7 +305,9 @@
      Applications, Maintenance and FAQ existed. A visibly cut-off next tab is
      the clearest cue that a row scrolls, so the gap tightens and the fade
      narrows enough for it to show through. */
-  .pd-tabs { gap: var(--s-4); }
+  /* Trailing room as wide as the fade, so the last tab (FAQ) can scroll
+     fully clear of it; without it FAQ stayed half-faded when selected. */
+  .pd-tabs { gap: var(--s-4); padding-right: 1.5rem; }
   .pd-tabs-scroll::after {
     content: "";
     position: absolute;
@@ -325,6 +330,10 @@
   cursor: pointer;
 }
 .pd-tabs .nav-link:hover { color: var(--c-ink); }
+/* The row scrolls sideways (overflow-x), which clips anything drawn outside
+   a tab: seen in the browser, the keyboard focus ring lost its top and bottom.
+   Draw it just inside the button instead. */
+.pd-tabs .nav-link:focus-visible { outline-offset: -2px; }
 .pd-tabs .nav-link.active { color: var(--c-ink); font-weight: var(--fw-bold); }
 .pd-tabs .nav-link.active::after {
   content: "";
@@ -335,6 +344,8 @@
 }
 
 .pd-panes { padding-top: var(--s-6); }
+.pd-pane[hidden] { display: none; }
+.pd-pane:focus-visible { outline-offset: var(--s-2); }
 
 /* Parameter table -- the spec sheet. Also styles the conveyor page's own
    materials table, which arrives as raw markup with the legacy class. */
@@ -464,10 +475,9 @@
 .pd-list strong { color: var(--c-ink); }
 
 /* FAQ -- hairline rules and a plus that turns into a minus (Shopify,
-   Patreon, Hims on Mobbin). Bootstrap's collapse still drives it. */
+   Patreon, Hims on Mobbin). Native <details>/<summary> since phase 8. */
 .pd-faq { border-top: 1px solid var(--c-line); }
 .pd-faq__item { border-bottom: 1px solid var(--c-line); }
-.pd-faq__h { margin: 0; font-size: inherit; }
 .pd-faq__q {
   display: flex;
   justify-content: space-between;
@@ -480,11 +490,13 @@
   font-weight: var(--fw-bold);
   color: var(--c-ink);
   text-align: left;
-  background: none;
-  border: 0;
   cursor: pointer;
+  list-style: none;
 }
-.pd-faq__q:hover { color: var(--c-action); }
+.pd-faq__q::-webkit-details-marker { display: none; }
+/* hover only where a pointer really hovers: on touch screens the colour
+   stuck to a question after it was tapped (seen at 390px). */
+@media (hover: hover) { .pd-faq__q:hover { color: var(--c-action); } }
 .pd-faq__icon {
   position: relative;
   flex: none;
@@ -502,7 +514,7 @@
   transition: transform var(--dur-2) var(--ease);
 }
 .pd-faq__icon::after { transform: rotate(90deg); }
-.pd-faq__q:not(.collapsed) .pd-faq__icon::after { transform: rotate(0deg); }
+.pd-faq__item[open] .pd-faq__icon::after { transform: rotate(0deg); }
 .pd-faq__a {
   max-width: var(--measure);
   margin: 0;

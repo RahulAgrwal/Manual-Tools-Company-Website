@@ -347,6 +347,34 @@ i.mobile-nav-toggle {
 }
 #footer .footer-top { padding-block: var(--section-y) var(--s-7); }
 
+/* Own grid, not Bootstrap's row/col-* (phase 8 deleted compat.css): two
+   columns up to tablet width, four on desktop. On phones the two short link
+   lists sit side by side and the brand and contact blocks span both --
+   seen at 390px, one column per block made the footer 1,296px tall. */
+.footer-grid__cols {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s-7) var(--s-6);
+}
+@media (max-width: 47.99rem) {
+  .footer-about,
+  .footer-contact { grid-column: 1 / -1; }
+}
+@media (min-width: 62rem) {
+  .footer-grid__cols { grid-template-columns: minmax(0, 4fr) minmax(0, 2fr) minmax(0, 3fr) minmax(0, 3fr); }
+}
+#footer .footer-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  margin-bottom: var(--s-4);
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-bold);
+  color: #fff;
+}
+#footer .footer-brand img { width: auto; height: 60px; }
+#footer .footer-map { margin-top: var(--s-4); }
+
 #footer h3,
 #footer h4 {
   margin: 0 0 var(--s-4);
@@ -423,7 +451,6 @@ i.mobile-nav-toggle {
   color: rgb(232 236 239 / 0.56);
   border-top: 1px solid rgb(255 255 255 / 0.1);
 }
-#footer .footer-bottom .container,
 #footer .footer-bottom .wrap {
   display: flex;
   flex-wrap: wrap;

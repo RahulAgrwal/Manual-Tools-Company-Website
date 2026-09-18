@@ -54,8 +54,8 @@
 
     <!-- ======= Breadcrumbs ======= -->
     <section id="breadcrumbs" class="breadcrumbs">
-      <div class="container">
-        <div class="d-flex justify-content-between align-items-center">
+      <div class="wrap">
+        <div>
           <h1>Coke Oven Machinery Products</h1>
           <ol>
             <li><a href="/">Home</a></li>
@@ -137,7 +137,6 @@
   <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/main.js"></script>
 
   <!-- Filter Script (Updated for Class Based Filtering) -->

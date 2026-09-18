@@ -33,7 +33,7 @@ $product_cards = $GLOBAL_PRODUCT_CARDS;
       <?php endforeach; ?>
     </div>
 
-    <div class="text-center mt-5">
+    <div class="our-products__more">
       <a href="products" class="btn btn--quiet">See all specifications</a>
     </div>
 

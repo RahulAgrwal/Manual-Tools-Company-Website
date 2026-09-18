@@ -146,6 +146,50 @@
 }
 
 /* --------------------------------------------------------------------------
+   Reboot -- the few Bootstrap Reboot rules the site was built on, moved here
+   from compat.css when that file was deleted (phase 8). They come first so
+   the base rules below override them, as compat.css used to by loading first.
+   Not carried over: caption-side: bottom (captions sit above tables now).
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+body { margin: 0; }
+
+h1, h2, h3, h4, h5, h6 { margin-top: 0; margin-bottom: 0.5rem; }
+p { margin-top: 0; margin-bottom: 1rem; }
+ul, ol { margin-top: 0; margin-bottom: 1rem; padding-left: 2rem; }
+ul ul, ol ul, ul ol, ol ol { margin-bottom: 0; }
+dl, dd { margin-bottom: 1rem; }
+dd { margin-left: 0; }
+
+b, strong { font-weight: bolder; }
+small { font-size: 0.875em; }
+a { color: inherit; }
+img, svg { vertical-align: middle; }
+
+table { border-collapse: collapse; }
+th { text-align: inherit; }
+th, td { padding: 0; }
+
+label { display: inline-block; }
+button, input, select, textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+button, [type="button"], [type="submit"] { -webkit-appearance: button; cursor: pointer; }
+button:focus:not(:focus-visible) { outline: 0; }
+textarea { resize: vertical; }
+iframe { border: 0; }
+
+/* The site relies on this: the visitor count, gallery filtering, product tab
+   panels and the form status lines are all shown and hidden with `hidden`. */
+[hidden] { display: none !important; }
+
+/* --------------------------------------------------------------------------
    Base
    -------------------------------------------------------------------------- */
 html {
@@ -449,6 +493,9 @@ table, .tnum { font-variant-numeric: tabular-nums; }
   margin-inline: auto;
   text-align: center;
 }
+
+/* The "See all" link under the home/about machinery grid. */
+.our-products__more { margin-top: var(--s-7); text-align: center; }
 
 /* --------------------------------------------------------------------------
    Breadcrumb bar

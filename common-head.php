@@ -3,10 +3,9 @@
 // Stylesheets this page needs on top of the site-wide ones. Set it before
 // including this file, e.g. $mtc_page_css = ['assets/css/legacy-product.css'];
 $mtc_css = array_merge([
-    // compat first: it is the legacy base the design system overrides.
-    // Both files define .btn, so order decides which one wins.
-    'assets/css/compat.css',                 // temporary Bootstrap stand-in
-    'assets/css/mtc.css',                    // tokens, base, layout primitives
+    // compat.css (the Bootstrap stand-in) was deleted in phase 8; the few
+    // Reboot rules still needed open mtc.css.
+    'assets/css/mtc.css',                    // tokens, reboot, base, layout primitives
     'assets/css/chrome.css',                 // header, nav, footer, mobile bars
     'assets/fontawesome/css/icons.css',      // subset, built by tools/subset_fontawesome.py
     'assets/css/legacy.css',                 // being replaced, page by page

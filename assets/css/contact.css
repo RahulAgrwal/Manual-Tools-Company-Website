@@ -107,7 +107,7 @@
   list-style: none;
 }
 .contact-faq summary::-webkit-details-marker { display: none; }
-.contact-faq summary:hover { color: var(--c-action); }
+@media (hover: hover) { .contact-faq summary:hover { color: var(--c-action); } }
 .contact-faq__icon {
   position: relative;
   flex: none;

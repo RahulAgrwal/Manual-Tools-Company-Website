@@ -65,8 +65,8 @@ $recaptchaSiteKey = '6Ldj7H0sAAAAAIIk3lL0kl9Y_Ohi8M_JcC5Qm13u';
   <main id="main">
 
     <section id="breadcrumbs" class="breadcrumbs">
-      <div class="container">
-        <div class="d-flex justify-content-between align-items-center">
+      <div class="wrap">
+        <div>
           <h1>Contact Manual Tools Company</h1>
           <ol>
             <li><a href="/">Home</a></li>

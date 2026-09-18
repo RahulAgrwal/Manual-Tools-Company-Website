@@ -18,6 +18,7 @@
 - [ ] **`assets/img/slide-thumbnail/` is unused.** The home-page carousel it served (blur-up placeholders) was replaced by the machine picker in the UI redesign (2026-09-18). Nothing references it any more; delete the folder in its own commit once the redesign is live.
 - [ ] **About page claims to confirm.** The intro says Manual Tools Company is a "premier manufacturer" that has "set the industry standard for quality and reliability", and the vision says "top-of-the-chart company". These are the site's existing words, kept in the redesign; `CLAUDE.md` asks to claim only what the owner can back up. Owner to keep, soften or remove.
 - [ ] **`assets/vendor/isotope-layout/` is unused.** The gallery no longer loads Isotope (replaced by a CSS grid and `assets/js/gallery.js`, 2026-09-18). Delete the folder in its own commit once the redesign is live.
+- [ ] **`assets/vendor/bootstrap/` is unused.** No page loads Bootstrap's CSS or JS since the redesign (phase 8, 2026-09-18). Delete the folder in its own commit once the redesign is live.
 
 ## Done
 
