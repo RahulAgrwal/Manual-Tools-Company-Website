@@ -17,7 +17,7 @@ if (substr($page_name, -4) !== '.php') {
                 <!-- Col 1: Brand & Socials -->
                 <div class="footer-about">
                     <a href="/" class="footer-brand">
-                        <img src="assets/img/MTC_Logo_Footer.png" alt="Manual Tools Company logo" width="60" height="60" loading="lazy">
+                        <img src="assets/img/mtc-logo.svg" alt="Manual Tools Company logo" width="60" height="60" loading="lazy">
                         <span>MANUAL TOOLS COMPANY</span>
                     </a>
                     <p class="footer-desc">

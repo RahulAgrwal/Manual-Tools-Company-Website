@@ -33,7 +33,7 @@
         "alternateName": "Manual Tools Co.",
         "description": "Manufacturer of coke oven machinery in Dhanbad, Jharkhand: coal crushers, coke cutters, haulage machines, door lifting power winches, vibrator screens, conveyor materials, pusher machines and coal charging cars.",
         "url": "https://www.manualtoolsco.com/",
-        "logo": "https://www.manualtoolsco.com/assets/img/MTC_Logo_Footer.png",
+        "logo": "https://www.manualtoolsco.com/assets/img/mtc-logo-512.png",
         "image": "https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Coal-Crusher-single-disc.jpg",
         "foundingDate": "1995",
         "founder": { "@type": "Person", "name": "Shobha Ram Agarwal" },

@@ -10,7 +10,9 @@ $mtc_css = array_merge([
     'assets/fontawesome/css/icons.css',      // subset, built by tools/subset_fontawesome.py
 ], $mtc_page_css ?? []);
 ?>
-<link rel="icon" type="image/png" href="assets/img/MTC_Logo_Footer.png">
+<!-- The owner's original SVG logo; the PNG (rendered from it) is for browsers without SVG icons. -->
+<link rel="icon" type="image/svg+xml" href="assets/img/mtc-logo.svg">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/img/mtc-logo-512.png">
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <link rel="dns-prefetch" href="//www.google-analytics.com">
   <link rel="preload" href="assets/fonts/archivo-latin-var.woff2" as="font" type="font/woff2" crossorigin>

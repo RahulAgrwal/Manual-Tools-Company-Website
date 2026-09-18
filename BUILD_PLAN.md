@@ -553,8 +553,16 @@ belongs in its own change.
   machinery grid ran 3 columns and left the tenth card alone (-> 2 columns at
   48-62rem), and back-to-top floated over the cards above the call/quote bar
   (-> hidden wherever that bar shows, below 62rem).
-- `[ ]` Lead-gen end to end: both forms, reCAPTCHA, emails, GA4 `generate_lead`,
-  Ads conversion `AW-17669553737/4NI3CPisnNgbEMn8v-lB`.
+- `[~]` Lead-gen end to end: both forms, reCAPTCHA, emails, GA4 `generate_lead`,
+  Ads conversion `AW-17669553737/4NI3CPisnNgbEMn8v-lB`. With the owner's
+  approval, one test enquiry (clearly marked TEST, owner's own email) was
+  sent from the local copy on 2026-09-18. Verified: browser validation, all
+  nine fields posted, reCAPTCHA v3 script + token, POST to forms/contact.php,
+  server-side verification, error line in the new .form-status style. The
+  server **blocked it: score < 0.5** -- correct, the test browser is headless
+  automation. No email sent, no conversion fired. **Remaining: one real
+  enquiry by a person on the live site after deploy** (phase 10), to confirm
+  email delivery, the confirmation email, generate_lead and the Ads conversion.
 - `[x]` Visitor counter still appears on a product page (vibrator-screen showed
   "Visitors: 1224" in phase 8).
 - `[x]` `check_pages.py --diff` against the phase-0 baseline: 0 failures,
@@ -581,6 +589,13 @@ belongs in its own change.
   (PageSpeed Insights) -- moved to phase 10.**
 - `[x]` Focus ring 2px -> 3px (mtc.css; product tab ring inset -3px). Seen on
   the contact page by keyboard.
+- `[x]` Owner request: the footer logo, favicon, Organization schema logo and
+  sitemap image now use the owner's original SVG logo (`assets/img/mtc-logo.svg`,
+  kept byte-for-byte as supplied) instead of `MTC_Logo_Footer.png` (deleted,
+  with its .webp). Schema and sitemap point at `mtc-logo-512.png`, rendered
+  from the SVG with a transparent background, because Google's logo guidance
+  prefers a raster of 112px+. The favicon lists the SVG first and the PNG as
+  fallback. Seen at 1440 and 390 @3x: sharp at 60px.
 - `[ ]` Catalogue on phones is ~9,300px (746px per row); consider the compact
   row treatment used on home.
 
@@ -589,6 +604,10 @@ belongs in its own change.
 - `[ ]` Owner sign-off, then merge to `main` (auto-deploys).
 - `[ ]` `sitemap.xml` `lastmod`; `python tools/indexnow_submit.py`; Search Console.
 - `[ ]` Update `CLAUDE.md` §Styling and move finished items into `BACKLOG.md`.
+- `[ ]` On the live site: one real enquiry by a person through the contact form
+  and one product quote form -- email to the company inbox + CC, the visitor's
+  confirmation email, GA4 generate_lead, Ads conversion (phase 9 could only
+  reach the reCAPTCHA gate from an automated browser).
 - `[ ]` On the live site: PageSpeed Insights mobile for `/` and a product page
   (LCP < 2.5 s, CLS < 0.05), moved here from phase 9 because the local dev
   server cannot represent production (no compression, one request at a time).
