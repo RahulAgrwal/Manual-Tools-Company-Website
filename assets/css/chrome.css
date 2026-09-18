@@ -1,0 +1,429 @@
+/* ==========================================================================
+   chrome.css -- the frame around every page: utility bar, header, navigation,
+   mobile menu, footer, mobile call/quote bar, back-to-top.
+
+   Depends on the tokens in mtc.css and must load after it.
+
+   The class contract here is fixed by assets/js/main.js and must not change
+   without changing that file too:
+     #header          gains .fixed-top on scroll; its nextElementSibling
+                      gains .scrolled-offset
+     #navbar          gains .navbar-mobile when the menu opens
+     body             gains .mobile-nav-active at the same time
+     .mobile-nav-toggle  swaps .fa-bars / .fa-times
+     .dropdown > a    toggles .dropdown-active on its sibling <ul>
+     .back-to-top     gains .active past 100px of scroll
+   The `i.` prefix on the toggle selector is load-bearing: without it Font
+   Awesome's own `display: inline-block` wins and the hamburger leaks onto
+   desktop.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Utility bar
+   Was a saturated brand-coloured strip competing with the logo for attention.
+   Now a quiet hairline rail: it holds contact details, which are reference
+   information, not a call to action.
+   -------------------------------------------------------------------------- */
+#topbar {
+  background: var(--c-canvas-sunk);
+  border-bottom: 1px solid var(--c-line);
+  font-size: var(--fs-xs);
+  line-height: var(--lh-ui);
+}
+#topbar .container,
+#topbar .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+  min-height: 2.5rem;
+}
+#topbar .contact-info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-5);
+}
+#topbar a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  color: var(--c-ink-2);
+  text-decoration: none;
+}
+#topbar a:hover { color: var(--c-action); }
+#topbar i { color: var(--c-ink-3); font-size: 0.875em; }
+
+#topbar .social-links { display: flex; gap: var(--s-1); }
+#topbar .social-links a {
+  display: grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: var(--r-1);
+  color: var(--c-ink-3);
+}
+#topbar .social-links a:hover {
+  color: var(--c-ink);
+  background: var(--c-surface);
+}
+@media (max-width: 47.99rem) {
+  #topbar .social-links { display: none; }
+  #topbar .contact-info { gap: var(--s-4); }
+}
+
+/* --------------------------------------------------------------------------
+   Header
+   -------------------------------------------------------------------------- */
+#header {
+  background: var(--c-surface);
+  border-bottom: 1px solid var(--c-line);
+  z-index: var(--z-header);
+  transition: box-shadow var(--dur-2) var(--ease);
+}
+#header.fixed-top {
+  position: fixed;
+  inset: 0 0 auto;
+  box-shadow: var(--shadow-1);
+}
+/* main.js puts this on whatever follows the header when it goes fixed. */
+.scrolled-offset { margin-top: var(--header-h, 76px); }
+
+.mtc-header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-5);
+  min-height: 4.75rem;
+}
+
+#header .logo { display: flex; align-items: center; flex: none; }
+#header .logo img {
+  display: block;
+  width: auto;
+  height: clamp(2.1rem, 1.6rem + 1.6vw, 2.75rem);
+}
+
+/* --------------------------------------------------------------------------
+   Desktop navigation
+   -------------------------------------------------------------------------- */
+#navbar > ul {
+  display: flex;
+  align-items: center;
+  gap: var(--s-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#navbar > ul > li { position: relative; }
+
+#navbar > ul > li > a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: var(--s-3) var(--s-4);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-med);
+  line-height: var(--lh-ui);
+  color: var(--c-ink-2);
+  text-decoration: none;
+  white-space: nowrap;
+  border-radius: var(--r-2);
+  transition: color var(--dur-1) var(--ease);
+}
+#navbar > ul > li > a:hover { color: var(--c-ink); }
+
+/* The active page is marked with a rule, not a colour change: it reads as
+   position rather than as something to click. */
+#navbar > ul > li > a.active {
+  color: var(--c-ink);
+  font-weight: var(--fw-bold);
+}
+#navbar > ul > li > a.active::after {
+  content: "";
+  position: absolute;
+  inset: auto var(--s-4) -1px;
+  height: 2px;
+  background: var(--c-action);
+}
+
+/* The one primary action in the header. It is a button, so the nav-link
+   rules above must not touch it. */
+#navbar > ul > li.nav-cta { margin-left: var(--s-3); }
+#navbar > ul > li.nav-cta > a { padding: 0.6rem 1.1rem; }
+#navbar > ul > li.nav-cta > a.active::after { display: none; }
+
+/* Marks a product that has no page yet (see BACKLOG.md) so the entry reads
+   as forthcoming rather than broken. */
+.nav-soon {
+  margin-left: var(--s-2);
+  font-size: 0.72em;
+  color: var(--c-ink-3);
+  font-style: italic;
+}
+
+#navbar .dropdown > a .fa-chevron-down,
+#navbar .dropdown > a .fa-chevron-up {
+  font-size: 0.7em;
+  color: var(--c-ink-3);
+  transition: transform var(--dur-1) var(--ease);
+}
+
+/* Dropdown panel */
+#navbar .dropdown > ul {
+  position: absolute;
+  top: calc(100% + 1px);
+  left: 0;
+  z-index: var(--z-nav);
+  min-width: 17rem;
+  margin: 0;
+  padding: var(--s-2);
+  list-style: none;
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-2);
+  box-shadow: var(--shadow-2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition: opacity var(--dur-1) var(--ease),
+              transform var(--dur-1) var(--ease),
+              visibility var(--dur-1);
+}
+#navbar .dropdown:hover > ul,
+#navbar .dropdown:focus-within > ul {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+#navbar .dropdown > ul a {
+  display: block;
+  padding: var(--s-3) var(--s-3);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-ui);
+  color: var(--c-ink-2);
+  text-decoration: none;
+  border-radius: var(--r-1);
+}
+#navbar .dropdown > ul a:hover {
+  color: var(--c-ink);
+  background: var(--c-canvas-sunk);
+}
+/* A link that goes nowhere should not look clickable. */
+#navbar .dropdown > ul a[href="#"] {
+  color: var(--c-ink-3);
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   Mobile navigation
+   -------------------------------------------------------------------------- */
+i.mobile-nav-toggle {
+  /* The `i.` prefix must stay -- it is what beats Font Awesome's
+     .fas { display: inline-block }. Without it this leaks onto desktop. */
+  display: none;
+  padding: var(--s-2);
+  font-size: 1.5rem;
+  color: var(--c-ink);
+  cursor: pointer;
+  background: none;
+  border: 0;
+}
+
+@media (max-width: 61.99rem) {
+  i.mobile-nav-toggle {
+    display: block;
+    position: relative;
+    z-index: calc(var(--z-nav) + 1);
+  }
+
+  #navbar > ul { display: none; }
+
+  #navbar.navbar-mobile {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-nav);
+    overflow-y: auto;
+    background: rgb(16 22 28 / 0.4);
+  }
+  #navbar.navbar-mobile > ul {
+    display: block;
+    width: min(21rem, 86vw);
+    min-height: 100%;
+    margin-left: auto;
+    padding: 5rem var(--s-5) var(--s-7);
+    background: var(--c-surface);
+  }
+  #navbar.navbar-mobile > ul > li + li { border-top: 1px solid var(--c-line); }
+  #navbar.navbar-mobile > ul > li > a {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: var(--s-4) 0;
+    font-size: var(--fs-body);
+  }
+  #navbar.navbar-mobile > ul > li > a.active::after { display: none; }
+  #navbar.navbar-mobile > ul > li > a.active { color: var(--c-action); }
+
+  #navbar.navbar-mobile .dropdown > ul {
+    position: static;
+    display: none;
+    min-width: 0;
+    padding: 0 0 var(--s-3) var(--s-4);
+    background: none;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+  /* main.js adds .dropdown-active to the sibling <ul>. */
+  #navbar.navbar-mobile .dropdown > ul.dropdown-active { display: block; }
+  #navbar.navbar-mobile .dropdown > a .fa-chevron-down { transition: none; }
+
+  #navbar.navbar-mobile > ul > li.nav-cta { margin: var(--s-5) 0 0; border-top: 0; }
+  #navbar.navbar-mobile > ul > li.nav-cta > a { justify-content: center; padding: var(--s-4); }
+
+  body.mobile-nav-active { overflow: hidden; }
+  body.mobile-nav-active i.mobile-nav-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Back to top
+   -------------------------------------------------------------------------- */
+.back-to-top {
+  position: fixed;
+  right: var(--s-4);
+  bottom: var(--s-4);
+  z-index: calc(var(--z-header) - 1);
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  color: var(--c-ink);
+  background: var(--c-surface);
+  border: 1px solid var(--c-line-strong);
+  border-radius: var(--r-2);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--dur-2) var(--ease), visibility var(--dur-2);
+}
+.back-to-top.active { opacity: 1; visibility: visible; }
+.back-to-top:hover { border-color: var(--c-ink); }
+@media (max-width: 61.99rem) {
+  /* Clear the mobile call/quote bar. */
+  .back-to-top { bottom: 4.75rem; }
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+#footer {
+  color: var(--c-ink-on-dark);
+  background: var(--c-ink-surface);
+}
+#footer .footer-top { padding-block: var(--section-y) var(--s-7); }
+
+#footer h3,
+#footer h4 {
+  margin: 0 0 var(--s-4);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+#footer p { color: rgb(232 236 239 / 0.72); }
+
+#footer ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#footer li + li { margin-top: var(--s-3); }
+#footer a {
+  color: rgb(232 236 239 / 0.72);
+  text-decoration: none;
+  transition: color var(--dur-1) var(--ease);
+}
+#footer a:hover { color: #fff; }
+
+#footer .social-links { display: flex; gap: var(--s-2); margin-top: var(--s-5); }
+#footer .social-links a {
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid rgb(255 255 255 / 0.16);
+  border-radius: var(--r-2);
+}
+#footer .social-links a:hover {
+  background: rgb(255 255 255 / 0.08);
+  border-color: rgb(255 255 255 / 0.32);
+}
+
+#footer iframe {
+  width: 100%;
+  border-radius: var(--r-2);
+  filter: grayscale(1) contrast(0.9);
+  opacity: 0.6;
+  transition: opacity var(--dur-2) var(--ease), filter var(--dur-2) var(--ease);
+}
+#footer iframe:hover { opacity: 1; filter: none; }
+
+#footer .footer-bottom {
+  padding-block: var(--s-5);
+  font-size: var(--fs-xs);
+  color: rgb(232 236 239 / 0.56);
+  border-top: 1px solid rgb(255 255 255 / 0.1);
+}
+#footer .footer-bottom .container,
+#footer .footer-bottom .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3);
+}
+
+/* --------------------------------------------------------------------------
+   Mobile call / quote bar
+   One of only two elements authorised to use --shadow-2: it floats over
+   content, so it needs to read as a separate layer.
+   -------------------------------------------------------------------------- */
+.mtc-mobile-cta {
+  position: fixed;
+  inset: auto 0 0;
+  z-index: var(--z-mobilecta);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--c-line);
+  box-shadow: var(--shadow-2);
+}
+.mtc-mobile-cta a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-2);
+  padding: var(--s-4);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  text-decoration: none;
+  background: var(--c-surface);
+  color: var(--c-ink);
+}
+.mtc-mobile-cta a + a {
+  background: var(--c-action);
+  color: var(--c-action-ink);
+}
+@media (min-width: 62rem) { .mtc-mobile-cta { display: none; } }
+/* Stop the bar covering the last of the footer. */
+@media (max-width: 61.99rem) { body { padding-bottom: 3.5rem; } }

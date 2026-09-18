@@ -80,18 +80,16 @@ iframe { border: 0; }
 /* --------------------------------------------------------------------------
    2. Container and grid
    -------------------------------------------------------------------------- */
+/* Deliberately not Bootstrap's stepped max-widths: .container is matched to
+   .wrap in mtc.css so a legacy section and a rebuilt one line up during the
+   migration. This also replaces the old `.container { max-width: 90%
+   !important }` override, which let content sprawl on wide screens. */
 .container {
   width: 100%;
-  padding-right: 0.75rem;
-  padding-left: 0.75rem;
-  margin-right: auto;
-  margin-left: auto;
+  max-width: var(--wrap);
+  padding-inline: var(--gutter);
+  margin-inline: auto;
 }
-@media (min-width: 576px)  { .container { max-width: 540px; } }
-@media (min-width: 768px)  { .container { max-width: 720px; } }
-@media (min-width: 992px)  { .container { max-width: 960px; } }
-@media (min-width: 1200px) { .container { max-width: 1140px; } }
-@media (min-width: 1400px) { .container { max-width: 1320px; } }
 
 .row {
   --gutter-x: 1.5rem;

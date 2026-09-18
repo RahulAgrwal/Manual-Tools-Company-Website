@@ -5,6 +5,7 @@
 $mtc_css = array_merge([
     'assets/css/mtc.css',                    // tokens, base, layout primitives
     'assets/css/compat.css',                 // temporary Bootstrap stand-in
+    'assets/css/chrome.css',                 // header, nav, footer, mobile bars
     'assets/fontawesome/css/icons.css',      // subset, built by tools/subset_fontawesome.py
     'assets/css/legacy.css',                 // being replaced, page by page
 ], $mtc_page_css ?? []);

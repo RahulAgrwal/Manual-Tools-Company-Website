@@ -103,6 +103,11 @@
             let headerOffset = selectHeader.offsetTop;
             let nextElement = selectHeader.nextElementSibling;
 
+            // Publish the real header height so .scrolled-offset reserves
+            // exactly the space the header vacates when it goes fixed.
+            const measure = () => document.documentElement.style.setProperty(
+                '--header-h', selectHeader.offsetHeight + 'px');
+
             const headerFixed = () => {
                 if ((headerOffset - window.scrollY) <= 0) {
                     selectHeader.classList.add('fixed-top');
@@ -112,8 +117,17 @@
                     if (nextElement) nextElement.classList.remove('scrolled-offset');
                 }
             }
-            window.addEventListener('load', headerFixed);
+            // Call it, don't re-register: this code already runs inside a
+            // 'load' handler, so another load listener would never fire and
+            // the header stayed unstyled until the first scroll event.
+            measure();
+            headerFixed();
             onscroll(document, headerFixed);
+            window.addEventListener('resize', () => {
+                headerOffset = selectHeader.classList.contains('fixed-top')
+                    ? headerOffset : selectHeader.offsetTop;
+                measure();
+            });
         }
 
         // Back to Top Button
@@ -126,7 +140,7 @@
                     backtotop.classList.remove('active');
                 }
             }
-            window.addEventListener('load', toggleBacktotop);
+            toggleBacktotop();   // see the note above: a 'load' listener here never fires
             onscroll(document, toggleBacktotop);
         }
     });

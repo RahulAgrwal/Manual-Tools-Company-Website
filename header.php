@@ -1,24 +1,22 @@
 <?php
 $page = basename($_SERVER['PHP_SELF'], '.php');
+$logo = mtc_img('assets/img/MTC Logo.png');
 ?>
 
 <!-- ==============================================
-     TOP BAR
+     UTILITY BAR
      ============================================== -->
-<section id="topbar" class="d-flex align-items-center">
-    <div class="container d-flex justify-content-center justify-content-md-between">
-        <div class="contact-info d-flex align-items-center">
-            <i class="fas fa-envelope"></i>
-            <a href="mailto:manualtoolsco.dhn@gmail.com">manualtoolsco.dhn@gmail.com</a>
-
-            <i class="fas fa-mobile-alt ms-4"></i>
-            <a href="tel:+919430707348">+91 9430707348</a>
+<section id="topbar">
+    <div class="wrap">
+        <div class="contact-info">
+            <a href="mailto:manualtoolsco.dhn@gmail.com"><i class="fas fa-envelope"></i>manualtoolsco.dhn@gmail.com</a>
+            <a href="tel:+919430707348"><i class="fas fa-mobile-alt"></i>+91 9430707348</a>
         </div>
 
-        <div class="social-links d-none d-md-flex align-items-center">
+        <div class="social-links">
             <a href="https://maps.app.goo.gl/SR7U9r1J5fXyFfF7A" target="_blank" rel="noopener" title="Location" aria-label="Google Maps location"><i class="fas fa-location-arrow"></i></a>
-            <a href="https://www.facebook.com/profile.php?id=61560479668542" target="_blank" rel="noopener" class="facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/manual_tools_company/" target="_blank" rel="noopener" class="instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61560479668542" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/manual_tools_company/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         </div>
     </div>
 </section>
@@ -26,30 +24,25 @@ $page = basename($_SERVER['PHP_SELF'], '.php');
 <!-- ==============================================
      MAIN HEADER
      ============================================== -->
-<header id="header" class="d-flex align-items-center">
-    <div class="container mtc-header-container">
+<header id="header">
+    <div class="wrap mtc-header-container">
 
-        <!-- LOGO -->
         <div class="logo">
             <a href="/">
-                <img src="<?php echo mtc_img('assets/img/MTC Logo.png'); ?>" alt="Manual Tools Company - Coke Oven Machinery" class="img-fluid" width="3069" height="499">
+                <img src="<?php echo $logo; ?>" <?php echo mtc_img_size($logo); ?> alt="Manual Tools Company - Coke Oven Machinery">
             </a>
         </div>
 
-        <!-- NAVIGATION -->
-        <nav id="navbar" class="navbar">
+        <nav id="navbar" class="navbar" aria-label="Main">
             <ul>
-                <!-- Home -->
                 <li>
                     <a class="nav-link <?php echo ($page == 'index' || $page == '') ? 'active' : ''; ?>" href="/">Home</a>
                 </li>
 
-                <!-- About -->
                 <li>
                     <a class="nav-link <?php echo ($page == 'about') ? 'active' : ''; ?>" href="about">About</a>
                 </li>
 
-                <!-- Products Dropdown -->
                 <li class="dropdown">
                     <a href="products" class="<?php echo ($page == 'products') ? 'active' : ''; ?>">
                         <span>Products</span> <i class="fas fa-chevron-down dropdown-indicator"></i>
@@ -65,23 +58,22 @@ $page = basename($_SERVER['PHP_SELF'], '.php');
                         <li><a href="conveyor-materials">Conveyor Materials</a></li>
                         <li><a href="coal-charging-car">Coal Charging Car</a></li>
                         <li><a href="pusher-with-stamping-arrangement">Pusher Machine</a></li>
-                        <li><a href="#">Quenching Coke Car</a></li>
+                        <!-- No page yet; see BACKLOG.md. Rendered as unavailable rather than
+                             as a link that goes nowhere. -->
+                        <li><a href="#" aria-disabled="true">Quenching Coke Car <span class="nav-soon">in progress</span></a></li>
                     </ul>
                 </li>
 
-                <!-- Photo Gallery -->
                 <li>
                     <a class="nav-link <?php echo ($page == 'photo-gallery') ? 'active' : ''; ?>" href="photo-gallery">Photo Gallery</a>
                 </li>
 
-                <!-- Contact (Styled as CTA) -->
-                <li>
-                    <a class="nav-link <?php echo ($page == 'contact') ? 'active' : ''; ?>" href="contact">Contact Us</a>
+                <li class="nav-cta">
+                    <a class="btn btn--primary" href="contact">Request a quote</a>
                 </li>
             </ul>
 
-            <!-- Mobile Toggle -->
-            <i class="fas fa-bars mobile-nav-toggle"></i>
+            <i class="fas fa-bars mobile-nav-toggle" role="button" tabindex="0" aria-label="Open menu" aria-expanded="false" aria-controls="navbar"></i>
         </nav>
 
     </div>

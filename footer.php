@@ -34,11 +34,11 @@ if (substr($page_name, -4) !== '.php') {
                 <div class="col-lg-2 col-md-6 footer-links">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><i class="fas fa-chevron-right"></i> <a href="/">Home</a></li>
-                        <li><i class="fas fa-chevron-right"></i> <a href="about">Company Profile</a></li>
-                        <li><i class="fas fa-chevron-right"></i> <a href="products">All Products</a></li>
-                        <li><i class="fas fa-chevron-right"></i> <a href="photo-gallery">Gallery</a></li>
-                        <li><i class="fas fa-chevron-right"></i> <a href="contact">Contact Us</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="about">Company Profile</a></li>
+                        <li><a href="products">All Products</a></li>
+                        <li><a href="photo-gallery">Gallery</a></li>
+                        <li><a href="contact">Contact Us</a></li>
                     </ul>
                 </div>
 
@@ -46,11 +46,11 @@ if (substr($page_name, -4) !== '.php') {
                 <div class="col-lg-3 col-md-6 footer-links">
                     <h4>Key Machinery</h4>
                     <ul>
-                        <li><i class="fas fa-chevron-right"></i> <a href="coal-crusher">Coal Crusher</a></li>
-                        <li><i class="fas fa-chevron-right"></i> <a href="pusher-with-stamping-arrangement">Pusher Machine</a></li>
-                        <li><i class="fas fa-chevron-right"></i> <a href="coal-charging-car">Charging Car</a></li>
-                        <li><i class="fas fa-chevron-right"></i> <a href="power-winch">Power Winch</a></li>
-                        <li><i class="fas fa-chevron-right"></i> <a href="vibrator-screen">Vibrator Screen</a></li>
+                        <li><a href="coal-crusher">Coal Crusher</a></li>
+                        <li><a href="pusher-with-stamping-arrangement">Pusher Machine</a></li>
+                        <li><a href="coal-charging-car">Charging Car</a></li>
+                        <li><a href="power-winch">Power Winch</a></li>
+                        <li><a href="vibrator-screen">Vibrator Screen</a></li>
                     </ul>
                 </div>
 
