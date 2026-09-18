@@ -22,6 +22,7 @@
 
 ## Done
 
+- [x] **2026-09-18: Mahalaxmi Group added to the client wall.** Logo downloaded from mahalaxmigrp.com at the owner's request (`assets/img/clients/domestic/Mahalaxmi-Group.png`, transparent, WebP by `tools/optimize_images.py`); after Shree Satya Group on the home and about pages.
 - [x] **2026-09-18: Shree Satya Group added to the client wall.** Logo downloaded from shreesatyagroup.com at the owner's request (`assets/img/clients/domestic/Shree-Satya-Group.png`, WebP by `tools/optimize_images.py`); it appears on the home and about pages after VIVAN Overseas.
 - [x] **2026-09-18: Brochure page 2 has no quotation panel.** At the owner's request; the last page keeps it. The hero panel is back to full height, and Buying information values now wrap inside their box (the conveyor lead time ran past its edge).
 - [x] **2026-09-18: Key specifications box in every brochure.** Page 2 now shows the product page's four specs (for example Capacity, Motor Power, Output Size, Max Feed Size) in a card with the same Font Awesome icons as the website, read from `product-data.php` so brochure and page cannot disagree. It replaces page 2's repeat of the cover's three figures; the hero panel is 8 mm shorter to make room. All ten PDFs regenerated and checked page by page.

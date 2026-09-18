@@ -22,6 +22,7 @@ $domestic_clients = [
     ["image_path" => "assets/img/clients/domestic/MFPL.webp", "image_name" => "Metalik Fuel Private Limited"],
     ["image_path" => "assets/img/clients/domestic/Vivan-overseas.png", "image_name" => "VIVAN Overseas"],
     ["image_path" => "assets/img/clients/domestic/Shree-Satya-Group.png", "image_name" => "Shree Satya Group"],
+    ["image_path" => "assets/img/clients/domestic/Mahalaxmi-Group.png", "image_name" => "Mahalaxmi Group"],
 ];
 
 $international_clients = [
