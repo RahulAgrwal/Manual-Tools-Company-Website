@@ -278,3 +278,153 @@ table, .tnum { font-variant-numeric: tabular-nums; }
   --text-gray:  #666;
   --bg-light:   #f9f9f9;
 }
+
+/* ==========================================================================
+   Components
+   New names deliberately: legacy.css loads after this file, so a shared class
+   name would let the old rules win. Each legacy name dies with its page.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Buttons -- one primary, one quiet. Replaces three overlapping systems
+   (.mtc-btn/-outline/-ghost, .mtc-btn-orange/-dark/-outline/-call-us and an
+   inline one in the quote form). There is at most one primary per view.
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-2);
+  padding: 0.75rem 1.4rem;
+  font-family: inherit;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-ui);
+  letter-spacing: 0.01em;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: var(--r-2);
+  transition: background-color var(--dur-1) var(--ease),
+              border-color var(--dur-1) var(--ease),
+              color var(--dur-1) var(--ease);
+}
+
+.btn--primary {
+  color: var(--c-action-ink);
+  background: var(--c-action);
+  border-color: var(--c-action);
+}
+.btn--primary:hover {
+  background: var(--c-action-hover);
+  border-color: var(--c-action-hover);
+  color: var(--c-action-ink);
+}
+
+.btn--quiet {
+  color: var(--c-ink);
+  background: transparent;
+  border-color: var(--c-line-strong);
+}
+.btn--quiet:hover {
+  background: var(--c-surface);
+  border-color: var(--c-ink);
+  color: var(--c-ink);
+}
+
+/* --------------------------------------------------------------------------
+   Product card
+   The machine is a transparent cutout, so it sits in a recessed well at a
+   fixed aspect ratio with object-fit: contain. That is what keeps a row of
+   cards level when the source images are 4:3, 16:9 and 3:2, and it lets the
+   cutout read as an object rather than as a photograph in a box.
+   -------------------------------------------------------------------------- */
+.product-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-2);
+  overflow: hidden;
+  transition: border-color var(--dur-2) var(--ease);
+}
+.product-card:hover { border-color: var(--c-line-strong); }
+.product-card:focus-within { border-color: var(--c-focus); }
+
+.product-card__well {
+  display: grid;
+  place-items: center;
+  /* flex: none, or a card whose title wraps to two lines steals height from
+     the well and that one machine renders smaller than the rest of the row. */
+  flex: none;
+  aspect-ratio: 4 / 3;
+  padding: var(--s-5);
+  background: var(--c-canvas-sunk);
+  border-bottom: 1px solid var(--c-line);
+}
+.product-card__well img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.product-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  padding: var(--s-5);
+}
+
+/* Sentence case, not a tracked-out uppercase pill: this is a real variant
+   name ("Double drive, drum type"), so it should read as one. */
+.product-card__variant {
+  font-size: var(--fs-xs);
+  color: var(--c-ink-3);
+  line-height: var(--lh-ui);
+}
+
+.product-card__title {
+  margin: 0;
+  font-size: var(--fs-h4);
+  line-height: var(--lh-head);
+}
+.product-card__title a {
+  color: var(--c-ink);
+  text-decoration: none;
+}
+/* The whole card is the hit target; the title stays the accessible name. */
+.product-card__title a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.product-card:hover .product-card__title a { color: var(--c-action); }
+
+.product-card__desc {
+  margin: 0;
+  font-size: var(--fs-sm);
+  line-height: 1.55;
+  color: var(--c-ink-2);
+}
+
+/* --------------------------------------------------------------------------
+   Section heading -- replaces six overlapping heading classes
+   -------------------------------------------------------------------------- */
+.section-head {
+  max-width: 44rem;
+  margin-block-end: var(--s-7);
+}
+.section-head h2 { margin: 0 0 var(--s-3); }
+.section-head p {
+  margin: 0;
+  font-size: var(--fs-lg, 1.1875rem);
+  color: var(--c-ink-2);
+}
+.section-head--center {
+  margin-inline: auto;
+  text-align: center;
+}
