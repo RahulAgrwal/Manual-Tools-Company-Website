@@ -146,10 +146,15 @@ echo json_encode([
                   class="mtc-product-thumb-item<?php echo $i === 0 ? ' active' : ''; ?>"
                   data-type="<?php echo $m['type']; ?>"
                   data-full="<?php echo htmlspecialchars($m['src']); ?>"
-                  data-poster="<?php echo htmlspecialchars($m['thumb']); ?>"
-                  aria-label="<?php echo htmlspecialchars(($m['type'] === 'video' ? 'Play video ' : 'View photo ') . ($i + 1)); ?>">
-                  <img src="<?php echo htmlspecialchars($m['thumb']); ?>" loading="lazy" alt=""
-                    aria-hidden="true">
+                  data-poster="<?php echo htmlspecialchars($m['thumb']); ?>">
+                  <?php
+                  // The alt text is the button's accessible name, and Google Images
+                  // indexes it -- so keep it descriptive, as the old pages had it.
+                  $thumbAlt = $p['thumb_alt'] . ($m['type'] === 'video' ? ' video ' : ' photo ') . ($i + 1);
+                  ?>
+                  <img src="<?php echo htmlspecialchars($m['thumb']); ?>"
+                    <?php echo $m['thumb'] ? mtc_img_size($m['thumb']) : ''; ?> loading="lazy"
+                    alt="<?php echo htmlspecialchars($thumbAlt); ?>">
                   <?php if ($m['type'] === 'video') : ?>
                     <span class="mtc-video-thumb-overlay"><i class="fas fa-play"></i></span>
                   <?php endif; ?>
@@ -160,9 +165,7 @@ echo json_encode([
 
           <div class="col-lg-6 ps-lg-5">
             <div class="mtc-product-eyebrow"><?php echo htmlspecialchars($p['eyebrow']); ?></div>
-            <h1 class="mtc-product-title"><?php echo htmlspecialchars($p['h1_lead']); ?>
-              <?php if ($p['h1_accent']) : ?><br><span class="mtc-highlight"><?php echo htmlspecialchars($p['h1_accent']); ?></span><?php endif; ?>
-            </h1>
+            <h1 class="mtc-product-title"><?php echo htmlspecialchars($p['h1_lead']); ?><?php if ($p['h1_accent']) : ?> <br><span class="mtc-highlight"><?php echo htmlspecialchars($p['h1_accent']); ?></span><?php endif; ?></h1>
 
             <div class="mtc-product-review-row">
               <?php if ($p['model']) : ?><span><?php echo htmlspecialchars($p['model_label']); ?>: <?php echo htmlspecialchars($p['model']); ?></span><?php endif; ?>

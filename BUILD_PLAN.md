@@ -220,8 +220,18 @@ Measured structure of the ten (confirmed by the extractor, matches the survey):
   identical in `.htaccess` and `router.php`, and blocks the two new names.
 - `[x]` The extractor refuses to run once the pages are stubs (tested). From now
   on **`product-data.php` is the source of truth and is edited by hand.**
-- `[ ]` `check_pages.py --diff` over HTTP — needs the dev server, which is down
-  (see Session log). The same SEO fields were verified per page above.
+- `[x]` `check_pages.py --diff` over HTTP (dev server restarted at the user's
+  request): **0 failures, no changes to any title, canonical, h1, description or
+  JSON-LD type across all 16 pages** vs the phase-0 baseline. It caught two
+  small regressions first, both fixed:
+  - Gallery thumbnails had been given `alt=""` with the name on the button. That
+    dropped descriptive alt text the old pages had ("Door Lifting Power Winch
+    photo 2"), which Google Images indexes. Restored; the button now takes its
+    accessible name from the alt, and thumbnails gained `width`/`height`.
+    Missing-dimension warnings on product pages fell 11 → 8; the remaining 8 are
+    the related-products slider, which lacked them before this work.
+  - The `<h1>` lost the space before its `<br>`, so text extraction read
+    "Pusher MachineWith Stamping". Restored exactly as the original had it.
 - `[ ]` Restyle: hero well, spec table as real data, tabs → accordion below 48rem,
   timeline, applications, maintenance, FAQ, sidebar quote card, related slider.
 - `[ ]` Absorb the 360 lines of inline `<style>` from `related-products.php`,
@@ -268,6 +278,12 @@ belongs in its own change.
 
 Newest first. One entry per session or per notable event: what was done, what
 went wrong, what the next session should pick up. Required — see the rule at the top.
+
+### 2026-09-18 — session 2, part 3
+- Dev server restarted at the user's request; `check_pages.py --diff` run over
+  HTTP: zero SEO drift. Fixed the thumbnail alt and h1 spacing regressions it found.
+- User: **skip 21st.dev**; use the other UI skills. Next: `ui-ux-pro-max`,
+  `frontend-design` and targeted Mobbin research, then the product-page restyle.
 
 ### 2026-09-18 — session 2, part 2 (refactor verified and committed)
 - Refactor reached **10/10 equivalent**. Six real bugs found by verification and
