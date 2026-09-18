@@ -523,7 +523,7 @@ def page_overview(pdf, p, key):
     pdf.multi_cell(CONTENT_W, 5, clean(p["subtitle"]), new_x="LMARGIN", new_y="NEXT")
 
     top = pdf.get_y() + 7
-    hero_h = 50.0
+    hero_h = 58.0
     pdf.set_fill_color(*PANEL)
     pdf.rect(COL_R_X, top, COL_W, hero_h, "F", round_corners=True, corner_radius=2)
     try:
@@ -558,9 +558,10 @@ def page_overview(pdf, p, key):
 
     pdf.set_y(max(left_bottom, right_bottom) + 8)
     bottom = pdf.buying_info(p.get("buying", BUYING_INFO))
-    quote_top = pdf.quote_block() - 26.0
-    if bottom > quote_top - 6:
-        sys.exit(f"{key}: page 2 content ends at {bottom:.1f} mm, into the quotation panel at {quote_top:.1f} mm")
+    # No quotation panel here: the last page carries it, and dropping it gives
+    # the specifications room. Stop rather than let the page spill over.
+    if bottom > FOOTER_Y - 8:
+        sys.exit(f"{key}: page 2 content ends at {bottom:.1f} mm, into the footer at {FOOTER_Y:.1f} mm")
 
 
 def page_process(pdf, p):

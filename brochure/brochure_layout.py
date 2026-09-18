@@ -529,7 +529,13 @@ class MTCBrochure(FPDF):
             self.set_y(y)
         y = self.get_y()
         row_h = 5.6
-        h = 11 + row_h * len(rows)
+        value_w = CONTENT_W - 42
+        # Long terms wrap instead of running past the panel edge (the conveyor
+        # lead time did), so measure each value's line count first.
+        self.set_font(FONT_FAMILY, "", 8.5)
+        lines = [len(self.multi_cell(value_w, row_h, clean(v), align="L", dry_run=True, output="LINES"))
+                 for _, v in rows]
+        h = 11 + row_h * sum(lines)
         self.set_fill_color(*PANEL)
         self.rect(MARGIN, y, CONTENT_W, h, "F", round_corners=True, corner_radius=2)
 
@@ -541,7 +547,7 @@ class MTCBrochure(FPDF):
         self.set_char_spacing(0)
 
         ry = y + 9.5
-        for name, value in rows:
+        for (name, value), n in zip(rows, lines):
             self.set_xy(MARGIN + 6, ry)
             self.set_font(FONT_FAMILY, "B", 8.5)
             self.set_text_color(*INK)
@@ -549,8 +555,8 @@ class MTCBrochure(FPDF):
             self.set_xy(MARGIN + 36, ry)
             self.set_font(FONT_FAMILY, "", 8.5)
             self.set_text_color(*INK_BODY)
-            self.cell(CONTENT_W - 42, row_h, clean(value))
-            ry += row_h
+            self.multi_cell(value_w, row_h, clean(value), align="L")
+            ry += row_h * n
 
         self.set_y(y + h)
         return y + h
