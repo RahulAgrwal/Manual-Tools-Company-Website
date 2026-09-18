@@ -108,6 +108,53 @@
 .home-hero__caption span { font-size: var(--fs-sm); color: var(--c-ink-2); }
 /* Reserve two lines, so switching machines never changes the stage height. */
 #home-well-sub { flex-basis: 100%; min-height: calc(2 * 1.55em); line-height: 1.55; }
+/* Phones: three lines. Measured at 390px, the pusher's description (made
+   longer when "stamp-charged" was added) wraps to three, and picking it moved
+   everything below by 24px. */
+@media (max-width: 47.99rem) {
+  #home-well-sub { min-height: calc(3 * 1.55em); }
+}
+
+/* Key specifications of the selected machine (owner request, 2026-09-18),
+   from product-data.php like the product page's spec grid. Four cells: two
+   by two on phones, four across from tablet width. */
+.home-specs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: var(--s-4) 0 0;
+  border-top: 1px solid var(--c-line);
+  border-bottom: 1px solid var(--c-line);
+}
+@media (min-width: 48rem) {
+  .home-specs { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+.home-specs > div {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+  padding: var(--s-3) var(--s-3) var(--s-3) 0;
+}
+.home-specs > div + div { padding-left: var(--s-3); border-left: 1px solid var(--c-line); }
+@media (max-width: 47.99rem) {
+  .home-specs > div:nth-child(3) { padding-left: 0; border-left: 0; }
+  .home-specs > div:nth-child(n+3) { border-top: 1px solid var(--c-line); }
+}
+.home-specs dt {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  font-size: var(--fs-xs);
+  color: var(--c-ink-3);
+}
+.home-specs dt i { width: 1em; font-size: 0.9em; text-align: center; }
+.home-specs dd {
+  margin: 0;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-ui);
+  color: var(--c-ink);
+  font-variant-numeric: tabular-nums;
+}
 
 /* Picker: ten machines. A single row on desktop; a scrolling strip on
    phones, where the next item peeking out says the row continues. */

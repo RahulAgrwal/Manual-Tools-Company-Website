@@ -144,6 +144,13 @@ $carousel_items = [
       "link" => "coal-charging-car"
     ]
   ];
+
+  // Each machine's four headline specs, from the same data as its product
+  // page (and the brochure's Key specifications box), so the three agree.
+  require_once __DIR__ . '/product-data.php';
+  $mtc_home_specs = function ($slug) use ($MTC_PRODUCTS) {
+      return $MTC_PRODUCTS[$slug]['specs'] ?? [];
+  };
   ?>
 </head>
 
@@ -194,6 +201,17 @@ $carousel_items = [
             <span id="home-well-sub"><?php echo htmlspecialchars($first['subtitle']); ?></span>
           </figcaption>
 
+          <!-- The selected machine's key specifications. home.js rebuilds it
+               from the picker item's data-specs when another is chosen. -->
+          <dl class="home-specs" id="home-specs" aria-label="Key specifications">
+            <?php foreach ($mtc_home_specs($first['link']) as [$icon, $label, $value]) : ?>
+              <div>
+                <dt><i class="fas <?php echo htmlspecialchars($icon); ?>" aria-hidden="true"></i><?php echo htmlspecialchars($label); ?></dt>
+                <dd><?php echo htmlspecialchars($value); ?></dd>
+              </div>
+            <?php endforeach; ?>
+          </dl>
+
           <!-- Picking a machine swaps the stage in place. Each is also a real
                link, so it works without JavaScript and for crawlers. -->
           <div class="home-picker" role="group" aria-label="Choose a machine to view">
@@ -203,6 +221,7 @@ $carousel_items = [
                  data-full="<?php echo mtc_img($item['image_path']); ?>"
                  data-title="<?php echo htmlspecialchars($item['title']); ?>"
                  data-sub="<?php echo htmlspecialchars($item['subtitle']); ?>"
+                 data-specs="<?php echo htmlspecialchars(json_encode($mtc_home_specs($item['link']), JSON_UNESCAPED_UNICODE), ENT_QUOTES, 'UTF-8'); ?>"
                  aria-current="<?php echo $i === 0 ? 'true' : 'false'; ?>">
                 <img src="<?php echo mtc_thumb($item['image_path']); ?>"
                      <?php echo mtc_img_size(mtc_thumb($item['image_path'])); ?>

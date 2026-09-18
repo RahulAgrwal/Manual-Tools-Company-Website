@@ -413,6 +413,15 @@ hero → proof → about → machinery → services → reasons → clients → 
   stay in the HTML (search engines, no-JS); screen readers get a visually
   hidden final value; reduced motion skips the animation. Seen at 1440 and 390:
   mid-count values, final values, and on phones it waits at 0 until scrolled to.
+- `[x]` Owner request, 2026-09-18: the hero stage shows the **selected machine's
+  key specifications** (four cells: 2x2 on phones, 4 across from 48rem), from
+  `product-data.php` `specs` -- the same data as the product page and the
+  brochure box. First machine rendered server-side; each picker item carries
+  `data-specs` and `home.js` rebuilds the block with DOM nodes (no innerHTML).
+  Verified by picking all ten at 1440 and 390: correct values, no blank icons,
+  block height constant (71px / 140px). Found by looking: on phones the
+  pusher's longer description wrapped to 3 lines and moved everything below by
+  24px -> the caption reserves 3 lines on phones; stage now 651px for all ten.
 - `[x]` About, services (5 items), "Why choose MTC" (6 items, no 01–06
   numerals: not a sequence), quote band on the ink surface. ISO lines kept at
   their existing weight (owner's call, see BACKLOG).

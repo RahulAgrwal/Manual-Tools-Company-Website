@@ -15,6 +15,7 @@
   var link = document.getElementById('home-well-link');
   var name = document.getElementById('home-well-name');
   var sub = document.getElementById('home-well-sub');
+  var specs = document.getElementById('home-specs');
   if (!picker || !img) return;
 
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -28,6 +29,31 @@
     pre.src = item.dataset.full;
   }
 
+  // Rebuild the key-specifications block from the item's data-specs:
+  // [[icon, label, value], ...]. Built with DOM nodes and textContent, never
+  // innerHTML, so nothing in the data can inject markup.
+  function renderSpecs(item) {
+    if (!specs) return;
+    var rows;
+    try { rows = JSON.parse(item.dataset.specs || '[]'); } catch (e) { rows = []; }
+    specs.textContent = '';
+    rows.forEach(function (row) {
+      var cell = document.createElement('div');
+      var dt = document.createElement('dt');
+      var icon = document.createElement('i');
+      icon.className = 'fas ' + row[0];
+      icon.setAttribute('aria-hidden', 'true');
+      dt.appendChild(icon);
+      dt.appendChild(document.createTextNode(row[1]));
+      var dd = document.createElement('dd');
+      dd.textContent = row[2];
+      cell.appendChild(dt);
+      cell.appendChild(dd);
+      specs.appendChild(cell);
+    });
+    specs.hidden = rows.length === 0;
+  }
+
   function select(item) {
     var apply = function () {
       img.src = item.dataset.full;
@@ -35,6 +61,7 @@
       well.href = link.href = item.getAttribute('href');
       name.textContent = item.dataset.title;
       sub.textContent = item.dataset.sub;
+      renderSpecs(item);
       img.classList.remove('is-swapping');
     };
     picker.querySelectorAll('.home-picker__item').forEach(function (el) {
