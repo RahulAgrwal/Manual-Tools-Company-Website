@@ -15,6 +15,7 @@
   - Create LinkedIn and YouTube pages only if they will be used, then add them to the footer, header and `sameAs` in `index.php`.
 - [ ] **Search Console and Bing Webmaster Tools.** Submit `sitemap.xml` and request indexing for the changed pages. (IndexNow was already sent on 2026-09-17; see Done.)
 - [ ] **Low-resolution haulage cover image.** `assets/img/slide/Haulage-Machine.png` is only 612x408, about 90 dpi at brochure cover size: fine on screen, soft in print. Replace it with a larger cutout (it is also the home-page carousel slide) and rerun `python brochure/generate_product_brochures.py haulage`.
+- [ ] **`assets/img/slide-thumbnail/` is unused.** The home-page carousel it served (blur-up placeholders) was replaced by the machine picker in the UI redesign (2026-09-18). Nothing references it any more; delete the folder in its own commit once the redesign is live.
 
 ## Done
 

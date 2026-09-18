@@ -57,7 +57,7 @@ optional tidy-up.** A step is not finished until this document says so.
 | 3 | Global chrome — header, nav, footer | `[x]` |
 | 4 | Catalogue — `products.php` driven from data | `[x]` |
 | 5 | Product detail pages — template + restyle | `[x]` |
-| 6 | Home page sections | `[~]` |
+| 6 | Home page sections | `[x]` |
 | 7 | About, contact, gallery, 404, coal-crusher hub | `[ ]` |
 | 8 | Drop Bootstrap JS; delete `compat.css` | `[ ]` |
 | 9 | QA sweep, Lighthouse, accessibility | `[ ]` |
@@ -379,26 +379,72 @@ variance 6, density 4. What was taken, and what was not:
 - **Its pre-delivery checklist found two real WCAG AA failures** in the tokens:
   - `--c-ink-3 #8A949E` measured **2.75–3.08:1** on our backgrounds (AA needs
     4.5 for 13–15px text: captions, breadcrumb trail, table headers, "optional"
-    tags). `[x]` Changed to **`#63707C`: 4.52–5.07:1**. Visual re-check pending
-    (server/browser stopped).
+    tags). `[x]` Changed to **`#63707C`: 4.52–5.07:1**. Seen in the browser in
+    phase 6 (captions, breadcrumb trail, card eyebrows at 390 and 1440px).
   - White on brand orange `#F03C02` is **3.92:1** — AA only for large text; the
     buttons are 15px bold. `[x]` **Owner decision (2026-09-18): use `#CC3202`**
     (5.22:1) — `--c-action` changed; hover deepens to `#A82901`. The logo keeps
-    `#F03C02`. Visual check pending with the phase 5 re-check.
-  - Also noted: focus ring 2px (it suggests 3–4px); filter pills below the 44px
-    touch height. To address with phase 6.
+    `#F03C02`. Seen in the browser in phase 6 (nav button, hero and CTA
+    buttons, mobile quote bar).
+  - Also noted: focus ring 2px (it suggests 3–4px) — **still open, moved to
+    phase 9**. Filter pills: measured **45px** tall at 390px in phase 6, so the
+    44px touch target is met; nothing to do.
 
-## Phase 6 — Home `[~]`
+## Phase 6 — Home `[x]`
 
-- `[ ]` Hero carousel. **LCP-critical**: keep `fetchpriority="high"` on slide 1
-  and the next-slide pre-warmer; do **not** add an entry animation (an
-  `opacity: 0` fade cost ~3.0 s once).
-- `[ ]` Stats block — remove the dead `.counter` / `data-target` hook, or wire it.
-- `[ ]` Services, strengths, clients.
+Structure from the design driver's *Trust & Authority + Conversion* pattern:
+hero → proof → about → machinery → services → reasons → clients → quote band.
+`index.php` body 638 → 335 lines; new `assets/css/home.css`, `assets/js/home.js`.
+
+- `[x]` **Hero: the ten-slide auto-rotating carousel is replaced by a machine
+  picker.** The h1 sits at the top (text unchanged). One stage well shows a
+  machine; ten thumbnails below swap it in place (`home.js`: swaps src, alt,
+  links and caption; preloads on hover/focus; 120 ms fade, none under reduced
+  motion; `aria-current`). Each thumbnail is a real link, so it works without
+  JS and for crawlers. Nothing moves on its own. LCP: the stage image keeps
+  `fetchpriority="high"`, no entry animation. `$carousel_items` still feeds it;
+  the unused `lqip_path` keys were removed.
+- `[x]` **Bootstrap JS no longer loaded on home** (the carousel was its last
+  user there): −79 KB on the busiest page. Home loads `home.js` + `main.js`.
+- `[x]` Stats → a `<dl>` proof band of the four existing figures (no new claims,
+  no counting animation); the dead `.counter` / `data-target` hook is gone.
+- `[x]` About, services (5 items), "Why choose MTC" (6 items, no 01–06
+  numerals: not a sequence), quote band on the ink surface. ISO lines kept at
+  their existing weight (owner's call, see BACKLOG).
+- `[x]` `clients.php`: one logo wall (domestic + international with a tag +
+  "And many more" cell). Data arrays untouched. Styles in `mtc.css` because the
+  about page includes it too.
+- **Visually verified** (headless Chrome, 1440×900 and 390×844 mobile/touch):
+  home — every section at both widths, picker by mouse and by touch tap (stays
+  on `/`, image/name/link/active state all change, stage height constant
+  471px at 390); about — product grid and client wall at both widths; products
+  — catalogue rows and filter tap at 390. No broken images, no horizontal
+  scroll. `check_pages.py --diff`: 0 failures, 14 warnings (was 26), no SEO drift.
+- **Defects found by looking, and fixed:**
+  1. Picking a machine with a one-line description shrank the stage and the
+     vertically centred hero moved the headline ~12px → `align-items: start` +
+     caption reserves two lines.
+  2. Client wall: 1px-gap hairline trick painted the empty end of the last row
+     solid grey → per-cell borders.
+  3. Quote band merged into the (same-colour) footer → a hairline between.
+  4. Phone: ten full product cards were ~4,700px of scrolling → compact rows
+     (6.5rem image beside the text, description clamped to 2 lines): 1,428px.
+  5. …whose first version clipped the first letters of every card
+     (`aspect-ratio: 1` + row height made the well wider than its column) →
+     the column sets the width, no aspect-ratio. Measured: well 104px, overlap 0.
+  6. Phone "Why" section 1,386px (icon on its own line) → icon beside the
+     heading: 1,085px.
+  7. Phone client wall ~1,070px at 3:2 cells → 2:1 cells: 804px, no logo
+     overflowing its cell.
+  8. **Products page (phase 4, marked done)**: at 390px every catalogue row's
+     single implicit grid track was 407px in a 358px card, so text ran under
+     the right edge → explicit `minmax(0, 1fr)` column. 10/10 rows now inside.
 
 ## Phase 7 — Remaining pages `[ ]`
 
-`about.php` (incl. vertical value tabs), `contact.php` (form untouched),
+`about.php` (incl. vertical value tabs; note: it opens with the **expired**
+certificate image at full size — owner's call, do not enlarge), `contact.php`
+(form untouched),
 `photo-gallery.php` (Isotope is currently constructed **twice**), `404.php`.
 
 ## Phase 8 — Drop Bootstrap JS `[ ]`
@@ -416,6 +462,9 @@ belongs in its own change.
 - `[ ]` Visitor counter still appears on a product page (the `track-visit` trap).
 - `[ ]` `check_pages.py --diff` against the phase-0 baseline.
 - `[ ]` Lighthouse mobile: LCP < 2.5 s on `/`, CLS < 0.05.
+- `[ ]` Focus ring 2px → 3px (design-driver finding).
+- `[ ]` Catalogue on phones is ~9,300px (746px per row); consider the compact
+  row treatment used on home.
 
 ## Phase 10 — Deploy `[ ]`
 
@@ -429,6 +478,14 @@ belongs in its own change.
 
 Newest first. One entry per session or per notable event: what was done, what
 went wrong, what the next session should pick up. Required — see the rule at the top.
+
+### 2026-09-18 — session 2, part 5 (home page, phase 6)
+- User chose `#CC3202` for the action colour; applied and seen in the browser.
+- Home rebuilt (details and the eight defects found by looking: phase 6).
+  Carousel → machine picker; Bootstrap JS dropped from home.
+- The owed phone-width retro check of phases 1–4 was done for home, about and
+  products; it caught a real overflow on the products page (phase 6, item 8).
+- Next: phase 7 (about, contact, gallery, 404, coal-crusher hub).
 
 ### 2026-09-18 — session 2, part 4 (restyle + visual verification)
 - Product pages restyled; design research first (`ui-ux-pro-max` UX queries,

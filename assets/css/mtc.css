@@ -533,8 +533,12 @@ table, .tnum { font-variant-numeric: tabular-nums; }
    -------------------------------------------------------------------------- */
 .product-rows { display: grid; gap: var(--s-5); }
 
+/* The one-column template is explicit: left implicit, the track sized to its
+   content, and on a 390px phone it came out 407px inside a 358px card -- the
+   text ran under the card's right edge (seen in phase 6's phone check). */
 .product-row {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 0;
   overflow: hidden;
   background: var(--c-surface);
@@ -635,3 +639,96 @@ table, .tnum { font-variant-numeric: tabular-nums; }
 }
 .lede a { color: var(--c-action); text-decoration: none; }
 .lede a:hover { text-decoration: underline; }
+
+/* --------------------------------------------------------------------------
+   Clients logo wall (clients.php). Lives here, not in home.css,
+   because the about page includes it too.
+   -------------------------------------------------------------------------- */
+/* Hairlines drawn by each cell's right and bottom border plus the wall's top
+   and left, not by a background showing through 1px gaps: verified in the
+   browser, that trick filled the unused end of an incomplete last row with a
+   solid grey block. */
+.clients__wall {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 9.5rem), 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--c-line);
+  border-left: 1px solid var(--c-line);
+}
+.clients__cell {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 3 / 2;
+  padding: var(--s-4);
+  background: var(--c-surface);
+  border-right: 1px solid var(--c-line);
+  border-bottom: 1px solid var(--c-line);
+}
+.clients__cell img {
+  max-width: 100%;
+  max-height: 3.25rem;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+.clients__tag {
+  position: absolute;
+  left: var(--s-2);
+  bottom: var(--s-2);
+  font-size: 0.6875rem;
+  color: var(--c-ink-2);
+}
+.clients__cell--more a {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  color: var(--c-ink);
+  text-decoration: none;
+}
+.clients__cell--more a:hover { color: var(--c-action); }
+/* Phones: flatter cells. At 3:2 the two-column wall was ~1,070px of logos. */
+@media (max-width: 47.99rem) {
+  .clients__cell { aspect-ratio: 2 / 1; padding: var(--s-3); }
+  .clients__cell img { max-height: 2.75rem; }
+}
+
+
+/* Product cards in a grid, on phones: a compact row -- small well beside the
+   text, description clamped to two lines. Verified at 390px: stacked full
+   cards were ~470px each, so the ten-machine grid alone was ~4,700px of
+   scrolling. Scoped to .grid so the related-products scroll row keeps its
+   full cards. */
+@media (max-width: 47.99rem) {
+  .grid > .product-card {
+    display: grid;
+    grid-template-columns: 6.5rem minmax(0, 1fr);
+    align-items: center;
+  }
+  /* No aspect-ratio here: verified in the browser, aspect-ratio: 1 plus a
+     row-driven height made the square wider than its 6.5rem column and it
+     covered the first letters of the text. Column sets width, row sets height. */
+  .grid > .product-card .product-card__well {
+    aspect-ratio: auto;
+    width: 100%;
+    height: 100%;
+    min-height: 6.5rem;
+    border-bottom: 0;
+    border-right: 1px solid var(--c-line);
+  }
+  .grid > .product-card .product-card__well img {
+    inset: var(--s-2);
+    width: calc(100% - 2 * var(--s-2));
+    height: calc(100% - 2 * var(--s-2));
+  }
+  .grid > .product-card .product-card__body { padding: var(--s-3) var(--s-4); gap: var(--s-1); }
+  .grid > .product-card .product-card__desc {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: var(--fs-xs);
+  }
+  .grid:has(> .product-card) { gap: var(--s-3); }
+}

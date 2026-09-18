@@ -43,7 +43,6 @@
 .fa-box-open::before { content: "\f49e"; }
 .fa-boxes::before { content: "\f468"; }
 .fa-bullseye::before { content: "\f140"; }
-.fa-calendar-alt::before { content: "\f073"; }
 .fa-certificate::before { content: "\f0a3"; }
 .fa-chalkboard-teacher::before { content: "\f51c"; }
 .fa-chart-line::before { content: "\f201"; }
@@ -117,7 +116,6 @@
 .fa-truck::before { content: "\f0d1"; }
 .fa-truck-loading::before { content: "\f4de"; }
 .fa-truck-moving::before { content: "\f4df"; }
-.fa-user::before { content: "\f007"; }
 .fa-user-tie::before { content: "\f508"; }
 .fa-users-cog::before { content: "\f509"; }
 .fa-warehouse::before { content: "\f494"; }

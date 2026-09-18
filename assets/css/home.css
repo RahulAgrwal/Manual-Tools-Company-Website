@@ -1,0 +1,322 @@
+/* ==========================================================================
+   home.css -- the home page, on the tokens in mtc.css.
+
+   Structure follows ui-ux-pro-max's "Trust & Authority + Conversion" pattern:
+   credibility hero -> proof -> about -> machinery -> services -> reasons ->
+   clients -> quote band. The product well is again the one bold element.
+
+   Every <section> here that lacks the .section class sets padding and
+   overflow itself: legacy.css still has `section { padding: 60px 0;
+   overflow: hidden }` for unrebuilt pages, and a class selector outranks it.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Hero
+   -------------------------------------------------------------------------- */
+.home-hero {
+  padding: var(--s-7) 0 var(--s-8);
+  overflow: visible;
+}
+/* align-items: start, not center: verified in the browser, picking a machine
+   with a one-line description shrank the stage, and a centred grid then moved
+   the headline column by ~12px -- content jumping on an unrelated click. */
+.home-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s-7);
+  align-items: start;
+}
+@media (min-width: 62rem) {
+  .home-hero__grid {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: var(--s-8);
+  }
+}
+
+.home-hero__copy { display: flex; flex-direction: column; gap: var(--s-5); }
+.home-hero__since {
+  margin: 0;
+  font-size: var(--fs-sm);
+  color: var(--c-ink-3);
+}
+/* The page's one h1, now at the top where it belongs. Set large: on the home
+   page the headline *is* the credibility statement. */
+.home-hero__title {
+  margin: 0;
+  font-size: var(--fs-display);
+  line-height: var(--lh-display);
+  letter-spacing: var(--tr-display);
+  max-width: 14ch;
+}
+.home-hero__lede {
+  margin: 0;
+  max-width: 46ch;
+  font-size: var(--fs-lg);
+  line-height: 1.55;
+  color: var(--c-ink-2);
+}
+.home-hero__actions { display: flex; flex-wrap: wrap; gap: var(--s-3); }
+.home-hero__call { margin: 0; font-size: var(--fs-sm); color: var(--c-ink-2); }
+.home-hero__call a {
+  color: var(--c-ink);
+  font-weight: var(--fw-bold);
+  font-variant-numeric: tabular-nums;
+  text-decoration: underline;
+  text-decoration-color: var(--c-line-strong);
+  text-underline-offset: 3px;
+}
+
+/* The stage: the signature well, the machine's name, and the picker. */
+.home-hero__stage { margin: 0; }
+.home-well {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 3;
+  background: var(--c-canvas-sunk);
+  border-radius: var(--r-3);
+  overflow: hidden;
+}
+/* Absolutely positioned inside the well: aspect-ratio is only a preferred
+   ratio, and max-height: 100% does not resolve against it (the bug found on
+   the product page in phase 5). */
+.home-well img {
+  position: absolute;
+  inset: var(--s-6);
+  width: calc(100% - 2 * var(--s-6));
+  height: calc(100% - 2 * var(--s-6));
+  object-fit: contain;
+  transition: opacity var(--dur-1) var(--ease);
+}
+.home-well img.is-swapping { opacity: 0; }
+
+.home-hero__caption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-1) var(--s-4);
+  margin-top: var(--s-4);
+}
+.home-hero__caption a {
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-bold);
+  color: var(--c-ink);
+  text-decoration: none;
+}
+.home-hero__caption a:hover { color: var(--c-action); }
+.home-hero__caption a i { margin-left: var(--s-2); font-size: 0.8em; }
+.home-hero__caption span { font-size: var(--fs-sm); color: var(--c-ink-2); }
+/* Reserve two lines, so switching machines never changes the stage height. */
+#home-well-sub { flex-basis: 100%; min-height: calc(2 * 1.55em); line-height: 1.55; }
+
+/* Picker: ten machines. A single row on desktop; a scrolling strip on
+   phones, where the next item peeking out says the row continues. */
+.home-picker {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  gap: var(--s-2);
+  margin-top: var(--s-5);
+}
+.home-picker__item {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  padding: var(--s-1);
+  background: var(--c-canvas-sunk);
+  border: 1px solid transparent;
+  border-radius: var(--r-2);
+  transition: border-color var(--dur-1) var(--ease);
+}
+.home-picker__item img { width: 100%; height: 100%; object-fit: contain; }
+.home-picker__item:hover { border-color: var(--c-line-strong); }
+.home-picker__item.is-active { border-color: var(--c-ink); }
+@media (max-width: 47.99rem) {
+  .home-picker {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: 4.25rem;
+    overflow-x: auto;
+    padding-bottom: var(--s-2);
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+  }
+  .home-picker__item { scroll-snap-align: start; }
+}
+
+/* --------------------------------------------------------------------------
+   Proof band -- the four figures the site already states. No new claims,
+   no gradient, no counting animation: figures a buyer can read at a glance.
+   -------------------------------------------------------------------------- */
+.home-proof {
+  padding: 0;
+  overflow: visible;
+  border-top: 1px solid var(--c-line);
+  border-bottom: 1px solid var(--c-line);
+  background: var(--c-surface);
+}
+.home-proof__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
+}
+@media (min-width: 48rem) {
+  .home-proof__grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+.home-proof__grid > div {
+  display: flex;
+  flex-direction: column-reverse;   /* figure reads first; dt stays first in the DOM */
+  gap: var(--s-1);
+  padding: var(--s-6) var(--s-5);
+  border-left: 1px solid var(--c-line);
+}
+.home-proof__grid > div:first-child { border-left: 0; }
+@media (max-width: 47.99rem) {
+  .home-proof__grid > div:nth-child(3) { border-left: 0; }
+  .home-proof__grid > div:nth-child(n+3) { border-top: 1px solid var(--c-line); }
+}
+.home-proof dt { font-size: var(--fs-sm); color: var(--c-ink-2); }
+.home-proof dd {
+  margin: 0;
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-bold);
+  line-height: 1;
+  letter-spacing: var(--tr-display);
+  color: var(--c-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+/* --------------------------------------------------------------------------
+   About
+   -------------------------------------------------------------------------- */
+.home-about__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s-5); }
+@media (min-width: 62rem) {
+  .home-about__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--s-8); }
+}
+.home-about h2 { margin: 0; max-width: 18ch; }
+.home-about__body p { margin: 0 0 var(--s-5); max-width: var(--measure); color: var(--c-ink-2); }
+.home-about__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-3) var(--s-6);
+}
+.home-textlink {
+  font-weight: var(--fw-bold);
+  color: var(--c-ink);
+  text-decoration: none;
+}
+.home-textlink:hover { color: var(--c-action); }
+.home-textlink i { margin-left: var(--s-2); font-size: 0.8em; }
+/* Kept, and kept quiet: the certificate question is the owner's (BACKLOG). */
+.home-iso { font-size: var(--fs-sm); color: var(--c-ink-2); }
+.home-iso i { margin-right: var(--s-1); color: var(--c-ink-3); }
+
+/* --------------------------------------------------------------------------
+   Services
+   -------------------------------------------------------------------------- */
+.home-services__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s-7); }
+@media (min-width: 62rem) {
+  .home-services__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--s-8); align-items: start; }
+}
+.home-services__intro h2 { margin: 0 0 var(--s-4); }
+.home-services__intro p { margin: 0 0 var(--s-6); color: var(--c-ink-2); max-width: 46ch; }
+.home-services__photo { margin: 0; }
+.home-services__photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--r-2);
+}
+.home-services__photo figcaption {
+  margin-top: var(--s-2);
+  font-size: var(--fs-xs);
+  color: var(--c-ink-2);
+}
+.home-services__photo figcaption i { margin-right: var(--s-1); color: var(--c-ink-3); }
+
+.home-services__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--c-line);
+}
+.home-services__list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-4);
+  padding: var(--s-5) 0;
+  border-bottom: 1px solid var(--c-line);
+}
+.home-services__list i {
+  flex: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: grid;
+  place-items: center;
+  font-size: 1rem;
+  color: var(--c-ink);
+  background: var(--c-canvas-sunk);
+  border-radius: var(--r-2);
+}
+.home-services__list h3 { margin: 0 0 var(--s-1); font-size: var(--fs-h4); }
+.home-services__list p { margin: 0; font-size: var(--fs-sm); color: var(--c-ink-2); }
+
+/* --------------------------------------------------------------------------
+   Why choose MTC -- six reasons, no numerals (not a sequence).
+   -------------------------------------------------------------------------- */
+.home-why__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  gap: var(--s-6) var(--s-5);
+}
+.home-why__item { padding-top: var(--s-5); border-top: 2px solid var(--c-ink); }
+.home-why__item i { font-size: 1.125rem; color: var(--c-ink-3); }
+.home-why__item h3 { margin: var(--s-3) 0 var(--s-2); font-size: var(--fs-h4); }
+.home-why__item p { margin: 0; font-size: var(--fs-sm); color: var(--c-ink-2); }
+/* Phones: icon beside the heading, not on a line of its own -- seen in the
+   browser, the stacked version made six reasons ~1,400px of scrolling. */
+@media (max-width: 47.99rem) {
+  .home-why__grid { gap: var(--s-5); }
+  .home-why__item {
+    display: grid;
+    grid-template-columns: 1.5rem minmax(0, 1fr);
+    column-gap: var(--s-3);
+    align-items: baseline;
+    padding-top: var(--s-4);
+  }
+  .home-why__item h3 { margin: 0 0 var(--s-2); }
+  .home-why__item p { grid-column: 2; }
+}
+
+/* --------------------------------------------------------------------------
+   Quote band -- the conversion path, on the dark ink surface so it reads as
+   the end of the page's argument rather than one more section.
+   -------------------------------------------------------------------------- */
+.home-cta {
+  padding: var(--s-8) 0;
+  overflow: visible;
+  color: var(--c-ink-on-dark);
+  background: var(--c-ink-surface);
+  /* The footer below is the same dark surface; without a rule the two read as
+     one block and the call to action loses its edge (seen in the browser). */
+  border-bottom: 1px solid rgb(255 255 255 / 0.1);
+}
+.home-cta__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-5) var(--s-7);
+}
+.home-cta h2 { margin: 0 0 var(--s-2); color: #fff; }
+.home-cta p { margin: 0; max-width: 52ch; color: rgb(232 236 239 / 0.75); }
+.home-cta__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-5); }
+.home-cta__call {
+  font-weight: var(--fw-bold);
+  font-variant-numeric: tabular-nums;
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-color: rgb(255 255 255 / 0.35);
+  text-underline-offset: 3px;
+}
+.home-cta__call:hover { text-decoration-color: #fff; }

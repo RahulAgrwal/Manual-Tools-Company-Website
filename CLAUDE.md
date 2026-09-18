@@ -69,7 +69,7 @@ All share one layout:
 1. `global-products.php`
 2. the Products dropdown in `header.php`
 3. `products.php` (card and filter class)
-4. `$carousel_items` in `index.php` (plus slide images in `assets/img/slide/` and `assets/img/slide-thumbnail/`)
+4. `$carousel_items` in `index.php`, which feeds the home-page machine picker (`image_path`, `title`, `subtitle`, `link`), plus a transparent cutout in `assets/img/slide/`; run `python tools/trim_cutouts.py` for its `.webp` and `.thumb.webp`. `assets/img/slide-thumbnail/` is no longer used.
 5. `sitemap.xml`: use `https://www.manualtoolsco.com/<slug>` (www, no `.php`) to match the canonical tags
 6. the image folder under `assets/img/product-images/`. Name files `<Product-Name>-N.png` (for example `Vibrator-Screen-3.png`). They show up in the product gallery and `photo-gallery.php` automatically (add the folder to `$gallery_products` there).
 7. run `python tools/optimize_images.py` to create the `.webp` and `.thumb.webp` copies. Commit them with the originals.
