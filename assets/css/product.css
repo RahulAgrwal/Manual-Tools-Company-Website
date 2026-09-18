@@ -1,0 +1,688 @@
+/* ==========================================================================
+   product.css -- the product detail page (product-page.php), on the tokens in
+   mtc.css. Replaces legacy-product.css on these ten pages, plus the inline
+   <style> blocks that sidebar-quote-form.php, related-products.php,
+   conveyor-materials.php and the two video pages used to carry.
+
+   The one bold element is the product well: the machine, large, in a recessed
+   panel with the only generous radius on the page. Everything else is hairline
+   rules and type. Orange appears on the primary buttons and the active tab
+   only.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Hero
+   -------------------------------------------------------------------------- */
+.pd-hero { padding-block: var(--s-7) var(--s-8); }
+
+/* minmax(0, 1fr), not the implicit `auto` column: a grid item's default
+   min-width is its content's natural width, so one wide child (the tab bar,
+   a table) stretched the column past the screen. On a phone that made mobile
+   Chrome widen the whole layout to 627px and shrink the page to fit. */
+.pd-hero__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s-7); }
+@media (min-width: 62rem) {
+  .pd-hero__grid {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: var(--s-8);
+    align-items: start;
+  }
+}
+
+/* The well -- the most important thing on the page, and the only element
+   with a 14px radius. */
+.pd-well {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: var(--c-canvas-sunk);
+  border-radius: var(--r-3);
+  overflow: hidden;
+}
+/* Absolutely positioned inside the padded well rather than max-height: 100%,
+   which does not resolve against an aspect-ratio box and let the full-size
+   cutout render at its natural size -- visibly cropped on top, bottom and
+   right. object-fit: contain then fits any aspect ratio of machine. */
+.pd-well img,
+.pd-well video {
+  position: absolute;
+  inset: var(--s-6);
+  width: calc(100% - 2 * var(--s-6));
+  height: calc(100% - 2 * var(--s-6));
+  object-fit: contain;
+}
+.pd-well video { inset: 0; width: 100%; height: 100%; background: #000; }
+
+.pd-thumbs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(4.5rem, 1fr));
+  gap: var(--s-2);
+  margin-top: var(--s-3);
+}
+.pd-thumb {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  padding: var(--s-1);
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--c-canvas-sunk);
+  border: 1px solid transparent;
+  border-radius: var(--r-2);
+  transition: border-color var(--dur-1) var(--ease);
+}
+.pd-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.pd-thumb:hover { border-color: var(--c-line-strong); }
+.pd-thumb.active { border-color: var(--c-ink); }
+
+/* Video thumbnails: a play mark over the poster. Was a 19-line inline
+   <style> duplicated on haulage and ring-type, dropped by the refactor in
+   cd70f92 and restored here. */
+.pd-thumb__play {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: 1rem;
+  background: rgb(16 22 28 / 0.45);
+  transition: background var(--dur-1) var(--ease);
+}
+.pd-thumb:hover .pd-thumb__play,
+.pd-thumb.active .pd-thumb__play { background: rgb(16 22 28 / 0.65); }
+
+.pd-summary { display: flex; flex-direction: column; gap: var(--s-4); }
+
+.pd-series {
+  margin: 0;
+  font-size: var(--fs-sm);
+  color: var(--c-ink-3);
+}
+
+.pd-title {
+  margin: 0;
+  font-size: var(--fs-h1);
+}
+/* The second line is the model, not a slogan: quieter, not orange. */
+.pd-title span {
+  color: var(--c-ink-2);
+  font-weight: var(--fw-med);
+}
+
+.pd-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-3);
+  margin: 0;
+  font-size: var(--fs-sm);
+  color: var(--c-ink-2);
+}
+.pd-stock {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  color: var(--c-ok);
+  font-weight: var(--fw-med);
+}
+.pd-stock::before {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.pd-intro {
+  margin: 0;
+  max-width: 60ch;
+  color: var(--c-ink-2);
+}
+
+/* Specs read as a table: hairline rows, label left, value right. */
+.pd-specs {
+  margin: var(--s-2) 0 0;
+  border-top: 1px solid var(--c-line);
+}
+.pd-specs > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--s-4);
+  padding-block: var(--s-3);
+  border-bottom: 1px solid var(--c-line);
+}
+.pd-specs dt {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-body);
+  color: var(--c-ink-2);
+}
+.pd-specs dd {
+  margin: 0;
+  font-weight: var(--fw-bold);
+  color: var(--c-ink);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.pd-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+  margin-top: var(--s-2);
+}
+.pd-actions .btn { flex: 1 1 12rem; }
+
+.pd-call {
+  margin: 0;
+  font-size: var(--fs-sm);
+  color: var(--c-ink-2);
+}
+.pd-call a {
+  color: var(--c-ink);
+  font-weight: var(--fw-bold);
+  font-variant-numeric: tabular-nums;
+  text-decoration: underline;
+  text-decoration-color: var(--c-line-strong);
+  text-underline-offset: 3px;
+}
+.pd-call a:hover { text-decoration-color: currentColor; }
+
+/* Trust notes are reference information: small and quiet. */
+.pd-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2) var(--s-5);
+  margin: var(--s-2) 0 0;
+  padding: var(--s-4) 0 0;
+  list-style: none;
+  font-size: var(--fs-xs);
+  color: var(--c-ink-2);
+  border-top: 1px solid var(--c-line);
+}
+.pd-trust li { display: inline-flex; align-items: center; gap: var(--s-2); }
+.pd-trust i { color: var(--c-ink-3); }
+
+/* --------------------------------------------------------------------------
+   Prose (overview, description tab)
+   -------------------------------------------------------------------------- */
+.pd-prose { max-width: var(--measure); }
+.pd-prose h2 { margin: 0 0 var(--s-5); }
+.pd-prose h3 { margin: 0 0 var(--s-4); font-size: var(--fs-h3); }
+.pd-prose p { margin: 0 0 var(--s-4); color: var(--c-ink-2); }
+.pd-prose strong { color: var(--c-ink); }
+
+.pd-related-link {
+  margin-top: var(--s-5) !important;
+  padding: var(--s-4) var(--s-5);
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-2);
+}
+.pd-related-link a {
+  color: var(--c-ink);
+  font-weight: var(--fw-bold);
+  text-decoration: none;
+}
+.pd-related-link a:hover { color: var(--c-action); }
+.pd-related-link i { font-size: 0.8em; margin-left: var(--s-1); }
+
+.pd-h3 { margin: var(--s-7) 0 var(--s-4); font-size: var(--fs-h3); }
+.pd-panes > .tab-pane > .pd-h3:first-child,
+.pd-flow .pd-h3 { margin-top: 0; }
+
+/* --------------------------------------------------------------------------
+   Overview + buying box
+   -------------------------------------------------------------------------- */
+.pd-overview__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s-6); }
+@media (min-width: 62rem) {
+  .pd-overview__grid {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    gap: var(--s-8);
+    align-items: start;
+  }
+}
+
+.pd-buy {
+  padding: var(--s-6);
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-2);
+}
+.pd-buy h3 { margin: 0 0 var(--s-4); font-size: var(--fs-h4); }
+.pd-buy ul { margin: 0 0 var(--s-5); padding: 0; list-style: none; }
+.pd-buy li {
+  padding-block: var(--s-3);
+  font-size: var(--fs-sm);
+  line-height: 1.5;
+  color: var(--c-ink-2);
+  border-bottom: 1px solid var(--c-line);
+}
+.pd-buy li:first-child { padding-top: 0; }
+.pd-buy li strong { display: block; color: var(--c-ink); }
+.pd-buy li a { color: var(--c-action); }
+.pd-buy__cta { width: 100%; }
+
+/* --------------------------------------------------------------------------
+   Details: tabs + quote form
+   -------------------------------------------------------------------------- */
+.pd-details__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s-7); }
+@media (min-width: 62rem) {
+  .pd-details__grid {
+    grid-template-columns: minmax(0, 2fr) minmax(19rem, 1fr);
+    gap: var(--s-8);
+    align-items: start;
+  }
+}
+
+/* On a phone the tab bar scrolls sideways rather than wrapping or turning
+   into an accordion; the fade at the edge says there is more. */
+.pd-tabs-scroll {
+  position: relative;
+  border-bottom: 1px solid var(--c-line);
+}
+.pd-tabs {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--s-5);
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  list-style: none;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.pd-tabs::-webkit-scrollbar { display: none; }
+@media (max-width: 47.99rem) {
+  /* Verified at 390px: with the desktop gap and a 2.5rem fade, exactly two
+     tabs fitted and the third began under the fade, so nothing showed that
+     Applications, Maintenance and FAQ existed. A visibly cut-off next tab is
+     the clearest cue that a row scrolls, so the gap tightens and the fade
+     narrows enough for it to show through. */
+  .pd-tabs { gap: var(--s-4); }
+  .pd-tabs-scroll::after {
+    content: "";
+    position: absolute;
+    inset: 0 0 1px auto;
+    width: 1.25rem;
+    pointer-events: none;
+    background: linear-gradient(to right, transparent, var(--c-canvas));
+  }
+}
+.pd-tabs .nav-link {
+  position: relative;
+  flex: none;
+  padding: var(--s-4) 0;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-med);
+  color: var(--c-ink-2);
+  white-space: nowrap;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.pd-tabs .nav-link:hover { color: var(--c-ink); }
+.pd-tabs .nav-link.active { color: var(--c-ink); font-weight: var(--fw-bold); }
+.pd-tabs .nav-link.active::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 -1px;
+  height: 2px;
+  background: var(--c-action);
+}
+
+.pd-panes { padding-top: var(--s-6); }
+
+/* Parameter table -- the spec sheet. Also styles the conveyor page's own
+   materials table, which arrives as raw markup with the legacy class. */
+.spec-table-wrap,
+.mtc-tech-table-container { overflow-x: auto; }
+.spec-table,
+.mtc-modern-tech-table {
+  width: 100%;
+  font-size: var(--fs-sm);
+  font-variant-numeric: tabular-nums;
+  border-collapse: collapse;
+}
+.spec-table thead th,
+.mtc-modern-tech-table thead th {
+  padding: 0 var(--s-4) var(--s-3) 0;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-med);
+  color: var(--c-ink-3);
+  text-align: left;
+  border-bottom: 1px solid var(--c-line-strong);
+}
+.spec-table tbody th,
+.spec-table tbody td,
+.mtc-modern-tech-table tbody td {
+  padding: var(--s-3) var(--s-4) var(--s-3) 0;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--c-line);
+}
+.spec-table tbody th,
+.mtc-modern-tech-table tbody td:first-child {
+  width: 40%;
+  font-weight: var(--fw-body);
+  color: var(--c-ink-2);
+}
+.spec-table tbody td,
+.mtc-modern-tech-table tbody td:last-child {
+  font-weight: var(--fw-med);
+  color: var(--c-ink);
+}
+.mtc-modern-tech-table strong { font-weight: inherit; }
+
+/* Process flow: optional diagram beside a numbered sequence. */
+.pd-flow { display: grid; gap: var(--s-6); }
+@media (min-width: 48rem) {
+  .pd-flow--with-figure { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; }
+}
+.pd-figure { margin: 0; }
+.pd-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-2);
+}
+.pd-figure figcaption {
+  margin-top: var(--s-2);
+  font-size: var(--fs-xs);
+  color: var(--c-ink-3);
+}
+
+.pd-steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-left: 1px solid var(--c-line-strong);
+}
+.pd-steps li {
+  position: relative;
+  padding: 0 0 var(--s-6) var(--s-5);
+}
+.pd-steps li:last-child { padding-bottom: 0; }
+.pd-steps li::before {
+  content: "";
+  position: absolute;
+  left: -5px;
+  top: 0.35rem;
+  width: 9px;
+  height: 9px;
+  background: var(--c-surface);
+  border: 2px solid var(--c-ink);
+  border-radius: 50%;
+}
+.pd-steps__num {
+  display: block;
+  font-size: var(--fs-xs);
+  color: var(--c-ink-3);
+  font-variant-numeric: tabular-nums;
+}
+.pd-steps h4 { margin: var(--s-1) 0 var(--s-2); font-size: var(--fs-h4); }
+.pd-steps p { margin: 0; font-size: var(--fs-sm); color: var(--c-ink-2); }
+
+/* Applications. The generic .grid--3 minimum (17rem) fits only two across in
+   this column and stranded the third card on its own row; 12.5rem fits three,
+   and pages with two applications (coal-charging-car) still split evenly. */
+.pd-apps { grid-template-columns: repeat(auto-fit, minmax(min(100%, 12.5rem), 1fr)); gap: var(--s-4); }
+.pd-app {
+  padding: var(--s-5);
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-2);
+}
+.pd-app i { font-size: 1.25rem; color: var(--c-ink-3); }
+.pd-app h4 { margin: var(--s-3) 0 var(--s-2); font-size: var(--fs-h4); }
+.pd-app p { margin: 0; font-size: var(--fs-sm); color: var(--c-ink-2); }
+
+/* Maintenance */
+.pd-note {
+  display: flex;
+  gap: var(--s-3);
+  margin-bottom: var(--s-6);
+  padding: var(--s-4) var(--s-5);
+  background: #FFF8E6;
+  border-left: 3px solid var(--c-warn);
+  border-radius: 0 var(--r-2) var(--r-2) 0;
+}
+.pd-note i { margin-top: 0.2rem; color: var(--c-warn); }
+.pd-note p { margin: 0; font-size: var(--fs-sm); color: var(--c-ink); }
+.pd-maint h4 { margin: 0 0 var(--s-3); font-size: var(--fs-h4); }
+.pd-list { margin: 0; padding: 0 0 0 1.1rem; }
+.pd-list li {
+  margin-bottom: var(--s-2);
+  font-size: var(--fs-sm);
+  color: var(--c-ink-2);
+}
+.pd-list li::marker { color: var(--c-ink-3); }
+.pd-list strong { color: var(--c-ink); }
+
+/* FAQ -- hairline rules and a plus that turns into a minus (Shopify,
+   Patreon, Hims on Mobbin). Bootstrap's collapse still drives it. */
+.pd-faq { border-top: 1px solid var(--c-line); }
+.pd-faq__item { border-bottom: 1px solid var(--c-line); }
+.pd-faq__h { margin: 0; font-size: inherit; }
+.pd-faq__q {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--s-4);
+  width: 100%;
+  min-height: 3rem;
+  padding: var(--s-4) 0;
+  font-size: var(--fs-body);
+  font-weight: var(--fw-bold);
+  color: var(--c-ink);
+  text-align: left;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.pd-faq__q:hover { color: var(--c-action); }
+.pd-faq__icon {
+  position: relative;
+  flex: none;
+  width: 0.875rem;
+  height: 0.875rem;
+}
+.pd-faq__icon::before,
+.pd-faq__icon::after {
+  content: "";
+  position: absolute;
+  inset: 50% 0 auto;
+  height: 2px;
+  margin-top: -1px;
+  background: currentColor;
+  transition: transform var(--dur-2) var(--ease);
+}
+.pd-faq__icon::after { transform: rotate(90deg); }
+.pd-faq__q:not(.collapsed) .pd-faq__icon::after { transform: rotate(0deg); }
+.pd-faq__a {
+  max-width: var(--measure);
+  margin: 0;
+  padding: 0 0 var(--s-5);
+  font-size: var(--fs-sm);
+  color: var(--c-ink-2);
+}
+
+/* conveyor-materials: its bespoke tabs arrive as raw markup with legacy
+   classes. The component grid was a 60-line inline <style> on that page,
+   dropped by the refactor in cd70f92 and restored here on the new tokens. */
+.mtc-tech-heading { margin: 0 0 var(--s-4); font-size: var(--fs-h3); }
+.mtc-tech-paragraph { max-width: var(--measure); color: var(--c-ink-2); }
+.mtc-component-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: var(--s-4);
+  margin-top: var(--s-5);
+}
+.mtc-component-card {
+  padding: var(--s-5);
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-2);
+}
+.mtc-card-icon { font-size: 1.25rem; color: var(--c-ink-3); }
+.mtc-card-title { margin: var(--s-3) 0 var(--s-3); font-size: var(--fs-h4); }
+.mtc-card-list {
+  margin: 0;
+  padding: 0 0 0 1.1rem;
+  font-size: var(--fs-sm);
+  color: var(--c-ink-2);
+}
+.mtc-card-list li { margin-bottom: var(--s-1); }
+.mtc-card-list li::marker { color: var(--c-ink-3); }
+
+/* --------------------------------------------------------------------------
+   Quote form. Sticky beside the tabs on desktop -- one of the two elements
+   authorised to use --shadow-2, because it floats over the content.
+   -------------------------------------------------------------------------- */
+@media (min-width: 62rem) {
+  .pd-quote { position: sticky; top: calc(var(--header-h, 76px) + var(--s-5)); }
+}
+
+.quote-card {
+  padding: clamp(var(--s-5), 4vw, var(--s-6));
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-2);
+  box-shadow: var(--shadow-2);
+}
+.quote-card__title { margin: 0 0 var(--s-2); font-size: var(--fs-h3); }
+.quote-card__lede {
+  margin: 0 0 var(--s-5);
+  font-size: var(--fs-sm);
+  color: var(--c-ink-2);
+}
+.quote-card__lede strong { color: var(--c-ink); }
+
+.field { margin-bottom: var(--s-4); }
+.field label {
+  display: block;
+  margin-bottom: var(--s-2);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-med);
+  color: var(--c-ink);
+}
+.field__opt {
+  margin-left: var(--s-1);
+  font-weight: var(--fw-body);
+  color: var(--c-ink-3);
+}
+.field input,
+.field textarea {
+  display: block;
+  width: 100%;
+  min-height: 2.75rem;
+  padding: var(--s-2) var(--s-3);
+  font: inherit;
+  font-size: var(--fs-body);
+  color: var(--c-ink);
+  background: var(--c-surface);
+  border: 1px solid var(--c-line-strong);
+  border-radius: var(--r-1);
+  transition: border-color var(--dur-1) var(--ease), box-shadow var(--dur-1) var(--ease);
+}
+.field textarea { resize: vertical; min-height: 6rem; }
+.field input::placeholder,
+.field textarea::placeholder { color: var(--c-ink-3); }
+.field input:hover,
+.field textarea:hover { border-color: var(--c-ink-3); }
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--c-focus);
+  box-shadow: 0 0 0 3px rgb(26 95 208 / 0.18);
+}
+/* main.js adds .error-border to a required field left empty. */
+.field .error-border {
+  border-color: var(--c-err);
+  box-shadow: 0 0 0 3px rgb(179 38 30 / 0.12);
+}
+
+.quote-card__submit { width: 100%; margin-top: var(--s-2); }
+.quote-card__fine {
+  margin: var(--s-3) 0 0;
+  font-size: var(--fs-xs);
+  color: var(--c-ink-3);
+  text-align: center;
+}
+.quote-card__alt {
+  margin: var(--s-5) 0 0;
+  padding-top: var(--s-4);
+  font-size: var(--fs-sm);
+  color: var(--c-ink-2);
+  text-align: center;
+  border-top: 1px solid var(--c-line);
+}
+.quote-card__alt a {
+  color: var(--c-ink);
+  font-weight: var(--fw-bold);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Status lines; main.js fades them in and out. */
+.form-status {
+  margin-bottom: var(--s-4);
+  padding: var(--s-3) var(--s-4);
+  font-size: var(--fs-sm);
+  border-radius: var(--r-1);
+  background: var(--c-canvas-sunk);
+  color: var(--c-ink);
+}
+.form-status--error { background: #FDECEA; color: var(--c-err); }
+.form-status--ok { background: #E8F4ED; color: var(--c-ok); }
+
+/* --------------------------------------------------------------------------
+   Related products -- a scroll-snapped row of the shared .product-card.
+   -------------------------------------------------------------------------- */
+.related__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--s-4);
+  margin-bottom: var(--s-6);
+}
+.related__head h2 { margin: 0 0 var(--s-2); }
+.related__head p { margin: 0; color: var(--c-ink-2); }
+.related__nav { display: flex; gap: var(--s-2); }
+
+.icon-btn {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  color: var(--c-ink);
+  cursor: pointer;
+  background: var(--c-surface);
+  border: 1px solid var(--c-line-strong);
+  border-radius: var(--r-2);
+  transition: border-color var(--dur-1) var(--ease), opacity var(--dur-1) var(--ease);
+}
+.icon-btn:hover { border-color: var(--c-ink); }
+.icon-btn:disabled { opacity: 0.35; cursor: default; border-color: var(--c-line-strong); }
+
+.related__track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(15rem, 1fr);
+  gap: var(--s-4);
+  overflow-x: auto;
+  padding-bottom: var(--s-3);
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 0;
+  scrollbar-width: thin;
+}
+@media (min-width: 62rem) {
+  /* Four cards in view on desktop. */
+  .related__track { grid-auto-columns: calc((100% - 3 * var(--s-4)) / 4); }
+}
+.related__track > .product-card { scroll-snap-align: start; }
+.related__track:focus-visible { outline-offset: 4px; }

@@ -26,6 +26,22 @@ optional tidy-up.** A step is not finished until this document says so.
 4. **Update the Progress table** so it always matches the phase sections below it.
 5. **Commit this file together with the code it describes**, in the same commit.
    A commit that changes the redesign without updating this file is incomplete.
+6. **Visually verify every UI change before marking it `[x]`.** Passing checks
+   (`check_pages.py`, content diffs, `php -l`) prove content and markup, not
+   appearance — a change can pass all of them and still look broken (see phase
+   5: 98 lines of styling were dropped with every check green). A UI step is
+   done only after it has been **looked at in the browser**:
+   - at **desktop (~1440px) and phone (390px)** width — for phone width, load the
+     page in a 390px-wide iframe, because resizing the browser window does not
+     change the viewport the page sees;
+   - on **every page variant the change touches** (for product pages at least:
+     a plain page, a video page, conveyor-materials, and a page with a process
+     diagram);
+   - including **interactive states** it affects — tabs, accordions, gallery
+     swap, mobile menu, form validation/success;
+   - and the note under the step must say **what was looked at** (pages, widths,
+     states) and anything found and fixed. "Looks fine" without that is not
+     verification.
 
 `CLAUDE.md` points here, so every session picks this rule up.
 
@@ -232,8 +248,110 @@ Measured structure of the ten (confirmed by the extractor, matches the survey):
     the related-products slider, which lacked them before this work.
   - The `<h1>` lost the space before its `<br>`, so text extraction read
     "Pusher MachineWith Stamping". Restored exactly as the original had it.
-- `[ ]` Restyle: hero well, spec table as real data, tabs → accordion below 48rem,
-  timeline, applications, maintenance, FAQ, sidebar quote card, related slider.
+- `[x]` **Regression found after commit:** the originals carried page-specific
+  inline `<style>` in `<head>` — 60 lines for conveyor's component grid, 19 for
+  the video play overlay on haulage and ring-type. The extractor read only the
+  body, so `cd70f92` **dropped 98 lines of styling**; conveyor's first tab and
+  the two video overlays render unstyled. The equivalence check compared text
+  and structure, so it could not see it. Fixed in the restyle below (the rules
+  move into `product.css`). Lesson: an equivalence check must say what it does
+  *not* cover — this one covered content, not presentation.
+- `[x]` **Design research before the restyle** (user asked that UI skills be used):
+  - `ui-ux-pro-max` — targeted `--domain ux` queries (a full design system was
+    not regenerated; the approved one stands). Two queries missed and were
+    retried narrower per the skill's contract. Verified findings that apply:
+    *Input Labels (High)* — every field needs a visible label, placeholder is not
+    a label; *Input Types / autofill* — `autocomplete` so phones autofill;
+    *Target Size (WCAG 2.2, High)* — 24 CSS px minimum; *Compact label overflow
+    (High)* — chips stay on one line; *focus-not-obscured* — the sticky header
+    must not cover an anchored/focused target; *srcset (High)* — mobile should not
+    download the 1600px hero; *number-tabular* — already done.
+  - **Audit of the real quote form against those:** no `<label>` at all
+    (placeholder-only), no `autocomplete`, reassurance text at 10px. It is the
+    lead-gen path. All fixable without touching the frozen form contract.
+  - **Mobbin** — forms (Vercel, Wise, Tempo, YLLW): labels above fields; Tempo
+    tags the *optional* fields rather than starring required ones, and states
+    what happens next beside the form. FAQ (Shopify, Patreon, Hims): hairline
+    rules between questions, plus/minus at the right, no boxed cards.
+  - 21st.dev skipped at the user's request.
+- `[x]` **Restyle landed** — `assets/css/product.css` replaces `legacy-product.css`
+  on the ten pages. Hero well with the clean cutout, specs as a hairline data list,
+  one orange action, labelled quote form (visible labels, `autocomplete`,
+  "optional" tags), hairline FAQ with +/−, scrolling tab bar on phones,
+  timeline, applications, maintenance note, related row on the shared
+  `.product-card`. Inline `<style>`/`<script>` removed from
+  `sidebar-quote-form.php` and `related-products.php`; related arrows move by one
+  measured card. Footer "Designed by" credit removed (user request); the visitor
+  counter span it shared a `<div>` with is kept intact.
+- `[x]` **Visually verified** (rule 6) in an isolated headless Chrome, real
+  viewports:
+  - **Desktop 1440:** power-winch (hero, actions, overview, all five tabs, form
+    error state, related row + arrows, footer); haulage (video thumbnails, a video
+    playing in the well, swap back to a photo); conveyor (both custom tabs);
+    coal-crusher single disc (diagram beside the timeline).
+  - **Phone 390 (`isMobile`, touch):** power-winch (hero, specs/actions, tab
+    bar, form, related row, mobile menu + Products submenu); ring-type (flow tab,
+    diagram stacked); conveyor (component cards stacked).
+  - **All ten product pages at 390**, programmatically: layout width exactly
+    390, full-width well, one h1, no PHP errors. **The other seven pages** at
+    390 and 1440: no overflow, 41px utility bar, light breadcrumb rail, white
+    header-button text, one h1 each.
+  - States exercised: every tab, FAQ one-open-at-a-time + `aria-expanded`,
+    gallery image↔video swap + `aria-pressed`, empty-form submit (nothing sent),
+    related arrows to the end (disabled states), mobile menu open/close + body
+    scroll lock, back-to-top per width.
+- **Visual verification found 17 defects that every automated check passed.**
+  All fixed. Five were in phases already marked `[x]` — recorded here because
+  that is exactly what rule 6 exists to catch:
+  1. *(phase 3)* Utility bar rendered **~160px tall**: legacy
+     `section { padding: 60px 0 }` hit `#topbar`, which is a `<section>`.
+  2. *(phase 3)* Header "Request a quote" was **orange text on orange** — the
+     `#navbar … a` colour rule's id selector outranked `.btn--primary`.
+  3. *(phase 4)* Breadcrumb bar **still the dark band** — legacy `.breadcrumbs`
+     rules load after mine. Block deleted.
+  4. Hero still led with the **watermarked plate**; now the clean cutout (plate
+     stays as `og:image`, so social previews and JSON-LD are unchanged).
+  5. Machine **cropped** in the well: `max-height: 100%` does not resolve
+     against an `aspect-ratio` box. Fixed with absolute positioning.
+  6. Back-to-top **solid orange** from a legacy rule. Deleted.
+  7. Legacy **mobile call/quote bar** block overrode chrome.css (dark-brown call
+     button, wrong spacing). Deleted.
+  8. Legacy `section { overflow: hidden }` **silently disables `position:
+     sticky`**. Neutralised on rebuilt sections (class selectors outrank it).
+     The quote form is sticky and unclipped; it only travels when the tab
+     column is taller than the form (806px) — correct, not a bug.
+  9. Applications: three cards wrapped **2 + 1**. Minimum width lowered.
+  10. *(phase 2)* **Product-card image areas unequal heights** on home, about
+      and related — `aspect-ratio` is only a preferred ratio, a tall image grew
+      its box. Phase 2 had misattributed this to flex-shrink. Same fix as 5;
+      now all 203px.
+  11. *(phase 3)* Footer contact rows had **lost their layout** when the legacy
+      footer CSS was removed; the long email overflowed the column.
+  12. **Phone layout was 627px wide**, not 390: grid items default to
+      `min-width: auto`, so the 610px tab row stretched the column and mobile
+      Chrome zoomed the page out to fit. Fixed with `minmax(0, 1fr)`. (The first
+      overflow check measured against the inflated width and reported nothing.)
+  13. Phone tab bar **hid three of five tabs** with no cue. Tighter gap and a
+      narrower fade so the next tab visibly peeks out.
+  14. Back-to-top **covered the message field** on phones; hidden below 48rem.
+      Its `d-flex` utility class (`!important` in compat.css) had first defeated
+      the rule; removed from the markup on 7 pages.
+  15. Mobile call/quote bar **sat on top of the open menu**; hidden while open.
+  16. **Breadcrumb `<h1>` near-invisible white** on about, products, contact,
+      photo-gallery and coal-crusher — a *second* legacy `.breadcrumbs h1 {
+      color: #fff }` rule later in legacy.css. Deleted.
+  17. Contact page: long email **overflowed its card** after the container width
+      change. `a[href^="mailto:"] { overflow-wrap: anywhere }` site-wide.
+- `[~]` **Fixes 16 and 17 are applied but not yet looked at.** The dev server and
+  the headless Chrome were both stopped by Claude Code (machine low on memory)
+  right after the screenshot that revealed them; neither is restarted without
+  the user's go-ahead. Verified so far only by CLI render (every page renders,
+  zero PHP errors, exactly one h1) and by grep (no legacy breadcrumb rule left).
+- **Decisions made during verification:** tabs scroll on phones (not an
+  accordion); back-to-top hidden on phones; the watermarked plate is dropped from
+  the gallery (the cutout leads); main.js's own required-field message never
+  shows because native HTML validation fires first — the original form behaved
+  the same, and the form layer is frozen, so left as-is.
 - `[ ]` Absorb the 360 lines of inline `<style>` from `related-products.php`,
   `sidebar-quote-form.php`, `conveyor-materials.php` and the two video pages.
 
@@ -278,6 +396,26 @@ belongs in its own change.
 
 Newest first. One entry per session or per notable event: what was done, what
 went wrong, what the next session should pick up. Required — see the rule at the top.
+
+### 2026-09-18 — session 2, part 4 (restyle + visual verification)
+- Product pages restyled; design research first (`ui-ux-pro-max` UX queries,
+  Mobbin forms + FAQ; 21st.dev skipped per the user).
+- The user added **rule 6: visually verify every UI change before marking it
+  done**. Applying it immediately found **17 defects that all automated checks
+  had passed**, five of them in phases already marked `[x]`. Listed in phase 5.
+- The Chrome extension was not connected in this session, so verification used
+  an **isolated headless Chrome** (separate throwaway profile in the scratchpad,
+  user's own browser untouched) driven by the chrome-devtools tools — which
+  also gives real 390px mobile viewports, better than the iframe workaround.
+- Dev server and headless Chrome were **both stopped for low memory** at the end.
+  Two fixes (breadcrumb h1 colour, contact email wrap) await a visual re-check.
+- User asked for the remaining UI to be **new and modern, driven by the
+  `ui-ux-pro-max` skill**. Next: run its `--design-system` generator as a design
+  driver (not only its UX guideline search), reconcile with the approved
+  Engineered Light direction, then apply to home and the remaining pages.
+- Also still owed: retroactive **visual** check of phases 1–4 pages at 390px
+  (numeric checks passed; screenshots not yet taken at phone width for home,
+  about, products).
 
 ### 2026-09-18 — session 2, part 3
 - Dev server restarted at the user's request; `check_pages.py --diff` run over

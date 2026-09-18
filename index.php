@@ -562,7 +562,7 @@ $carousel_items = [
   ?>
   <!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="fas fa-arrow-up"></i></a>
+  <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
 
   <!-- Vendor JS Files -->
 

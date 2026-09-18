@@ -4,7 +4,7 @@ Marketing and lead-generation website for **Manual Tools Company** (coke oven ma
 
 ## UI redesign in progress
 
-A whole-site redesign is under way on branch `redesign/ui` (not yet merged; `main` auto-deploys). **`BUILD_PLAN.md` is the source of truth for it.** Updating `BUILD_PLAN.md` is a **mandatory** part of every redesign step: mark a step `[~]` before starting it and `[x]` with a one-line note when it lands, record problems in its Session log, and commit it in the same commit as the code it describes. Read it before touching any page.
+A whole-site redesign is under way on branch `redesign/ui` (not yet merged; `main` auto-deploys). **`BUILD_PLAN.md` is the source of truth for it.** Updating `BUILD_PLAN.md` is a **mandatory** part of every redesign step: mark a step `[~]` before starting it and `[x]` with a one-line note when it lands, record problems in its Session log, and commit it in the same commit as the code it describes. **Every UI change must be visually verified in the browser (desktop and 390px phone width, every affected page variant and interactive state) before it is marked done** — passing checks prove content, not appearance. Read it before touching any page.
 
 ## Run locally
 

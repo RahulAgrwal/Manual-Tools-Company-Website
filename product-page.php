@@ -33,15 +33,27 @@ $url = 'https://www.manualtoolsco.com/' . $slug;
  * eight byte-identical copies of swapImage(). Now there is one shape and
  * one handler in assets/js/product-gallery.js.
  */
+// Lead with the clean transparent cutout (the same one the product cards use),
+// not the scanned catalogue plate in $p['main_image']: the plate has a
+// "MANUAL TOOLS CO." header, a halftone background and a caption baked into
+// its pixels. The plate is still the og:image, so social previews and the
+// Product JSON-LD are unchanged.
+require_once __DIR__ . '/global-products.php';
+$cutout = null;
+foreach ($GLOBAL_PRODUCT_CARDS as $card) {
+    if ($card['link'] === $slug) { $cutout = $card['image_path']; break; }
+}
+$lead = $cutout ?: ($p['main_image'] ?? null);
+
 $media = [];
-if (!empty($p['main_image'])) {
-    $media[] = ['type' => 'image', 'src' => mtc_img($p['main_image']), 'thumb' => mtc_thumb($p['main_image'])];
+if ($lead) {
+    $media[] = ['type' => 'image', 'src' => mtc_img($lead), 'thumb' => mtc_thumb($lead)];
 }
 foreach (glob($p['gallery_dir'] . '*.{jpg,jpeg,png,gif}', GLOB_BRACE) ?: [] as $img) {
     $media[] = ['type' => 'image', 'src' => mtc_img($img), 'thumb' => mtc_thumb($img)];
 }
 if (!empty($p['has_video'])) {
-    $poster = !empty($p['main_image']) ? mtc_thumb($p['main_image']) : '';
+    $poster = $lead ? mtc_thumb($lead) : '';
     foreach (glob($p['gallery_dir'] . '*.{mp4,webm}', GLOB_BRACE) ?: [] as $vid) {
         $media[] = ['type' => 'video', 'src' => $vid, 'thumb' => $poster];
     }
@@ -97,7 +109,7 @@ echo json_encode([
 ?>
   </script>
 
-  <?php $mtc_page_css = ['assets/css/legacy-product.css']; ?>
+  <?php $mtc_page_css = ['assets/css/product.css']; ?>
   <?php include('common-head.php'); ?>
   <?php mtc_breadcrumb_schema(['Products' => 'products', $p['crumb_last'] => $slug]); ?>
 </head>
@@ -109,9 +121,10 @@ echo json_encode([
   <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
+    <!-- The page heading (h1) is in the hero below, so this one is an h2. -->
     <section id="breadcrumbs" class="breadcrumbs">
-      <div class="container">
-        <div class="d-flex justify-content-between align-items-center">
+      <div class="wrap">
+        <div>
           <h2><?php echo htmlspecialchars($p['crumb_heading']); ?></h2>
           <ol>
             <li><a href="/">Home</a></li>
@@ -122,310 +135,277 @@ echo json_encode([
       </div>
     </section>
 
-    <!-- ======= Hero: gallery + key facts ======= -->
-    <section class="mtc-product-hero">
-      <div class="container">
-        <div class="row">
+    <!-- ======= Hero: the machine, then the facts a buyer screens on ======= -->
+    <section class="pd-hero">
+      <div class="wrap pd-hero__grid">
 
-          <div class="col-lg-6 mb-4 mb-lg-0">
-            <div class="mtc-product-main-frame text-center" id="mtc-main-display">
-              <?php if ($first['type'] === 'video') : ?>
-                <video src="<?php echo htmlspecialchars($first['src']); ?>" controls playsinline
-                  preload="none" poster="<?php echo htmlspecialchars($first['thumb']); ?>"
-                  class="img-fluid"></video>
-              <?php else : ?>
-                <img id="mainImage" src="<?php echo htmlspecialchars($first['src']); ?>"
-                  <?php echo mtc_img_size($first['src']); ?> fetchpriority="high"
-                  alt="<?php echo htmlspecialchars($p['hero_alt']); ?>" class="img-fluid">
-              <?php endif; ?>
-            </div>
+        <div class="pd-gallery">
+          <div class="pd-well" id="mtc-main-display">
+            <?php if ($first['type'] === 'video') : ?>
+              <video src="<?php echo htmlspecialchars($first['src']); ?>" controls playsinline
+                preload="none" poster="<?php echo htmlspecialchars($first['thumb']); ?>"></video>
+            <?php else : ?>
+              <img id="mainImage" src="<?php echo htmlspecialchars($first['src']); ?>"
+                <?php echo mtc_img_size($first['src']); ?> fetchpriority="high"
+                alt="<?php echo htmlspecialchars($p['hero_alt']); ?>">
+            <?php endif; ?>
+          </div>
 
-            <div class="mtc-product-thumb-grid">
-              <?php foreach ($media as $i => $m) : ?>
+          <?php if (count($media) > 1) : ?>
+            <div class="pd-thumbs mtc-product-thumb-grid">
+              <?php foreach ($media as $i => $m) :
+                // The alt text is the button's accessible name, and Google Images
+                // indexes it -- so keep it descriptive, as the old pages had it.
+                $thumbAlt = $p['thumb_alt'] . ($m['type'] === 'video' ? ' video ' : ' photo ') . ($i + 1);
+              ?>
                 <button type="button"
-                  class="mtc-product-thumb-item<?php echo $i === 0 ? ' active' : ''; ?>"
+                  class="pd-thumb mtc-product-thumb-item<?php echo $i === 0 ? ' active' : ''; ?>"
                   data-type="<?php echo $m['type']; ?>"
                   data-full="<?php echo htmlspecialchars($m['src']); ?>"
-                  data-poster="<?php echo htmlspecialchars($m['thumb']); ?>">
-                  <?php
-                  // The alt text is the button's accessible name, and Google Images
-                  // indexes it -- so keep it descriptive, as the old pages had it.
-                  $thumbAlt = $p['thumb_alt'] . ($m['type'] === 'video' ? ' video ' : ' photo ') . ($i + 1);
-                  ?>
+                  data-poster="<?php echo htmlspecialchars($m['thumb']); ?>"
+                  aria-pressed="<?php echo $i === 0 ? 'true' : 'false'; ?>">
                   <img src="<?php echo htmlspecialchars($m['thumb']); ?>"
                     <?php echo $m['thumb'] ? mtc_img_size($m['thumb']) : ''; ?> loading="lazy"
                     alt="<?php echo htmlspecialchars($thumbAlt); ?>">
                   <?php if ($m['type'] === 'video') : ?>
-                    <span class="mtc-video-thumb-overlay"><i class="fas fa-play"></i></span>
+                    <span class="pd-thumb__play" aria-hidden="true"><i class="fas fa-play"></i></span>
                   <?php endif; ?>
                 </button>
               <?php endforeach; ?>
             </div>
-          </div>
-
-          <div class="col-lg-6 ps-lg-5">
-            <div class="mtc-product-eyebrow"><?php echo htmlspecialchars($p['eyebrow']); ?></div>
-            <h1 class="mtc-product-title"><?php echo htmlspecialchars($p['h1_lead']); ?><?php if ($p['h1_accent']) : ?> <br><span class="mtc-highlight"><?php echo htmlspecialchars($p['h1_accent']); ?></span><?php endif; ?></h1>
-
-            <div class="mtc-product-review-row">
-              <?php if ($p['model']) : ?><span><?php echo htmlspecialchars($p['model_label']); ?>: <?php echo htmlspecialchars($p['model']); ?></span><?php endif; ?>
-              <span class="mtc-product-stock-badge"><?php echo htmlspecialchars($p['stock']); ?></span>
-            </div>
-
-            <?php if ($p['intro_html']) : ?>
-              <p class="mtc-product-intro"><?php echo $p['intro_html']; ?></p>
-            <?php endif; ?>
-
-            <div class="mtc-product-specs-grid">
-              <?php foreach ($p['specs'] as [$icon, $label, $value]) : ?>
-                <div class="mtc-product-spec-item">
-                  <i class="fas <?php echo $icon; ?> mtc-product-spec-icon" aria-hidden="true"></i>
-                  <div class="mtc-product-spec-text">
-                    <span><?php echo htmlspecialchars($label); ?></span>
-                    <strong><?php echo htmlspecialchars($value); ?></strong>
-                  </div>
-                </div>
-              <?php endforeach; ?>
-            </div>
-
-            <div class="mtc-product-action-row">
-              <?php if ($p['brochure']) : ?>
-                <a href="<?php echo $p['brochure']; ?>" class="mtc-btn-dark" download>
-                  <i class="fas fa-download"></i> Brochure
-                </a>
-              <?php endif; ?>
-              <a href="#quote-form" class="mtc-btn-orange">
-                <i class="fas fa-file-signature"></i> Request Quote
-              </a>
-              <a href="tel:+919430707348" class="mtc-btn-call-us">
-                <i class="fas fa-phone"></i> Call Us
-              </a>
-            </div>
-
-            <div class="mtc-product-trust-badges">
-              <?php foreach ($p['trust'] as [$icon, $text]) : ?>
-                <span><i class="fas <?php echo $icon; ?>"></i> <?php echo htmlspecialchars($text); ?></span>
-              <?php endforeach; ?>
-            </div>
-
-          </div>
+          <?php endif; ?>
         </div>
+
+        <div class="pd-summary">
+          <p class="pd-series"><?php echo htmlspecialchars($p['eyebrow']); ?></p>
+          <h1 class="pd-title"><?php echo htmlspecialchars($p['h1_lead']); ?><?php if ($p['h1_accent']) : ?> <br><span><?php echo htmlspecialchars($p['h1_accent']); ?></span><?php endif; ?></h1>
+
+          <p class="pd-meta">
+            <?php if ($p['model']) : ?>
+              <span><?php echo htmlspecialchars($p['model_label']); ?> <span class="tnum"><?php echo htmlspecialchars($p['model']); ?></span></span>
+            <?php endif; ?>
+            <span class="pd-stock"><?php echo htmlspecialchars($p['stock']); ?></span>
+          </p>
+
+          <?php if ($p['intro_html']) : ?>
+            <p class="pd-intro"><?php echo $p['intro_html']; ?></p>
+          <?php endif; ?>
+
+          <!-- Specs are data, so they are a description list read as a table:
+               label on the left, value on the right, no icons. -->
+          <dl class="pd-specs">
+            <?php foreach ($p['specs'] as [$icon, $label, $value]) : ?>
+              <div>
+                <dt><?php echo htmlspecialchars($label); ?></dt>
+                <dd><?php echo htmlspecialchars($value); ?></dd>
+              </div>
+            <?php endforeach; ?>
+          </dl>
+
+          <div class="pd-actions">
+            <a href="#quote-form" class="btn btn--primary">Request a quote</a>
+            <?php if ($p['brochure']) : ?>
+              <a href="<?php echo $p['brochure']; ?>" class="btn btn--quiet" download>
+                <i class="fas fa-download" aria-hidden="true"></i> Brochure (PDF)
+              </a>
+            <?php endif; ?>
+          </div>
+          <p class="pd-call">
+            Or call <a href="tel:+919430707348">+91 94307 07348</a>
+          </p>
+
+          <ul class="pd-trust">
+            <?php foreach ($p['trust'] as [$icon, $text]) : ?>
+              <li><i class="fas <?php echo $icon; ?>" aria-hidden="true"></i><?php echo htmlspecialchars($text); ?></li>
+            <?php endforeach; ?>
+          </ul>
+        </div>
+
       </div>
     </section>
 
     <!-- ======= Overview & buying information ======= -->
-    <section class="mtc-product-overview">
-      <div class="container">
-        <div class="row g-4">
-          <div class="col-lg-8">
-            <h2 class="mtc-overview-title"><?php echo htmlspecialchars($p['overview_heading']); ?></h2>
-            <?php foreach ($p['overview_paras'] as $para) : ?>
-              <p><?php echo $para; ?></p>
-            <?php endforeach; ?>
-            <?php if ($p['overview_related_html']) : ?>
-              <p class="mtc-overview-related"><?php echo $p['overview_related_html']; ?></p>
-            <?php endif; ?>
-          </div>
-          <div class="col-lg-4">
-            <div class="mtc-buyer-box">
-              <h3>Buying information</h3>
-              <ul>
-                <?php foreach ($p['buyer_items'] as $item) : ?>
-                  <li><?php echo $item; ?></li>
-                <?php endforeach; ?>
-              </ul>
-              <a href="#quote-form" class="mtc-btn-orange"><i class="fas fa-file-signature"></i> Request a Quotation</a>
-            </div>
-          </div>
+    <section class="section section--sunk pd-overview">
+      <div class="wrap pd-overview__grid">
+        <div class="pd-prose">
+          <h2><?php echo htmlspecialchars($p['overview_heading']); ?></h2>
+          <?php foreach ($p['overview_paras'] as $para) : ?>
+            <p><?php echo $para; ?></p>
+          <?php endforeach; ?>
+          <?php if ($p['overview_related_html']) : ?>
+            <p class="pd-related-link"><?php echo $p['overview_related_html']; ?></p>
+          <?php endif; ?>
         </div>
+
+        <aside class="pd-buy" aria-labelledby="buy-title">
+          <h3 id="buy-title">Buying information</h3>
+          <ul>
+            <?php foreach ($p['buyer_items'] as $item) : ?>
+              <li><?php echo $item; ?></li>
+            <?php endforeach; ?>
+          </ul>
+          <a href="#quote-form" class="btn btn--primary pd-buy__cta">Request a quote</a>
+        </aside>
       </div>
     </section>
 
     <!-- ======= Detail tabs + quote form ======= -->
-    <section class="section-bg" style="padding: 60px 0;">
-      <div class="container">
-        <div class="row">
+    <section class="section pd-details">
+      <div class="wrap pd-details__grid">
 
-          <div class="col-lg-8">
-
-            <ul class="nav nav-tabs mtc-content-tabs" id="myTab" role="tablist">
+        <div class="pd-detail-body">
+          <!-- Bootstrap's tab JS still drives these (removed in phase 8), so the
+               nav-link / tab-pane / fade / show / active classes must stay. -->
+          <div class="pd-tabs-scroll">
+            <ul class="nav pd-tabs" id="myTab" role="tablist">
               <?php foreach ($p['tabs'] as $i => $tab) : ?>
-                <li class="nav-item" role="presentation">
+                <li role="presentation">
                   <button class="nav-link<?php echo $i === 0 ? ' active' : ''; ?>"
                     id="<?php echo $tab['id']; ?>-tab" data-bs-toggle="tab"
-                    data-bs-target="#<?php echo $tab['id']; ?>" type="button"
-                    role="tab"><?php echo htmlspecialchars($tab['label']); ?></button>
+                    data-bs-target="#<?php echo $tab['id']; ?>" type="button" role="tab"
+                    aria-controls="<?php echo $tab['id']; ?>"
+                    aria-selected="<?php echo $i === 0 ? 'true' : 'false'; ?>"><?php echo htmlspecialchars($tab['label']); ?></button>
                 </li>
               <?php endforeach; ?>
             </ul>
+          </div>
 
-            <div class="tab-content" id="myTabContent">
-              <?php foreach ($p['tabs'] as $i => $tab) :
-                $id = $tab['id'];
-                $paneClass = 'tab-pane fade' . ($i === 0 ? ' show active' : '');
-              ?>
-                <div class="<?php echo $paneClass; ?>" id="<?php echo $id; ?>" role="tabpanel">
+          <div class="tab-content pd-panes" id="myTabContent">
+            <?php foreach ($p['tabs'] as $i => $tab) :
+              $id = $tab['id'];
+            ?>
+              <div class="tab-pane fade<?php echo $i === 0 ? ' show active' : ''; ?>" id="<?php echo $id; ?>"
+                role="tabpanel" aria-labelledby="<?php echo $id; ?>-tab">
 
-                  <?php if ($id === 'desc') : ?>
-                    <div class="mtc-tech-wrapper">
-                      <?php if ($p['tech_heading']) : ?>
-                        <h3 class="mtc-tech-heading"><?php echo htmlspecialchars($p['tech_heading']); ?></h3>
-                      <?php endif; ?>
-                      <?php foreach ($p['tech_paras'] as $para) : ?>
-                        <p class="mtc-tech-paragraph"><?php echo $para; ?></p>
-                      <?php endforeach; ?>
-
-                      <?php if ($p['tech_rows']) : ?>
-                        <h3 class="mtc-tech-heading" style="font-size: 20px; margin-top: 40px;">
-                          <?php echo htmlspecialchars($p['tech_table_heading'] ?: 'Technical Parameters'); ?>
-                        </h3>
-                        <div class="mtc-tech-table-container">
-                          <table class="mtc-modern-tech-table">
-                            <thead>
-                              <tr>
-                                <th width="40%">Parameter</th>
-                                <th>Specification Value</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <?php foreach ($p['tech_rows'] as [$k, $v]) : ?>
-                                <tr>
-                                  <td><strong><?php echo htmlspecialchars($k); ?></strong></td>
-                                  <td><?php echo htmlspecialchars($v); ?></td>
-                                </tr>
-                              <?php endforeach; ?>
-                            </tbody>
-                          </table>
-                        </div>
-                      <?php endif; ?>
-                    </div>
-
-                  <?php elseif (in_array($id, $flow_ids, true)) : ?>
-                    <div class="mtc-timeline-wrapper">
-                      <div class="row">
-                        <?php if ($p['process_diagram']) : ?>
-                          <!-- Three pages show a process diagram beside the timeline. -->
-                          <div class="col-lg-6 mb-5 mb-lg-0">
-                            <div class="mtc-flow-image-box">
-                              <img src="<?php echo mtc_img($p['process_diagram']); ?>"
-                                <?php echo mtc_img_size(mtc_img($p['process_diagram'])); ?>
-                                loading="lazy"
-                                alt="<?php echo htmlspecialchars($p['process_diagram_alt'] ?: $p['schema_name'] . ' process flow diagram'); ?>"
-                                class="img-fluid w-100">
-                              <?php if ($p['process_diagram_caption']) : ?>
-                                <div class="mtc-flow-image-overlay">
-                                  <i class="fas fa-info-circle"></i> <?php echo htmlspecialchars($p['process_diagram_caption']); ?>
-                                </div>
-                              <?php endif; ?>
-                            </div>
-                          </div>
-                        <?php endif; ?>
-                        <div class="col-lg-6">
-                          <div class="ps-lg-4">
-                            <?php if ($p['flow_heading_accent']) : ?>
-                              <h3 class="mtc-flow-heading">
-                                <span><?php echo htmlspecialchars($p['flow_heading_accent']); ?></span>
-                                <?php echo htmlspecialchars($p['flow_heading_rest']); ?>
-                              </h3>
-                            <?php endif; ?>
-                            <div class="mtc-process-timeline">
-                              <?php foreach ($p['flow_steps'] as $n => [$icon, $title, $desc]) : ?>
-                                <div class="mtc-timeline-item">
-                                  <div class="mtc-timeline-marker"></div>
-                                  <div class="mtc-timeline-content">
-                                    <span class="mtc-timeline-number"><?php echo htmlspecialchars($p['flow_step_word']); ?> <?php echo str_pad($n + 1, 2, '0', STR_PAD_LEFT); ?></span>
-                                    <h4 class="mtc-timeline-title"><i class="fas <?php echo $icon; ?>"></i> <?php echo htmlspecialchars($title); ?></h4>
-                                    <p class="mtc-timeline-desc"><?php echo $desc; ?></p>
-                                  </div>
-                                </div>
-                              <?php endforeach; ?>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                  <?php elseif ($id === 'apps') : ?>
-                    <div class="row mtc-app-grid-container g-4">
-                      <?php foreach ($p['apps'] as [$icon, $title, $desc]) : ?>
-                        <div class="col-md-4">
-                          <div class="mtc-app-card">
-                            <div class="mtc-app-icon-wrapper"><i class="fas <?php echo $icon; ?>"></i></div>
-                            <h4 class="mtc-app-title"><?php echo htmlspecialchars($title); ?></h4>
-                            <p class="mtc-app-description"><?php echo $desc; ?></p>
-                          </div>
-                        </div>
-                      <?php endforeach; ?>
-                    </div>
-
-                  <?php elseif ($id === 'maint') : ?>
-                    <?php if ($p['maint_alert']) : ?>
-                      <div class="mtc-maintenance-alert">
-                        <i class="fas <?php echo $p['maint_alert'][0] ?: 'fa-exclamation-circle'; ?>"></i>
-                        <div>
-                          <strong><?php echo htmlspecialchars($p['maint_alert'][1]); ?></strong>
-                          <?php echo $p['maint_alert'][2]; ?>
-                        </div>
-                      </div>
+                <?php if ($id === 'desc') : ?>
+                  <div class="pd-prose">
+                    <?php if ($p['tech_heading']) : ?>
+                      <h3><?php echo htmlspecialchars($p['tech_heading']); ?></h3>
                     <?php endif; ?>
-                    <div class="row">
-                      <?php foreach ($p['maint_cols'] as $col) : ?>
-                        <div class="col-md-6">
-                          <h5 class="mtc-maintenance-col-title"><?php echo htmlspecialchars($col['title']); ?></h5>
-                          <ul class="mtc-maintenance-list">
-                            <?php foreach ($col['items'] as $item) : ?>
-                              <li><?php echo $item; ?></li>
-                            <?php endforeach; ?>
-                          </ul>
-                        </div>
-                      <?php endforeach; ?>
-                    </div>
+                    <?php foreach ($p['tech_paras'] as $para) : ?>
+                      <p><?php echo $para; ?></p>
+                    <?php endforeach; ?>
+                  </div>
 
-                  <?php elseif ($id === 'faq') : ?>
-                    <div class="row">
-                      <div class="col-lg-10 mx-auto">
-                        <div class="mtc-faq-container">
-                          <?php foreach ($p['faqs'] as $n => [$q, $a]) :
-                            $open = $n === 0;
-                            $cid = 'localFaq' . $n;
-                          ?>
-                            <div class="mtc-faq-item">
-                              <button class="mtc-faq-button<?php echo $open ? '' : ' collapsed'; ?>" type="button"
-                                data-bs-toggle="collapse" data-bs-target="#<?php echo $cid; ?>"
-                                aria-expanded="<?php echo $open ? 'true' : 'false'; ?>">
-                                <?php echo htmlspecialchars($q); ?>
-                                <span class="mtc-faq-icon"><i class="fas fa-chevron-down"></i></span>
-                              </button>
-                              <div id="<?php echo $cid; ?>" class="collapse<?php echo $open ? ' show' : ''; ?>"
-                                data-bs-parent="#faq">
-                                <div class="mtc-faq-body"><?php echo htmlspecialchars($a); ?></div>
-                              </div>
-                            </div>
+                  <?php if ($p['tech_rows']) : ?>
+                    <h3 class="pd-h3"><?php echo htmlspecialchars($p['tech_table_heading'] ?: 'Technical Parameters'); ?></h3>
+                    <div class="spec-table-wrap">
+                      <table class="spec-table">
+                        <thead>
+                          <tr><th scope="col">Parameter</th><th scope="col">Specification Value</th></tr>
+                        </thead>
+                        <tbody>
+                          <?php foreach ($p['tech_rows'] as [$k, $v]) : ?>
+                            <tr><th scope="row"><?php echo htmlspecialchars($k); ?></th><td><?php echo htmlspecialchars($v); ?></td></tr>
                           <?php endforeach; ?>
-                        </div>
-                      </div>
+                        </tbody>
+                      </table>
                     </div>
-
-                  <?php elseif (isset($p['custom_tabs'][$id])) : ?>
-                    <?php echo $p['custom_tabs'][$id]; ?>
                   <?php endif; ?>
 
-                </div>
-              <?php endforeach; ?>
-            </div>
+                <?php elseif (in_array($id, $flow_ids, true)) : ?>
+                  <div class="pd-flow<?php echo $p['process_diagram'] ? ' pd-flow--with-figure' : ''; ?>">
+                    <?php if ($p['process_diagram']) : ?>
+                      <figure class="pd-figure">
+                        <img src="<?php echo mtc_img($p['process_diagram']); ?>"
+                          <?php echo mtc_img_size(mtc_img($p['process_diagram'])); ?> loading="lazy"
+                          alt="<?php echo htmlspecialchars($p['process_diagram_alt'] ?: $p['schema_name'] . ' process flow diagram'); ?>">
+                        <?php if ($p['process_diagram_caption']) : ?>
+                          <figcaption><?php echo htmlspecialchars($p['process_diagram_caption']); ?></figcaption>
+                        <?php endif; ?>
+                      </figure>
+                    <?php endif; ?>
 
-          </div>
+                    <div>
+                      <?php if ($p['flow_heading_accent']) : ?>
+                        <h3 class="pd-h3"><?php echo htmlspecialchars($p['flow_heading_accent']); ?> <?php echo htmlspecialchars($p['flow_heading_rest']); ?></h3>
+                      <?php endif; ?>
+                      <!-- A real sequence, so numbering carries information here. -->
+                      <ol class="pd-steps">
+                        <?php foreach ($p['flow_steps'] as $n => [$icon, $title, $desc]) : ?>
+                          <li>
+                            <span class="pd-steps__num"><?php echo htmlspecialchars($p['flow_step_word']); ?> <?php echo str_pad($n + 1, 2, '0', STR_PAD_LEFT); ?></span>
+                            <h4><?php echo htmlspecialchars($title); ?></h4>
+                            <p><?php echo $desc; ?></p>
+                          </li>
+                        <?php endforeach; ?>
+                      </ol>
+                    </div>
+                  </div>
 
-          <div class="col-lg-4 mt-5 mt-lg-0" id="quote-form">
-            <?php
-            // sidebar-quote-form.php reads these, and footer.php switches the
-            // mobile CTA target on isset($_GET['page_url']). Keep both.
-            $_GET['page_url'] = $slug;
-            $_GET['page_title'] = $p['quote_title'] ?: $p['schema_name'];
-            include('sidebar-quote-form.php');
-            ?>
+                <?php elseif ($id === 'apps') : ?>
+                  <div class="grid grid--3 pd-apps">
+                    <?php foreach ($p['apps'] as [$icon, $title, $desc]) : ?>
+                      <div class="pd-app">
+                        <i class="fas <?php echo $icon; ?>" aria-hidden="true"></i>
+                        <h4><?php echo htmlspecialchars($title); ?></h4>
+                        <p><?php echo $desc; ?></p>
+                      </div>
+                    <?php endforeach; ?>
+                  </div>
+
+                <?php elseif ($id === 'maint') : ?>
+                  <?php if ($p['maint_alert']) : ?>
+                    <div class="pd-note" role="note">
+                      <i class="fas <?php echo $p['maint_alert'][0] ?: 'fa-exclamation-circle'; ?>" aria-hidden="true"></i>
+                      <p><strong><?php echo htmlspecialchars($p['maint_alert'][1]); ?></strong> <?php echo $p['maint_alert'][2]; ?></p>
+                    </div>
+                  <?php endif; ?>
+                  <div class="grid grid--2 pd-maint">
+                    <?php foreach ($p['maint_cols'] as $col) : ?>
+                      <div>
+                        <h4><?php echo htmlspecialchars($col['title']); ?></h4>
+                        <ul class="pd-list">
+                          <?php foreach ($col['items'] as $item) : ?>
+                            <li><?php echo $item; ?></li>
+                          <?php endforeach; ?>
+                        </ul>
+                      </div>
+                    <?php endforeach; ?>
+                  </div>
+
+                <?php elseif ($id === 'faq') : ?>
+                  <div class="pd-faq">
+                    <?php foreach ($p['faqs'] as $n => [$q, $a]) :
+                      $open = $n === 0;
+                      $cid = 'localFaq' . $n;
+                    ?>
+                      <div class="pd-faq__item">
+                        <h3 class="pd-faq__h">
+                          <button class="pd-faq__q<?php echo $open ? '' : ' collapsed'; ?>" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#<?php echo $cid; ?>"
+                            aria-controls="<?php echo $cid; ?>"
+                            aria-expanded="<?php echo $open ? 'true' : 'false'; ?>">
+                            <span><?php echo htmlspecialchars($q); ?></span>
+                            <span class="pd-faq__icon" aria-hidden="true"></span>
+                          </button>
+                        </h3>
+                        <div id="<?php echo $cid; ?>" class="collapse<?php echo $open ? ' show' : ''; ?>" data-bs-parent="#faq">
+                          <p class="pd-faq__a"><?php echo htmlspecialchars($a); ?></p>
+                        </div>
+                      </div>
+                    <?php endforeach; ?>
+                  </div>
+
+                <?php elseif (isset($p['custom_tabs'][$id])) : ?>
+                  <?php echo $p['custom_tabs'][$id]; ?>
+                <?php endif; ?>
+
+              </div>
+            <?php endforeach; ?>
           </div>
         </div>
+
+        <aside id="quote-form" class="pd-quote">
+          <?php
+          // sidebar-quote-form.php reads these, and footer.php switches the
+          // mobile CTA target on isset($_GET['page_url']). Keep both.
+          $_GET['page_url'] = $slug;
+          $_GET['page_title'] = $p['quote_title'] ?: $p['schema_name'];
+          include('sidebar-quote-form.php');
+          ?>
+        </aside>
+
       </div>
     </section>
 
@@ -438,7 +418,7 @@ echo json_encode([
 
   <?php include("footer.php"); ?>
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
+  <a href="#" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
 
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="<?php echo mtc_asset('assets/js/product-gallery.js'); ?>"></script>

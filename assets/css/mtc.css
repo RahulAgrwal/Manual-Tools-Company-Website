@@ -148,6 +148,10 @@
 html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
+  /* An anchor jump (#quote-form) or a focused control must not land under
+     the fixed header (WCAG 2.2 focus-not-obscured). main.js keeps
+     --header-h equal to the header's real height. */
+  scroll-padding-top: calc(var(--header-h, 76px) + 1rem);
 }
 
 body {
@@ -174,6 +178,11 @@ h1 { font-size: var(--fs-h1); letter-spacing: var(--tr-display); line-height: va
 h2 { font-size: var(--fs-h2); }
 h3 { font-size: var(--fs-h3); }
 h4 { font-size: var(--fs-h4); }
+
+/* An email address has no natural break points, so a long one
+   (ravindrakumaragarwal@rocketmail.com) overflowed the contact-page card once
+   .container narrowed to the site measure. Let addresses wrap anywhere. */
+a[href^="mailto:"] { overflow-wrap: anywhere; }
 
 /* Numerals line up in spec tables and stat blocks without a mono family. */
 table, .tnum { font-variant-numeric: tabular-nums; }
@@ -204,6 +213,13 @@ table, .tnum { font-variant-numeric: tabular-nums; }
 .wrap--narrow { max-width: 56rem; }
 
 .section { padding-block: var(--section-y); }
+
+/* legacy.css still sets `section { padding: 60px 0; overflow: hidden }` for the
+   pages not yet rebuilt. On rebuilt sections the overflow must be visible:
+   overflow: hidden on an ancestor silently disables position: sticky (the
+   product quote form) and clips focus rings. Class selectors outrank the bare
+   `section` selector, so this wins even though legacy.css loads later. */
+.section, .breadcrumbs, .pd-hero, .related { overflow: visible; }
 .section--sunk { background: var(--c-canvas-sunk); }
 
 .grid { display: grid; gap: var(--s-5); }
@@ -355,21 +371,22 @@ table, .tnum { font-variant-numeric: tabular-nums; }
 .product-card:focus-within { border-color: var(--c-focus); }
 
 .product-card__well {
-  display: grid;
-  place-items: center;
-  /* flex: none, or a card whose title wraps to two lines steals height from
-     the well and that one machine renders smaller than the rest of the row. */
+  position: relative;
+  /* flex: none keeps a card with a two-line title from stealing height. */
   flex: none;
   aspect-ratio: 4 / 3;
-  padding: var(--s-5);
   background: var(--c-canvas-sunk);
   border-bottom: 1px solid var(--c-line);
 }
+/* Absolutely positioned, not max-height: 100%. aspect-ratio is only a
+   preferred ratio: a tall image forced its well taller, so wells in one row
+   came out different heights and card text started at different levels
+   (seen on the home, about and related-products grids). */
 .product-card__well img {
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
+  position: absolute;
+  inset: var(--s-5);
+  width: calc(100% - 2 * var(--s-5));
+  height: calc(100% - 2 * var(--s-5));
   object-fit: contain;
 }
 

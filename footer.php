@@ -91,8 +91,9 @@ if (substr($page_name, -4) !== '.php') {
             &copy; <?php echo date("Y"); ?> <strong><span>Manual Tools Company</span></strong>. All Rights Reserved.
         </div>
         <div class="credits">
-            Designed by <a href="https://github.com/RahulAgrwal" target="_blank">Rahul Agarwal</a>
-            <span class="visitor-count ms-2" id="visitor-count" data-page="<?php echo htmlspecialchars($page_name); ?>" hidden>| &nbsp; <i class="fas fa-chart-line"></i> Visitors: <b></b></span>
+            <!-- The visitor counter script in this file needs this span's id,
+                 data-page and inner <b>. It stays hidden until a count arrives. -->
+            <span class="visitor-count" id="visitor-count" data-page="<?php echo htmlspecialchars($page_name); ?>" hidden><i class="fas fa-chart-line"></i> Visitors: <b></b></span>
         </div>
     </div>
 </footer>
