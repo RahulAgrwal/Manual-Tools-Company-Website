@@ -19,6 +19,7 @@
 
 ## Done
 
+- [x] **2026-09-18: Ring-type coke cutter specs made uniform.** Its `/products` catalogue card (`global-products.php`) had been copied from the drum-type cutter and showed 20 HP x 2 and 12 - 15 TPH with "adjustable drums". It now matches the detail page, meta description, schema and brochure: 25 HP x 2, 20 TPH, toothed rings.
 - [x] **2026-09-17: Brochures rebuilt.** All nine PDFs now come from `brochure/generate_product_brochures.py` with a new layout in `brochure/brochure_layout.py`. File names are unchanged, so the product-page links still work.
   - **Layout:** four pages. The cover is dark and names the product, with three headline figures. Page 2 has the overview, a specification table, design points, the Buying information box and a quotation panel. Page 3 has the process flow, applications and FAQ. Page 4 has the gallery and the rest of the range. Every interior page has a running header and footer with page numbers.
   - **Images:** cover art is the home-page carousel cutout. Photos with the company name printed into them are no longer used. Plain studio backdrops (white, black or green) are removed.

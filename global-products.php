@@ -55,13 +55,13 @@ $GLOBAL_PRODUCT_CARDS = [
     "subtitle" => "Double Drive Ring Type",
     "link" => "coke-cutter-double-drive-ring-type",
     "short_description" => "Heavy-duty double drive system with ring type teeth designed for precise coke cutting and specific sizing requirements.",
-    "long_description" => "Specialized double-drive cutter for sizing metallurgical coke. Features adjustable drums for 45-60mm output and manganese steel teeth for longevity.",
+    "long_description" => "Specialized double-drive cutter for sizing metallurgical coke. Features segmented manganese steel toothed rings and an adjustable ring gap for 45-60mm output.",
     "category" => "coke-cutter",
     "eyebrow" => "Precision Sizing",
     "mini_specs" => [
-      ["fa-bolt", "20 HP x 2 Motors"],
+      ["fa-bolt", "25 HP x 2 Motors"],
       ["fa-ruler", "45-60mm Output"],
-      ["fa-weight-hanging", "12 - 15 TPH"],
+      ["fa-weight-hanging", "20 TPH"],
       ["fa-cogs", "Cast Steel Gears"]
     ]
   ],
