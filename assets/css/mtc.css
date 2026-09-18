@@ -47,7 +47,7 @@
   /* ---- Ink ------------------------------------------------------------ */
   --c-ink:          #10161C;   /* headings, spec values */
   --c-ink-2:        #55606B;   /* body copy */
-  --c-ink-3:        #8A949E;   /* labels, captions, meta */
+  --c-ink-3:        #63707C;   /* labels, captions, meta. Was #8A949E: 2.75-3.08:1, failed WCAG AA */
   --c-ink-on-dark:  #E8ECEF;
 
   /* ---- Line ----------------------------------------------------------- */

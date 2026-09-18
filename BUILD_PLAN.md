@@ -355,6 +355,34 @@ Measured structure of the ten (confirmed by the extractor, matches the survey):
 - `[ ]` Absorb the 360 lines of inline `<style>` from `related-products.php`,
   `sidebar-quote-form.php`, `conveyor-materials.php` and the two video pages.
 
+## Design driver: `ui-ux-pro-max --design-system` (run 2026-09-18)
+
+Run at the user's request, as a design driver rather than only a guideline
+search. Query: *B2B industrial heavy machinery manufacturer lead generation*,
+variance 6, density 4. What was taken, and what was not:
+
+- **Palette — confirms the approved direction.** It proposed navy-slate
+  `#0F172A`/`#334155` on `#F8FAFC` with the accent reserved for the CTA: within
+  a shade of our ink `#10161C` on `#FAFBFC` and our orange rule. Its CTA hue is
+  blue; **brand orange stays** (hard constraint, owner sign-off needed to change).
+- **Type — not adopted.** It proposed Roboto, reasoning "Material Design 3,
+  Android apps": a generic default for the wrong subject. Archivo stays.
+- **Page pattern — adopted for the home page:** *Trust & Authority +
+  Conversion* — credibility hero → proof (clients, stats) → solutions → clear
+  quote path. Caution: it lists "certs" as proof; the ISO certificate expired in
+  2023 and is left as-is on the owner's request, so it is **not** promoted.
+- **Its pre-delivery checklist found two real WCAG AA failures** in the tokens:
+  - `--c-ink-3 #8A949E` measured **2.75–3.08:1** on our backgrounds (AA needs
+    4.5 for 13–15px text: captions, breadcrumb trail, table headers, "optional"
+    tags). `[x]` Changed to **`#63707C`: 4.52–5.07:1**. Visual re-check pending
+    (server/browser stopped).
+  - White on brand orange `#F03C02` is **3.92:1** — AA only for large text; the
+    buttons are 15px bold. `[ ]` **Owner decision:** use `#CC3202` for button
+    fills (**5.22:1**, already the hover shade — same hue, deeper tone), or keep
+    `#F03C02` and enlarge button text to AA "large" (≥18.7px bold).
+  - Also noted: focus ring 2px (it suggests 3–4px); filter pills below the 44px
+    touch height. To address with phase 6.
+
 ## Phase 6 — Home `[ ]`
 
 - `[ ]` Hero carousel. **LCP-critical**: keep `fetchpriority="high"` on slide 1
