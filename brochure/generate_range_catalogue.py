@@ -746,6 +746,74 @@ def page_photo(img, n, src, crop, title, caption):
 </section>"""
 
 
+BATTERY_PHOTO = PIMG + "pusher-machine-with-stamping-arrangement/pusher-1.webp"
+
+
+def battery_halves(src):
+    """Two crop boxes that together make one 420x297 frame, so the photograph
+    runs across the facing pair without a jump at the fold. photo() would
+    re-centre each half on its own ratio, so the halves are cut here and
+    passed with ratio=None."""
+    w, h = Image.open(src).size
+    spread = 420 / 297
+    if w / h > spread:
+        bw, bh = h * spread, float(h)
+    else:
+        bw, bh = float(w), w / spread
+    x0, y0 = (w - bw) / 2, (h - bh) / 2
+    mid = x0 + bw / 2
+    return ((x0 / w, y0 / h, mid / w, (y0 + bh) / h),
+            (mid / w, y0 / h, (x0 + bw) / w, (y0 + bh) / h))
+
+
+def page_battery_left(img, n, crop):
+    photo = img.photo(BATTERY_PHOTO, crop=crop, max_px=1800)
+    return f"""
+<section class="page full-photo">
+  <img src="{photo}" alt="">
+  <div class="fp-shade"></div>
+  <h2 class="bat-h">AT THE<br>BATTERY</h2>
+  <p class="fp-cap">Pusher machine, charging car, power winch and haulage: the machines that
+  work the battery itself.</p>
+  {folio(n, dark=True)}
+</section>"""
+
+
+def page_battery_right(img, n, crop):
+    """The right half of the same photograph, with the oven-machine panel set
+    over its lower edge -- the A4 equivalent of catalogue 2's A3 spread."""
+    photo = img.photo(BATTERY_PHOTO, crop=crop, max_px=1800)
+    rows = [
+        ("pusher", "Pushes the coke out, stamps the coal cake", "Ovens up to 11 m"),
+        ("charging-car", "Top-charges coal into the ovens", "8 - 20 T hopper, 2, 3 or 4 mouths"),
+        ("power-winch", "Lifts the oven doors", "2.5 - 5 T lift"),
+        ("haulage", "Pulls wagons and coke cakes", "10 T pull"),
+    ]
+    body = "".join(
+        f'<tr><td>{t(title_of(k))}</td><td>{t(duty)}</td>'
+        f'<td class="c">{t(fig)}</td></tr>' for k, duty, fig in rows)
+    return f"""
+<section class="page full-photo">
+  <img src="{photo}" alt="">
+  <div class="fp-shade"></div>
+  <div class="bat-panel">
+    <h3 class="grey-h big">OVEN MACHINES AT A GLANCE</h3>
+    <table class="sel">
+      <thead><tr><th>Machine</th><th>Duty</th><th>Size</th></tr></thead>
+      <tbody>{body}</tbody>
+    </table>
+    <div class="gb-h">{icon("fa-ruler-combined", "ico box-ico")}<b>SIZING FOR YOUR BATTERY</b></div>
+    <p class="body">Standard coke oven doors usually need a 2.5 to 5 ton winch, depending on the
+    battery height and the door weight.</p>
+    <p class="body">The standard 20 m pusher beam suits ovens up to 11 m long; custom lengths
+    are available.</p>
+    <p class="body">The charging car is built with 2, 3 or 4 mouths, to match the charging holes
+    on your oven top.</p>
+  </div>
+  {folio(n, dark=True)}
+</section>"""
+
+
 INDEX_GROUPS = [
     ("Coal preparation", ["coal-crusher-single", "coal-crusher-double"]),
     ("Coke sizing &amp; screening", ["coke-cutter-double-drive", "coke-cutter-ring-type",
@@ -1238,6 +1306,15 @@ table {{ border-collapse: collapse; width: 100%; }}
 
 /* index */
 .index .red-h {{ margin-bottom: 5mm; }}
+.bat-h {{ position: absolute; left: 15mm; top: 14mm; color: #fff; font-weight: 850;
+  font-stretch: 118%; text-transform: uppercase; font-size: 29pt; line-height: .95;
+  letter-spacing: -.02em; }}
+.bat-panel {{ position: absolute; left: 12mm; right: 12mm; bottom: 15mm; background: #fff;
+  padding: 7mm 7mm 5mm; }}
+.bat-panel .grey-h.big {{ margin-bottom: 3.5mm; }}
+.bat-panel .gb-h {{ margin-top: 5mm; }}
+.bat-panel .body {{ font-size: 9pt; margin-bottom: 2.2mm; }}
+.bat-panel .body:last-child {{ margin-bottom: 0; }}
 .ix-grp {{ background: #DEE1E5; color: var(--ink); font-weight: 800; font-stretch: 110%; text-transform: uppercase;
   font-size: 8pt; letter-spacing: .3pt; padding: 1.6mm 2.5mm; margin-top: 3mm; }}
 .ix-row {{ display: flex; align-items: center; gap: 3.5mm; padding: 1.3mm 0; border-bottom: .25mm solid var(--rule); }}
@@ -1408,14 +1485,18 @@ def build_html(build):
     where = {key: 6 + 2 * i for i, key in enumerate(order)}
     n = 6 + 2 * len(order)
     sections = [("Choosing the right machine", 2), ("Built for coke oven duty", 4),
-                ("Specification charts", n), ("Spares &amp; wear parts", n + 2),
-                ("Why Manual Tools Company", n + 3), ("Contact &amp; your requirement", n + 4)]
+                ("At the battery", n), ("Specification charts", n + 2),
+                ("Spares &amp; wear parts", n + 4), ("Why Manual Tools Company", n + 5),
+                ("Contact &amp; your requirement", n + 6)]
     pages = [page_cover(img), page_intro_left(img, 2), page_intro_right(3),
              page_engineering_left(4), page_index(img, 5, where, sections)]
     n = 6
     for key in order:
         pages += [page_hero_left(hero[key], n), page_hero_right(img, hero[key], n + 1)]
         n += 2
+    bat_l, bat_r = battery_halves(BATTERY_PHOTO)
+    pages += [page_battery_left(img, n, bat_l), page_battery_right(img, n + 1, bat_r)]
+    n += 2
     pages += [page_chart(img, CHART_SIZING, n,
                          "The vibrator screen's capacity depends on the deck count, screen "
                          "size and mesh."),

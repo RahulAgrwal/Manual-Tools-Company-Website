@@ -780,7 +780,8 @@ def spread_battery(img, n):
         height and the door weight.</p>
         <p>The standard 20 m pusher beam suits ovens up to 11 m long; custom lengths are
         available.</p>
-        <p>The charging car's four mouths match the four charging holes on the oven top.</p>
+        <p>The charging car is built with 2, 3 or 4 mouths, to match the charging holes on
+        your oven top.</p>
       </div>
     </div>
   </div>
