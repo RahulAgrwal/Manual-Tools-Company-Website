@@ -52,22 +52,36 @@ SITE_SLUG = {
     "conveyor-materials": "conveyor-materials",
 }
 
-_site_specs = None
+_site_data = None
 
 
-def site_specs(key):
-    """[(icon, label, value)] from the product page's spec grid."""
-    global _site_specs
-    if _site_specs is None:
+def _site(key):
+    """The product page's own data, read once through the php CLI so the
+    brochure cannot drift from the website."""
+    global _site_data
+    if _site_data is None:
         php = shutil.which("php")
         if not php:
             sys.exit("php is needed to read product-data.php (the Key specifications box).")
         out = subprocess.run(
             [php, "-r", 'include "product-data.php"; echo json_encode(array_map('
-                        'fn($p) => $p["specs"], $MTC_PRODUCTS));'],
+                        'fn($p) => ["specs" => $p["specs"], "spares" => $p["spares"] ?? [],'
+                        ' "spares_note" => $p["spares_note"] ?? ""], $MTC_PRODUCTS));'],
             capture_output=True, text=True, check=True, encoding="utf-8")
-        _site_specs = json.loads(out.stdout)
-    return [tuple(s) for s in _site_specs[SITE_SLUG[key]]]
+        _site_data = json.loads(out.stdout)
+    return _site_data[SITE_SLUG[key]]
+
+
+def site_specs(key):
+    """[(icon, label, value)] from the product page's spec grid."""
+    return [tuple(s) for s in _site(key)["specs"]]
+
+
+def site_spares(key):
+    """([(part, fits)], note) from the product page's spare parts section.
+    Empty for a product that does not list any, and the block is skipped."""
+    d = _site(key)
+    return [(s["title"], s["fits"]) for s in d["spares"]], d["spares_note"]
 
 
 # Same wording as the "Buying information" box on every product page.
@@ -636,16 +650,28 @@ def page_gallery(pdf, p, key):
     # Work out what the range list needs, then give the gallery the rest. The
     # list grows with every new product, so fixed image heights would collide
     # with the quotation panel.
+    spares, spares_note = site_spares(key)
     index_h = 14 + ((len(others) + 1) // 2) * 9.5 if others else 0
+    spares_h = (14 + ((len(spares) + 1) // 2) * 9.5 + (9 if spares_note else 0)) if spares else 0
     quote_top = FOOTER_Y - 32
-    available = quote_top - 28 - index_h - 10
+    available = quote_top - 28 - index_h - spares_h - 10
+
+    if spares:
+        pdf.section("Spare and wear parts", gap_before=0)
+        pdf.product_index(spares)
+        if spares_note:
+            pdf.ln(1.5)
+            pdf.set_x(MARGIN)
+            pdf.set_font(FONT_FAMILY, "", 8)
+            pdf.set_text_color(*INK_SOFT)
+            pdf.multi_cell(CONTENT_W, 4.2, clean(spares_note), new_x="LMARGIN", new_y="NEXT")
 
     images = gallery_images(p["gallery"], limit=3)
     if images:
-        pdf.section("Product gallery", gap_before=0)
+        pdf.section("Product gallery", gap_before=0 if not spares else 7)
         y = pdf.get_y()
         gap = 6.0
-        room = max(50.0, available - (pdf.get_y() - 28))
+        room = max(50.0, available - (pdf.get_y() - 28 - spares_h))
         if len(images) == 1:
             h = min(120.0, room)
             frame(pdf, images[0], MARGIN, y, CONTENT_W, h)
