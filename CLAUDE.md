@@ -58,7 +58,7 @@ Shared parts:
 `coal-crusher-5-No-single-disc`, `coal-crusher-5-No-double-disc`, `coke-cutter-double-drive`, `coke-cutter-double-drive-ring-type`, `haulage`, `power-winch`, `vibrator-screen`, `conveyor-materials`, `coal-charging-car`, `pusher-with-stamping-arrangement`.
 
 All share one layout:
-- `<head>`: canonical URL, Open Graph tags, Product JSON-LD (brand, manufacturer, url), BreadcrumbList, plus `assets/css/product-detail.css`.
+- `<head>`: canonical URL, Open Graph tags, Product JSON-LD (brand, manufacturer, url), BreadcrumbList, plus `assets/css/product.css`.
 - Gallery: a main image plus `glob()` over `assets/img/product-images/<folder>/` (images and mp4/webm). An optional `gallery_labels` map in `product-data.php` (file name => label, e.g. a spare part) adds a caption under the main image and the alt text; the photo gallery uses it too. Thumbnails use `mtc_thumb()`, the main view uses `mtc_img()`, and the inline `swapImage()`/`swapMedia()` switches it.
 - Spec grid and Brochure / Request Quote / Call buttons (no star ratings: there are no reviews).
 - An overview section: a question-style `<h2>`, a 130–170 word answer written from the page's own specs, a link to the closest related product, and a "Buying information" box (lead time, warranty, installation, custom builds, brochure).
@@ -90,8 +90,11 @@ Page copy is HTML. Use `<strong>`, not Markdown `**bold**`.
   - Mailer errors are logged with `error_log()`. Visitors only see a generic message.
 
 ## Styling
-- `assets/css/style.css`: global theme. Brand colour is `--primary-color` (#f03c02). Custom classes use the `mtc-` prefix.
-- `assets/css/product-detail.css`: product detail pages.
+- `assets/css/mtc.css` is the **only `:root`** in the project: design tokens, reboot, base type and the layout primitives (`.wrap`, `.section`, `.grid--2/3/4`, `.split`, `.aside`, `.flow`, `.cluster`). Shared components live here too, because more than one page uses them (`.btn`, `.product-card`, `.product-row`, `.spec-chips`, `.section-head`, `.spare-card`, `.cta-band`, form fields). `common-head.php` loads it, then `chrome.css` (header, nav, footer, mobile bars) and the Font Awesome subset, on every page.
+- A page adds its own stylesheet with `$mtc_page_css` **before** including `common-head.php`: `home.css` (index), `product.css` (`product-page.php`), `hub.css` (coal-crusher), `about.css`, `contact.css`, `gallery.css` (+ GLightbox), `error.css` (404).
+- **Brand colour**: `--c-action` (#D40000), with `--c-action-hover`, `--c-action-ink` and `--c-action-tint`. It is the logo's red a shade deeper, because white on the logo's own #FF0000 is 4.00:1 and fails WCAG AA at button text size; #D40000 is 5.53:1. **The logo artwork stays #FF0000.** Red is reserved for primary actions — never decoration. The focus ring is deliberately blue (`--c-focus`), so it reads as UI. Check contrast before changing any of these.
+- Never hard-code a brand colour: every red on the site resolves from those four tokens, so the palette changes in one place. The legacy aliases (`--primary-color`, `--mtc-orange`, …) near the bottom of the token block point at them.
+- Custom classes use the `mtc-` prefix. `legacy.css` and `legacy-product.css` are no longer loaded by any page (see `BACKLOG.md`).
 - Some components (`related-products.php`, `sidebar-quote-form.php`) keep their CSS and JS inline. Follow that pattern for self-contained includes.
 - Front-end libraries live in `assets/vendor/` and are loaded directly (no npm).
 
