@@ -45,6 +45,7 @@ $MTC_PRODUCTS = [
       // the main image and used as alt text (product page and photo gallery).
       'gallery_labels' => [
           'disc-fitted-with-en8-shaft.png' => 'Disc fitted with EN-8 Shaft (spare part)',
+          'single-disc-crusher-in-workshop.jpg' => 'Single disc coal crusher in our workshop',
       ],
       'has_video' => false,
       'hero_alt' => 'Single disc coal crusher (coal disintegrator)',

@@ -670,6 +670,9 @@ went wrong, what the next session should pick up. Required — see the rule at t
     `--window-size=390` looked clipped and were briefly reported as a layout
     bug. They were not: the window floor is ~485px, so the shot was a crop of a
     wider render. Use device emulation for phone-width checks.
+- Added the owner's workshop photo to the single disc crusher gallery
+  (`single-disc-crusher-in-workshop.jpg` + WebP copies, caption via
+  `gallery_labels`); it shows on the product page and in the photo gallery.
 - `check_pages.py --base http://localhost:8080`: **16 pages, 0 failures**
   (12 pre-existing warnings: title lengths, contact og:title).
 - The catalogue PDFs are ~20 MB each and committed as they are, on the owner's
