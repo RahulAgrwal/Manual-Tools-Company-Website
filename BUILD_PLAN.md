@@ -617,11 +617,13 @@ belongs in its own change.
 - `[ ]` Catalogue on phones is ~9,300px (746px per row); consider the compact
   row treatment used on home.
 
-## Phase 10 — Deploy `[ ]`
+## Phase 10 — Deploy `[~]`
 
-- `[ ]` Owner sign-off, then merge to `main` (auto-deploys).
-- `[ ]` `sitemap.xml` `lastmod`; `python tools/indexnow_submit.py`; Search Console.
-- `[ ]` Update `CLAUDE.md` §Styling and move finished items into `BACKLOG.md`.
+- `[x]` Owner sign-off, then merge to `main` (auto-deploys). PR #1, `e2c132b`,
+  2026-09-19. `check_pages.py` against production: 16 pages, 0 failures.
+- `[x]` `sitemap.xml` `lastmod`; `python tools/indexnow_submit.py` (16 URLs,
+  HTTP 200). **Search Console still owed** — request indexing by hand.
+- `[x]` Update `CLAUDE.md` §Styling and move finished items into `BACKLOG.md`.
 - `[ ]` On the live site: one real enquiry by a person through the contact form
   and one product quote form -- email to the company inbox + CC, the visitor's
   confirmation email, GA4 generate_lead, Ads conversion (phase 9 could only
@@ -636,6 +638,36 @@ belongs in its own change.
 
 Newest first. One entry per session or per notable event: what was done, what
 went wrong, what the next session should pick up. Required — see the rule at the top.
+
+### 2026-09-19 — deployed; brand red matched to the logo; top bar on phones
+
+- **The redesign is live.** Merged to `main` through PR #1 (`e2c132b`) and
+  deployed. Verified on production: `check_pages.py --base
+  https://www.manualtoolsco.com` -> 16 pages, **0 failures**, the same 12
+  pre-existing title-length warnings. IndexNow: 16 URLs, HTTP 200.
+- **Top bar alignment on phones.** Hiding `.social-links` below 48rem left
+  `.contact-info` as the `space-between` wrap's only child, so it was
+  left-packed and all the slack landed on the right: at 390px the e-mail
+  started on the 16px gutter but the phone ended 41px short of the other one.
+  It now spans the rail (`flex: 1` + `space-between`), so both sit on their
+  gutters. Below ~366px the two no longer fit on one line; the rail gets
+  `padding-block` so the wrapped pair is not cramped (41px -> 59px tall).
+  Measured at 1440 / 390 / 360 / 320: gutters 16px, no horizontal overflow.
+- **Brand red now matches the logo.** The owner asked for the site to match
+  the logo; the logo is pure `#FF0000` while the site was `#CC3202`, a
+  visibly different *orange*-red. White on `#FF0000` is 4.00:1 and fails
+  WCAG AA at button text size, which is why the 2026-09-18 decision had
+  darkened the old `#F03C02`. Owner chose the true-red hue a shade deeper:
+  **`--c-action: #D40000`** (5.53:1 on white, 5.23:1 as link text on the
+  canvas), hover `#A80000` (7.88:1), tint `#FFF0F0`. **The logo artwork
+  keeps `#FF0000`.** All four values live in one token block and no
+  stylesheet hard-codes a brand red, so this was a four-line change; checked
+  on the home hero, header, product hub, the spares steps and the dark CTA
+  band.
+- **`CLAUDE.md` §Styling rewritten** — it still described `style.css`,
+  `product-detail.css` and `#f03c02`, none of which exist any more. It now
+  lists the real stylesheets, the `$mtc_page_css` convention and the colour
+  rule, with the contrast reasoning.
 
 ### 2026-09-19 — spare parts sections, catalogue wording, two new cutouts
 

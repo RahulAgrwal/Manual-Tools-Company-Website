@@ -73,7 +73,20 @@
 }
 @media (max-width: 47.99rem) {
   #topbar .social-links { display: none; }
-  #topbar .contact-info { gap: var(--s-4); }
+  /* With the social links gone, .contact-info is the wrap's only child, so
+     space-between left-packs it and every bit of slack lands on the right
+     (41px against a 16px gutter at 390px, which read as a misaligned rail).
+     Let it span the rail instead: e-mail on the left gutter, phone on the
+     right. The row gap only shows on a narrow phone, where the two wrap. */
+  #topbar .contact-info {
+    flex: 1;
+    justify-content: space-between;
+    gap: var(--s-2) var(--s-4);
+  }
+  /* Below about 366px the e-mail and the phone no longer fit on one line.
+     min-height still governs while they do, so this only shows once they
+     wrap, and it keeps the two lines off the rail's edges. */
+  #topbar .wrap { padding-block: var(--s-2); }
 }
 
 /* --------------------------------------------------------------------------
