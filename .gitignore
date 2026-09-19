@@ -8,3 +8,7 @@ __pycache__/
 
 # Redesign QA reports (local only)
 .redesign-reports/
+
+# HTML kept by brochure/generate_range_catalogue.py --html
+brochure/catalogue-build/
+brochure/catalogue-2-build/
