@@ -123,7 +123,8 @@ HEROES = [
         "photo": {"src": PIMG + "coal-charging-car/coal-charging-car-3.jpg",
                   "crop": (0.10, 0.0, 0.86, 1.0)},
         "callouts": [
-            ("Four conical hoppers", "8 mm plate hoppers, in 4, 8, 15 or 20 ton capacities. The steep "
+            ("Conical hoppers", "Two, three or four 8 mm plate hoppers, in 8, 15 or 20 ton "
+             "capacities. The steep "
              "cones help wet coal flow.", None),
             ("Motorised slide gates", "3 H.P. slide gates open to let coal fall into the oven by "
              "gravity, with a manual override wheel.", None),
@@ -146,7 +147,7 @@ HEROES = [
             ("Spherical roller bearings", "Double row spherical roller bearings carry the rotor "
              "shaft.", None),
             ("Extra-wide disc", "Keeps the output size uniform, below 2 mm, across the full "
-             "8 - 10 TPH range.", None),
+             "8 - 12 TPH range.", None),
         ],
     },
     {
@@ -177,7 +178,7 @@ HEROES = [
              "balanced torque, no jamming.", None),
             ("Cast steel gears", "Machine-cut cast steel gears on both sides of the drums.", None),
             ("Adjustable drums", "Drum distance adjusts by up to 30 mm, setting the output "
-             "between 45 mm and 60 mm.", None),
+             "between 40 mm and 60 mm.", None),
         ],
     },
     {
@@ -191,7 +192,7 @@ HEROES = [
              "metallurgical coke.", None),
             ("Double drive", "Two 25 H.P. motors give equal torque on both ends of the cutting "
              "shaft, preventing jamming on large or hard lumps and extending gear life.", None),
-            ("Adjustable gap", "The gap between the ring shafts adjusts from 45 mm to 60 mm.", None),
+            ("Adjustable gap", "The gap between the ring shafts adjusts from 40 mm to 60 mm.", None),
         ],
     },
     {
@@ -263,7 +264,7 @@ CHART_OVEN = {
         ("Duty", [
             ("Job", ["Pushes coke, stamps the coal cake", "Top-charges coal into ovens",
                      "Lifts oven doors", "Horizontal pulling"]),
-            ("Capacity", ["Ovens up to 11 m", "4 / 8 / 15 / 20 T hopper", "2.5 - 5 T lift", "10 T pull"]),
+            ("Capacity", ["Ovens up to 11 m", "8 / 15 / 20 T hopper", "2.5 - 5 T lift", "10 T pull"]),
             ("Speed", ["-", "60 - 80 m/min travel", "2 - 4 m/min lift", "-"]),
         ]),
         ("Drive", [
@@ -276,7 +277,7 @@ CHART_OVEN = {
         ]),
         ("Build", [
             ("Mounting", ["Rail-mounted", "Rail-mounted", "Fixed base", "C-channel base frame"]),
-            ("Main parts", ["20 m pusher and leveller beams", "4 conical hoppers, 8 mm plate",
+            ("Main parts", ["20 m pusher and leveller beams", "2, 3 or 4 conical hoppers, 8 mm plate",
                             "Grooved steel drum / steel drum", "Cast steel, machine-cut gears"]),
         ]),
     ],
@@ -288,16 +289,16 @@ CHART_SIZING = {
              "coke-cutter-ring-type", "vibrator-screen"],
     "groups": [
         ("Performance", [
-            ("Capacity", ["8 - 10 TPH", "20 - 25 TPH", "12 - 15 TPH", "20 TPH", "1 - 4 decks"]),
+            ("Capacity", ["8 - 12 TPH", "20 - 25 TPH", "12 - 15 TPH", "15 - 20 TPH", "1 - 4 decks"]),
             ("Feed size", ["Up to 125 mm", "Up to 150 mm", "Up to 200 mm", "Up to 200 mm", "Mixed feed"]),
-            ("Output size", ["Below 2 mm", "Below 2 mm", "45 - 60 mm", "45 - 60 mm",
+            ("Output size", ["Below 2 mm", "Below 2 mm", "40 - 60 mm", "40 - 60 mm",
                              "One grade per deck"]),
             ("Material", ["Coal", "Coal", "Coke", "Coke", "Coke, coal, ore"]),
         ]),
         ("Drive", [
             ("Motor", ["80 - 120 H.P.", "150 - 180 H.P.", "20 H.P. x 2", "25 H.P. x 2", "7.5 - 15 H.P."]),
             ("Drive", ["Single disc", "Double disc", "Double drive", "Double drive", "Eccentric shaft"]),
-            ("Adjustment", ["-", "-", "Drum distance, up to 30 mm", "Ring gap, 45 - 60 mm",
+            ("Adjustment", ["-", "-", "Drum distance, up to 30 mm", "Ring gap, 40 - 60 mm",
                             "Mesh and counterweights"]),
         ]),
         ("Build", [
@@ -312,17 +313,17 @@ CHART_SIZING = {
 
 SELECTOR = [
     ("Coal preparation", [
-        ("coal-crusher-single", "8 - 10 TPH, coal to below 2 mm"),
+        ("coal-crusher-single", "8 - 12 TPH, coal to below 2 mm"),
         ("coal-crusher-double", "20 - 25 TPH, coal to below 2 mm"),
     ]),
     ("Coke sizing &amp; screening", [
-        ("coke-cutter-double-drive", "12 - 15 TPH, coke to 45 - 60 mm"),
-        ("coke-cutter-ring-type", "20 TPH, coke to 45 - 60 mm"),
+        ("coke-cutter-double-drive", "12 - 15 TPH, coke to 40 - 60 mm"),
+        ("coke-cutter-ring-type", "15 - 20 TPH, coke to 40 - 60 mm"),
         ("vibrator-screen", "1 - 4 decks, up to 5' x 16'"),
     ]),
     ("Oven operation", [
         ("pusher", "Ovens up to 11 m, roller stamping"),
-        ("charging-car", "4 - 20 T hopper, 4 mouths"),
+        ("charging-car", "8 - 20 T hopper, 2, 3 or 4 mouths"),
         ("power-winch", "2.5 - 5 T door lift"),
     ]),
     ("Material handling", [
@@ -755,7 +756,7 @@ def spread_battery(img, n):
                       crop=(0.0, 0.0, 1.0, 1.0), ratio=420 / 297, max_px=3000)
     rows = [
         ("pusher", "Pushes the coke out, stamps the coal cake", "Ovens up to 11 m"),
-        ("charging-car", "Top-charges coal into the ovens", "4 - 20 T hopper, 4 mouths"),
+        ("charging-car", "Top-charges coal into the ovens", "8 - 20 T hopper, 2, 3 or 4 mouths"),
         ("power-winch", "Lifts the oven doors", "2.5 - 5 T lift"),
         ("haulage", "Pulls wagons and coke cakes", "10 T pull"),
     ]

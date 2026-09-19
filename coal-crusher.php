@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Compare our 5 No. coal crushers: Single Disc (8–10 TPH, 80–120 HP) and Double Disc (20–25 TPH, 150–180 HP). Both crush coal to below 2 mm. Made in Dhanbad.">
+  <meta name="description" content="Compare our 5 No. coal crushers: Single Disc (8–12 TPH, 80–120 HP) and Double Disc (20–25 TPH, 150–180 HP). Both crush coal to below 2 mm. Made in Dhanbad.">
   <meta name="robots" content="index, follow">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="canonical" href="https://www.manualtoolsco.com/coal-crusher">
@@ -13,7 +13,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.manualtoolsco.com/coal-crusher">
   <meta property="og:title" content="Coal Crusher (5 No.) – Single vs Double Disc | Manual Tools Company">
-  <meta property="og:description" content="Single Disc (8–10 TPH) and Double Disc (20–25 TPH) coal crushers for coke ovens, crushing coal to below 2 mm.">
+  <meta property="og:description" content="Single Disc (8–12 TPH) and Double Disc (20–25 TPH) coal crushers for coke ovens, crushing coal to below 2 mm.">
   <meta property="og:image" content="https://www.manualtoolsco.com/assets/img/about-us-products-thumbnail/Coal-Crusher-single-disc.jpg">
   <meta property="og:site_name" content="Manual Tools Company">
 
@@ -71,7 +71,7 @@
           </p>
           <p>
             The difference is capacity. The <strong>Single Disc</strong> crusher has one disc with 6 hammers, takes lumps up to
-            125 mm and crushes 8 to 10 tons per hour with an 80–120 HP motor. The <strong>Double Disc</strong> crusher has two
+            125 mm and crushes 8 to 12 tons per hour with an 80–120 HP motor. The <strong>Double Disc</strong> crusher has two
             discs with 12 hammers, takes lumps up to 150 mm and crushes 20 to 25 tons per hour with a 150–180 HP motor. Choose
             the single disc for moderate throughput and a smaller motor, and the double disc for large coke oven batteries, bigger
             boilers and briquetting plants.
@@ -90,7 +90,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr><th scope="row">Capacity</th><td>8–10 TPH</td><td>20–25 TPH</td></tr>
+              <tr><th scope="row">Capacity</th><td>8–12 TPH</td><td>20–25 TPH</td></tr>
               <tr><th scope="row">Motor</th><td>80–120 HP</td><td>150–180 HP</td></tr>
               <tr><th scope="row">Max feed size</th><td>125 mm</td><td>150 mm</td></tr>
               <tr><th scope="row">Output size</th><td>Below 2 mm</td><td>Below 2 mm</td></tr>
@@ -124,7 +124,7 @@
               <ul class="spec-chips">
                 <li><i class="fas fa-bolt" aria-hidden="true"></i>80 - 120 HP Motor</li>
                 <li><i class="fas fa-filter" aria-hidden="true"></i>Output &lt; 2mm</li>
-                <li><i class="fas fa-weight-hanging" aria-hidden="true"></i>8 - 10 TPH</li>
+                <li><i class="fas fa-weight-hanging" aria-hidden="true"></i>8 - 12 TPH</li>
                 <li><i class="fas fa-hammer" aria-hidden="true"></i>6 Hammers</li>
               </ul>
               <a href="coal-crusher-5-No-single-disc" class="btn btn--quiet">View Single Disc</a>

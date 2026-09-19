@@ -13,11 +13,11 @@
 $MTC_PRODUCTS = [
   'coal-crusher-5-No-single-disc' => [
       'slug' => 'coal-crusher-5-No-single-disc',
-      'title' => 'Coal Crusher Single Disc (5 No., 8–10 TPH) | Manual Tools Company',
-      'description' => 'Single disc coal crusher (coal disintegrator), 5 No. size: 80–120 HP, 8–10 TPH, feed up to 125 mm, output below 2 mm. Made in Dhanbad, India.',
+      'title' => 'Coal Crusher Single Disc (5 No., 8–12 TPH) | Manual Tools Company',
+      'description' => 'Single disc coal crusher (coal disintegrator), 5 No. size: 80–120 HP, 8–12 TPH, feed up to 125 mm, output below 2 mm. Made in Dhanbad, India.',
       'og_image' => 'assets/img/about-us-products-thumbnail/Coal-Crusher-single-disc.jpg',
       'schema_name' => 'Coal Crusher (5 No.) — Single Disc',
-      'schema_description' => '5 No. single disc coal crusher — 8–10 TPH capacity, crushed size <2 mm, 80–120 HP motor range, manganese liners, 12 mm body thickness, six mild steel hammers.',
+      'schema_description' => '5 No. single disc coal crusher — 8–12 TPH capacity, crushed size <2 mm, 80–120 HP motor range, manganese liners, 12 mm body thickness, six mild steel hammers.',
       'sku' => 'MTC-CC-5-SD',
       'schema_props' => [
           [
@@ -34,7 +34,7 @@ $MTC_PRODUCTS = [
           ],
           [
               'Capacity',
-              '8 – 10 TPH'
+              '8 – 12 TPH'
           ]
       ],
       'crumb_heading' => 'Coal Crusher Single Disc',
@@ -64,7 +64,7 @@ applications.',
           [
               'fa-tachometer-alt',
               'Capacity',
-              '8 - 10 TPH'
+              '8 - 12 TPH'
           ],
           [
               'fa-bolt',
@@ -100,7 +100,7 @@ applications.',
       'overview_heading' => 'What is a 5 No. single disc coal crusher?',
       'overview_paras' => [
           'A 5 No. single disc coal crusher is a coal disintegrator that reduces coal lumps of up to 125 mm to fine particles below 2 mm, the size needed for charging coke ovens and firing boilers. Inside a 12 mm fabricated steel body lined with manganese steel plates, a single rotating disc carries six mild steel hammers. Coal fed into the hopper is struck repeatedly by the hammers until it is fine enough to discharge.',
-          'The crusher is driven by an 80 to 120 HP electric motor, chosen to suit the output you need, and handles 8 to 10 tons of coal per hour. The hammers are replaced through a side access door, and routine care is limited to checking the liner plates and greasing the bearings. It suits coke oven plants and thermal power units with moderate throughput.'
+          'The crusher is driven by an 80 to 120 HP electric motor, chosen to suit the output you need, and handles 8 to 12 tons of coal per hour. The hammers are replaced through a side access door, and routine care is limited to checking the liner plates and greasing the bearings. It suits coke oven plants and thermal power units with moderate throughput.'
       ],
       'overview_related_html' => 'Need 20–25 TPH or feed up to 150 mm? <a href="coal-crusher-5-No-double-disc">See the Double Disc coal crusher <i class="fas fa-arrow-right"></i></a>',
       // Spare and wear parts, rendered by product-page.php between the overview
@@ -183,7 +183,7 @@ applications.',
           ],
           [
               'Crushing Capacity',
-              '8 – 10 Tons Per Hour'
+              '8 – 12 Tons Per Hour'
           ],
           [
               'Body Thickness',
@@ -374,7 +374,7 @@ alignment.',
           'A 5 No. double disc coal crusher is a high-capacity coal disintegrator for plants that need 20 to 25 tons of fine coal per hour. Two discs rotate together and carry 12 mild steel hammers in total, so coal is struck far more often than in a single disc machine. That lets it accept larger lumps, up to 150 mm, while still discharging coal below 2 mm through calibrated grate bars.',
           'The housing is 12 mm fabricated steel, and each hammer can be replaced or reversed without dismantling the rotor. A 150 to 180 HP slip-ring or squirrel cage motor drives the machine. It is built for large recovery-type coke ovens, bigger FBC boilers in thermal power plants and briquetting plants, and it handles coal with up to 10–12% moisture.'
       ],
-      'overview_related_html' => 'Need 8–10 TPH with a smaller motor? <a href="coal-crusher-5-No-single-disc">See the Single Disc coal crusher <i class="fas fa-arrow-right"></i></a>',
+      'overview_related_html' => 'Need 8–12 TPH with a smaller motor? <a href="coal-crusher-5-No-single-disc">See the Single Disc coal crusher <i class="fas fa-arrow-right"></i></a>',
       'spares' => [
           [
               'img' => 'assets/img/product-images/coal-crusher-double-disc/coal-crusher-6.png',
@@ -536,7 +536,7 @@ alignment.',
       'faqs' => [
           [
               'How does this differ from the Single Disc model?',
-              'The Double Disc model uses two rotors and 12 hammers, doubling the capacity to 20-25 TPH and allowing for larger feed sizes (150mm) compared to the Single Disc\'s 8-10 TPH.'
+              'The Double Disc model uses two rotors and 12 hammers, doubling the capacity to 20-25 TPH and allowing for larger feed sizes (150mm) compared to the Single Disc\'s 8-12 TPH.'
           ],
           [
               'What motor is required?',
@@ -561,10 +561,10 @@ alignment.',
   'coke-cutter-double-drive' => [
       'slug' => 'coke-cutter-double-drive',
       'title' => 'Coke Cutter Machine – Double Drive, Drum Type | Manual Tools Company',
-      'description' => 'Double drive coke cutter machine, drum type: 2 x 20 HP motors, 12–15 TPH, feed below 200 mm, adjustable 45–60 mm output. Made in Dhanbad, India.',
+      'description' => 'Double drive coke cutter machine, drum type: 2 x 20 HP motors, 12–15 TPH, feed below 200 mm, adjustable 40–60 mm output. Made in Dhanbad, India.',
       'og_image' => 'assets/img/about-us-products-thumbnail/Double-Drive-Coke-Cutter-Machine.jpg',
       'schema_name' => 'Coke Cutter Machine (Double Drive, Drum Type)',
-      'schema_description' => 'Double drive coke cutter machine with 12-15 TPH capacity, 45-60mm adjustable output, and manganese steel teeth.',
+      'schema_description' => 'Double drive coke cutter machine with 12-15 TPH capacity, 40-60mm adjustable output, and manganese steel teeth.',
       'sku' => 'MTC-CCM-DD',
       'schema_props' => [
           [
@@ -577,7 +577,7 @@ alignment.',
           ],
           [
               'Finished Size',
-              '45 - 60 mm (Adjustable)'
+              '40 - 60 mm (Adjustable)'
           ],
           [
               'Capacity',
@@ -597,7 +597,7 @@ alignment.',
       'model_label' => 'Model',
       'model' => 'MTC-CCM-DD',
       'stock' => 'Made to Order',
-      'intro_html' => 'Built for high-torque applications, our Double Drive Coke Cutter utilizes <strong>two 20 HP motors</strong> to slice through hard coke lumps without jamming. Featuring adjustable drum spacing, it delivers precise output sizes (45mm–60mm) essential for blast furnaces and foundries.',
+      'intro_html' => 'Built for high-torque applications, our Double Drive Coke Cutter utilizes <strong>two 20 HP motors</strong> to slice through hard coke lumps without jamming. Featuring adjustable drum spacing, it delivers precise output sizes (40mm–60mm) essential for blast furnaces and foundries.',
       'specs' => [
           [
               'fa-tachometer-alt',
@@ -612,7 +612,7 @@ alignment.',
           [
               'fa-ruler-horizontal',
               'Output Size',
-              '45 - 60 mm'
+              '40 - 60 mm'
           ],
           [
               'fa-arrow-down',
@@ -637,10 +637,10 @@ alignment.',
       ],
       'overview_heading' => 'What is a double drive coke cutter?',
       'overview_paras' => [
-          'A double drive coke cutter is a sizing machine that cuts hard coke lumps into uniform pieces instead of smashing them, so it produces much less dust than a hammer crusher. This drum-type model takes lumps up to 200 mm and delivers 45 to 60 mm coke, set by adjusting the gap between its drums, at 12 to 15 tons per hour.',
+          'A double drive coke cutter is a sizing machine that cuts hard coke lumps into uniform pieces instead of smashing them, so it produces much less dust than a hammer crusher. This drum-type model takes lumps up to 200 mm and delivers 40 to 60 mm coke, set by adjusting the gap between its drums, at 12 to 15 tons per hour.',
           'Each side of the cutter has its own 20 HP motor (40 HP in total). The balanced torque from the two drives stops the machine stalling on hard metallurgical coke and extends gear life. Gears are heavy-duty cast steel, and the cutting teeth are replaceable manganese steel liner plates. It is used by coke oven plants that supply sized coke to blast furnaces and foundries.'
       ],
-      'overview_related_html' => 'Need 20 TPH or individually replaceable teeth? <a href="coke-cutter-double-drive-ring-type">See the Ring Type coke cutter <i class="fas fa-arrow-right"></i></a>',
+      'overview_related_html' => 'Need 15–20 TPH or individually replaceable teeth? <a href="coke-cutter-double-drive-ring-type">See the Ring Type coke cutter <i class="fas fa-arrow-right"></i></a>',
       'buyer_items' => [
           '<strong>Lead time:</strong> Made to order. Ask us for the current lead time.',
           '<strong>Warranty:</strong> 1 year, as on all our machinery.',
@@ -691,7 +691,7 @@ alignment.',
           ],
           [
               'Finished Output Size',
-              '45 mm – 60 mm (Adjustable Drum)'
+              '40 mm – 60 mm (Adjustable Drum)'
           ],
           [
               'Processing Capacity',
@@ -723,7 +723,7 @@ alignment.',
           [
               'fa-sliders-h',
               'Calibrated Output',
-              'The gap between drums is adjustable. Material falls through only when it matches the set size (45-60mm), ensuring a uniform product for furnaces.'
+              'The gap between drums is adjustable. Material falls through only when it matches the set size (40-60mm), ensuring a uniform product for furnaces.'
           ]
       ],
       'process_diagram' => 'assets/img/product-images/coke-cutter/process-diagram.jpg',
@@ -757,7 +757,7 @@ alignment.',
               'items' => [
                   'Inspect V-Belts for proper tension and alignment.',
                   'Inspect Manganese Teeth for chipping or excessive wear.',
-                  'Verify the gap setting between drums (45-60mm).',
+                  'Verify the gap setting between drums (40-60mm).',
                   'Tighten foundation bolts due to vibration.'
               ]
           ],
@@ -778,7 +778,7 @@ alignment.',
           ],
           [
               'Is the output size adjustable?',
-              'Yes, the machine features an adjustable drum mechanism. You can change the gap setting to produce coke between 45 mm and 60 mm.'
+              'Yes, the machine features an adjustable drum mechanism. You can change the gap setting to produce coke between 40 mm and 60 mm.'
           ],
           [
               'Does it produce dust (fines)?',
@@ -798,11 +798,11 @@ alignment.',
   ],
   'coke-cutter-double-drive-ring-type' => [
       'slug' => 'coke-cutter-double-drive-ring-type',
-      'title' => 'Ring Type Coke Cutter (Double Drive, 20 TPH) | Manual Tools Company',
-      'description' => 'Ring type coke cutter with double drive and manganese steel toothed rings: 2 x 25 HP, 20 TPH, adjustable 45–60 mm output. Made in Dhanbad, India.',
+      'title' => 'Ring Type Coke Cutter, 15–20 TPH | Manual Tools Company',
+      'description' => 'Ring type coke cutter with double drive and manganese steel toothed rings: 2 x 25 HP, 15–20 TPH, adjustable 40–60 mm output. Made in Dhanbad, India.',
       'og_image' => 'assets/img/about-us-products-thumbnail/Double-Drive-Coke-Cutter-Machine-Ring-Type.jpg',
       'schema_name' => 'Ring Type Coke Cutter (Double Drive)',
-      'schema_description' => 'Double drive coke cutter machine featuring segmented manganese steel rings, 20 TPH capacity, and adjustable output.',
+      'schema_description' => 'Double drive coke cutter machine featuring segmented manganese steel rings, 15–20 TPH capacity, and adjustable output.',
       'sku' => 'MTC-CCM-DD-RT',
       'schema_props' => [
           [
@@ -815,11 +815,11 @@ alignment.',
           ],
           [
               'Finished Size',
-              '45 - 60 mm (Adjustable)'
+              '40 - 60 mm (Adjustable)'
           ],
           [
               'Capacity',
-              '20 TPH'
+              '15 – 20 TPH'
           ]
       ],
       'crumb_heading' => 'Coke Cutter Machine',
@@ -835,7 +835,7 @@ alignment.',
       'model_label' => 'Model',
       'model' => 'MTC-CCM-DD-RT',
       'stock' => 'Heavy Duty',
-      'intro_html' => 'Designed for ease of maintenance and high durability, this model features <strong>Segmented Manganese Steel Rings</strong> instead of standard liner plates. Powered by <strong>Dual 25 HP Motors</strong>, it allows for easy replacement of individual rings, reducing downtime while delivering precise 45mm–60mm coke output.',
+      'intro_html' => 'Designed for ease of maintenance and high durability, this model features <strong>Segmented Manganese Steel Rings</strong> instead of standard liner plates. Powered by <strong>Dual 25 HP Motors</strong>, it allows for easy replacement of individual rings, reducing downtime while delivering precise 40mm–60mm coke output.',
       'specs' => [
           [
               'fa-cogs',
@@ -850,12 +850,12 @@ alignment.',
           [
               'fa-ruler-horizontal',
               'Output Size',
-              '45 - 60 mm'
+              '40 - 60 mm'
           ],
           [
               'fa-weight-hanging',
               'Capacity',
-              '20 TPH'
+              '15 - 20 TPH'
           ]
       ],
       'brochure' => 'brochure/Manual_Tools_Co_Coke_Cutter_Ring_Type.pdf',
@@ -876,7 +876,7 @@ alignment.',
       'overview_heading' => 'What is a ring type coke cutter?',
       'overview_paras' => [
           'A ring type coke cutter is a double drive coke sizing machine whose shafts carry separate toothed rings of high manganese steel instead of one lined drum. Each ring is keyed to the shaft on its own, so a worn or damaged section can be replaced without relining the whole drum, which shortens maintenance stops. The rings cut hard coke aggressively, limit flat "slabs" and fines, and work-harden in use.',
-          'Two 25 HP motors (50 HP in total) drive the counter-rotating shafts, so lumps up to 200 mm pass without jamming. The gap between the ring shafts is adjustable for an output of 45 to 60 mm, and the machine handles 20 tons per hour. It is the higher-capacity choice for coke oven plants that supply blast furnace coke.'
+          'Two 25 HP motors (50 HP in total) drive the counter-rotating shafts, so lumps up to 200 mm pass without jamming. The gap between the ring shafts is adjustable for an output of 40 to 60 mm, and the machine handles 20 tons per hour. It is the higher-capacity choice for coke oven plants that supply blast furnace coke.'
       ],
       'overview_related_html' => 'Need 12–15 TPH with lined drums? <a href="coke-cutter-double-drive">See the Drum Type double drive coke cutter <i class="fas fa-arrow-right"></i></a>',
       'buyer_items' => [
@@ -933,11 +933,11 @@ alignment.',
           ],
           [
               'Finished Output Size',
-              '45 mm – 60 mm (Adjustable)'
+              '40 mm – 60 mm (Adjustable)'
           ],
           [
               'Processing Capacity',
-              '20 Tons Per Hour'
+              '15 – 20 Tons Per Hour'
           ],
           [
               'Material of Construction',
@@ -961,7 +961,7 @@ alignment.',
           [
               'fa-sort-amount-down',
               'Sized Output',
-              'The sized coke (45-60mm) passes through the gap. Oversized pieces remain until cut, ensuring strict quality control for furnace use.'
+              'The sized coke (40-60mm) passes through the gap. Oversized pieces remain until cut, ensuring strict quality control for furnace use.'
           ]
       ],
       'process_diagram' => 'assets/img/product-images/coke-cutter/process-diagram.jpg',
@@ -1020,7 +1020,7 @@ alignment.',
           ],
           [
               'Can I adjust the output size?',
-              'Yes, the gap between the ring shafts is adjustable. You can set the output size between 45 mm and 60 mm depending on your furnace requirements.'
+              'Yes, the gap between the ring shafts is adjustable. You can set the output size between 40 mm and 60 mm depending on your furnace requirements.'
           ],
           [
               'How durable are the rings?',
@@ -1028,7 +1028,7 @@ alignment.',
           ],
           [
               'What capacity does this machine handle?',
-              'This model is designed for a throughput of 20 Tons Per Hour (TPH).'
+              'This model is designed for a throughput of 15 to 20 Tons Per Hour (TPH).'
           ]
       ],
       'quote_title' => 'Ring Type Coke Cutter (Double Drive)',
@@ -2184,15 +2184,15 @@ alignment.',
   'coal-charging-car' => [
       'slug' => 'coal-charging-car',
       'title' => 'Coal Charging Car (Larry Car) for Coke Ovens | Manual Tools Company',
-      'description' => 'Coal charging car (larry car) for top-charged coke ovens: rail-mounted, 4 conical hoppers, 4–20 ton capacity, 15 HP travel drive. Made in Dhanbad, India.',
+      'description' => 'Coal charging car (larry car) for top-charged coke ovens: 2, 3 or 4 conical hoppers, 8–20 ton capacity, 15 HP travel drive. Made in Dhanbad, India.',
       'og_image' => 'assets/img/about-us-products-thumbnail/Coal-Charging-Car.jpg',
       'schema_name' => 'Coal Charging Car',
-      'schema_description' => 'Rail-mounted Coal Charging Car for top-charging coke ovens. Features 4 hoppers, gravity feed system, and heavy-duty travel mechanism.',
+      'schema_description' => 'Rail-mounted Coal Charging Car for top-charging coke ovens. Features 2, 3 or 4 hoppers, gravity feed system, and heavy-duty travel mechanism.',
       'sku' => 'MTC-CCC-Series',
       'schema_props' => [
           [
               'Capacity',
-              '4T / 8T / 15T / 20T'
+              '8T / 15T / 20T'
           ],
           [
               'Travel Motor',
@@ -2200,7 +2200,7 @@ alignment.',
           ],
           [
               'Charging Mouths',
-              '4 Nos'
+              '2, 3 & 4 Nos'
           ],
           [
               'Mechanism',
@@ -2220,12 +2220,12 @@ alignment.',
       'model_label' => 'Model',
       'model' => 'MTC-CCC-Series',
       'stock' => 'Made to Order',
-      'intro_html' => 'Optimized for efficient "Top Charging" of coke ovens, this machine runs on battery-top rails to deliver precise coal quantities into the oven chambers. Equipped with <strong>4 Conical Hoppers</strong> and a heavy-duty travel mechanism, it ensures uniform coal distribution.',
+      'intro_html' => 'Optimized for efficient "Top Charging" of coke ovens, this machine runs on battery-top rails to deliver precise coal quantities into the oven chambers. Equipped with <strong>2, 3 or 4 Conical Hoppers</strong> and a heavy-duty travel mechanism, it ensures uniform coal distribution.',
       'specs' => [
           [
               'fa-weight-hanging',
               'Hopper Capacity',
-              '4 - 20 Tons'
+              '8 - 20 Tons'
           ],
           [
               'fa-truck-moving',
@@ -2235,7 +2235,7 @@ alignment.',
           [
               'fa-arrow-down',
               'Charging Mouths',
-              '4 Nos.'
+              '2, 3 & 4'
           ],
           [
               'fa-cogs',
@@ -2257,7 +2257,7 @@ alignment.',
       'overview_heading' => 'What is a coal charging car?',
       'overview_paras' => [
           'A coal charging car, also called a larry car, is a rail-mounted machine that runs along the top of a coke oven battery and charges coal into the ovens from above. It takes a measured coal blend from the overhead service bunker into four conical hoppers, travels to the empty oven, and lines up its telescopic sleeves with the oven\'s four charging holes to limit smoke leakage. Motorised slide gates (3 HP) then open and the coal flows in by gravity, with a manual override wheel for power failures.',
-          'A 15 HP motor with a worm reducer gearbox moves the car at 60 to 80 metres per minute and positions it precisely. Hoppers are made from 8 mm tapered steel plate with steep sides so that wet coal flows, in capacities of 4, 8, 15 or 20 tons. Safety features include hydraulic buffers, travel alarms and heat shields for the operator cabin.'
+          'A 15 HP motor with a worm reducer gearbox moves the car at 60 to 80 metres per minute and positions it precisely. Hoppers are made from 8 mm tapered steel plate with steep sides so that wet coal flows, in capacities of 8, 15 or 20 tons. Safety features include hydraulic buffers, travel alarms and heat shields for the operator cabin.'
       ],
       'overview_related_html' => 'Running a stamp-charged battery? <a href="pusher-with-stamping-arrangement">See the Pusher Machine with Stamping Arrangement <i class="fas fa-arrow-right"></i></a>',
       'buyer_items' => [
@@ -2298,7 +2298,7 @@ alignment.',
       'tech_rows' => [
           [
               'Hopper Capacity',
-              '4 Tons / 8 Tons / 15 Tons / 20 Tons (Customizable)'
+              '8 Tons / 15 Tons / 20 Tons (Customizable)'
           ],
           [
               'Long Travel Motor',
@@ -2310,7 +2310,7 @@ alignment.',
           ],
           [
               'Number of Hoppers',
-              '4 Conical Hoppers'
+              '2, 3 or 4 Conical Hoppers'
           ],
           [
               'Travel Speed',
@@ -2332,7 +2332,7 @@ alignment.',
           [
               'fa-arrow-down',
               'Bunker Filling',
-              'The car positions itself under the overhead coal tower. The 4 hoppers are filled with a precise weight of coal blend.'
+              'The car positions itself under the overhead coal tower. The hoppers are filled with a precise weight of coal blend.'
           ],
           [
               'fa-crosshairs',
@@ -2390,7 +2390,7 @@ alignment.',
           ],
           [
               'How many charging mouths does it have?',
-              'Standard configuration is 4 charging mouths to match the 4 charging holes on the oven top.'
+              'Built with 2, 3 or 4 charging mouths, to match the charging holes on your oven top.'
           ],
           [
               'Is the discharge automated?',
