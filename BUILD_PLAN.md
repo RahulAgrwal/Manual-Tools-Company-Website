@@ -637,6 +637,45 @@ belongs in its own change.
 Newest first. One entry per session or per notable event: what was done, what
 went wrong, what the next session should pick up. Required — see the rule at the top.
 
+### 2026-09-19 — range catalogues, spec corrections, header catalogue link
+
+- **Range catalogues (new).** `brochure/generate_range_catalogue.py` builds
+  `Manual_Tools_Co_Catalogue.pdf` (30 A4 pages) and the separate
+  `generate_range_catalogue_2.py` builds `Manual_Tools_Co_Catalogue_2.pdf`
+  (A4 covers + 15 A3 landscape spreads), both modelled on a Honda generator
+  brochure the owner supplied. HTML printed by headless Chrome; Archivo
+  variable font in `brochure/fonts/`. Each build fails if any page's text
+  runs into its footer, which caught 3 overflows during the work.
+  Copy comes from `PRODUCTS` and `product-data.php`, so neither can drift.
+- **Spec corrections, everywhere.** Double disc crusher motor 160–200 →
+  **150–180 H.P.** (16 places) and both crushers' hammers manganese →
+  **mild steel** (37 places), across `product-data.php`, `global-products.php`,
+  `coal-crusher.php`, the brochure scripts and both catalogues. Liner plates,
+  cutter teeth and rings stay manganese. Single brochures rebuilt.
+- **Vibrator screen primary image** is now `Vibrator-Screen-3`: product page and
+  cards (`global-products.php`), home picker (`index.php`, cutout added to
+  `assets/img/slide/` + `trim_cutouts.py`), catalogues and its brochure.
+  `product-page.php` now skips a gallery photo that is already the lead image,
+  which would otherwise have shown twice (applies to every product page).
+- **Header: catalogue download link** (`header.php`, `assets/css/chrome.css`) —
+  "Catalogue" with `fa-download`, between Photo Gallery and Request a quote,
+  linking `brochure/Manual_Tools_Co_Catalogue_2.pdf` with `download`.
+  - **Verified in the browser**: home + about at 1440px and at a true 390px
+    viewport (device emulation, not window resize), menu closed and open, and
+    the vibrator screen product page at both widths. Found and fixed: in the
+    mobile menu `justify-content: space-between` pushed the icon and the label
+    to opposite edges; `a.nav-dl` now overrides to `flex-start`.
+  - Measured: no horizontal overflow at 390px (`scrollWidth == clientWidth`).
+  - **Correction to an earlier claim in this session:** headless screenshots at
+    `--window-size=390` looked clipped and were briefly reported as a layout
+    bug. They were not: the window floor is ~485px, so the shot was a crop of a
+    wider render. Use device emulation for phone-width checks.
+- `check_pages.py --base http://localhost:8080`: **16 pages, 0 failures**
+  (12 pre-existing warnings: title lengths, contact og:title).
+- The catalogue PDFs are ~20 MB each and committed as they are, on the owner's
+  decision, after being told the repo keeps every version. Worth revisiting if
+  the repo or the mobile download becomes a problem.
+
 ### 2026-09-18 — session 2, part 7 (phase 8)
 - Session resumed after a usage-limit pause; dev server and headless Chrome
   had stopped with the old session and were restarted on the user's "continue".

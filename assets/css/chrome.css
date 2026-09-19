@@ -296,6 +296,9 @@ i.mobile-nav-toggle {
 
   #navbar.navbar-mobile > ul > li.nav-cta { margin: var(--s-5) 0 0; border-top: 0; }
   #navbar.navbar-mobile > ul > li.nav-cta > a { justify-content: center; padding: var(--s-4); }
+  /* The catalogue link carries an icon: keep it beside its label instead of
+     letting space-between push the two to opposite edges. */
+  #navbar.navbar-mobile > ul > li > a.nav-dl { justify-content: flex-start; gap: var(--s-2); }
 
   body.mobile-nav-active { overflow: hidden; }
   body.mobile-nav-active i.mobile-nav-toggle {

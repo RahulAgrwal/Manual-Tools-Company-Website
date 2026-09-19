@@ -71,6 +71,14 @@ $logo = 'assets/img/mtc-logo-full.svg';
                     <a class="nav-link <?php echo ($page == 'photo-gallery') ? 'active' : ''; ?>" href="photo-gallery">Photo Gallery</a>
                 </li>
 
+                <li>
+                    <!-- The full range catalogue (catalogue 2: A4 covers, A3 spreads). -->
+                    <a class="nav-link nav-dl" href="brochure/Manual_Tools_Co_Catalogue_2.pdf"
+                       download title="Download the full product range catalogue (PDF)">
+                        <i class="fas fa-download" aria-hidden="true"></i>Catalogue
+                    </a>
+                </li>
+
                 <li class="nav-cta">
                     <a class="btn btn--primary" href="contact">Request a quote</a>
                 </li>
