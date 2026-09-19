@@ -1,6 +1,6 @@
 """Build every Manual Tools Company product brochure from one data table.
 
-Layout lives in brochure_layout.py; this file is copy only. All copy is taken
+Layout lives in brochure_html.py; this file is copy only. All copy is taken
 from the matching product page, so keep the two in sync when specs change.
 
 Run from the repo root (image paths are relative):
@@ -33,9 +33,12 @@ import shutil
 import subprocess
 import sys
 
-from brochure_layout import (
-    COL_R_X, COL_W, CONTENT_W, FONT_FAMILY, INK, INK_BODY, INK_SOFT, MARGIN,
-    FOOTER_Y, PANEL, RED, RULE, MTCBrochure, clean, cutout_image, fit_image,
+import tempfile
+from pathlib import Path
+
+from brochure_html import (
+    BADGE, EMAIL, Images, LOGO, OVERFLOW_JS, PHONE, PLACE, ROOT, SITE,
+    check_overflow, css, esc, find_browser, folio, full_logo_svg, icon_char, print_pdf,
 )
 
 # Brochure key -> product page slug in product-data.php.
@@ -52,22 +55,36 @@ SITE_SLUG = {
     "conveyor-materials": "conveyor-materials",
 }
 
-_site_specs = None
+_site_data = None
 
 
-def site_specs(key):
-    """[(icon, label, value)] from the product page's spec grid."""
-    global _site_specs
-    if _site_specs is None:
+def _site(key):
+    """The product page's own data, read once through the php CLI so the
+    brochure cannot drift from the website."""
+    global _site_data
+    if _site_data is None:
         php = shutil.which("php")
         if not php:
             sys.exit("php is needed to read product-data.php (the Key specifications box).")
         out = subprocess.run(
             [php, "-r", 'include "product-data.php"; echo json_encode(array_map('
-                        'fn($p) => $p["specs"], $MTC_PRODUCTS));'],
+                        'fn($p) => ["specs" => $p["specs"], "spares" => $p["spares"] ?? [],'
+                        ' "spares_note" => $p["spares_note"] ?? ""], $MTC_PRODUCTS));'],
             capture_output=True, text=True, check=True, encoding="utf-8")
-        _site_specs = json.loads(out.stdout)
-    return [tuple(s) for s in _site_specs[SITE_SLUG[key]]]
+        _site_data = json.loads(out.stdout)
+    return _site_data[SITE_SLUG[key]]
+
+
+def site_specs(key):
+    """[(icon, label, value)] from the product page's spec grid."""
+    return [tuple(s) for s in _site(key)["specs"]]
+
+
+def site_spares(key):
+    """([(part, fits, image)], note) from the product page's spare parts section.
+    Empty for a product that does not list any, and the block is skipped."""
+    d = _site(key)
+    return [(s["title"], s["fits"], s["img"]) for s in d["spares"]], d["spares_note"]
 
 
 # Same wording as the "Buying information" box on every product page.
@@ -508,181 +525,174 @@ def gallery_images(folder, limit=3):
     )[:limit]
 
 
-def page_overview(pdf, p, key):
-    """Page 2: title, summary, hero shot, key specifications, full table."""
-    pdf.add_page()
-    pdf.set_y(30)
-
-    pdf.set_font(FONT_FAMILY, "B", 21)
-    pdf.set_text_color(*INK)
-    pdf.multi_cell(CONTENT_W, 9.5, clean(p["title"]), new_x="LMARGIN", new_y="NEXT")
-    pdf.set_font(FONT_FAMILY, "", 9.5)
-    pdf.set_text_color(*INK_SOFT)
-    pdf.multi_cell(CONTENT_W, 5, clean(p["subtitle"]), new_x="LMARGIN", new_y="NEXT")
-
-    top = pdf.get_y() + 7
-    hero_h = 58.0
-    pdf.set_fill_color(*PANEL)
-    pdf.rect(COL_R_X, top, COL_W, hero_h, "F", round_corners=True, corner_radius=2)
-    try:
-        art = cutout_image(p["main_image"], PANEL)
-        if art is not None:
-            scale = min((COL_W - 8) / art.width, (hero_h - 8) / art.height)
-            w, h = art.width * scale, art.height * scale
-            pdf.image(art, COL_R_X + (COL_W - w) / 2, top + (hero_h - h) / 2, w, h)
-        else:
-            fit_image(pdf, p["main_image"], COL_R_X + 4, top + 4, COL_W - 8, hero_h - 8)
-    except Exception:
-        pass
-
-    pdf.label("At a glance", MARGIN, top)
-    pdf.set_xy(MARGIN, top + 5.5)
-    pdf.set_font(FONT_FAMILY, "", 9.5)
-    pdf.set_text_color(*INK_BODY)
-    pdf.multi_cell(COL_W, 5.2, clean(p["summary"]), new_x="LMARGIN", new_y="NEXT")
-
-    # The cover already carries the three headline figures; this box shows
-    # the product page's own four specs instead of repeating them.
-    y = max(pdf.get_y(), top + hero_h) + 8
-    y = pdf.key_specs(site_specs(key), y)
-
-    pdf.set_y(y)
-    pdf.section("Specifications")
-    y = pdf.get_y()
-    left_bottom = pdf.spec_table(p["specs"], MARGIN, y, COL_W)
-
-    pdf.label("Design & Durability", COL_R_X, y - 0.5, color=INK_SOFT)
-    right_bottom = pdf.feature_list(p["features"], COL_R_X, y + 5.5, COL_W)
-
-    pdf.set_y(max(left_bottom, right_bottom) + 8)
-    bottom = pdf.buying_info(p.get("buying", BUYING_INFO))
-    # No quotation panel here: the last page carries it, and dropping it gives
-    # the specifications room. Stop rather than let the page spill over.
-    if bottom > FOOTER_Y - 8:
-        sys.exit(f"{key}: page 2 content ends at {bottom:.1f} mm, into the footer at {FOOTER_Y:.1f} mm")
+def _cover(img, p):
+    """Page 1: the machine on a dark stage, its name, and three figures."""
+    src = p.get("cover_image", p["main_image"])
+    art = img.cutout(src) if img.has_alpha(src) else img.photo(src, bg=(13, 19, 25))
+    stats = "".join(f"<div><b>{esc(v)}</b><span>{esc(l)}</span></div>" for v, l in p["stats"])
+    return f"""
+<section class="page cover">
+  <div class="cv-logo">{full_logo_svg()}</div>
+  <div class="cv-art"><img src="{art}" alt=""></div>
+  <div class="cv-text">
+    <span class="cv-eyebrow">Product brochure</span>
+    <h1 class="cv-h1">{esc(p["title"])}</h1>
+    <p class="cv-sub">{esc(p["subtitle"])}</p>
+  </div>
+  <div class="cv-stats">{stats}</div>
+  <div class="cv-foot"><span>Manual Tools Company &nbsp;|&nbsp; {PLACE}</span>
+    <span>{PHONE} &nbsp;|&nbsp; {SITE}</span></div>
+</section>"""
 
 
-def page_process(pdf, p):
-    """Page 3: process flow, applications, common questions."""
-    pdf.add_page()
-    pdf.set_y(28)
-    pdf.section("How it works", gap_before=0)
-
-    for i, (title, desc) in enumerate(p["steps"], 1):
-        top = pdf.get_y()
-        pdf.set_xy(MARGIN, top)
-        pdf.set_font(FONT_FAMILY, "B", 16)
-        pdf.set_text_color(*RED)
-        pdf.cell(14, 8, f"{i:02d}")
-
-        pdf.set_xy(MARGIN + 16, top)
-        pdf.set_font(FONT_FAMILY, "B", 10)
-        pdf.set_text_color(*INK)
-        pdf.cell(CONTENT_W - 16, 5.5, clean(title), new_x="LMARGIN", new_y="NEXT")
-        pdf.set_x(MARGIN + 16)
-        pdf.set_font(FONT_FAMILY, "", 9)
-        pdf.set_text_color(*INK_BODY)
-        pdf.multi_cell(CONTENT_W - 16, 4.8, clean(desc), new_x="LMARGIN", new_y="NEXT")
-        pdf.ln(3.5)
-        if i < len(p["steps"]):
-            pdf.set_draw_color(*RULE)
-            pdf.set_line_width(0.2)
-            pdf.line(MARGIN + 16, pdf.get_y(), MARGIN + CONTENT_W, pdf.get_y())
-            pdf.ln(3.5)
-
-    pdf.section("Applications")
-    for name, desc in p["apps"]:
-        top = pdf.get_y()
-        pdf.set_xy(MARGIN, top)
-        pdf.set_font(FONT_FAMILY, "B", 9)
-        pdf.set_text_color(*INK)
-        pdf.cell(44, 5.2, clean(name))
-        pdf.set_xy(MARGIN + 44, top)
-        pdf.set_font(FONT_FAMILY, "", 9)
-        pdf.set_text_color(*INK_BODY)
-        pdf.multi_cell(CONTENT_W - 44, 5.2, clean(desc), new_x="LMARGIN", new_y="NEXT")
-        pdf.ln(1.8)
-
-    pdf.section("Common questions")
-    for q, a in p["faqs"]:
-        pdf.set_x(MARGIN)
-        pdf.set_font(FONT_FAMILY, "B", 9.5)
-        pdf.set_text_color(*INK)
-        pdf.multi_cell(CONTENT_W, 5, clean(q), new_x="LMARGIN", new_y="NEXT")
-        pdf.set_x(MARGIN)
-        pdf.set_font(FONT_FAMILY, "", 9)
-        pdf.set_text_color(*INK_BODY)
-        pdf.multi_cell(CONTENT_W, 4.8, clean(a), new_x="LMARGIN", new_y="NEXT")
-        pdf.ln(4)
+def _head(p, n):
+    return (f'<img class="hd-logo" src="{LOGO.as_uri()}" alt="">'
+            f'<div class="hd-name">{esc(p["title"])} &nbsp;&ndash;&nbsp; {esc(p["subtitle"])}</div>'
+            f'<div class="hd-rule"></div>')
 
 
-def frame(pdf, path, x, y, w, h):
-    pdf.set_draw_color(*RULE)
-    pdf.set_line_width(0.2)
-    pdf.rect(x, y, w, h, "D", round_corners=True, corner_radius=2)
-    try:
-        fit_image(pdf, path, x + 3, y + 3, w - 6, h - 6)
-    except Exception:
-        pass
+def _foot(n):
+    return (folio(n) +
+            f'<div class="foot-r">{PHONE} &nbsp;|&nbsp; {SITE}</div>')
 
 
-def page_gallery(pdf, p, key):
-    """Page 4: gallery spread, the rest of the range, and the closing CTA."""
-    pdf.add_page()
-    pdf.set_y(28)
-
-    others = [(q["title"], q["subtitle"]) for k, q in PRODUCTS.items() if k != key]
-
-    # Work out what the range list needs, then give the gallery the rest. The
-    # list grows with every new product, so fixed image heights would collide
-    # with the quotation panel.
-    index_h = 14 + ((len(others) + 1) // 2) * 9.5 if others else 0
-    quote_top = FOOTER_Y - 32
-    available = quote_top - 28 - index_h - 10
-
-    images = gallery_images(p["gallery"], limit=3)
-    if images:
-        pdf.section("Product gallery", gap_before=0)
-        y = pdf.get_y()
-        gap = 6.0
-        room = max(50.0, available - (pdf.get_y() - 28))
-        if len(images) == 1:
-            h = min(120.0, room)
-            frame(pdf, images[0], MARGIN, y, CONTENT_W, h)
-            y += h
-        else:
-            # One lead shot across the column, the rest side by side below it.
-            lead = min(88.0, room * 0.6)
-            small = min(55.0, room - lead - gap)
-            frame(pdf, images[0], MARGIN, y, CONTENT_W, lead)
-            y += lead + gap
-            rest = images[1:]
-            w = (CONTENT_W - gap * (len(rest) - 1)) / len(rest)
-            for i, path in enumerate(rest):
-                frame(pdf, path, MARGIN + i * (w + gap), y, w, small)
-            y += small
-        pdf.set_y(y)
-
-    if others:
-        pdf.section("Also from Manual Tools Company")
-        pdf.product_index(others)
-
-    pdf.quote_block()
+def _overview(img, p, key):
+    """Page 2: summary and hero, the page's own key specs, the full table,
+    the feature list and the buying information."""
+    src = p["main_image"]
+    art = img.cutout(src, bg=(246, 247, 248)) if img.has_alpha(src) else img.photo(src)
+    keys = "".join(
+        f'<div>{icon_char(ic)}<b>{esc(val)}</b><span>{esc(lab)}</span></div>'
+        for ic, lab, val in site_specs(key))
+    rows = "".join(f"<tr><td>{esc(k)}</td><td>{esc(v)}</td></tr>" for k, v in p["specs"])
+    feats = "".join(f"<li>{esc(x)}</li>" for x in p["features"])
+    buying = "".join(f"<p><b>{esc(k)}:</b> {esc(v)}</p>"
+                     for k, v in p.get("buying", BUYING_INFO))
+    return f"""
+<section class="page">
+  {_head(p, 2)}
+  <div class="pad">
+    <div class="cols">
+      <div class="col">
+        <h2 class="red-h">{esc(p["title"])}</h2>
+        <p class="lede">{esc(p["summary"])}</p>
+      </div>
+      <div class="col"><div class="hero"><img src="{art}" alt=""></div></div>
+    </div>
+    <div class="keys">{keys}</div>
+    <h3 class="sec">Specifications</h3>
+    <div class="cols">
+      <div class="col"><table class="spec"><tbody>{rows}</tbody></table></div>
+      <div class="col">
+        <h4 class="grey-h">Design &amp; durability</h4>
+        <ul class="feat">{feats}</ul>
+      </div>
+    </div>
+    <div class="buy"><h4>Buying information</h4>{buying}</div>
+  </div>
+  {_foot(2)}
+</section>"""
 
 
-def build(key):
+def _process(p):
+    """Page 3: how it works, what it is used for, and the common questions."""
+    steps = "".join(
+        f'<div class="step"><div class="n">{i:02d}</div><div>'
+        f'<h4>{esc(t)}</h4><p>{esc(d)}</p></div></div>'
+        for i, (t, d) in enumerate(p["steps"], 1))
+    apps = "".join(f'<div class="app"><b>{esc(n)}</b><p>{esc(d)}</p></div>'
+                   for n, d in p["apps"])
+    faqs = "".join(f'<p class="q">{esc(q)}</p><p class="a">{esc(a)}</p>'
+                   for q, a in p["faqs"])
+    return f"""
+<section class="page">
+  {_head(p, 3)}
+  <div class="pad">
+    <h3 class="sec">How it works</h3>
+    <div class="steps">{steps}</div>
+    <h3 class="sec">Applications</h3>
+    <div class="apps">{apps}</div>
+    <h3 class="sec">Common questions</h3>
+    <div class="faq">{faqs}</div>
+  </div>
+  {_foot(3)}
+</section>"""
+
+
+def _closing(img, p, key):
+    """Page 4: the spare parts this machine takes, a look at it, the rest of
+    the range, and the quotation panel."""
+    spares, note = site_spares(key)
+    block = ""
+    if spares:
+        cards = ""
+        for title, fits, src in spares:
+            pic = img.cutout(src, bg=(246, 247, 248)) if img.has_alpha(src) else img.photo(src)
+            cards += (f'<div class="spare"><div class="pic"><img src="{pic}" alt=""></div>'
+                      f'<div><b>{esc(title)}</b><span>Fits: {esc(fits)}</span></div></div>')
+        block = (f'<h3 class="sec">Spare and wear parts</h3><div class="spares">{cards}</div>'
+                 + (f'<p class="fine" style="margin-top:3mm">{esc(note)}</p>' if note else ""))
+
+    shots = gallery_images(p["gallery"], limit=1 if spares else 3)
+    gal = ""
+    if shots:
+        cells = ""
+        for i, src in enumerate(shots):
+            cls = "lead" if (i == 0 and len(shots) != 2) else "small"
+            cells += f'<div class="shot {cls}"><img src="{img.photo(src)}" alt=""></div>'
+        gal = f'<h3 class="sec">Product gallery</h3><div class="gal">{cells}</div>'
+
+    others = "".join(
+        f'<div class="r"><b>{esc(q["title"])}</b><span>{esc(q["subtitle"])}</span></div>'
+        for k, q in PRODUCTS.items() if k != key)
+    return f"""
+<section class="page">
+  {_head(p, 4)}
+  <div class="pad">
+    {block}
+    {gal}
+    <h3 class="sec">Also from Manual Tools Company</h3>
+    <div class="range">{others}</div>
+  </div>
+  <div class="quote">
+    <div class="q-l"><h4>Request a quotation</h4><b>{PHONE}</b></div>
+    <div class="q-r">Custom sizes and capacities built to order.<br>
+      {EMAIL}<br>{SITE} &nbsp;|&nbsp; {PLACE}</div>
+  </div>
+  {_foot(4)}
+</section>"""
+
+
+def build_html(build, key):
+    img = Images(build)
     p = PRODUCTS[key]
-    pdf = MTCBrochure(product_name=f"{p['title']} - {p['subtitle']}")
-    pdf.cover(p["title"], p["subtitle"], p.get("cover_image", p["main_image"]), p["stats"])
-    page_overview(pdf, p, key)
-    page_process(pdf, p)
-    page_gallery(pdf, p, key)
+    pages = [_cover(img, p), _overview(img, p, key), _process(p), _closing(img, p, key)]
+    doc = f"""<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>{esc(p["title"])} - Manual Tools Company</title>
+<style>{css()}</style>
+<script>{OVERFLOW_JS}</script></head>
+<body>{"".join(pages)}</body></html>"""
+    path = build / "brochure.html"
+    path.write_text(doc, encoding="utf-8")
+    return path
 
-    out = "brochure/" + p["output"]
-    pdf.output(out)
-    print("wrote", out)
+
+def build(key, browser=None):
+    browser = browser or find_browser()
+    out = ROOT / "brochure" / PRODUCTS[key]["output"]
+    tmp = Path(tempfile.mkdtemp(prefix="mtc-brochure-"))
+    try:
+        page = build_html(tmp, key)
+        check_overflow(browser, page, PRODUCTS[key]["output"])
+        print_pdf(browser, page, out)
+        print(f"wrote brochure/{PRODUCTS[key]['output']} ({out.stat().st_size / 1e6:.1f} MB)")
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
 
 
 if __name__ == "__main__":
-    for key in sys.argv[1:] or PRODUCTS:
-        build(key)
+    keys = [a for a in sys.argv[1:] if not a.startswith("-")] or list(PRODUCTS)
+    b = find_browser()
+    for k in keys:
+        build(k, b)
