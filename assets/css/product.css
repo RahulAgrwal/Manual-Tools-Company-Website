@@ -652,3 +652,11 @@
   font-weight: var(--fw-bold);
   color: var(--c-ink);
 }
+
+/* --------------------------------------------------------------------------
+   Spare and wear parts
+   The cards themselves are the shared component in mtc.css. Only the section's
+   own edge is here: it sits between the sunk overview and the plain tabs
+   section, so without a rule the boundary below it would be invisible.
+   -------------------------------------------------------------------------- */
+.pd-spares { border-bottom: 1px solid var(--c-line); }

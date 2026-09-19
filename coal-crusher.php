@@ -158,6 +158,92 @@
       </div>
     </section>
 
+    <!-- ======= Spare and wear parts ======= -->
+    <section class="section" id="spares">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Coal crusher spare and wear parts</h2>
+          <p>
+            We make the wear parts for every crusher we build, to the same drawings as the machine, so a replacement
+            fits without cutting or machining on site. Each part below says which model it is for.
+          </p>
+        </div>
+
+        <div class="grid grid--3 spares-grid">
+
+          <?php
+          $spare_parts = [
+              [
+                  'img'   => 'assets/img/product-images/coal-crusher-double-disc/coal-crusher-6.png',
+                  'alt'   => 'Mild steel coal crusher hammer, a replaceable wear part',
+                  'title' => 'Crusher hammers',
+                  'desc'  => 'Mild steel hammers, changed through the side access door without dismantling the rotor. Inspect every 300 hours and turn the faces once the edges round off.',
+                  'fits'  => '6 per single disc &middot; 12 per double disc',
+              ],
+              [
+                  'img'   => 'assets/img/product-images/coal-crusher-single-disc/top-liner-jaw-plate.png',
+                  'alt'   => 'Manganese steel top liner jaw plates for a coal crusher, stacked',
+                  'title' => 'Manganese Steel Top Liner Jaw Plate',
+                  'desc'  => 'Jaw plates that line the crushing chamber and take the wear instead of the body. Bolted in, so a worn plate is swapped without cutting.',
+                  'fits'  => 'Both models',
+              ],
+              [
+                  'img'   => 'assets/img/product-images/coal-crusher-single-disc/disc-fitted-with-en8-shaft.png',
+                  'alt'   => 'Single disc coal crusher rotor fitted with an EN-8 shaft',
+                  'title' => 'Single disc rotor',
+                  'desc'  => 'A balanced disc carrying six hammer positions, fitted to a machined EN-8 shaft. Supplied as a complete assembly or as the bare disc.',
+                  'fits'  => 'Coal Crusher (5 No.) Single Disc',
+              ],
+              [
+                  'img'   => 'assets/img/product-images/coal-crusher-double-disc/coal-crusher-7.png',
+                  'alt'   => 'Double disc coal crusher rotor assembly on its shaft',
+                  'title' => 'Double disc rotor',
+                  'desc'  => 'Two discs on one shaft, carrying twelve hammers between them, balanced as a set so the machine runs true at speed.',
+                  'fits'  => 'Coal Crusher (5 No.) Double Disc',
+              ],
+              [
+                  'img'   => 'assets/img/product-images/coal-crusher-double-disc/crushers-driving-arrangement.png',
+                  'alt'   => "Coal crusher's driving arrangement: motor, gear box and coupling on a base frame",
+                  'title' => 'Driving arrangement',
+                  'desc'  => 'Motor, gear box, flexible coupling and fabricated base frame, supplied as a matched set and aligned to the crusher shaft.',
+                  'fits'  => 'Double disc, 150 - 180 HP',
+              ],
+          ];
+          foreach ($spare_parts as $part) :
+              $src = mtc_img($part['img']);
+          ?>
+            <article class="spare-card">
+              <div class="spare-card__well">
+                <img src="<?php echo $src; ?>" <?php echo mtc_img_size($src); ?>
+                     alt="<?php echo htmlspecialchars($part['alt'], ENT_QUOTES); ?>" loading="lazy" decoding="async">
+              </div>
+              <div class="spare-card__body">
+                <h3 class="spare-card__title"><?php echo $part['title']; ?></h3>
+                <p class="spare-card__desc"><?php echo $part['desc']; ?></p>
+                <p class="spare-card__fits"><span>Fits</span><?php echo $part['fits']; ?></p>
+              </div>
+            </article>
+          <?php endforeach; ?>
+
+        </div>
+
+        <p class="spares-note">
+          Also made to order: side liner plates, bearing housings, V-belt drives and hopper
+          sections. Tell us the machine and we will quote the part.
+        </p>
+
+        <div class="spares-order">
+          <h3>Ordering a spare</h3>
+          <ol>
+            <li><span aria-hidden="true">1</span>Name the machine, and roughly when it was supplied if it is ours.</li>
+            <li><span aria-hidden="true">2</span>Send the old part's size, or a photo of it beside a tape measure.</li>
+            <li><span aria-hidden="true">3</span>We quote the part, made to the same drawings as the machine.</li>
+          </ol>
+          <a href="contact" class="btn btn--quiet">Ask for a spare part quote</a>
+        </div>
+      </div>
+    </section>
+
     <section class="cta-band">
       <div class="wrap cta-band__inner">
         <div>

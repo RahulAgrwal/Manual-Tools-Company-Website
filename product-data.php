@@ -45,6 +45,7 @@ $MTC_PRODUCTS = [
       // the main image and used as alt text (product page and photo gallery).
       'gallery_labels' => [
           'disc-fitted-with-en8-shaft.png' => 'Disc fitted with EN-8 Shaft (spare part)',
+          'top-liner-jaw-plate.png' => 'Manganese Steel Top Liner Jaw Plate (spare part)',
           'single-disc-crusher-in-workshop.jpg' => 'Single disc coal crusher in our workshop',
       ],
       'has_video' => false,
@@ -102,6 +103,32 @@ applications.',
           'The crusher is driven by an 80 to 120 HP electric motor, chosen to suit the output you need, and handles 8 to 10 tons of coal per hour. The hammers are replaced through a side access door, and routine care is limited to checking the liner plates and greasing the bearings. It suits coke oven plants and thermal power units with moderate throughput.'
       ],
       'overview_related_html' => 'Need 20–25 TPH or feed up to 150 mm? <a href="coal-crusher-5-No-double-disc">See the Double Disc coal crusher <i class="fas fa-arrow-right"></i></a>',
+      // Spare and wear parts, rendered by product-page.php between the overview
+      // and the tabs. Optional: a product without this key gets no section.
+      'spares' => [
+          [
+              'img' => 'assets/img/product-images/coal-crusher-double-disc/coal-crusher-6.png',
+              'alt' => 'Mild steel coal crusher hammer, a replaceable wear part',
+              'title' => 'Crusher hammers',
+              'desc' => 'Mild steel hammers, changed through the side access door without dismantling the rotor. Inspect every 300 hours and turn the faces once the edges round off.',
+              'fits' => '6 per machine'
+          ],
+          [
+              'img' => 'assets/img/product-images/coal-crusher-single-disc/top-liner-jaw-plate.png',
+              'alt' => 'Manganese steel top liner jaw plates for a coal crusher, stacked',
+              'title' => 'Manganese Steel Top Liner Jaw Plate',
+              'desc' => 'Jaw plates that line the crushing chamber and take the wear instead of the body. Bolted in, so a worn plate is swapped without cutting.',
+              'fits' => 'Single disc, 5 No.'
+          ],
+          [
+              'img' => 'assets/img/product-images/coal-crusher-single-disc/disc-fitted-with-en8-shaft.png',
+              'alt' => 'Single disc coal crusher rotor fitted with an EN-8 shaft',
+              'title' => 'Disc rotor with shaft',
+              'desc' => 'The balanced disc that carries the six hammers, fitted to a machined EN-8 shaft. Supplied as a complete assembly or as the bare disc.',
+              'fits' => 'Single disc, 5 No.'
+          ]
+      ],
+      'spares_note' => 'Also made to order: side liner plates, bearing housings, V-belt drives and hopper sections. Tell us the machine and we will quote the part.',
       'buyer_items' => [
           '<strong>Lead time:</strong> Standard models are often in stock. Custom builds take 3–4 weeks.',
           '<strong>Warranty:</strong> 1 year, as on all our machinery.',
@@ -348,6 +375,37 @@ alignment.',
           'The housing is 12 mm fabricated steel, and each hammer can be replaced or reversed without dismantling the rotor. A 150 to 180 HP slip-ring or squirrel cage motor drives the machine. It is built for large recovery-type coke ovens, bigger FBC boilers in thermal power plants and briquetting plants, and it handles coal with up to 10–12% moisture.'
       ],
       'overview_related_html' => 'Need 8–10 TPH with a smaller motor? <a href="coal-crusher-5-No-single-disc">See the Single Disc coal crusher <i class="fas fa-arrow-right"></i></a>',
+      'spares' => [
+          [
+              'img' => 'assets/img/product-images/coal-crusher-double-disc/coal-crusher-6.png',
+              'alt' => 'Mild steel coal crusher hammer, a replaceable wear part',
+              'title' => 'Crusher hammers',
+              'desc' => 'Mild steel hammers, reversed or replaced through the side access door without dismantling the rotor. Inspect every 300 hours and turn the faces once the edges round off.',
+              'fits' => '12 per machine, 6 per disc'
+          ],
+          [
+              'img' => 'assets/img/product-images/coal-crusher-double-disc/coal-crusher-7.png',
+              'alt' => 'Double disc coal crusher rotor assembly on its shaft',
+              'title' => 'Twin disc rotor',
+              'desc' => 'Two discs on one machined shaft, carrying twelve hammers between them and balanced as a set so the machine runs true at speed.',
+              'fits' => 'Double disc, 5 No.'
+          ],
+          [
+              'img' => 'assets/img/product-images/coal-crusher-single-disc/top-liner-jaw-plate.png',
+              'alt' => 'Manganese steel top liner jaw plates for a coal crusher, stacked',
+              'title' => 'Manganese Steel Top Liner Jaw Plate',
+              'desc' => 'Jaw plates that line the crushing chamber and take the wear instead of the body. Bolted in, so a worn plate is swapped without cutting.',
+              'fits' => 'Double disc, 5 No.'
+          ],
+          [
+              'img' => 'assets/img/product-images/coal-crusher-double-disc/crushers-driving-arrangement.png',
+              'alt' => "Coal crusher's driving arrangement: motor, gear box and coupling on a base frame",
+              'title' => 'Driving arrangement',
+              'desc' => 'Motor, gear box, flexible coupling and fabricated base frame, supplied as a matched set and aligned to the crusher shaft.',
+              'fits' => '150 - 180 HP drives'
+          ]
+      ],
+      'spares_note' => 'Also made to order: side liner plates, bearing housings, V-belt drives and hopper sections. Tell us the machine and we will quote the part.',
       'buyer_items' => [
           '<strong>Lead time:</strong> Made to order. Fabrication usually takes 4–5 weeks.',
           '<strong>Warranty:</strong> 1 year, as on all our machinery.',
@@ -1288,7 +1346,7 @@ alignment.',
       ],
       'overview_heading' => 'What is a door lifting power winch?',
       'overview_paras' => [
-          'A door lifting power winch is an electric winch that raises and lowers heavy coke oven doors on the battery bench. It is built for safe, controlled lifting rather than speed: a 5 to 7.5 HP motor drives a self-locking worm reducer gearbox, so the weight of the door cannot turn the motor backwards if the power fails. We also recommend an electro-magnetic brake on the motor shaft for double safety.',
+          'A door lifting power winch is an electric winch that raises and lowers heavy coke oven doors on the battery bench. It is built for safe, controlled lifting rather than speed: a 5 to 7.5 HP motor drives a self-locking worm reducer gearbox, so the weight of the door cannot turn the motor backwards if the power fails.',
           'The output shaft turns a grooved steel drum that winds the wire rope at about 2 to 4 metres per minute. Lifting capacity is 2.5 to 5 tons, which covers most standard coke oven doors, depending on battery height and door weight. Besides oven doors, the winch lifts isolation dampers in power plants and steel mills and serves maintenance bays without an overhead crane.'
       ],
       'overview_related_html' => 'Need horizontal pulling instead of lifting? <a href="haulage">See the Coke Oven Haulage Machine <i class="fas fa-arrow-right"></i></a>',
@@ -1342,11 +1400,11 @@ alignment.',
           ],
           [
               'Gear Material',
-              'Cast Steel / Phosphor Bronze'
+              'Cast Steel'
           ],
           [
               'Drum Type',
-              'Grooved Steel Drum for Wire Rope'
+              'Grooved Steel Drum / Steel Drum'
           ],
           [
               'Base Frame',
@@ -1427,7 +1485,7 @@ alignment.',
           ],
           [
               'Does it come with a brake?',
-              'Yes, while the gearbox is self-locking, we also recommend and supply an Electro-Magnetic Brake on the motor shaft for double safety.'
+              'The worm reducer gearbox is self-locking: if the power fails, the weight of the door cannot drive the motor backwards, so the load is held.'
           ],
           [
               'What capacity do I need for a Coke Oven?',
@@ -2199,7 +2257,7 @@ alignment.',
       'overview_heading' => 'What is a coal charging car?',
       'overview_paras' => [
           'A coal charging car, also called a larry car, is a rail-mounted machine that runs along the top of a coke oven battery and charges coal into the ovens from above. It takes a measured coal blend from the overhead service bunker into four conical hoppers, travels to the empty oven, and lines up its telescopic sleeves with the oven\'s four charging holes to limit smoke leakage. Motorised slide gates (3 HP) then open and the coal flows in by gravity, with a manual override wheel for power failures.',
-          'A 15 HP motor with a worm reducer gearbox moves the car at 60 to 80 metres per minute and positions it precisely. Hoppers are made from 8 mm tapered steel plate with steep sides so that wet coal flows, in capacities of 4, 8, 15 or 20 tons. Safety features include hydraulic buffers, electromagnetic brakes, travel alarms and heat shields for the operator cabin.'
+          'A 15 HP motor with a worm reducer gearbox moves the car at 60 to 80 metres per minute and positions it precisely. Hoppers are made from 8 mm tapered steel plate with steep sides so that wet coal flows, in capacities of 4, 8, 15 or 20 tons. Safety features include hydraulic buffers, travel alarms and heat shields for the operator cabin.'
       ],
       'overview_related_html' => 'Running a stamp-charged battery? <a href="pusher-with-stamping-arrangement">See the Pusher Machine with Stamping Arrangement <i class="fas fa-arrow-right"></i></a>',
       'buyer_items' => [
@@ -2340,7 +2398,7 @@ alignment.',
           ],
           [
               'What safety features are included?',
-              'Includes hydraulic buffers, heavy-duty electromagnetic brakes, audible travel alarms, and heat shields for the operator cabin.'
+              'Includes hydraulic buffers, audible travel alarms, and heat shields for the operator cabin.'
           ],
           [
               'Can it handle wet coal?',

@@ -637,6 +637,55 @@ belongs in its own change.
 Newest first. One entry per session or per notable event: what was done, what
 went wrong, what the next session should pick up. Required — see the rule at the top.
 
+### 2026-09-19 — spare parts sections, catalogue wording, two new cutouts
+
+- **Spare and wear parts.** New section on `/coal-crusher` (5 parts, three-up)
+  and on both crusher detail pages through `product-page.php` (an optional
+  `spares` / `spares_note` per product in `product-data.php`; a product without
+  the key gets no section). Cards are a shared component in `mtc.css`
+  (`.spare-card`), because three pages use them; `hub.css` and `product.css`
+  hold only their own section edges.
+  - Two layout fixes found by looking, not by any check: the card body needed
+    `flex: 1` or the "Fits" line sat at a different height in each column, and
+    the 4:3 well makes the section several screens long at 390px, so it drops
+    to 16:9 below 34rem.
+  - Grids chosen so no row is left with one orphan: `grid--4` on the detail
+    pages (3 and 4 cards) and `grid--3` on the hub (5 cards, 3 + 2).
+- **Owner's corrections, applied.** The single disc crusher has no driving
+  arrangement (card removed from its page, and the hub's card now says double
+  disc only); `coal-crusher-4.png` renamed `top-liner-jaw-plate.png` and named
+  "Manganese Steel Top Liner Jaw Plate"; "grate bars" dropped from the notes.
+- **Catalogue wording** (both range catalogues and the single-product
+  brochures): ring-type spread heading "RING TYPE CUTTING" -> "COKE CUTTING";
+  single disc "FINE COAL CRUSHING" -> "COAL CRUSHING" with the subtitle
+  "Single Disc - Coal Disintegrator"; power winch lost the "Electro-magnetic
+  brake" callout and the "phosphor bronze" claim, and its drum callout reads
+  "Grooved steel drum / steel drum". **Electro-magnetic brake copy was removed
+  from the site too** (power winch FAQ and overview, charging car FAQ and
+  overview), and the winch's Gear Material spec is now "Cast Steel", on the
+  owner's instruction. `SITE_SHORT` is gone: every printed address in both
+  catalogues is the canonical `www.manualtoolsco.com`.
+- **Power winch cutout replaced twice** (the owner sent a second, better one).
+  The primary is `assets/img/slide/Power-Winch.png` (1086x1448); the previous
+  slide cutout and the owner's first new one were kept as `power-winch-3.png`
+  and `power-winch-4.png` in the gallery folder, so nothing that was visible
+  before disappeared. Drum Type is now "Grooved Steel Drum / Steel Drum" on the
+  page, in the brochure and in the catalogue callout.
+- **Two new high-resolution cutouts** from the owner replaced
+  `assets/img/slide/Coal-Crusher.png` (4032x3024 photo -> 1183x1329 cutout,
+  now portrait) and `Haulage-Machine.png` (612x408 -> 1575x999). Both flow to
+  the home hero, product cards, product page leads and every PDF. Clears the
+  "low-resolution haulage cover image" backlog item.
+- **Verified:** `check_pages.py --base http://localhost:8081` -> 16 pages, 0
+  failures (12 pre-existing title-length warnings). Spares section looked at on
+  all three pages at desktop and in a 390px iframe; no horizontal overflow.
+- **Trap found:** running `generate_range_catalogue_2.py` and
+  `generate_range_catalogue.py` back to back in one shell line produced a
+  **corrupt 36 MB catalogue 2** (every page blank, zlib errors on every content
+  stream) while both scripts reported success. They share the build folder.
+  Leave a few seconds between them, and check the written size against the size
+  the script prints.
+
 ### 2026-09-19 — range catalogues, spec corrections, header catalogue link
 
 - **Range catalogues (new).** `brochure/generate_range_catalogue.py` builds

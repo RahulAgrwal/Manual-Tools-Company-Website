@@ -53,7 +53,6 @@ PHONE = "+91 9430707348"
 PHONE_TEL = "+919430707348"
 EMAIL = "manualtoolsco.dhn@gmail.com"
 SITE = "www.manualtoolsco.com"
-SITE_SHORT = "manualtoolsco.com"
 ADDRESS = "Bastacolla, P.O. Dhansar, Dhanbad – 828106, Jharkhand, India"
 
 # Font Awesome 5.15.4 Solid code points. The woff2 in assets/ is the full
@@ -136,7 +135,7 @@ HEROES = [
     },
     {
         "key": "coal-crusher-single",
-        "category": "Fine Coal<br>Crushing",
+        "category": "Coal<br>Crushing",
         "photo": {"cutout": CUTOUT["coal-crusher-single"]},
         "callouts": [
             ("Mild steel hammers", "Six hammers throw the coal against manganese steel liner "
@@ -183,7 +182,7 @@ HEROES = [
     },
     {
         "key": "coke-cutter-ring-type",
-        "category": "Ring Type<br>Cutting",
+        "category": "Coke<br>Cutting",
         "photo": {"cutout": CUTOUT["coke-cutter-ring-type"]},
         "callouts": [
             ("Segmented toothed rings", "Rings are keyed to the shaft one by one, so a damaged "
@@ -217,19 +216,18 @@ HEROES = [
         "callouts": [
             ("Self-locking worm reducer", "If the power fails, the door's weight cannot drive the "
              "motor backwards.", None),
-            ("Electro-magnetic brake", "Recommended and supplied on the motor shaft for double "
-             "safety.", None),
-            ("Cast steel and phosphor bronze gears", "The worm gearing cuts speed and multiplies "
+            ("Gears", "The worm gearing cuts speed and multiplies "
              "torque for a smooth, non-jerky lift at about 2 - 4 m/min.", None),
-            ("Grooved steel drum", "Winds the wire rope evenly. A standard rope length is included; "
+            ("Grooved steel drum / steel drum", "Winds the wire rope evenly. A standard rope length is included; "
              "length and diameter can be customised.", None),
         ],
     },
     {
         "key": "haulage",
         "category": "Haulage &amp;<br>Pulling",
-        # The owner's own transparent cut-out, used as it is.
-        "photo": {"cutout": PIMG + "haulage/haulage-2.webp"},
+        # The owner's own high-resolution transparent cut-out (assets/img/slide),
+        # the same one the site and the covers use.
+        "photo": {"cutout": CUTOUT["haulage"]},
         "callouts": [
             ("Worm reducer gearbox", "A high-torque, non-reversible worm drive: the gear action "
              "helps prevent the load slipping back.", None),
@@ -274,13 +272,12 @@ CHART_OVEN = {
             ("Connected load", ["Approx. 65 - 70 H.P.", "-", "-", "-"]),
             ("Gearbox", ["Helical, with chain drive", "Worm reducer (travel)",
                          "Self-locking worm reducer", "Heavy duty worm reducer"]),
-            ("Brake", ["-", "Electromagnetic", "Electro-magnetic (recommended)",
-                       "Manual or thruster (optional)"]),
+            ("Brake", ["-", "-", "-", "Manual or thruster (optional)"]),
         ]),
         ("Build", [
             ("Mounting", ["Rail-mounted", "Rail-mounted", "Fixed base", "C-channel base frame"]),
             ("Main parts", ["20 m pusher and leveller beams", "4 conical hoppers, 8 mm plate",
-                            "Grooved steel drum", "Cast steel, machine-cut gears"]),
+                            "Grooved steel drum / steel drum", "Cast steel, machine-cut gears"]),
         ]),
     ],
 }
@@ -568,7 +565,7 @@ def full_logo_svg(badge="#FFFFFF", mark="#F03C02", words="#FFFFFF"):
 def folio(n, dark=False):
     side = "l" if n % 2 == 0 else "r"
     cls = f"folio folio-{side}" + (" on-dark" if dark else "")
-    return f'<div class="{cls}">{n} &nbsp;|&nbsp; {SITE_SHORT}</div>'
+    return f'<div class="{cls}">{n} &nbsp;|&nbsp; {SITE}</div>'
 
 
 def icon_row(key, dark=False, extra=True):
@@ -787,8 +784,8 @@ def spread_battery(img, n):
       </div>
     </div>
   </div>
-  <div class="folio folio-l on-dark">{n} &nbsp;|&nbsp; {SITE_SHORT}</div>
-  <div class="folio folio-r on-dark">{n + 1} &nbsp;|&nbsp; {SITE_SHORT}</div>
+  <div class="folio folio-l on-dark">{n} &nbsp;|&nbsp; {SITE}</div>
+  <div class="folio folio-r on-dark">{n + 1} &nbsp;|&nbsp; {SITE}</div>
 </section>"""
 
 

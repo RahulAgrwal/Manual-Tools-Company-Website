@@ -83,7 +83,7 @@ PRODUCTS = {
     "coal-crusher-single": {
         "output": "Manual_Tools_Co_Coal_Crusher_Single_Disc.pdf",
         "title": "Coal Crusher (5 No.)",
-        "subtitle": "Single Disc - Fine Coal Disintegrator",
+        "subtitle": "Single Disc - Coal Disintegrator",
         "main_image": "assets/img/product-images/coal-crusher-single-disc/coal-crusher-2.png",
         "cover_image": "assets/img/slide/Coal-Crusher.png",
         "gallery": "assets/img/product-images/coal-crusher-single-disc/",
@@ -301,13 +301,12 @@ PRODUCTS = {
             ("Operation", "Vertical Lift"),
             ("Lifting Speed", "Approx. 2 - 4 m / min"),
             ("Gearbox", "Self-Locking Worm Reducer"),
-            ("Drum", "Grooved Steel"),
+            ("Drum", "Grooved Steel Drum / Steel Drum"),
         ],
         "features": [
             "Self-locking worm reducer gearbox",
-            "Cast steel and phosphor bronze gears",
-            "Grooved steel drum for wire rope",
-            "Electro-magnetic motor brake available",
+            "Gears for a smooth, non-jerky lift",
+            "Grooved steel drum or steel drum for wire rope",
         ],
         "steps": [
             ("Drive Activation", "The electric motor engages and drives the worm gearbox input shaft through a coupling."),
@@ -322,7 +321,7 @@ PRODUCTS = {
         "faqs": [
             ("Why a worm gearbox instead of helical?", "Worm gearboxes are self-locking: if power fails, the door's weight cannot drive the motor backwards."),
             ("What is the lifting speed?", "Slow and controlled, approximately 2 - 4 metres/minute, for safety."),
-            ("Does it come with a brake?", "We recommend and supply an electro-magnetic brake on the motor shaft for double safety."),
+            ("Does it come with a brake?", "The worm reducer gearbox is self-locking, so the door's weight cannot drive the motor backwards if the power fails."),
             ("What capacity do I need for a coke oven?", "Standard coke oven doors usually need 2.5 to 5 tons, depending on battery height and door weight."),
             ("Is the wire rope included?", "Yes, a standard length is included; rope length and diameter can be customised."),
         ],
@@ -445,7 +444,7 @@ PRODUCTS = {
             ("What travel system is used?", "Rail-mounted track wheels driven by a 15 HP slip-ring or squirrel cage motor."),
             ("How many charging mouths?", "Standard configuration is 4, matching the 4 charging holes on the oven top."),
             ("Is the discharge automated?", "Slide gates are motorised (3 HP) for semi-automatic operation, with a manual override wheel."),
-            ("What safety features are included?", "Hydraulic buffers, electromagnetic brakes, travel alarms and operator cabin heat shields."),
+            ("What safety features are included?", "Hydraulic buffers, travel alarms and operator cabin heat shields."),
             ("Can it handle wet coal?", "Yes, the steep conical hoppers help wet coal flow."),
         ],
     },

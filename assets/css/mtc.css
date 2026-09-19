@@ -481,6 +481,125 @@ table, .tnum { font-variant-numeric: tabular-nums; }
 }
 
 /* --------------------------------------------------------------------------
+   Spare and wear parts
+   Shared by the coal crusher hub and the two crusher detail pages, so it lives
+   here rather than in hub.css or product.css. The parts are transparent
+   cutouts, so each sits whole in a recessed well at a fixed ratio (the
+   .product-card treatment), which keeps a row of cards level although the
+   sources are 4:3, 16:9 and 3:2.
+   -------------------------------------------------------------------------- */
+.spares-grid { align-items: stretch; }
+
+.spare-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-2);
+  overflow: hidden;
+}
+.spare-card__well {
+  position: relative;
+  flex: none;
+  aspect-ratio: 4 / 3;
+  background: var(--c-canvas-sunk);
+  border-bottom: 1px solid var(--c-line);
+}
+/* Absolutely positioned rather than max-height: aspect-ratio is only a
+   preferred ratio, so a tall source would otherwise stretch its own well and
+   the card text in that column would start lower than its neighbours'. */
+.spare-card__well img {
+  position: absolute;
+  inset: var(--s-5);
+  width: calc(100% - 2 * var(--s-5));
+  height: calc(100% - 2 * var(--s-5));
+  object-fit: contain;
+}
+/* One card per row on a phone, so a 4:3 well would make the section several
+   screens long. The parts are wide objects, so a shallower well loses nothing. */
+@media (max-width: 34rem) {
+  .spare-card__well { aspect-ratio: 16 / 9; }
+}
+
+.spare-card__body {
+  /* flex: 1 makes every body fill its card, so the "Fits" line it pushes to
+     the bottom sits level across the row although the copy differs in length. */
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  padding: var(--s-5);
+}
+.spare-card__title { margin: 0; font-size: var(--fs-h4); line-height: var(--lh-head); }
+.spare-card__desc {
+  margin: 0;
+  font-size: var(--fs-sm);
+  line-height: 1.55;
+  color: var(--c-ink-2);
+}
+/* "Fits" sits at the foot of every card, level across the row. */
+.spare-card__fits {
+  margin: auto 0 0;
+  padding-top: var(--s-4);
+  font-size: var(--fs-xs);
+  line-height: var(--lh-ui);
+  color: var(--c-ink-2);
+}
+.spare-card__fits span {
+  display: block;
+  margin-bottom: 0.15em;
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--c-ink-3);
+}
+
+.spares-note {
+  margin: var(--s-6) 0 0;
+  max-width: var(--measure);
+  font-size: var(--fs-sm);
+  color: var(--c-ink-2);
+}
+
+/* Ordering a spare: the same three steps as the printed catalogue. */
+.spares-order {
+  margin-top: var(--s-6);
+  padding: var(--s-6);
+  background: var(--c-canvas-sunk);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-2);
+}
+.spares-order h3 { margin: 0 0 var(--s-5); font-size: var(--fs-h4); }
+.spares-order ol {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: var(--s-5);
+  margin: 0 0 var(--s-5);
+  padding: 0;
+  list-style: none;
+}
+.spares-order li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-3);
+  font-size: var(--fs-sm);
+  line-height: 1.55;
+  color: var(--c-ink-2);
+}
+.spares-order li span {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background: var(--c-action);
+  color: var(--c-action-ink);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+}
+
+/* --------------------------------------------------------------------------
    Section heading -- replaces six overlapping heading classes
    -------------------------------------------------------------------------- */
 .section-head {

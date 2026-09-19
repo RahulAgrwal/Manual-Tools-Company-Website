@@ -260,6 +260,55 @@ echo json_encode([
       </div>
     </section>
 
+    <!-- ======= Spare and wear parts (only for products that list any) ======= -->
+    <?php if (!empty($p['spares'])) : ?>
+      <section class="section pd-spares" id="spares" aria-labelledby="spares-title">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 id="spares-title">Spare and wear parts</h2>
+            <p>
+              We make the wear parts for every machine we build, to the same drawings as the machine, so a replacement
+              fits without cutting or machining on site.
+            </p>
+          </div>
+
+          <div class="grid grid--4 pd-spares__grid">
+            <?php foreach ($p['spares'] as $part) :
+              $spare_src = mtc_img($part['img']);
+            ?>
+              <article class="spare-card">
+                <div class="spare-card__well">
+                  <img src="<?php echo $spare_src; ?>" <?php echo mtc_img_size($spare_src); ?>
+                    alt="<?php echo htmlspecialchars($part['alt']); ?>" loading="lazy" decoding="async">
+                </div>
+                <div class="spare-card__body">
+                  <h3 class="spare-card__title"><?php echo htmlspecialchars($part['title']); ?></h3>
+                  <p class="spare-card__desc"><?php echo $part['desc']; ?></p>
+                  <p class="spare-card__fits"><span>Fits</span><?php echo htmlspecialchars($part['fits']); ?></p>
+                </div>
+              </article>
+            <?php endforeach; ?>
+          </div>
+
+          <?php if (!empty($p['spares_note'])) : ?>
+            <p class="spares-note"><?php echo $p['spares_note']; ?></p>
+          <?php endif; ?>
+
+          <!-- The three steps are the same for every machine and the same as the
+               printed catalogue's, so they live here rather than in the data. -->
+          <div class="spares-order">
+            <h3>Ordering a spare</h3>
+            <ol>
+              <li><span aria-hidden="true">1</span>Name the machine, and roughly when it was supplied if it is ours.</li>
+              <li><span aria-hidden="true">2</span>Send the old part's size, or a photo of it beside a tape measure.</li>
+              <li><span aria-hidden="true">3</span>We quote the part, made to the same drawings as the machine.</li>
+            </ol>
+            <a href="#quote-form" class="btn btn--quiet">Ask for a spare part quote</a>
+          </div>
+        </div>
+      </section>
+    <?php endif; ?>
+
     <!-- ======= Detail tabs + quote form ======= -->
     <section class="section pd-details">
       <div class="wrap pd-details__grid">
