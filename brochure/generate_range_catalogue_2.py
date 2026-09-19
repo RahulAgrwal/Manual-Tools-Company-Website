@@ -536,7 +536,7 @@ class Images:
 
 # --- page parts ------------------------------------------------------------
 
-def logo_svg(badge="#FFFFFF", mark="#F03C02"):
+def logo_svg(badge="#FFFFFF", mark="#D40000"):
     svg = LOGO_SVG.read_text(encoding="utf-8")
     svg = re.sub(r"<metadata>.*?</metadata>", "", svg, flags=re.S)
     svg = re.sub(r"<title>.*?</title>", "", svg, flags=re.S)
@@ -546,7 +546,7 @@ def logo_svg(badge="#FFFFFF", mark="#F03C02"):
     svg = re.sub(r'\swidth="256" height="256"', "", svg)
     return svg
 
-def full_logo_svg(badge="#FFFFFF", mark="#F03C02", words="#FFFFFF"):
+def full_logo_svg(badge="#FFFFFF", mark="#D40000", words="#FFFFFF"):
     """The full logo (badge, name and tagline, all outlines), recoloured for
     the red logo box: in the file the badge disc and the lettering are red
     and the badge's ring and MTC letters are white."""
@@ -1082,7 +1082,7 @@ def css():
 @font-face {{ font-family: FA; font-weight: 900; src: url({fa}) format("woff2"); }}
 
 :root {{
-  --red: #F03C02; --red-dk: #C92F00; --ink: #111821; --body: #2D343D; --soft: #6B7480;
+  --red: #D40000; --red-dk: #A80000; --ink: #111821; --body: #2D343D; --soft: #6B7480;
   --rule: #D9DDE2; --panel: #EEF0F2; --band: #F6F7F8;
 }}
 @page {{ size: 210mm 297mm; margin: 0; }}
