@@ -78,10 +78,10 @@ def site_specs(key):
 
 
 def site_spares(key):
-    """([(part, fits)], note) from the product page's spare parts section.
+    """([(part, fits, image)], note) from the product page's spare parts section.
     Empty for a product that does not list any, and the block is skipped."""
     d = _site(key)
-    return [(s["title"], s["fits"]) for s in d["spares"]], d["spares_note"]
+    return [(s["title"], s["fits"], s["img"]) for s in d["spares"]], d["spares_note"]
 
 
 # Same wording as the "Buying information" box on every product page.
@@ -630,6 +630,43 @@ def page_process(pdf, p):
         pdf.ln(4)
 
 
+def spares_grid(pdf, spares, y):
+    """Each part as a small cutout on a panel, with its name and what it fits.
+    The images are transparent PNGs and the PDF image filter has no alpha, so
+    they go through cutout_image() first -- drawn directly they come out as
+    black boxes."""
+    rows = (len(spares) + 1) // 2
+    img_w, img_h, gap, row_h = 26.0, 20.0, 3.5, 26.0
+    for i, (title, fits, src) in enumerate(spares):
+        col, row = divmod(i, rows)
+        x = MARGIN + col * (COL_W + 10)
+        ry = y + row * row_h
+        pdf.set_fill_color(*PANEL)
+        pdf.rect(x, ry, img_w, img_h, "F", round_corners=True, corner_radius=2)
+        try:
+            art = cutout_image(src, PANEL)
+            if art is not None:
+                scale = min((img_w - 4) / art.width, (img_h - 4) / art.height)
+                w, h = art.width * scale, art.height * scale
+                pdf.image(art, x + (img_w - w) / 2, ry + (img_h - h) / 2, w, h)
+            else:
+                fit_image(pdf, src, x + 2, ry + 2, img_w - 4, img_h - 4)
+        except Exception:
+            pass
+        tx, tw = x + img_w + gap, COL_W - img_w - gap
+        pdf.set_xy(tx, ry + 2.5)
+        pdf.set_font(FONT_FAMILY, "B", 8.5)
+        pdf.set_text_color(*INK)
+        # align="L": the default justifies, which stretches a wrapped part name
+        pdf.multi_cell(tw, 4.2, clean(title), new_x="LMARGIN", new_y="NEXT", align="L")
+        pdf.set_xy(tx, pdf.get_y() + 0.4)
+        pdf.set_font(FONT_FAMILY, "", 8)
+        pdf.set_text_color(*INK_SOFT)
+        pdf.multi_cell(tw, 4.0, clean("Fits: " + fits), new_x="LMARGIN", new_y="NEXT", align="L")
+    pdf.set_y(y + rows * row_h)
+    return pdf.get_y()
+
+
 def frame(pdf, path, x, y, w, h):
     pdf.set_draw_color(*RULE)
     pdf.set_line_width(0.2)
@@ -652,13 +689,13 @@ def page_gallery(pdf, p, key):
     # with the quotation panel.
     spares, spares_note = site_spares(key)
     index_h = 14 + ((len(others) + 1) // 2) * 9.5 if others else 0
-    spares_h = (14 + ((len(spares) + 1) // 2) * 9.5 + (9 if spares_note else 0)) if spares else 0
+    spares_h = (14 + ((len(spares) + 1) // 2) * 26.0 + (9 if spares_note else 0)) if spares else 0
     quote_top = FOOTER_Y - 32
     available = quote_top - 28 - index_h - spares_h - 10
 
     if spares:
         pdf.section("Spare and wear parts", gap_before=0)
-        pdf.product_index(spares)
+        spares_grid(pdf, spares, pdf.get_y())
         if spares_note:
             pdf.ln(1.5)
             pdf.set_x(MARGIN)
@@ -666,7 +703,7 @@ def page_gallery(pdf, p, key):
             pdf.set_text_color(*INK_SOFT)
             pdf.multi_cell(CONTENT_W, 4.2, clean(spares_note), new_x="LMARGIN", new_y="NEXT")
 
-    images = gallery_images(p["gallery"], limit=3)
+    images = gallery_images(p["gallery"], limit=1 if spares else 3)
     if images:
         pdf.section("Product gallery", gap_before=0 if not spares else 7)
         y = pdf.get_y()
