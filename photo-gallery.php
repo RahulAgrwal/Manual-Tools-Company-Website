@@ -57,6 +57,9 @@
         array('filter-screen', 'assets/img/about-us-products/Conveyor Material.jpeg', 'conveyor-materials', 'Conveyor Components', 'Idlers & Pulleys', 'conveyor-materials')
     );
 
+    // Labels for individual files (e.g. a spare part), from the product data.
+    require_once __DIR__ . '/product-data.php';
+
     // Each product's main photo, then every photo in its folder.
     $gallery_items = array();
     foreach ($gallery_products as $p) {
@@ -66,7 +69,8 @@
         }));
         array_unshift($photos, $p[1]);
         foreach ($photos as $n => $photo) {
-            $gallery_items[] = array($p[0], $photo, $p[3], $n === 0 ? $p[4] : 'Photo ' . ($n + 1), $p[5]);
+            $label = $MTC_PRODUCTS[$p[5]]['gallery_labels'][basename($photo)] ?? '';
+            $gallery_items[] = array($p[0], $photo, $p[3], $n === 0 ? $p[4] : ($label !== '' ? $label : 'Photo ' . ($n + 1)), $p[5]);
         }
     }
 

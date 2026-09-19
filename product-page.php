@@ -49,8 +49,10 @@ $media = [];
 if ($lead) {
     $media[] = ['type' => 'image', 'src' => mtc_img($lead), 'thumb' => mtc_thumb($lead)];
 }
+$labels = $p['gallery_labels'] ?? [];
 foreach (glob($p['gallery_dir'] . '*.{jpg,jpeg,png,gif}', GLOB_BRACE) ?: [] as $img) {
-    $media[] = ['type' => 'image', 'src' => mtc_img($img), 'thumb' => mtc_thumb($img)];
+    $media[] = ['type' => 'image', 'src' => mtc_img($img), 'thumb' => mtc_thumb($img),
+                'label' => $labels[basename($img)] ?? ''];
 }
 if (!empty($p['has_video'])) {
     $poster = $lead ? mtc_thumb($lead) : '';
@@ -150,19 +152,26 @@ echo json_encode([
                 alt="<?php echo htmlspecialchars($p['hero_alt']); ?>">
             <?php endif; ?>
           </div>
+          <!-- Names the selected image when it has a label (a spare part, say),
+               so it is not mistaken for the whole machine. product-gallery.js. -->
+          <p class="pd-well__caption" id="mtc-main-caption" aria-live="polite"<?php echo ($first['label'] ?? '') === '' ? ' hidden' : ''; ?>><?php echo htmlspecialchars($first['label'] ?? ''); ?></p>
 
           <?php if (count($media) > 1) : ?>
             <div class="pd-thumbs mtc-product-thumb-grid">
               <?php foreach ($media as $i => $m) :
                 // The alt text is the button's accessible name, and Google Images
                 // indexes it -- so keep it descriptive, as the old pages had it.
-                $thumbAlt = $p['thumb_alt'] . ($m['type'] === 'video' ? ' video ' : ' photo ') . ($i + 1);
+                $label = $m['label'] ?? '';
+                $thumbAlt = $label !== ''
+                    ? $label . ' - ' . $p['schema_name']
+                    : $p['thumb_alt'] . ($m['type'] === 'video' ? ' video ' : ' photo ') . ($i + 1);
               ?>
                 <button type="button"
                   class="pd-thumb mtc-product-thumb-item<?php echo $i === 0 ? ' active' : ''; ?>"
                   data-type="<?php echo $m['type']; ?>"
                   data-full="<?php echo htmlspecialchars($m['src']); ?>"
                   data-poster="<?php echo htmlspecialchars($m['thumb']); ?>"
+                  data-label="<?php echo htmlspecialchars($label); ?>"
                   aria-pressed="<?php echo $i === 0 ? 'true' : 'false'; ?>">
                   <img src="<?php echo htmlspecialchars($m['thumb']); ?>"
                     <?php echo $m['thumb'] ? mtc_img_size($m['thumb']) : ''; ?> loading="lazy"

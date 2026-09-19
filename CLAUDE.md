@@ -59,7 +59,7 @@ Shared parts:
 
 All share one layout:
 - `<head>`: canonical URL, Open Graph tags, Product JSON-LD (brand, manufacturer, url), BreadcrumbList, plus `assets/css/product-detail.css`.
-- Gallery: a main image plus `glob()` over `assets/img/product-images/<folder>/` (images and mp4/webm). Thumbnails use `mtc_thumb()`, the main view uses `mtc_img()`, and the inline `swapImage()`/`swapMedia()` switches it.
+- Gallery: a main image plus `glob()` over `assets/img/product-images/<folder>/` (images and mp4/webm). An optional `gallery_labels` map in `product-data.php` (file name => label, e.g. a spare part) adds a caption under the main image and the alt text; the photo gallery uses it too. Thumbnails use `mtc_thumb()`, the main view uses `mtc_img()`, and the inline `swapImage()`/`swapMedia()` switches it.
 - Spec grid and Brochure / Request Quote / Call buttons (no star ratings: there are no reviews).
 - An overview section: a question-style `<h2>`, a 130–170 word answer written from the page's own specs, a link to the closest related product, and a "Buying information" box (lead time, warranty, installation, custom builds, brochure).
 - Tabs (Description, Process Flow, Applications, Maintenance, FAQ), driven by `assets/js/product-tabs.js`; the FAQ is native `<details>`. Bootstrap's JS and `compat.css` are gone (redesign phase 8), so don't add `data-bs-*` markup. Don't add FAQPage markup: Google no longer shows FAQ rich results.

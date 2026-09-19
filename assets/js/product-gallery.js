@@ -15,6 +15,7 @@
 
   /* ---------------------------------------------------------------- gallery */
   var display = document.getElementById('mtc-main-display');
+  var caption = document.getElementById('mtc-main-caption');
   var grid = document.querySelector('.mtc-product-thumb-grid');
 
   function show(thumb) {
@@ -42,6 +43,12 @@
       }
       img.src = src;
       img.alt = alt;
+    }
+
+    if (caption) {
+      var label = thumb.getAttribute('data-label') || '';
+      caption.textContent = label;
+      caption.hidden = label === '';
     }
 
     grid.querySelectorAll('.mtc-product-thumb-item').forEach(function (el) {

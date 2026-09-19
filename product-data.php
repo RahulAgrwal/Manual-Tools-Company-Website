@@ -41,6 +41,11 @@ $MTC_PRODUCTS = [
       'crumb_last' => 'Coal Crusher',
       'main_image' => 'assets/img/about-us-products/Coal Crusher.jpg',
       'gallery_dir' => 'assets/img/product-images/coal-crusher-single-disc/',
+      // Optional names for individual gallery files, shown as a caption under
+      // the main image and used as alt text (product page and photo gallery).
+      'gallery_labels' => [
+          'disc-fitted-with-en8-shaft.png' => 'Disc fitted with EN-8 Shaft (spare part)',
+      ],
       'has_video' => false,
       'hero_alt' => 'Single disc coal crusher (coal disintegrator)',
       'thumb_alt' => 'Coal Crusher (5 No.) Single Disc',
