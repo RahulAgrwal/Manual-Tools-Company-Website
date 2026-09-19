@@ -1482,21 +1482,28 @@ def build_html(build):
              "pusher", "charging-car", "power-winch",
              "haulage", "conveyor-materials"]
     # plan the page numbers first, then build (the index needs them)
-    where = {key: 6 + 2 * i for i, key in enumerate(order)}
-    n = 6 + 2 * len(order)
+    where, n = {}, 6
+    for key in order:
+        if key == "pusher":
+            battery_at = n
+            n += 2
+        where[key] = n
+        n += 2
     sections = [("Choosing the right machine", 2), ("Built for coke oven duty", 4),
-                ("At the battery", n), ("Specification charts", n + 2),
-                ("Spares &amp; wear parts", n + 4), ("Why Manual Tools Company", n + 5),
-                ("Contact &amp; your requirement", n + 6)]
+                ("At the battery", battery_at), ("Specification charts", n),
+                ("Spares &amp; wear parts", n + 2), ("Why Manual Tools Company", n + 3),
+                ("Contact &amp; your requirement", n + 4)]
     pages = [page_cover(img), page_intro_left(img, 2), page_intro_right(3),
              page_engineering_left(4), page_index(img, 5, where, sections)]
+    bat_l, bat_r = battery_halves(BATTERY_PHOTO)
     n = 6
     for key in order:
+        # the battery photograph opens the oven machines, as in catalogue 2
+        if key == "pusher":
+            pages += [page_battery_left(img, n, bat_l), page_battery_right(img, n + 1, bat_r)]
+            n += 2
         pages += [page_hero_left(hero[key], n), page_hero_right(img, hero[key], n + 1)]
         n += 2
-    bat_l, bat_r = battery_halves(BATTERY_PHOTO)
-    pages += [page_battery_left(img, n, bat_l), page_battery_right(img, n + 1, bat_r)]
-    n += 2
     pages += [page_chart(img, CHART_SIZING, n,
                          "The vibrator screen's capacity depends on the deck count, screen "
                          "size and mesh."),
