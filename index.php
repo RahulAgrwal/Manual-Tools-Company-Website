@@ -108,7 +108,7 @@ $carousel_items = [
       "link" => "coke-cutter-double-drive-ring-type"
     ],
     [
-      "image_path" => "assets/img/slide/Vibrator-Screen.png",
+      "image_path" => "assets/img/slide/Vibrator-Screen-3.png",
       "title" => "Vibrator Screen Machine",
       "subtitle" => "High-frequency vibration technology for material separation and grading.",
       "link" => "vibrator-screen"

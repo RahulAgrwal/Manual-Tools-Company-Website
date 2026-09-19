@@ -51,6 +51,8 @@ if ($lead) {
 }
 $labels = $p['gallery_labels'] ?? [];
 foreach (glob($p['gallery_dir'] . '*.{jpg,jpeg,png,gif}', GLOB_BRACE) ?: [] as $img) {
+    // The lead can be one of the gallery photos; don't list it twice.
+    if ($lead && basename($img) === basename($lead) && dirname($img) . '/' === $p['gallery_dir']) continue;
     $media[] = ['type' => 'image', 'src' => mtc_img($img), 'thumb' => mtc_thumb($img),
                 'label' => $labels[basename($img)] ?? ''];
 }
