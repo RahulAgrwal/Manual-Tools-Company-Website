@@ -66,38 +66,6 @@ $GLOBAL_PRODUCT_CARDS = [
     ]
   ],
   [
-    "image_path" => "assets/img/slide/Haulage-Machine.png",
-    "title" => "Coke Oven Haulage Machine",
-    "subtitle" => "Power Driven",
-    "link" => "haulage",
-    "short_description" => "Robust power-driven system engineered for efficient material transport in mining and industrial sites.",
-    "long_description" => "Robust pulling machine for extracting coke from ovens. Powered by a worm reducer gearbox and cast steel gears for high-torque, reliable operation.",
-    "category" => "haulage",
-    "eyebrow" => "Material Traction",
-    "mini_specs" => [
-      ["fa-bolt", "10 HP Motor"],
-      ["fa-truck-loading", "10 Ton Capacity"],
-      ["fa-cogs", "Worm Reducer"],
-      ["fa-shield-alt", "Machine Cut Gears"]
-    ]
-  ],
-  [
-    "image_path" => "assets/img/slide/Power-Winch.png",
-    "title" => "Door Lifting Power Winch",
-    "subtitle" => "Coke Oven Gate Lifting Equipment",
-    "link" => "power-winch",
-    "short_description" => "Lifts heavy coke oven doors: 2.5 - 5 tons, 5 - 7.5 HP motor, self-locking worm reducer gearbox.",
-    "long_description" => "Designed for vertical lifting of heavy Coke Oven doors. Self-locking worm gear design ensures safety and precise control during maintenance.",
-    "category" => "power-winch",
-    "eyebrow" => "Coke Oven Gate Lifting Equipment",
-    "mini_specs" => [
-      ["fa-weight-hanging", "2.5 - 5 Tons"],
-      ["fa-bolt", "5 - 7.5 HP"],
-      ["fa-cogs", "Worm Reducer"],
-      ["fa-arrow-up", "Vertical Lift"]
-    ]
-  ],
-  [
     "image_path" => "assets/img/slide/Vibrator-Screen.png",
     "title" => "Vibrator Screen Machine",
     "subtitle" => "Triple Deck",
@@ -111,22 +79,6 @@ $GLOBAL_PRODUCT_CARDS = [
       ["fa-layer-group", "1 to 4 Decks"],
       ["fa-expand-arrows-alt", "Customizable Mesh"],
       ["fa-industry", "High Throughput"]
-    ]
-  ],
-  [
-    "image_path" => "assets/img/slide/Conveyor-Materials.png",
-    "title" => "Idler Roller, Head Pulley",
-    "subtitle" => "Conveyor Material",
-    "link" => "conveyor-materials",
-    "short_description" => "Durable rollers and pulleys manufactured to ensure smooth, low-friction conveyor belt operation.",
-    "long_description" => "Complete range of belt conveyor components including heavy-duty idlers, impact rollers, and pulleys tailored for harsh environments.",
-    "category" => "conveyor",
-    "eyebrow" => "System Components",
-    "mini_specs" => [
-      ["fa-check-circle", "Idlers & Rollers"],
-      ["fa-check-circle", "Head/Tail Pulleys"],
-      ["fa-ruler-horizontal", "600 - 1400 mm Belts"],
-      ["fa-shield-alt", "Dust Proof"]
     ]
   ],
   [
@@ -159,6 +111,54 @@ $GLOBAL_PRODUCT_CARDS = [
       ["fa-truck-moving", "15 HP Travel"],
       ["fa-th", "4 Hoppers"],
       ["fa-cogs", "Motorised Gates"]
+    ]
+  ],
+  [
+    "image_path" => "assets/img/slide/Power-Winch.png",
+    "title" => "Door Lifting Power Winch",
+    "subtitle" => "Coke Oven Gate Lifting Equipment",
+    "link" => "power-winch",
+    "short_description" => "Lifts heavy coke oven doors: 2.5 - 5 tons, 5 - 7.5 HP motor, self-locking worm reducer gearbox.",
+    "long_description" => "Designed for vertical lifting of heavy Coke Oven doors. Self-locking worm gear design ensures safety and precise control during maintenance.",
+    "category" => "power-winch",
+    "eyebrow" => "Coke Oven Gate Lifting Equipment",
+    "mini_specs" => [
+      ["fa-weight-hanging", "2.5 - 5 Tons"],
+      ["fa-bolt", "5 - 7.5 HP"],
+      ["fa-cogs", "Worm Reducer"],
+      ["fa-arrow-up", "Vertical Lift"]
+    ]
+  ],
+  [
+    "image_path" => "assets/img/slide/Haulage-Machine.png",
+    "title" => "Coke Oven Haulage Machine",
+    "subtitle" => "Power Driven",
+    "link" => "haulage",
+    "short_description" => "Robust power-driven system engineered for efficient material transport in mining and industrial sites.",
+    "long_description" => "Robust pulling machine for extracting coke from ovens. Powered by a worm reducer gearbox and cast steel gears for high-torque, reliable operation.",
+    "category" => "haulage",
+    "eyebrow" => "Material Traction",
+    "mini_specs" => [
+      ["fa-bolt", "10 HP Motor"],
+      ["fa-truck-loading", "10 Ton Capacity"],
+      ["fa-cogs", "Worm Reducer"],
+      ["fa-shield-alt", "Machine Cut Gears"]
+    ]
+  ],
+  [
+    "image_path" => "assets/img/slide/Conveyor-Materials.png",
+    "title" => "Idler Roller, Head Pulley",
+    "subtitle" => "Conveyor Material",
+    "link" => "conveyor-materials",
+    "short_description" => "Durable rollers and pulleys manufactured to ensure smooth, low-friction conveyor belt operation.",
+    "long_description" => "Complete range of belt conveyor components including heavy-duty idlers, impact rollers, and pulleys tailored for harsh environments.",
+    "category" => "conveyor",
+    "eyebrow" => "System Components",
+    "mini_specs" => [
+      ["fa-check-circle", "Idlers & Rollers"],
+      ["fa-check-circle", "Head/Tail Pulleys"],
+      ["fa-ruler-horizontal", "600 - 1400 mm Belts"],
+      ["fa-shield-alt", "Dust Proof"]
     ]
   ]
 ];

@@ -82,11 +82,11 @@
           <li data-filter="*" class="filter-active">All</li>
           <li data-filter=".coal-crusher">Coal crusher</li>
           <li data-filter=".coke-cutter">Coke cutter</li>
-          <li data-filter=".haulage">Haulage</li>
-          <li data-filter=".power-winch">Power winch</li>
           <li data-filter=".vibrator">Vibrator screen</li>
-          <li data-filter=".conveyor">Conveyor</li>
           <li data-filter=".heavy-machinery">Heavy machinery</li>
+          <li data-filter=".power-winch">Power winch</li>
+          <li data-filter=".haulage">Haulage</li>
+          <li data-filter=".conveyor">Conveyor</li>
         </ul>
       </div>
     </section>

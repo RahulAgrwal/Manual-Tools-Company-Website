@@ -46,14 +46,11 @@
         array('filter-crusher', 'assets/img/about-us-products/Coal Crusher Double Disc.jpg', 'coal-crusher-double-disc', 'Double Disc Coal Crusher', 'High Capacity', 'coal-crusher-5-No-double-disc'),
         array('filter-crusher', 'assets/img/about-us-products/Double Drive Coke Cutter Machine.jpg', 'coke-cutter', 'Coke Cutter', 'Double Drive, Drum Type', 'coke-cutter-double-drive'),
         array('filter-crusher', 'assets/img/about-us-products/Double Drive Coke Cutter Machine Ring Type.jpg', 'coke-cutter-ring-teeth', 'Ring Type Coke Cutter', 'Double Drive, Toothed Rings', 'coke-cutter-double-drive-ring-type'),
-
+        array('filter-screen', 'assets/img/about-us-products/Vibrator Screen Machine.jpg', 'vibrator-screen', 'Vibrator Screen', 'Multi-Deck', 'vibrator-screen'),
         array('filter-oven', 'assets/img/about-us-products/Pusher Machine With Stamping Arrangement.jpg', 'pusher-machine-with-stamping-arrangement', 'Pusher Machine', 'Roller Stamping', 'pusher-with-stamping-arrangement'),
         array('filter-oven', 'assets/img/about-us-products/Coal-Charging-Car.jpg', 'coal-charging-car', 'Coal Charging Car', 'Top Charging', 'coal-charging-car'),
-
-        array('filter-winch', 'assets/img/about-us-products/Haulage Machine.jpg', 'haulage', 'Coke Oven Haulage Machine', '10 Ton Pulling', 'haulage'),
         array('filter-winch', 'assets/img/about-us-products/Power Winchh.jpg', 'power-winch', 'Door Lifting Power Winch', 'Door Lifter', 'power-winch'),
-
-        array('filter-screen', 'assets/img/about-us-products/Vibrator Screen Machine.jpg', 'vibrator-screen', 'Vibrator Screen', 'Multi-Deck', 'vibrator-screen'),
+        array('filter-winch', 'assets/img/about-us-products/Haulage Machine.jpg', 'haulage', 'Coke Oven Haulage Machine', '10 Ton Pulling', 'haulage'),
         array('filter-screen', 'assets/img/about-us-products/Conveyor Material.jpeg', 'conveyor-materials', 'Conveyor Components', 'Idlers & Pulleys', 'conveyor-materials')
     );
 

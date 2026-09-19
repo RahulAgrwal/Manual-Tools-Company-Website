@@ -47,10 +47,10 @@ if (substr($page_name, -4) !== '.php') {
                     <h3>Key Machinery</h3>
                     <ul>
                         <li><a href="coal-crusher">Coal Crusher</a></li>
+                        <li><a href="vibrator-screen">Vibrator Screen</a></li>
                         <li><a href="pusher-with-stamping-arrangement">Pusher Machine</a></li>
                         <li><a href="coal-charging-car">Charging Car</a></li>
                         <li><a href="power-winch">Power Winch</a></li>
-                        <li><a href="vibrator-screen">Vibrator Screen</a></li>
                     </ul>
                 </div>
 

@@ -596,6 +596,18 @@ belongs in its own change.
   from the SVG with a transparent background, because Google's logo guidance
   prefers a raster of 112px+. The favicon lists the SVG first and the PNG as
   fallback. Seen at 1440 and 390 @3x: sharp at 60px.
+- `[x]` Machine order (owner, 2026-09-19): every list of machines on the site follows
+  the range catalogue's machine selector, grouped by duty --
+  coal preparation: single disc crusher, double disc crusher;
+  coke sizing & screening: drum-type coke cutter, ring-type coke cutter, vibrator screen;
+  oven operation: pusher machine, coal charging car, door lifting power winch;
+  material handling: haulage machine, conveyor components.
+  Applied to `global-products.php` (drives the home and about grids, /products
+  rows and its ItemList schema, the related slider and the 404 list), the home
+  picker (`$carousel_items`), the header Products menu, the photo gallery, the
+  footer's Key Machinery (5-item subset, same order) and the /products filter
+  pills. Verified by parsing every rendered page (all OK; the related slider
+  shows 8 by design) and by eye at 1440 and 390. check_pages: no drift.
 - `[x]` Owner request (2026-09-19): the header uses the owner's full SVG logo
   (`assets/img/mtc-logo-full.svg`, badge + name + tagline as outlines, kept as
   supplied) instead of `MTC Logo.png`. Same 6.15:1 proportions, so the header

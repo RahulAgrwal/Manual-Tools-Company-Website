@@ -65,6 +65,8 @@ All share one layout:
 - Tabs (Description, Process Flow, Applications, Maintenance, FAQ), driven by `assets/js/product-tabs.js`; the FAQ is native `<details>`. Bootstrap's JS and `compat.css` are gone (redesign phase 8), so don't add `data-bs-*` markup. Don't add FAQPage markup: Google no longer shows FAQ rich results.
 - Sidebar quote form, then related products, then the footer.
 
+**Machine order:** every list of machines follows the range catalogue's machine selector, by duty: coal preparation (single disc, double disc crusher), coke sizing & screening (drum-type cutter, ring-type cutter, vibrator screen), oven operation (pusher, coal charging car, power winch), material handling (haulage, conveyor components). Insert a new machine in its duty group, in the same position everywhere.
+
 **Adding a product:** copy an existing detail page (for example `coke-cutter-double-drive-ring-type.php`), then update all of:
 1. `global-products.php`
 2. the Products dropdown in `header.php`

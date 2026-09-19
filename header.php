@@ -55,12 +55,12 @@ $logo = 'assets/img/mtc-logo-full.svg';
                         <li><a href="coal-crusher-5-No-double-disc">Coal Crusher (5 No.) Double Disc</a></li>
                         <li><a href="coke-cutter-double-drive">Coke Cutter (Double Drive, Drum Type)</a></li>
                         <li><a href="coke-cutter-double-drive-ring-type">Coke Cutter (Ring Type)</a></li>
-                        <li><a href="haulage">Coke Oven Haulage Machine</a></li>
-                        <li><a href="power-winch">Door Lifting Power Winch</a></li>
                         <li><a href="vibrator-screen">Vibrator Screen Machine</a></li>
-                        <li><a href="conveyor-materials">Conveyor Materials</a></li>
-                        <li><a href="coal-charging-car">Coal Charging Car</a></li>
                         <li><a href="pusher-with-stamping-arrangement">Pusher Machine</a></li>
+                        <li><a href="coal-charging-car">Coal Charging Car</a></li>
+                        <li><a href="power-winch">Door Lifting Power Winch</a></li>
+                        <li><a href="haulage">Coke Oven Haulage Machine</a></li>
+                        <li><a href="conveyor-materials">Conveyor Materials</a></li>
                         <!-- No page yet; see BACKLOG.md. Rendered as unavailable rather than
                              as a link that goes nowhere. -->
                         <li><a href="#" aria-disabled="true">Quenching Coke Car <span class="nav-soon">in progress</span></a></li>

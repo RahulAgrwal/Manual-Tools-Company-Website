@@ -101,35 +101,17 @@ $carousel_items = [
       "subtitle" => "Engineered with Manganese Steel for maximum durability and high-capacity performance.",
       "link" => "coke-cutter-double-drive"
     ],
-      [
+    [
       "image_path" => "assets/img/slide/Coke-Cutter-Machine-Ring-Type.png",
       "title" => "Coke Cutter Machine (Ring Type Teeth)",
       "subtitle" => "Engineered with Manganese Steel Ring Type Teeth for maximum durability and high-capacity performance.",
       "link" => "coke-cutter-double-drive-ring-type"
     ],
     [
-      "image_path" => "assets/img/slide/Haulage-Machine.png",
-      "title" => "Haulage Machine",
-      "subtitle" => "Engineered with a robust high-torque drive system for the efficient extraction of coke cakes from ovens.",
-      "link" => "haulage"
-    ],
-    [
-      "image_path" => "assets/img/slide/Power-Winch.png",
-      "title" => "Door Lifting Power Winch",
-      "subtitle" => "Heavy-duty lifting solution designed for safe, smooth, and efficient coke oven door openings.",
-      "link" => "power-winch"
-    ],
-    [
       "image_path" => "assets/img/slide/Vibrator-Screen.png",
       "title" => "Vibrator Screen Machine",
       "subtitle" => "High-frequency vibration technology for material separation and grading.",
       "link" => "vibrator-screen"
-    ],
-    [
-      "image_path" => "assets/img/slide/Conveyor-Materials.png",
-      "title" => "Conveyor Materials",
-      "subtitle" => "Heavy-duty idlers, rollers and pulleys designed to withstand continuous bulk material transport.",
-      "link" => "conveyor-materials"
     ],
     [
       "image_path" => "assets/img/slide/Pusher-with-stamping-arrangement.png",
@@ -142,6 +124,24 @@ $carousel_items = [
       "title" => "Coal Charging Car",
       "subtitle" => "Efficient rail-mounted charging system engineered for seamless coal distribution into ovens.",
       "link" => "coal-charging-car"
+    ],
+    [
+      "image_path" => "assets/img/slide/Power-Winch.png",
+      "title" => "Door Lifting Power Winch",
+      "subtitle" => "Heavy-duty lifting solution designed for safe, smooth, and efficient coke oven door openings.",
+      "link" => "power-winch"
+    ],
+    [
+      "image_path" => "assets/img/slide/Haulage-Machine.png",
+      "title" => "Haulage Machine",
+      "subtitle" => "Engineered with a robust high-torque drive system for the efficient extraction of coke cakes from ovens.",
+      "link" => "haulage"
+    ],
+    [
+      "image_path" => "assets/img/slide/Conveyor-Materials.png",
+      "title" => "Conveyor Materials",
+      "subtitle" => "Heavy-duty idlers, rollers and pulleys designed to withstand continuous bulk material transport.",
+      "link" => "conveyor-materials"
     ]
   ];
 
