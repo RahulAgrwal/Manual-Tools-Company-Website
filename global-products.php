@@ -13,7 +13,7 @@ $GLOBAL_PRODUCT_CARDS = [
     "mini_specs" => [
       ["fa-bolt", "80 - 120 HP Motor"],
       ["fa-filter", "Output < 2mm"],
-      ["fa-weight-hanging", "8 - 10 TPH"],
+      ["fa-weight-hanging", "8 - 12 TPH"],
       ["fa-hammer", "6 Hammers"]
     ]
   ],
@@ -39,12 +39,12 @@ $GLOBAL_PRODUCT_CARDS = [
     "subtitle" => "Double Drive, Drum Type",
     "link" => "coke-cutter-double-drive",
     "short_description" => "Heavy-duty double drive system designed for precise coke cutting and specific sizing requirements.",
-    "long_description" => "Specialized double-drive cutter for sizing metallurgical coke. Features adjustable drums for 45-60mm output and manganese steel teeth for longevity.",
+    "long_description" => "Specialized double-drive cutter for sizing metallurgical coke. Features adjustable drums for 40-60mm output and manganese steel teeth for longevity.",
     "category" => "coke-cutter",
     "eyebrow" => "Precision Sizing",
     "mini_specs" => [
       ["fa-bolt", "20 HP x 2 Motors"],
-      ["fa-ruler", "45-60mm Output"],
+      ["fa-ruler", "40-60mm Output"],
       ["fa-weight-hanging", "12 - 15 TPH"],
       ["fa-cogs", "Cast Steel Gears"]
     ]
@@ -55,13 +55,13 @@ $GLOBAL_PRODUCT_CARDS = [
     "subtitle" => "Double Drive Ring Type",
     "link" => "coke-cutter-double-drive-ring-type",
     "short_description" => "Heavy-duty double drive system with ring type teeth designed for precise coke cutting and specific sizing requirements.",
-    "long_description" => "Specialized double-drive cutter for sizing metallurgical coke. Features segmented manganese steel toothed rings and an adjustable ring gap for 45-60mm output.",
+    "long_description" => "Specialized double-drive cutter for sizing metallurgical coke. Features segmented manganese steel toothed rings and an adjustable ring gap for 40-60mm output.",
     "category" => "coke-cutter",
     "eyebrow" => "Precision Sizing",
     "mini_specs" => [
       ["fa-bolt", "25 HP x 2 Motors"],
-      ["fa-ruler", "45-60mm Output"],
-      ["fa-weight-hanging", "20 TPH"],
+      ["fa-ruler", "40-60mm Output"],
+      ["fa-weight-hanging", "15 - 20 TPH"],
       ["fa-cogs", "Cast Steel Gears"]
     ]
   ],
@@ -103,13 +103,13 @@ $GLOBAL_PRODUCT_CARDS = [
     "subtitle" => "Coke Oven Charging",
     "link" => "coal-charging-car",
     "short_description" => "Specialized vehicle engineered for the efficient and controlled charging of coal into coke ovens.",
-    "long_description" => "Rail-mounted top charging vehicle. Features 4 hoppers, semi-automatic discharge gates, and smoke control systems for efficient oven charging.",
+    "long_description" => "Rail-mounted top charging vehicle. Features 2, 3 or 4 hoppers, semi-automatic discharge gates, and smoke control systems for efficient oven charging.",
     "category" => "heavy-machinery",
     "eyebrow" => "Coke Oven Machinery",
     "mini_specs" => [
-      ["fa-weight-hanging", "4 - 20 Ton Cap."],
+      ["fa-weight-hanging", "8 - 20 Ton Cap."],
       ["fa-truck-moving", "15 HP Travel"],
-      ["fa-th", "4 Hoppers"],
+      ["fa-th", "2, 3 & 4 Hoppers"],
       ["fa-cogs", "Motorised Gates"]
     ]
   ],
@@ -118,8 +118,8 @@ $GLOBAL_PRODUCT_CARDS = [
     "title" => "Door Lifting Power Winch",
     "subtitle" => "Coke Oven Gate Lifting Equipment",
     "link" => "power-winch",
-    "short_description" => "Lifts heavy coke oven doors: 2.5 - 5 tons, 5 - 7.5 HP motor, self-locking worm reducer gearbox.",
-    "long_description" => "Designed for vertical lifting of heavy Coke Oven doors. Self-locking worm gear design ensures safety and precise control during maintenance.",
+    "short_description" => "Lifts heavy coke oven doors: 2.5 - 5 tons, 5 - 7.5 HP motor, worm reducer gearbox.",
+    "long_description" => "Designed for vertical lifting of heavy Coke Oven doors. Worm reducer gearbox design ensures precise control during maintenance.",
     "category" => "power-winch",
     "eyebrow" => "Coke Oven Gate Lifting Equipment",
     "mini_specs" => [

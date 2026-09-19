@@ -123,7 +123,8 @@ HEROES = [
         "photo": {"src": PIMG + "coal-charging-car/coal-charging-car-3.jpg",
                   "crop": (0.10, 0.0, 0.86, 1.0)},
         "callouts": [
-            ("Four conical hoppers", "8 mm plate hoppers, in 4, 8, 15 or 20 ton capacities. The steep "
+            ("Conical hoppers", "Two, three or four 8 mm plate hoppers, in 8, 15 or 20 ton "
+             "capacities. The steep "
              "cones help wet coal flow.", None),
             ("Motorised slide gates", "3 H.P. slide gates open to let coal fall into the oven by "
              "gravity, with a manual override wheel.", None),
@@ -141,12 +142,12 @@ HEROES = [
             ("Mild steel hammers", "Six hammers throw the coal against manganese steel liner "
              "plates. They are replaced through the side access door without dismantling the "
              "rotor.", None),
-            ("Single-side feeding mouth", "Takes coal lumps up to 125 mm straight from the "
+            ("Single-side feeding mouth", "Takes coal lumps up to 150 mm straight from the "
              "conveyor into the crushing chamber.", None),
             ("Spherical roller bearings", "Double row spherical roller bearings carry the rotor "
              "shaft.", None),
             ("Extra-wide disc", "Keeps the output size uniform, below 2 mm, across the full "
-             "8 - 10 TPH range.", None),
+             "8 - 12 TPH range.", None),
         ],
     },
     {
@@ -154,14 +155,13 @@ HEROES = [
         "category": "Coal<br>Crushing",
         "photo": {"cutout": CUTOUT["coal-crusher-double"]},
         "callouts": [
-            ("Double disc rotor", "Two discs carry 12 mild steel hammers, creating a dense "
-             "impact zone for 20 - 25 TPH.", None),
-            ("Replaceable hammers", "Each hammer can be replaced or reversed without dismantling "
-             "the rotor.", None),
-            ("12 mm fabricated housing", "Heavy steel body built to take the impact of lumps "
-             "up to 150 mm.", None),
-            ("Wet coal", "Handles moisture up to 10 - 12%; clean the grate bars more often for "
-             "sticky coal.", None),
+            ("Double disc rotor", "Two discs fitted with 12 mild steel hammers, creating "
+             "a dense impact zone for 20 - 25 TPH.", None),
+            ("Replaceable hammers", "Each hammer can be replaced or reversed.", None),
+            ("16 mm fabricated housing", "Heavy steel body built to take the impact of lumps "
+             "up to 200 mm.", None),
+            ("Manganese steel liner jaw plates", "Bolted top and side plates take the wear "
+             "instead of the body, and are swapped without cutting.", None),
         ],
     },
     {
@@ -177,7 +177,7 @@ HEROES = [
              "balanced torque, no jamming.", None),
             ("Cast steel gears", "Machine-cut cast steel gears on both sides of the drums.", None),
             ("Adjustable drums", "Drum distance adjusts by up to 30 mm, setting the output "
-             "between 45 mm and 60 mm.", None),
+             "between 40 mm and 60 mm.", None),
         ],
     },
     {
@@ -191,7 +191,7 @@ HEROES = [
              "metallurgical coke.", None),
             ("Double drive", "Two 25 H.P. motors give equal torque on both ends of the cutting "
              "shaft, preventing jamming on large or hard lumps and extending gear life.", None),
-            ("Adjustable gap", "The gap between the ring shafts adjusts from 45 mm to 60 mm.", None),
+            ("Adjustable gap", "The gap between the ring shafts adjusts from 40 mm to 60 mm.", None),
         ],
     },
     {
@@ -214,8 +214,8 @@ HEROES = [
         "category": "Door<br>Lifting",
         "photo": {"cutout": CUTOUT["power-winch"]},
         "callouts": [
-            ("Self-locking worm reducer", "If the power fails, the door's weight cannot drive the "
-             "motor backwards.", None),
+            ("Worm reducer gearbox", "A high reduction ratio in a single compact stage, so a "
+             "5 - 7.5 H.P. motor lifts up to 5 tons.", None),
             ("Gears", "The worm gearing cuts speed and multiplies "
              "torque for a smooth, non-jerky lift at about 2 - 4 m/min.", None),
             ("Grooved steel drum / steel drum", "Winds the wire rope evenly. A standard rope length is included; "
@@ -233,7 +233,7 @@ HEROES = [
              "helps prevent the load slipping back.", None),
             ("Cast steel gears", "Machine-cut cast steel gears for a steady 10-ton horizontal "
              "pull.", None),
-            ("C-channel base frame", "A fabricated C-channel steel base, with a manual or "
+            ("MS Channel base frame", "A fabricated MS Channel steel base, with a manual or "
              "electro-hydraulic thruster brake as an option.", None),
             ("Pulling, not lifting", "Designed for horizontal pulling or inclined dragging, not "
              "as a vertical lifting hoist.", None),
@@ -263,7 +263,7 @@ CHART_OVEN = {
         ("Duty", [
             ("Job", ["Pushes coke, stamps the coal cake", "Top-charges coal into ovens",
                      "Lifts oven doors", "Horizontal pulling"]),
-            ("Capacity", ["Ovens up to 11 m", "4 / 8 / 15 / 20 T hopper", "2.5 - 5 T lift", "10 T pull"]),
+            ("Capacity", ["Ovens up to 11 m", "8 / 15 / 20 T hopper", "2.5 - 5 T lift", "10 T pull"]),
             ("Speed", ["-", "60 - 80 m/min travel", "2 - 4 m/min lift", "-"]),
         ]),
         ("Drive", [
@@ -271,12 +271,12 @@ CHART_OVEN = {
             ("Other drives", ["15 H.P. travel, 7.5 H.P. stamping", "3 H.P. slide gates", "-", "-"]),
             ("Connected load", ["Approx. 65 - 70 H.P.", "-", "-", "-"]),
             ("Gearbox", ["Helical, with chain drive", "Worm reducer (travel)",
-                         "Self-locking worm reducer", "Heavy duty worm reducer"]),
+                         "Worm reducer gearbox", "Heavy duty worm reducer"]),
             ("Brake", ["-", "-", "-", "Manual or thruster (optional)"]),
         ]),
         ("Build", [
-            ("Mounting", ["Rail-mounted", "Rail-mounted", "Fixed base", "C-channel base frame"]),
-            ("Main parts", ["20 m pusher and leveller beams", "4 conical hoppers, 8 mm plate",
+            ("Mounting", ["Rail-mounted", "Rail-mounted", "Fixed base", "MS Channel base frame"]),
+            ("Main parts", ["20 m pusher and leveller beams", "2, 3 or 4 conical hoppers, 8 mm plate",
                             "Grooved steel drum / steel drum", "Cast steel, machine-cut gears"]),
         ]),
     ],
@@ -288,23 +288,23 @@ CHART_SIZING = {
              "coke-cutter-ring-type", "vibrator-screen"],
     "groups": [
         ("Performance", [
-            ("Capacity", ["8 - 10 TPH", "20 - 25 TPH", "12 - 15 TPH", "20 TPH", "1 - 4 decks"]),
-            ("Feed size", ["Up to 125 mm", "Up to 150 mm", "Up to 200 mm", "Up to 200 mm", "Mixed feed"]),
-            ("Output size", ["Below 2 mm", "Below 2 mm", "45 - 60 mm", "45 - 60 mm",
+            ("Capacity", ["8 - 12 TPH", "20 - 25 TPH", "12 - 15 TPH", "15 - 20 TPH", "1 - 4 decks"]),
+            ("Feed size", ["Up to 150 mm", "Up to 200 mm", "Up to 200 mm", "Up to 200 mm", "Mixed feed"]),
+            ("Output size", ["Below 2 mm", "Below 2 mm", "40 - 60 mm", "40 - 60 mm",
                              "One grade per deck"]),
             ("Material", ["Coal", "Coal", "Coke", "Coke", "Coke, coal, ore"]),
         ]),
         ("Drive", [
             ("Motor", ["80 - 120 H.P.", "150 - 180 H.P.", "20 H.P. x 2", "25 H.P. x 2", "7.5 - 15 H.P."]),
             ("Drive", ["Single disc", "Double disc", "Double drive", "Double drive", "Eccentric shaft"]),
-            ("Adjustment", ["-", "-", "Drum distance, up to 30 mm", "Ring gap, 45 - 60 mm",
+            ("Adjustment", ["-", "-", "Drum distance, up to 30 mm", "Ring gap, 40 - 60 mm",
                             "Mesh and counterweights"]),
         ]),
         ("Build", [
             ("Wear parts", ["6 mild steel hammers", "12 mild steel hammers",
                             "Manganese steel liner teeth", "High manganese steel rings",
                             "High carbon steel mesh"]),
-            ("Body", ["12 mm fabricated steel", "12 mm fabricated steel", "Cast steel gears both sides",
+            ("Body", ["12 mm fabricated steel", "16 mm fabricated steel", "Cast steel gears both sides",
                       "Segmented rings, keyed", "Coil spring suspension"]),
         ]),
     ],
@@ -312,17 +312,17 @@ CHART_SIZING = {
 
 SELECTOR = [
     ("Coal preparation", [
-        ("coal-crusher-single", "8 - 10 TPH, coal to below 2 mm"),
+        ("coal-crusher-single", "8 - 12 TPH, coal to below 2 mm"),
         ("coal-crusher-double", "20 - 25 TPH, coal to below 2 mm"),
     ]),
     ("Coke sizing &amp; screening", [
-        ("coke-cutter-double-drive", "12 - 15 TPH, coke to 45 - 60 mm"),
-        ("coke-cutter-ring-type", "20 TPH, coke to 45 - 60 mm"),
+        ("coke-cutter-double-drive", "12 - 15 TPH, coke to 40 - 60 mm"),
+        ("coke-cutter-ring-type", "15 - 20 TPH, coke to 40 - 60 mm"),
         ("vibrator-screen", "1 - 4 decks, up to 5' x 16'"),
     ]),
     ("Oven operation", [
         ("pusher", "Ovens up to 11 m, roller stamping"),
-        ("charging-car", "4 - 20 T hopper, 4 mouths"),
+        ("charging-car", "8 - 20 T hopper, 2, 3 or 4 mouths"),
         ("power-winch", "2.5 - 5 T door lift"),
     ]),
     ("Material handling", [
@@ -727,8 +727,8 @@ def page_engineering_left(n):
       hard or large lumps do not jam the drums, and the gears last longer.</p>
       <p><b>Cast steel gears</b> – machine-cut gears on haulages, winches and coke cutters.</p>
       <div class="gb-h">{icon("fa-industry", "ico box-ico")}<b>FABRICATION</b></div>
-      <p>Bodies and frames are fabricated from heavy steel: 12 mm plate on the coal crushers,
-      8 mm plate on the charging car hoppers, C-channel base frames under the haulages, and
+      <p>Bodies and frames are fabricated from heavy steel: 12 and 16 mm plate on the coal crushers,
+      8 mm plate on the charging car hoppers, MS Channel base frames under the haulages, and
       heavy coil springs under the vibrator screens.</p>
     </div>
   </div>
@@ -755,7 +755,7 @@ def spread_battery(img, n):
                       crop=(0.0, 0.0, 1.0, 1.0), ratio=420 / 297, max_px=3000)
     rows = [
         ("pusher", "Pushes the coke out, stamps the coal cake", "Ovens up to 11 m"),
-        ("charging-car", "Top-charges coal into the ovens", "4 - 20 T hopper, 4 mouths"),
+        ("charging-car", "Top-charges coal into the ovens", "8 - 20 T hopper, 2, 3 or 4 mouths"),
         ("power-winch", "Lifts the oven doors", "2.5 - 5 T lift"),
         ("haulage", "Pulls wagons and coke cakes", "10 T pull"),
     ]
