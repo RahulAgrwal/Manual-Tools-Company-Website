@@ -372,7 +372,7 @@ alignment.',
       'overview_heading' => 'What is a 5 No. double disc coal crusher?',
       'overview_paras' => [
           'A 5 No. double disc coal crusher is a high-capacity coal disintegrator for plants that need 20 to 25 tons of fine coal per hour. Two discs rotate together and carry 12 mild steel hammers in total, so coal is struck far more often than in a single disc machine. That lets it accept larger lumps, up to 150 mm, while still discharging coal below 2 mm through calibrated grate bars.',
-          'The housing is 12 mm fabricated steel, and each hammer can be replaced or reversed without dismantling the rotor. A 150 to 180 HP slip-ring or squirrel cage motor drives the machine. It is built for large recovery-type coke ovens, bigger FBC boilers in thermal power plants and briquetting plants, and it handles coal with up to 10–12% moisture.'
+          'The housing is 16 mm fabricated steel, and each hammer can be replaced or reversed. A 150 to 180 HP slip-ring or squirrel cage motor drives the machine. It is built for large recovery-type coke ovens, bigger FBC boilers in thermal power plants and briquetting plants, and it handles coal with up to 8–10% moisture.'
       ],
       'overview_related_html' => 'Need 8–12 TPH with a smaller motor? <a href="coal-crusher-5-No-single-disc">See the Single Disc coal crusher <i class="fas fa-arrow-right"></i></a>',
       'spares' => [
@@ -380,14 +380,14 @@ alignment.',
               'img' => 'assets/img/product-images/coal-crusher-double-disc/coal-crusher-6.png',
               'alt' => 'Mild steel coal crusher hammer, a replaceable wear part',
               'title' => 'Crusher hammers',
-              'desc' => 'Mild steel hammers, reversed or replaced through the side access door without dismantling the rotor. Inspect every 300 hours and turn the faces once the edges round off.',
+              'desc' => 'Mild steel hammers, reversed or replaced through the side access door. Inspect every 300 hours and turn the faces once the edges round off.',
               'fits' => '12 per machine, 6 per disc'
           ],
           [
               'img' => 'assets/img/product-images/coal-crusher-double-disc/coal-crusher-7.png',
               'alt' => 'Double disc coal crusher rotor assembly on its shaft',
               'title' => 'Twin disc rotor',
-              'desc' => 'Two discs on one machined shaft, carrying twelve hammers between them and balanced as a set so the machine runs true at speed.',
+              'desc' => 'Double disc rotor fitted with 12 mild steel hammers, on one machined shaft, balanced as a set so the machine runs true at speed.',
               'fits' => 'Double disc, 5 No.'
           ],
           [
@@ -438,7 +438,7 @@ alignment.',
       'tech_heading' => 'Double the Power, Double the Output',
       'tech_paras' => [
           'The Manual Tools Company <strong>Double Disc Coal Crusher</strong> is the powerhouse of our pulverization line. By utilizing a dual-rotor configuration, this machine doubles the impact frequency, allowing it to process significantly larger feed materials (up to 150mm) while maintaining the ultra-fine output required for Coke Oven Plants.',
-          'Ideally suited for large-scale operations, the unit is constructed with a 12mm heavy-duty fabricated steel housing and features 12 replaceable Mild Steel hammers, with manganese steel liner plates to withstand abrasive Indian coal varieties.'
+          'Ideally suited for large-scale operations, the unit is constructed with a 16mm heavy-duty fabricated steel housing and features 12 replaceable Mild Steel hammers, with manganese steel liner plates to withstand abrasive Indian coal varieties.'
       ],
       'tech_table_heading' => 'Technical Parameters',
       'tech_rows' => [
@@ -464,7 +464,7 @@ alignment.',
           ],
           [
               'Body Thickness',
-              '12 mm Heavy-Duty Fabricated Steel'
+              '16 mm Heavy-Duty Fabricated Steel'
           ]
       ],
       'flow_heading_accent' => 'High-Velocity',
@@ -544,11 +544,11 @@ alignment.',
           ],
           [
               'Can it handle wet coal?',
-              'It can handle moisture up to 10-12%. However, for very sticky or wet coal, we recommend cleaning the grate bars more frequently to prevent clogging.'
+              'It can handle moisture up to 8-10%. However, for very sticky or wet coal, we recommend cleaning the grate bars more frequently to prevent clogging.'
           ],
           [
               'Are the 12 hammers replaceable individually?',
-              'Yes, each hammer is individually suspended and can be replaced or reversed without dismantling the entire rotor assembly.'
+              'Yes, each hammer is individually suspended and can be replaced or reversed.'
           ],
           [
               'What is the delivery timeline?',

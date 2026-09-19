@@ -23,6 +23,7 @@
 
 ## Done
 
+- [x] **2026-09-19: Coal Crusher (Double Disc) revisions**, site and PDFs: body **12 mm -> 16 mm fabricated steel** (the hub comparison table and its intro no longer say the two models share a body thickness), moisture **10-12% -> 8-10%**, and the catalogue spread's points reworded to the owner's dictation - point 1 "Two discs **fitted with** 12 mild steel hammers", point 2 exactly "Each hammer can be replaced or reversed" with **no mention of the rotor**, and the "Wet coal" point replaced by **Manganese steel liner jaw plates**. The single disc's 12 mm body and its own "without dismantling the rotor" wording were deliberately left alone. The moisture figure still appears in the FAQ on both the page and the brochure, so dropping that point loses nothing.
 - [x] **2026-09-19: Four spec corrections from the owner**, applied to the site *and* every PDF (single-product brochures + both range catalogues), with the machine selector and specification charts regenerated:
   - **Coal Crusher, Single Disc:** capacity 8 - 10 TPH -> **8 - 12 TPH**. (This value has now moved twice: the brochure once said 10 - 12 TPH and was corrected *down* to 8 - 10 on 2026-09-18; the owner has now set 8 - 12. Ask before changing it again.)
   - **Coke Cutter Machine (drum type):** output 45 - 60 mm -> **40 - 60 mm**.

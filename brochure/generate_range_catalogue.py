@@ -153,14 +153,13 @@ HEROES = [
         "category": "Coal<br>Crushing",
         "photo": {"cutout": CUTOUT["coal-crusher-double"]},
         "callouts": [
-            ("Double disc rotor", "Two discs carry 12 mild steel hammers, creating a dense "
-             "impact zone for 20 - 25 TPH.", None),
-            ("Replaceable hammers", "Each hammer can be replaced or reversed without dismantling "
-             "the rotor.", None),
-            ("12 mm fabricated housing", "Heavy steel body built to take the impact of lumps "
+            ("Double disc rotor", "Two discs fitted with 12 mild steel hammers, creating "
+             "a dense impact zone for 20 - 25 TPH.", None),
+            ("Replaceable hammers", "Each hammer can be replaced or reversed.", None),
+            ("16 mm fabricated housing", "Heavy steel body built to take the impact of lumps "
              "up to 150 mm.", None),
-            ("Wet coal", "Handles moisture up to 10 - 12%; clean the grate bars more often for "
-             "sticky coal.", None),
+            ("Manganese steel liner jaw plates", "Bolted top and side plates take the wear "
+             "instead of the body, and are swapped without cutting.", None),
         ],
     },
     {
@@ -303,7 +302,7 @@ CHART_SIZING = {
             ("Wear parts", ["6 mild steel hammers", "12 mild steel hammers",
                             "Manganese steel liner teeth", "High manganese steel rings",
                             "High carbon steel mesh"]),
-            ("Body", ["12 mm fabricated steel", "12 mm fabricated steel", "Cast steel gears both sides",
+            ("Body", ["12 mm fabricated steel", "16 mm fabricated steel", "Cast steel gears both sides",
                       "Segmented rings, keyed", "Coil spring suspension"]),
         ]),
     ],
@@ -726,7 +725,7 @@ def page_engineering_left(n):
       hard or large lumps do not jam the drums, and the gears last longer.</p>
       <p><b>Cast steel gears</b> – machine-cut gears on haulages, winches and coke cutters.</p>
       <div class="gb-h">{icon("fa-industry", "ico box-ico")}<b>FABRICATION</b></div>
-      <p>Bodies and frames are fabricated from heavy steel: 12 mm plate on the coal crushers,
+      <p>Bodies and frames are fabricated from heavy steel: 12 and 16 mm plate on the coal crushers,
       8 mm plate on the charging car hoppers, C-channel base frames under the haulages, and
       heavy coil springs under the vibrator screens.</p>
     </div>

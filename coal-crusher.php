@@ -66,8 +66,8 @@
           <p>
             A 5 No. coal crusher (coal disintegrator) reduces coal lumps to fine particles below 2 mm, the size needed for
             charging coke ovens and firing boilers. Mild steel hammers mounted on a rotating disc strike the coal until it
-            is fine enough to leave the machine. Both of our models use a 12 mm fabricated steel body with manganese steel top
-            and side liner plates, and both have replaceable hammers.
+            is fine enough to leave the machine. The single disc body is 12 mm fabricated steel and the double disc 16 mm, both with manganese
+            steel top and side liner plates, and both have replaceable hammers.
           </p>
           <p>
             The difference is capacity. The <strong>Single Disc</strong> crusher has one disc with 6 hammers, takes lumps up to
@@ -95,7 +95,7 @@
               <tr><th scope="row">Max feed size</th><td>125 mm</td><td>150 mm</td></tr>
               <tr><th scope="row">Output size</th><td>Below 2 mm</td><td>Below 2 mm</td></tr>
               <tr><th scope="row">Hammers</th><td>6 (mild steel)</td><td>12 (mild steel)</td></tr>
-              <tr><th scope="row">Body</th><td>12 mm steel</td><td>12 mm steel</td></tr>
+              <tr><th scope="row">Body</th><td>12 mm steel</td><td>16 mm steel</td></tr>
               <tr><th scope="row">Lead time</th><td>Often in stock; custom 3–4 weeks</td><td>Made to order, 4–5 weeks</td></tr>
             </tbody>
           </table>
@@ -198,7 +198,7 @@
                   'img'   => 'assets/img/product-images/coal-crusher-double-disc/coal-crusher-7.png',
                   'alt'   => 'Double disc coal crusher rotor assembly on its shaft',
                   'title' => 'Double disc rotor',
-                  'desc'  => 'Two discs on one shaft, carrying twelve hammers between them, balanced as a set so the machine runs true at speed.',
+                  'desc'  => 'Two discs fitted with 12 mild steel hammers, on one machined shaft, balanced as a set so the machine runs true at speed.',
                   'fits'  => 'Coal Crusher (5 No.) Double Disc',
               ],
               [

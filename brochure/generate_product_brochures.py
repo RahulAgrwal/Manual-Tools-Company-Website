@@ -137,17 +137,17 @@ PRODUCTS = {
             ("Input Feed Size", "Below 150 mm"),
             ("Output Size", "Below 2 mm"),
             ("Hammers", "12 Nos., Mild Steel"),
-            ("Body Thickness", "12 mm Fabricated Steel"),
+            ("Body Thickness", "16 mm Fabricated Steel"),
         ],
         "features": [
-            "Double disc rotor carrying 12 mild steel hammers",
+            "Double disc rotor fitted with 12 mild steel hammers",
             "Individually replaceable hammers",
-            "12 mm fabricated steel housing",
-            "Handles moisture up to 10 - 12%",
+            "16 mm fabricated steel housing",
+            "Manganese steel top and side liner jaw plates",
         ],
         "steps": [
             ("Large Feed Intake", "Accepts lumps up to 150 mm; the wide hopper spreads material across both discs."),
-            ("Dual Rotor Impact", "Two discs carrying 12 mild steel hammers create a dense impact zone."),
+            ("Dual Rotor Impact", "Two discs fitted with 12 mild steel hammers create a dense impact zone."),
             ("High Volume Discharge", "Crushed coal passes the calibrated grate bars at up to 25 TPH, below 2 mm."),
         ],
         "apps": [
@@ -158,8 +158,8 @@ PRODUCTS = {
         "faqs": [
             ("How does it differ from the Single Disc?", "Two rotors and 12 hammers give 20 - 25 TPH and accept 150 mm feed, versus 8 - 12 TPH for the Single Disc."),
             ("What motor is required?", "A slip-ring or squirrel cage motor between 150 HP and 180 HP."),
-            ("Can it handle wet coal?", "Up to 10 - 12% moisture; clean the grate bars more often for sticky coal."),
-            ("Are the hammers replaceable individually?", "Yes, each hammer can be replaced or reversed without dismantling the rotor."),
+            ("Can it handle wet coal?", "Up to 8 - 10% moisture; clean the grate bars more often for sticky coal."),
+            ("Are the hammers replaceable individually?", "Yes, each hammer can be replaced or reversed."),
             ("What is the delivery timeline?", "Made to order; fabrication usually takes 4 - 5 weeks depending on the production queue."),
         ],
     },
