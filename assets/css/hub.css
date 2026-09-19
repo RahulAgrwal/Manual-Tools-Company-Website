@@ -1,0 +1,64 @@
+/* ==========================================================================
+   hub.css -- the coal crusher comparison hub (/coal-crusher).
+   The two model rows are the catalogue's shared .product-row (mtc.css).
+   ========================================================================== */
+
+.hub-intro__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s-7);
+  align-items: start;
+}
+@media (min-width: 62rem) {
+  .hub-intro__grid { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: var(--s-8); }
+}
+.hub-intro__text h2 { margin: 0 0 var(--s-5); max-width: 24ch; }
+.hub-intro__text p { margin: 0 0 var(--s-4); max-width: var(--measure); }
+.hub-intro__text strong { color: var(--c-ink); }
+
+/* Comparison table: figures line up (tabular numerals), the model names head
+   the columns, and each spec is a row header. */
+.hub-compare {
+  overflow-x: auto;
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-2);
+}
+.hub-compare table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-sm);
+  font-variant-numeric: tabular-nums;
+}
+.hub-compare caption {
+  padding: var(--s-4) var(--s-5) var(--s-2);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-align: left;
+  color: var(--c-ink-3);
+}
+.hub-compare th,
+.hub-compare td {
+  padding: var(--s-3) var(--s-5);
+  text-align: left;
+  vertical-align: top;
+  border-top: 1px solid var(--c-line);
+}
+.hub-compare thead th {
+  font-size: var(--fs-body);
+  color: var(--c-ink);
+  background: var(--c-canvas-sunk);
+}
+.hub-compare tbody th {
+  font-weight: var(--fw-med);
+  color: var(--c-ink-2);
+  white-space: nowrap;
+}
+.hub-compare td { font-weight: var(--fw-bold); color: var(--c-ink); }
+@media (max-width: 47.99rem) {
+  .hub-compare th,
+  .hub-compare td { padding: var(--s-3); }
+  .hub-compare caption { padding-inline: var(--s-3); }
+}

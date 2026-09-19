@@ -9,7 +9,7 @@ if ($path === '/') {
 }
 
 // Include-only PHP files are not pages (same list as .htaccess)
-if (preg_match('#^/(header|footer|common-head|page-helpers|global-products|our-products|related-products|sidebar-quote-form|clients|load-secrets|webcounter|router|secrets\.example)(\.php)?$#', $path)) {
+if (preg_match('#^/(header|footer|common-head|page-helpers|global-products|our-products|related-products|sidebar-quote-form|clients|load-secrets|webcounter|router|product-data|product-page|secrets\.example)(\.php)?$#', $path)) {
     http_response_code(404);
     require_once __DIR__ . '/404.php';
     exit();

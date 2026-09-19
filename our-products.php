@@ -1,60 +1,40 @@
 <!-- ============================================ -->
-<!-- MTC MODERN PRODUCT CATALOG                   -->
+<!-- MTC PRODUCT CATALOG                          -->
 <!-- ============================================ -->
-<section id="our-products" class="mtc-products-section">
-  <div class="container">
+<?php
+include_once 'global-products.php';
+$product_cards = $GLOBAL_PRODUCT_CARDS;
+?>
+<section id="our-products" class="section section--sunk">
+  <div class="wrap">
 
-    <div class="section-title text-center mb-5">
-      <h2 class="mtc-section-header">Industrial <span class="text-orange">Solutions</span></h2>
-      <p class="text-muted">High-performance machinery engineered for the coal and coke industry.</p>
+    <div class="section-head section-head--center">
+      <h2>Machinery we build</h2>
+      <p>Ten machines for coke oven plants, coal washeries and steel plants, made to your plant's drawings.</p>
     </div>
 
-    <div class="row g-4">
-      
-          <?php
-          // Use global product cards
-          include_once 'global-products.php';
-          $product_cards = $GLOBAL_PRODUCT_CARDS;
-          ?>
-
+    <div class="grid grid--4">
       <?php foreach ($product_cards as $card) : ?>
-        <!-- CHANGED from col-lg-3 to col-lg-4 for a bigger, premium look -->
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-          <div class="mtc-product-card">
-            
-            <!-- Image Area -->
-            <div class="card-img-wrap">
-              <img src="<?php echo mtc_img($card['image_path']); ?>" 
-                   alt="<?php echo $card['title']; ?>" 
-                   loading="lazy">
-              <!-- Overlay for hover effect -->
-              <div class="img-overlay"></div>
-            </div>
-
-            <!-- Content Area -->
-            <div class="card-body">
-              <span class="spec-badge"><?php echo $card['subtitle']; ?></span>
-              <h4 class="product-title">
-                <a href="<?php echo $card['link']; ?>"><?php echo $card['title']; ?></a>
-              </h4>
-              
-              <div class="card-footer-action">
-                <a href="<?php echo $card['link']; ?>" class="view-link">
-                  View Details <i class="fas fa-arrow-right"></i>
-                </a>
-              </div>
-            </div>
-
+        <article class="product-card">
+          <div class="product-card__well">
+            <img src="<?php echo mtc_thumb($card['image_path']); ?>"
+                 <?php echo mtc_img_size(mtc_thumb($card['image_path'])); ?>
+                 alt="<?php echo htmlspecialchars($card['title'] . ' - ' . $card['subtitle']); ?>"
+                 loading="lazy" decoding="async">
           </div>
-        </div>
+          <div class="product-card__body">
+            <p class="product-card__variant"><?php echo htmlspecialchars($card['subtitle']); ?></p>
+            <h3 class="product-card__title">
+              <a href="<?php echo $card['link']; ?>"><?php echo htmlspecialchars($card['title']); ?></a>
+            </h3>
+            <p class="product-card__desc"><?php echo htmlspecialchars($card['short_description']); ?></p>
+          </div>
+        </article>
       <?php endforeach; ?>
     </div>
 
-    <!-- View All Button -->
-    <div class="text-center mt-5">
-      <a href="products" class="mtc-btn-outline">
-        View All Products
-      </a>
+    <div class="our-products__more">
+      <a href="products" class="btn btn--quiet">See all specifications</a>
     </div>
 
   </div>

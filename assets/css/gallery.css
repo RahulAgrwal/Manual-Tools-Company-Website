@@ -1,0 +1,98 @@
+/* ==========================================================================
+   gallery.css -- the photo gallery, on the tokens in mtc.css.
+   The filter pills are the shared .filter-bar.
+   ========================================================================== */
+
+.gallery__lede { margin-bottom: var(--s-6); }
+
+/* Count in each filter pill. */
+.gallery__count {
+  margin-left: var(--s-1);
+  font-size: var(--fs-xs);
+  font-variant-numeric: tabular-nums;
+  opacity: 0.7;
+}
+
+/* Two columns on phones (a gallery is for scanning), three on tablets, four
+   on desktop -- which also keeps the 320px thumbnails near their real size. */
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s-5) var(--s-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+@media (min-width: 48rem) {
+  .gallery__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-6) var(--s-5); }
+}
+@media (min-width: 62rem) {
+  .gallery__grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+.gallery-tile[hidden] { display: none; }
+
+.gallery-tile__zoom {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--c-canvas-sunk);
+  border-radius: var(--r-2);
+}
+/* Absolutely positioned: aspect-ratio is only a preferred ratio (phase 5).
+   contain, not cover: seen in the browser, cover cut tall shots (a single
+   liner bar) down to an unreadable sliver. The whole machine, in a well, as
+   everywhere else on the site. */
+.gallery-tile__zoom img {
+  position: absolute;
+  inset: var(--s-2);
+  width: calc(100% - 2 * var(--s-2));
+  height: calc(100% - 2 * var(--s-2));
+  object-fit: contain;
+  transition: transform var(--dur-2) var(--ease);
+}
+.gallery-tile__icon {
+  position: absolute;
+  right: var(--s-2);
+  bottom: var(--s-2);
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  font-size: 0.8rem;
+  color: var(--c-ink);
+  background: rgb(255 255 255 / 0.9);
+  border-radius: var(--r-2);
+  opacity: 0;
+  transition: opacity var(--dur-2) var(--ease);
+}
+.gallery-tile__zoom:hover img,
+.gallery-tile__zoom:focus-visible img { transform: scale(1.03); }
+.gallery-tile__zoom:hover .gallery-tile__icon,
+.gallery-tile__zoom:focus-visible .gallery-tile__icon { opacity: 1; }
+/* Touch screens have no hover, so show the zoom hint all the time. */
+@media (hover: none) {
+  .gallery-tile__icon { opacity: 1; }
+}
+
+.gallery-tile__caption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0 var(--s-3);
+  margin-top: var(--s-2);
+  font-size: var(--fs-sm);
+}
+.gallery-tile__title { font-weight: var(--fw-bold); color: var(--c-ink); }
+.gallery-tile__link {
+  color: var(--c-ink-2);
+  text-decoration: underline;
+  text-decoration-color: var(--c-line-strong);
+  text-underline-offset: 3px;
+}
+.gallery-tile__link:hover { color: var(--c-action); text-decoration-color: currentColor; }
+.gallery-tile__link i { margin-left: var(--s-1); font-size: 0.75em; }
+@media (max-width: 47.99rem) {
+  .gallery-tile__caption { font-size: var(--fs-xs); }
+}

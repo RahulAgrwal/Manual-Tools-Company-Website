@@ -1,0 +1,135 @@
+/* ==========================================================================
+   contact.css -- the contact page, on the tokens in mtc.css.
+   Fields (.field) and status lines (.form-status) are shared, in mtc.css.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Form beside the direct-contact card
+   -------------------------------------------------------------------------- */
+.contact__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s-7);
+  align-items: start;
+}
+@media (min-width: 62rem) {
+  .contact__grid { grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: var(--s-8); }
+}
+
+.contact-form h2 { margin: 0 0 var(--s-2); }
+.contact-form__lede { margin: 0 0 var(--s-6); color: var(--c-ink-2); max-width: 52ch; }
+.contact-form__req { color: var(--c-err); font-weight: var(--fw-bold); }
+
+.contact-form__fields {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  column-gap: var(--s-5);
+}
+@media (min-width: 40rem) {
+  .contact-form__fields { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .contact-form__fields .field--wide { grid-column: 1 / -1; }
+}
+.contact-form__submit { min-width: 12rem; margin-top: var(--s-2); }
+@media (max-width: 39.99rem) {
+  .contact-form__submit { width: 100%; }
+}
+
+/* Direct contact: the details a buyer can act on without the form. */
+.contact-direct {
+  padding: var(--s-6);
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-2);
+}
+@media (min-width: 62rem) {
+  .contact-direct { position: sticky; top: calc(var(--header-h, 76px) + var(--s-5)); }
+}
+.contact-direct h2 { margin: 0 0 var(--s-5); font-size: var(--fs-h3); }
+@media (max-width: 47.99rem) {
+  .contact-direct { padding: var(--s-5); }
+}
+.contact-direct__list { margin: 0; padding: 0; list-style: none; }
+.contact-direct__list li {
+  display: grid;
+  grid-template-columns: 2.25rem minmax(0, 1fr);
+  gap: var(--s-3);
+  padding: var(--s-4) 0;
+  font-size: var(--fs-sm);
+  color: var(--c-ink-2);
+  border-top: 1px solid var(--c-line);
+}
+.contact-direct__list li > i {
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  font-size: 0.875rem;
+  color: var(--c-ink);
+  background: var(--c-canvas-sunk);
+  border-radius: var(--r-2);
+}
+.contact-direct__label {
+  display: block;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--c-ink-3);
+}
+.contact-direct__list a {
+  color: var(--c-ink);
+  font-weight: var(--fw-med);
+  text-decoration: underline;
+  text-decoration-color: var(--c-line-strong);
+  text-underline-offset: 3px;
+}
+.contact-direct__list a:hover { color: var(--c-action); text-decoration-color: currentColor; }
+.contact-direct__list a[href^="tel:"] { font-variant-numeric: tabular-nums; }
+.contact-direct__list a i { margin-left: var(--s-1); font-size: 0.75em; }
+.contact-direct__call { width: 100%; margin-top: var(--s-4); gap: var(--s-2); }
+
+/* --------------------------------------------------------------------------
+   FAQ -- native <details>; the plus turns into a minus when open.
+   -------------------------------------------------------------------------- */
+.contact-faq__list { border-top: 1px solid var(--c-line); }
+.contact-faq details { border-bottom: 1px solid var(--c-line); }
+.contact-faq summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+  min-height: 3.5rem;
+  padding: var(--s-4) 0;
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-bold);
+  color: var(--c-ink);
+  cursor: pointer;
+  list-style: none;
+}
+.contact-faq summary::-webkit-details-marker { display: none; }
+@media (hover: hover) { .contact-faq summary:hover { color: var(--c-action); } }
+.contact-faq__icon {
+  position: relative;
+  flex: none;
+  width: 0.875rem;
+  height: 0.875rem;
+}
+.contact-faq__icon::before,
+.contact-faq__icon::after {
+  content: "";
+  position: absolute;
+  inset: 50% 0 auto;
+  height: 2px;
+  margin-top: -1px;
+  background: currentColor;
+  transition: transform var(--dur-2) var(--ease);
+}
+.contact-faq__icon::after { transform: rotate(90deg); }
+.contact-faq details[open] .contact-faq__icon::after { transform: rotate(0deg); }
+.contact-faq details p {
+  margin: 0;
+  padding: 0 0 var(--s-5);
+  max-width: var(--measure);
+  color: var(--c-ink-2);
+}
+.contact-faq details p strong { color: var(--c-ink); overflow-wrap: anywhere; }

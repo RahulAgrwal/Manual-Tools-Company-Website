@@ -2,6 +2,10 @@
 
 Marketing and lead-generation website for **Manual Tools Company** (coke oven machinery, Dhanbad). Live at https://www.manualtoolsco.com/. Plain PHP pages on a Bootstrap 5 template, with no framework, no build step and no tests.
 
+## UI redesign in progress
+
+A whole-site redesign is under way on branch `redesign/ui` (not yet merged; `main` auto-deploys). **`BUILD_PLAN.md` is the source of truth for it.** Updating `BUILD_PLAN.md` is a **mandatory** part of every redesign step: mark a step `[~]` before starting it and `[x]` with a one-line note when it lands, record problems in its Session log, and commit it in the same commit as the code it describes. **Every UI change must be visually verified in the browser (desktop and 390px phone width, every affected page variant and interactive state) before it is marked done** — passing checks prove content, not appearance. Read it before touching any page.
+
 ## Run locally
 
     php -S localhost:8080 router.php
@@ -48,24 +52,26 @@ Shared parts:
 - `related-products.php`: slider. Set `$current_page_slug` before including it so the current product is left out.
 - `sidebar-quote-form.php`: set `$_GET['page_url']` and `$_GET['page_title']` before including it.
 - `clients.php`: data arrays and a loop.
-- `photo-gallery.php` builds its grid from the product image folders.
+- `photo-gallery.php` builds its grid from the product image folders; `assets/js/gallery.js` does the filter and the GLightbox view (no Isotope).
 
 ## Product detail pages
 `coal-crusher-5-No-single-disc`, `coal-crusher-5-No-double-disc`, `coke-cutter-double-drive`, `coke-cutter-double-drive-ring-type`, `haulage`, `power-winch`, `vibrator-screen`, `conveyor-materials`, `coal-charging-car`, `pusher-with-stamping-arrangement`.
 
 All share one layout:
 - `<head>`: canonical URL, Open Graph tags, Product JSON-LD (brand, manufacturer, url), BreadcrumbList, plus `assets/css/product-detail.css`.
-- Gallery: a main image plus `glob()` over `assets/img/product-images/<folder>/` (images and mp4/webm). Thumbnails use `mtc_thumb()`, the main view uses `mtc_img()`, and the inline `swapImage()`/`swapMedia()` switches it.
+- Gallery: a main image plus `glob()` over `assets/img/product-images/<folder>/` (images and mp4/webm). An optional `gallery_labels` map in `product-data.php` (file name => label, e.g. a spare part) adds a caption under the main image and the alt text; the photo gallery uses it too. Thumbnails use `mtc_thumb()`, the main view uses `mtc_img()`, and the inline `swapImage()`/`swapMedia()` switches it.
 - Spec grid and Brochure / Request Quote / Call buttons (no star ratings: there are no reviews).
 - An overview section: a question-style `<h2>`, a 130–170 word answer written from the page's own specs, a link to the closest related product, and a "Buying information" box (lead time, warranty, installation, custom builds, brochure).
-- Bootstrap tabs (Description, Process Flow, Applications, Maintenance, FAQ from a `$product_faqs` array). Don't add FAQPage markup: Google no longer shows FAQ rich results.
+- Tabs (Description, Process Flow, Applications, Maintenance, FAQ), driven by `assets/js/product-tabs.js`; the FAQ is native `<details>`. Bootstrap's JS and `compat.css` are gone (redesign phase 8), so don't add `data-bs-*` markup. Don't add FAQPage markup: Google no longer shows FAQ rich results.
 - Sidebar quote form, then related products, then the footer.
+
+**Machine order:** every list of machines follows the range catalogue's machine selector, by duty: coal preparation (single disc, double disc crusher), coke sizing & screening (drum-type cutter, ring-type cutter, vibrator screen), oven operation (pusher, coal charging car, power winch), material handling (haulage, conveyor components). Insert a new machine in its duty group, in the same position everywhere.
 
 **Adding a product:** copy an existing detail page (for example `coke-cutter-double-drive-ring-type.php`), then update all of:
 1. `global-products.php`
 2. the Products dropdown in `header.php`
 3. `products.php` (card and filter class)
-4. `$carousel_items` in `index.php` (plus slide images in `assets/img/slide/` and `assets/img/slide-thumbnail/`)
+4. `$carousel_items` in `index.php`, which feeds the home-page machine picker (`image_path`, `title`, `subtitle`, `link`), plus a transparent cutout in `assets/img/slide/`; run `python tools/trim_cutouts.py` for its `.webp` and `.thumb.webp`. `assets/img/slide-thumbnail/` is no longer used.
 5. `sitemap.xml`: use `https://www.manualtoolsco.com/<slug>` (www, no `.php`) to match the canonical tags
 6. the image folder under `assets/img/product-images/`. Name files `<Product-Name>-N.png` (for example `Vibrator-Screen-3.png`). They show up in the product gallery and `photo-gallery.php` automatically (add the folder to `$gallery_products` there).
 7. run `python tools/optimize_images.py` to create the `.webp` and `.thumb.webp` copies. Commit them with the originals.
@@ -92,10 +98,16 @@ Page copy is HTML. Use `<strong>`, not Markdown `**bold**`.
 ## Other
 - `brochure/*.py`: fpdf2 scripts that build the product PDF brochures. Run them from the repo root because image paths are relative.
   - `generate_product_brochures.py` builds all ten from one `PRODUCTS` table (copy only); `brochure_layout.py` holds the page furniture. The copy is taken from the product pages, so update both when specs change.
-  - Four pages: dark cover (product name, hero cutout, three headline figures), overview and specification table with the Buying information box, process flow / applications / FAQ, then gallery and the rest of the range.
+  - Four pages: dark cover (product name, hero cutout, three headline figures), overview with a **Key specifications** box, the specification table and the Buying information box (no quotation panel: the last page carries it), process flow / applications / FAQ, then gallery and the rest of the range.
+  - The Key specifications box is **not** copied into `PRODUCTS`: the script reads each page's four `specs` (icon, label, value) from `product-data.php` through the `php` CLI (`SITE_SLUG` maps brochure keys to page slugs), so it always matches the product page. Regenerate the brochures after changing a page's `specs`. Icons come from `brochure/fonts/fa-solid-900.ttf` (Font Awesome 5.15.4 Solid, converted from the site's woff2, with a blank `space` glyph added because fpdf2's subsetter needs one) and code points from `assets/fontawesome/css/icons.css`. The build stops if page 2 would run into the quotation panel.
   - Cover art comes from the home-page carousel images in `assets/img/slide/`, which are transparent cutouts. `cutout_image()` keys out a plain white backdrop too; a photo of a real scene falls back to a white panel. That one image is written with `FlateDecode` because JPEG ringing round the cut edge would show as a box on the dark cover.
+  - `generate_range_catalogue.py` builds the full-range catalogue `Manual_Tools_Co_Catalogue.pdf` (30 A4 pages laid out as facing spreads: every product has its own two-page spread, then the two specification charts). It reuses `PRODUCTS`/`BUYING_INFO` and the `product-data.php` specs, writes HTML and prints it with headless Chrome or Edge (Archivo font in `brochure/fonts/`). The build fails if any page's text runs into its footer. Regenerate it whenever you regenerate the single-product brochures.
+  - `generate_range_catalogue_2.py` is a separate script (no shared code with catalogue 1) for `Manual_Tools_Co_Catalogue_2.pdf`, laid out like the Honda brochure as printed: A4 cover and back cover, and fifteen A3 landscape sheets, each a double-page spread (one per product, plus intro, engineering, a full-width photo spread, the charts and spares). It adds a photo running across a full spread. Both catalogues use the same cover (the whole range on a dark stage), kept as a copy in each script, so change both together. The cover's red logo box draws the owner's full logo `assets/img/mtc-logo-full.svg` (badge, name and tagline as outlines), recoloured to white by `full_logo_svg()`. Same data sources and overflow check as catalogue 1.
   - The logo and the 30-years badge are transparent PNGs, and the JPEG image filter has no alpha, so both are composited onto their background first (`logo_image()`). Drawing them directly renders a black box.
-- `tools/optimize_images.py` (Pillow): WebP copies (max 1600px) and 320px gallery thumbnails next to the originals. Originals stay because the brochure scripts use them.
+- `tools/optimize_images.py` (Pillow): WebP copies (max 1600px) and 320px gallery thumbnails next to the originals. Originals stay because the brochure scripts use them. It skips `assets/img/slide/` (`TRIM_OWNED`), which `trim_cutouts.py` owns.
+- `tools/trim_cutouts.py` (Pillow): the transparent product cutouts in `assets/img/slide/` carry a large empty margin — the machine filled as little as 25% of its canvas — so anything sizing them by their box drew the machine at half size. This trims to the alpha bounding box plus 2% and writes the `.webp` and `.thumb.webp`. It never writes the `.png`: the brochure scripts read those and `cutout_image()` depends on the existing canvas. Run it **before** `optimize_images.py`. `--report` measures without writing.
+- `tools/subset_fontawesome.py`: rebuilds `assets/fontawesome/css/icons.css` from the `fa-*` classes actually used in the PHP and JS — 95 icons instead of a map of ~1600. **Run it after adding an icon to any page**, or the new icon renders as a blank box. It prints any name it cannot resolve.
+- `tools/check_pages.py` (requests): the regression oracle. Checks every page for one `<h1>`, a correct canonical, title/description presence, length and uniqueness, BreadcrumbList, Product JSON-LD with its four properties, absence of FAQPage/ratings/keywords, image `alt` and dimensions, and a 404 for every include-only partial. `--json` writes a report, `--diff` compares against an earlier one. Take a baseline before a change and diff after.
 - `tools/indexnow_submit.py`: tells Bing and other IndexNow search engines that pages changed. The key file `5980cefe6f533e8fca5d87e5d37f5339.txt` in the root must stay deployed; don't delete or rename it.
   - **After every deploy that changes page content**, run it for the changed pages once the push is live: `python tools/indexnow_submit.py /haulage /about` (paths), or with no arguments to send every URL in `sitemap.xml`.
   - HTTP 202 means the request was accepted; the search engines then verify the key and crawl over the next few days.

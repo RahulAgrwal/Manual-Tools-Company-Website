@@ -1,119 +1,63 @@
 <?php
-// Get page URL passed as parameter
-$pageUrl = isset($_GET['page_url']) ? htmlspecialchars($_GET['page_url']) : 'General Inquiry';
-$pageTitle = isset($_GET['page_title']) ? htmlspecialchars($_GET['page_title']) : '';
+// Quote form beside every product page. Set $_GET['page_url'] and
+// $_GET['page_title'] before including it (product-page.php does).
+//
+// FROZEN CONTRACT -- assets/js/main.js and forms/contact.php depend on all of:
+//   class="ajax-form php-email-form", action, method, data-recaptcha-site-key,
+//   data-recaptcha-action, the .loading / .error-msg / .sent-message elements,
+//   and every name= attribute. forms/contact.php silently drops unknown names.
+// The form id is the page slug; main.js reports it to GA4 as form_name.
+$pageUrl = isset($_GET['page_url']) ? htmlspecialchars($_GET['page_url'], ENT_QUOTES) : 'General Inquiry';
+$pageTitle = isset($_GET['page_title']) ? htmlspecialchars($_GET['page_title'], ENT_QUOTES) : '';
 $recaptchaSiteKey = '6Ldj7H0sAAAAAIIk3lL0kl9Y_Ohi8M_JcC5Qm13u';
 ?>
 
-<div class="mtc-sidebar-quote-card">
-  <div class="mtc-sidebar-title">
-    <i class="far fa-envelope"></i>
-    <div>
-      <span style="display:block; font-size:12px; color:#999; font-weight:600;">QUESTIONS?</span>
-      GET A QUOTE
-    </div>
-  </div>
+<div class="quote-card">
+  <h2 class="quote-card__title">Request a quote</h2>
+  <p class="quote-card__lede">
+    Tell us what you need<?php echo $pageTitle ? ' for the <strong>' . $pageTitle . '</strong>' : ''; ?>.
+    We'll reply by email or phone.
+  </p>
 
   <form id="<?php echo $pageUrl; ?>" action="forms/contact.php" method="post" class="ajax-form php-email-form" data-recaptcha-site-key="<?php echo htmlspecialchars($recaptchaSiteKey, ENT_QUOTES, 'UTF-8'); ?>" data-recaptcha-action="sidebar_quote_submit">
-    <div class="loading" style="display:none; font-size:12px; margin-bottom:10px;">Sending...</div>
-  <div class="error-msg" style="display:none; color:red; font-size:12px; margin-bottom:10px;"></div>
-  <div class="sent-message" style="display:none; color:green; font-size:12px; margin-bottom:10px;"></div>
-    <input type="text" name="first_name" class="mtc-sidebar-input" placeholder="Full Name" required>
-    <input type="email" name="email" class="mtc-sidebar-input" placeholder="Company Email" required>
-    <input type="tel" name="contact" class="mtc-sidebar-input" placeholder="Phone Number">
-    
-    <!-- Hidden field to track page source -->
+    <div class="loading form-status" style="display:none;">Sending your enquiry…</div>
+    <div class="error-msg form-status form-status--error" style="display:none;" role="alert"></div>
+    <div class="sent-message form-status form-status--ok" style="display:none;" role="status"></div>
+
+    <!-- Labels are visible and sit above each field: a placeholder is not a
+         label -- it disappears as soon as someone starts typing. -->
+    <div class="field">
+      <label for="qf-name">Your name</label>
+      <input id="qf-name" type="text" name="first_name" autocomplete="name" required>
+    </div>
+
+    <div class="field">
+      <label for="qf-email">Work email</label>
+      <input id="qf-email" type="email" name="email" autocomplete="email" inputmode="email" required>
+    </div>
+
+    <div class="field">
+      <label for="qf-phone">Phone <span class="field__opt">optional</span></label>
+      <input id="qf-phone" type="tel" name="contact" autocomplete="tel" inputmode="tel">
+    </div>
+
+    <div class="field">
+      <label for="qf-msg">What do you need? <span class="field__opt">optional</span></label>
+      <textarea id="qf-msg" name="message" rows="4"
+        placeholder="Capacity, quantity, delivery site, drawings…"></textarea>
+    </div>
+
+    <!-- Hidden fields: which page the enquiry came from -->
     <input type="hidden" name="source_page" value="<?php echo $pageUrl; ?>">
     <?php if (!empty($pageTitle)): ?>
       <input type="hidden" name="subject" value="<?php echo $pageTitle; ?>">
     <?php endif; ?>
-    
-    <textarea name="message" class="mtc-sidebar-input" rows="4" placeholder="I am interested in..." style="resize:none;"></textarea>
 
-    <button type="submit" class="mtc-sidebar-quote-card-btn-orange w-100">
-      SEND INQUIRY <i class="fas fa-paper-plane ms-2"></i>
-    </button>
-    <p class="text-center mt-3 text-muted" style="font-size: 10px;">Your information is secure and will not be shared.</p>
+    <button type="submit" class="btn btn--primary quote-card__submit">Send enquiry</button>
+    <p class="quote-card__fine">Your information is secure and will not be shared.</p>
   </form>
+
+  <p class="quote-card__alt">
+    Prefer to talk? <a href="tel:+919430707348">+91 94307 07348</a>
+  </p>
 </div>
-
-<style>
-  /* ============================================ */
-  /* SIDEBAR QUOTE FORM STYLES                    */
-  /* ============================================ */
-
-  .mtc-sidebar-quote-card {
-    background: #fff;
-    border: 1px solid #eee;
-    border-radius: 8px;
-    padding: 30px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-    position: sticky;
-    top: 100px;
-  }
-
-  .mtc-sidebar-title {
-    font-size: 18px;
-    font-weight: 800;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .mtc-sidebar-title i {
-    color: var(--primary-color, #f03c02);
-    background: #fff0eb;
-    padding: 8px;
-    border-radius: 4px;
-  }
-
-  .mtc-sidebar-input {
-    background: #f9f9f9;
-    border: 1px solid #eee;
-    border-radius: 4px;
-    padding: 12px;
-    font-size: 13px;
-    width: 100%;
-    margin-bottom: 15px;
-    font-family: inherit;
-  }
-
-  .mtc-sidebar-input:focus {
-    outline: none;
-    border-color: var(--primary-color, #f03c02);
-    background: #fff;
-  }
-
-  .mtc-sidebar-quote-card-btn-orange {
-    background: var(--primary-color, #f03c02);
-    color: #fff;
-    padding: 12px 30px;
-    font-weight: 700;
-    text-transform: uppercase;
-    border-radius: 4px;
-    border: none;
-    font-size: 13px;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
-    width: 100%;
-    justify-content: center;
-  }
-
-  .mtc-sidebar-quote-card-btn-orange:hover {
-    background: #d93602;
-    color: #fff;
-  }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    .mtc-sidebar-quote-card {
-      position: static;
-      margin-top: 30px;
-    }
-  }
-</style>

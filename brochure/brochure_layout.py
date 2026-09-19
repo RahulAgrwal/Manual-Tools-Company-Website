@@ -7,9 +7,12 @@ Design notes:
 - A4, 16 mm side margins, 178 mm text column.
 - Two type sizes do most of the work: 9.5 pt body and 21 pt page titles.
   Section labels are small, letterspaced and red; everything else is ink.
-- Helvetica is a core PDF font, so no font files ship with the repo. It only
-  covers Latin-1, which is why copy goes through clean() first.
+- Helvetica is a core PDF font, so no text font ships with the repo. It only
+  covers Latin-1, which is why copy goes through clean() first. The one font
+  file is brochure/fonts/fa-solid-900.ttf, for the Key specifications icons.
 """
+import re
+
 from fpdf import FPDF
 from PIL import Image, ImageChops, ImageDraw, ImageFilter
 
@@ -22,6 +25,7 @@ INK_SOFT = (122, 131, 142)  # captions, labels, footer
 RED = (194, 24, 7)          # brand accent (matches --primary-color family)
 RULE = (223, 227, 232)      # hairlines
 PANEL = (246, 247, 249)     # spec table banding
+RED_TINT = (252, 234, 229)  # icon badge behind a red glyph
 WHITE = (255, 255, 255)
 
 # --- Geometry ------------------------------------------------------------
@@ -34,6 +38,12 @@ HEADER_H = 22.0
 FOOTER_Y = PAGE_H - 16.0
 
 LOGO = "assets/img/MTC Logo.png"
+# Font Awesome 5.15.4 Solid, converted from the site's own woff2 (fpdf2 needs
+# TTF). The font is SIL OFL 1.1, so it may ship in the repo. Icon code points
+# come from the site's subset stylesheet, so a spec uses the same icon in the
+# brochure as on its product page.
+ICON_FONT = "brochure/fonts/fa-solid-900.ttf"
+ICON_CSS = "assets/fontawesome/css/icons.css"
 BADGE = "brochure/30yearss.png"
 PHONE = "+91 9430707348"
 # www is the canonical host; the bare domain only 301-redirects to it.
@@ -149,6 +159,20 @@ def logo_image(bg):
         flat.paste(src, mask=src.split()[-1])
         _logo_cache[bg] = flat
     return _logo_cache[bg]
+
+
+_icon_map = None
+
+
+def icon_char(name):
+    """'fa-bolt' -> the glyph's character, or None if the site CSS lacks it."""
+    global _icon_map
+    if _icon_map is None:
+        with open(ICON_CSS, encoding="utf-8") as fh:
+            css = fh.read()
+        _icon_map = {m[0]: chr(int(m[1], 16)) for m in
+                     re.findall(r'\.(fa-[a-z0-9-]+)::?before\s*\{\s*content:\s*"\\([0-9a-f]+)"', css)}
+    return _icon_map.get(name)
 
 
 class MTCBrochure(FPDF):
@@ -280,6 +304,64 @@ class MTCBrochure(FPDF):
             self.multi_cell(w - 6.5, line_h, clean(item), new_x="LMARGIN", new_y="NEXT")
             self.set_y(self.get_y() + 2.2)
         return self.get_y()
+
+    def key_specs(self, specs, y):
+        """The product page's spec grid as one card: a red icon badge, a label
+        and the figure for each spec. `specs` is [(icon, label, value)], read
+        from product-data.php so the two cannot drift. Returns the bottom y."""
+        if not specs:
+            return y
+        if "fasolid" not in self.fonts:
+            self.add_font("FASolid", "", ICON_FONT)
+
+        self.label("Key specifications", MARGIN, y)
+        y += 6
+        n = len(specs)
+        h = 19.0
+        cell_w = CONTENT_W / n
+        self.set_draw_color(*RULE)
+        self.set_line_width(0.25)
+        self.set_fill_color(*WHITE)
+        self.rect(MARGIN, y, CONTENT_W, h, "DF", round_corners=True, corner_radius=2.5)
+        # red accent along the top edge, like the section rules
+        self.set_fill_color(*RED)
+        self.rect(MARGIN + 5, y, 14, 0.8, "F")
+
+        badge = 8.0
+        for i, (icon, label, value) in enumerate(specs):
+            x = MARGIN + i * cell_w
+            if i:
+                self.set_draw_color(*RULE)
+                self.set_line_width(0.2)
+                self.line(x, y + 4, x, y + h - 4)
+            bx, by = x + 4.5, y + (h - badge) / 2
+            self.set_fill_color(*RED_TINT)
+            self.rect(bx, by, badge, badge, "F", round_corners=True, corner_radius=1.6)
+            glyph = icon_char(icon)
+            if glyph:
+                self.set_font("FASolid", "", 10)
+                self.set_text_color(*RED)
+                self.set_xy(bx, by)
+                self.cell(badge, badge, glyph, align="C")
+
+            tx = bx + badge + 3
+            tw = x + cell_w - tx - 4.5
+            self.set_xy(tx, y + 4.6)
+            self.set_font(FONT_FAMILY, "", 6.5)
+            self.set_text_color(*INK_SOFT)
+            self.set_char_spacing(0.6)
+            self.cell(tw, 3.6, clean(label).upper())
+            self.set_char_spacing(0)
+            # one line: shrink a long figure rather than wrap it
+            size = 10.5
+            self.set_font(FONT_FAMILY, "B", size)
+            while size > 7.5 and self.get_string_width(clean(value)) > tw:
+                size -= 0.25
+                self.set_font(FONT_FAMILY, "B", size)
+            self.set_text_color(*INK)
+            self.set_xy(tx, y + 9.2)
+            self.cell(tw, 5.5, clean(value))
+        return y + h
 
     def stat_strip(self, stats, y, dark=False):
         """Three or four headline numbers in a row. Returns the bottom y."""
@@ -447,7 +529,13 @@ class MTCBrochure(FPDF):
             self.set_y(y)
         y = self.get_y()
         row_h = 5.6
-        h = 11 + row_h * len(rows)
+        value_w = CONTENT_W - 42
+        # Long terms wrap instead of running past the panel edge (the conveyor
+        # lead time did), so measure each value's line count first.
+        self.set_font(FONT_FAMILY, "", 8.5)
+        lines = [len(self.multi_cell(value_w, row_h, clean(v), align="L", dry_run=True, output="LINES"))
+                 for _, v in rows]
+        h = 11 + row_h * sum(lines)
         self.set_fill_color(*PANEL)
         self.rect(MARGIN, y, CONTENT_W, h, "F", round_corners=True, corner_radius=2)
 
@@ -459,7 +547,7 @@ class MTCBrochure(FPDF):
         self.set_char_spacing(0)
 
         ry = y + 9.5
-        for name, value in rows:
+        for (name, value), n in zip(rows, lines):
             self.set_xy(MARGIN + 6, ry)
             self.set_font(FONT_FAMILY, "B", 8.5)
             self.set_text_color(*INK)
@@ -467,8 +555,8 @@ class MTCBrochure(FPDF):
             self.set_xy(MARGIN + 36, ry)
             self.set_font(FONT_FAMILY, "", 8.5)
             self.set_text_color(*INK_BODY)
-            self.cell(CONTENT_W - 42, row_h, clean(value))
-            ry += row_h
+            self.multi_cell(value_w, row_h, clean(value), align="L")
+            ry += row_h * n
 
         self.set_y(y + h)
         return y + h

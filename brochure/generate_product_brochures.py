@@ -16,20 +16,59 @@ Each entry needs:
                   product (defaults to main_image)
     gallery       folder scanned for up to three gallery photos
     summary       130-170 words condensed to two or three sentences
-    stats         three headline figures, (value, caption)
+    stats         three headline figures for the cover, (value, caption)
     specs         (label, value) rows for the specification table
     features      design and durability points
     steps         (title, description) process flow
     apps          (sector, description)
     faqs          (question, answer)
+
+The "Key specifications" box on page 2 is not copied here: it is read from
+the product page's `specs` in product-data.php (via the php CLI), so the
+brochure always shows the same four figures as the website.
 """
 import glob
+import json
+import shutil
+import subprocess
 import sys
 
 from brochure_layout import (
     COL_R_X, COL_W, CONTENT_W, FONT_FAMILY, INK, INK_BODY, INK_SOFT, MARGIN,
     FOOTER_Y, PANEL, RED, RULE, MTCBrochure, clean, cutout_image, fit_image,
 )
+
+# Brochure key -> product page slug in product-data.php.
+SITE_SLUG = {
+    "coal-crusher-single": "coal-crusher-5-No-single-disc",
+    "coal-crusher-double": "coal-crusher-5-No-double-disc",
+    "coke-cutter-double-drive": "coke-cutter-double-drive",
+    "coke-cutter-ring-type": "coke-cutter-double-drive-ring-type",
+    "haulage": "haulage",
+    "power-winch": "power-winch",
+    "vibrator-screen": "vibrator-screen",
+    "pusher": "pusher-with-stamping-arrangement",
+    "charging-car": "coal-charging-car",
+    "conveyor-materials": "conveyor-materials",
+}
+
+_site_specs = None
+
+
+def site_specs(key):
+    """[(icon, label, value)] from the product page's spec grid."""
+    global _site_specs
+    if _site_specs is None:
+        php = shutil.which("php")
+        if not php:
+            sys.exit("php is needed to read product-data.php (the Key specifications box).")
+        out = subprocess.run(
+            [php, "-r", 'include "product-data.php"; echo json_encode(array_map('
+                        'fn($p) => $p["specs"], $MTC_PRODUCTS));'],
+            capture_output=True, text=True, check=True, encoding="utf-8")
+        _site_specs = json.loads(out.stdout)
+    return [tuple(s) for s in _site_specs[SITE_SLUG[key]]]
+
 
 # Same wording as the "Buying information" box on every product page.
 # Keep the two in sync: the contact-page FAQ has to agree with these terms.
@@ -44,18 +83,18 @@ PRODUCTS = {
     "coal-crusher-single": {
         "output": "Manual_Tools_Co_Coal_Crusher_Single_Disc.pdf",
         "title": "Coal Crusher (5 No.)",
-        "subtitle": "Single Disc - Fine Coal Disintegrator",
+        "subtitle": "Single Disc - Coal Disintegrator",
         "main_image": "assets/img/product-images/coal-crusher-single-disc/coal-crusher-2.png",
         "cover_image": "assets/img/slide/Coal-Crusher.png",
         "gallery": "assets/img/product-images/coal-crusher-single-disc/",
-        "summary": "A single disc coal crusher that pulverises coal to below 2 mm for coke oven and boiler feed. Six manganese steel hammers run inside a 12 mm fabricated body, and the extra-wide disc keeps the output size uniform across the full 8 - 10 TPH range.",
+        "summary": "A single disc coal crusher that pulverises coal to below 2 mm for coke oven and boiler feed. Six mild steel hammers run inside a 12 mm fabricated body, and the extra-wide disc keeps the output size uniform across the full 8 - 10 TPH range.",
         "stats": [("8 - 10 TPH", "Crushing capacity"), ("80 - 120 HP", "Motor range"), ("< 2 mm", "Output size")],
         "specs": [
             ("Crushing Capacity", "8 - 10 Tons / Hour"),
             ("Motor", "80 - 120 H.P."),
             ("Input Feed Size", "Up to 125 mm"),
             ("Output Size", "Below 2 mm"),
-            ("Hammers", "6 Nos., Manganese Steel"),
+            ("Hammers", "6 Nos., Mild Steel"),
             ("Body Thickness", "12 mm Fabricated Steel"),
         ],
         "features": [
@@ -67,7 +106,7 @@ PRODUCTS = {
         ],
         "steps": [
             ("Gravity Feed", "Raw coal lumps up to 125 mm are delivered by conveyor and drop into the crushing chamber through the top hopper."),
-            ("High-Speed Impact", "The single disc rotates at speed. Six manganese steel hammers throw the coal against the liner plates and shatter it on contact."),
+            ("High-Speed Impact", "The single disc rotates at speed. Six mild steel hammers throw the coal against the liner plates and shatter it on contact."),
             ("Fine Discharge", "The pulverised coal passes the grate bars below 2 mm and discharges onto the outgoing conveyor, ready for the oven or boiler."),
         ],
         "apps": [
@@ -78,7 +117,7 @@ PRODUCTS = {
         "faqs": [
             ("What is the output size?", "The single disc crusher is calibrated to produce a fine output below 2 mm."),
             ("What is the motor capacity?", "An electrical motor between 80 H.P. and 120 H.P., depending on the tons per hour you need."),
-            ("Are the hammers replaceable?", "Yes. The six manganese steel hammers are replaced through the side access door without dismantling the rotor."),
+            ("Are the hammers replaceable?", "Yes. The six mild steel hammers are replaced through the side access door without dismantling the rotor."),
             ("What is the delivery time?", "Made to order; fabrication usually takes 3 - 4 weeks depending on the production queue."),
             ("What maintenance does it need?", "Check the liner plates and grease the bearings routinely. Replace the hammers when worn."),
         ],
@@ -90,25 +129,25 @@ PRODUCTS = {
         "main_image": "assets/img/product-images/coal-crusher-double-disc/coal-crusher-2.png",
         "cover_image": "assets/img/slide/Coal-Crusher-Double-disc.png",
         "gallery": "assets/img/product-images/coal-crusher-double-disc/",
-        "summary": "A double disc coal crusher for high-volume plants: up to 25 TPH, with 12 manganese steel hammers that reduce coal lumps up to 150 mm to below 2 mm.",
-        "stats": [("20 - 25 TPH", "Crushing capacity"), ("160 - 200 HP", "Motor range"), ("< 2 mm", "Output size")],
+        "summary": "A double disc coal crusher for high-volume plants: up to 25 TPH, with 12 mild steel hammers that reduce coal lumps up to 150 mm to below 2 mm.",
+        "stats": [("20 - 25 TPH", "Crushing capacity"), ("150 - 180 HP", "Motor range"), ("< 2 mm", "Output size")],
         "specs": [
             ("Crushing Capacity", "20 - 25 Tons / Hour"),
-            ("Motor", "160 - 200 H.P."),
+            ("Motor", "150 - 180 H.P."),
             ("Input Feed Size", "Below 150 mm"),
             ("Output Size", "Below 2 mm"),
-            ("Hammers", "12 Nos., Manganese Steel"),
+            ("Hammers", "12 Nos., Mild Steel"),
             ("Body Thickness", "12 mm Fabricated Steel"),
         ],
         "features": [
-            "Double disc rotor carrying 12 manganese hammers",
+            "Double disc rotor carrying 12 mild steel hammers",
             "Individually replaceable hammers",
             "12 mm fabricated steel housing",
             "Handles moisture up to 10 - 12%",
         ],
         "steps": [
             ("Large Feed Intake", "Accepts lumps up to 150 mm; the wide hopper spreads material across both discs."),
-            ("Dual Rotor Impact", "Two discs carrying 12 manganese hammers create a dense impact zone."),
+            ("Dual Rotor Impact", "Two discs carrying 12 mild steel hammers create a dense impact zone."),
             ("High Volume Discharge", "Crushed coal passes the calibrated grate bars at up to 25 TPH, below 2 mm."),
         ],
         "apps": [
@@ -118,7 +157,7 @@ PRODUCTS = {
         ],
         "faqs": [
             ("How does it differ from the Single Disc?", "Two rotors and 12 hammers give 20 - 25 TPH and accept 150 mm feed, versus 8 - 10 TPH for the Single Disc."),
-            ("What motor is required?", "A slip-ring or squirrel cage motor between 160 HP and 200 HP."),
+            ("What motor is required?", "A slip-ring or squirrel cage motor between 150 HP and 180 HP."),
             ("Can it handle wet coal?", "Up to 10 - 12% moisture; clean the grate bars more often for sticky coal."),
             ("Are the hammers replaceable individually?", "Yes, each hammer can be replaced or reversed without dismantling the rotor."),
             ("What is the delivery timeline?", "Made to order; fabrication usually takes 4 - 5 weeks depending on the production queue."),
@@ -262,13 +301,12 @@ PRODUCTS = {
             ("Operation", "Vertical Lift"),
             ("Lifting Speed", "Approx. 2 - 4 m / min"),
             ("Gearbox", "Self-Locking Worm Reducer"),
-            ("Drum", "Grooved Steel"),
+            ("Drum", "Grooved Steel Drum / Steel Drum"),
         ],
         "features": [
             "Self-locking worm reducer gearbox",
-            "Cast steel and phosphor bronze gears",
-            "Grooved steel drum for wire rope",
-            "Electro-magnetic motor brake available",
+            "Gears for a smooth, non-jerky lift",
+            "Grooved steel drum or steel drum for wire rope",
         ],
         "steps": [
             ("Drive Activation", "The electric motor engages and drives the worm gearbox input shaft through a coupling."),
@@ -283,7 +321,7 @@ PRODUCTS = {
         "faqs": [
             ("Why a worm gearbox instead of helical?", "Worm gearboxes are self-locking: if power fails, the door's weight cannot drive the motor backwards."),
             ("What is the lifting speed?", "Slow and controlled, approximately 2 - 4 metres/minute, for safety."),
-            ("Does it come with a brake?", "We recommend and supply an electro-magnetic brake on the motor shaft for double safety."),
+            ("Does it come with a brake?", "The worm reducer gearbox is self-locking, so the door's weight cannot drive the motor backwards if the power fails."),
             ("What capacity do I need for a coke oven?", "Standard coke oven doors usually need 2.5 to 5 tons, depending on battery height and door weight."),
             ("Is the wire rope included?", "Yes, a standard length is included; rope length and diameter can be customised."),
         ],
@@ -292,8 +330,8 @@ PRODUCTS = {
         "output": "Manual_Tools_Co_Vibrator_Screen.pdf",
         "title": "Vibrator Screen Machine",
         "subtitle": "Multi-Deck Series - Industrial Grading & Sorting",
-        "main_image": "assets/img/product-images/vibrator-screen/Vibrator-Screen.png",
-        "cover_image": "assets/img/slide/Vibrator-Screen.png",
+        "main_image": "assets/img/product-images/vibrator-screen/Vibrator-Screen-3.png",
+        "cover_image": "assets/img/product-images/vibrator-screen/Vibrator-Screen-3.png",
         "gallery": "assets/img/product-images/vibrator-screen/",
         "summary": "A heavy-duty vibrating screen for coke and coal. An eccentric shaft gives strong vibration and high screening efficiency, in 1 to 4 deck configurations.",
         "stats": [("1 - 4", "Screening decks"), ("7.5 - 15 HP", "Motor range"), ("5' x 16'", "Max screen size")],
@@ -358,7 +396,7 @@ PRODUCTS = {
             ("Coke Ejection", "After carbonisation, the pusher beam rams the finished coke mass out of the oven."),
         ],
         "apps": [
-            ("Coke Ovens", "Horizontal coke ovens that use stamping technology."),
+            ("Coke Ovens", "Stamp-charged horizontal coke ovens."),
             ("Steel Plants", "Producing high-density metallurgical coke for blast furnaces."),
             ("Coal Carbonisation", "Consistent coal cake density for uniform carbonisation."),
         ],
@@ -406,7 +444,7 @@ PRODUCTS = {
             ("What travel system is used?", "Rail-mounted track wheels driven by a 15 HP slip-ring or squirrel cage motor."),
             ("How many charging mouths?", "Standard configuration is 4, matching the 4 charging holes on the oven top."),
             ("Is the discharge automated?", "Slide gates are motorised (3 HP) for semi-automatic operation, with a manual override wheel."),
-            ("What safety features are included?", "Hydraulic buffers, electromagnetic brakes, travel alarms and operator cabin heat shields."),
+            ("What safety features are included?", "Hydraulic buffers, travel alarms and operator cabin heat shields."),
             ("Can it handle wet coal?", "Yes, the steep conical hoppers help wet coal flow."),
         ],
     },
@@ -471,8 +509,8 @@ def gallery_images(folder, limit=3):
     )[:limit]
 
 
-def page_overview(pdf, p):
-    """Page 2: title, summary, hero shot, headline figures, specifications."""
+def page_overview(pdf, p, key):
+    """Page 2: title, summary, hero shot, key specifications, full table."""
     pdf.add_page()
     pdf.set_y(30)
 
@@ -504,8 +542,10 @@ def page_overview(pdf, p):
     pdf.set_text_color(*INK_BODY)
     pdf.multi_cell(COL_W, 5.2, clean(p["summary"]), new_x="LMARGIN", new_y="NEXT")
 
-    y = max(pdf.get_y(), top + hero_h) + 9
-    y = pdf.stat_strip(p["stats"], y)
+    # The cover already carries the three headline figures; this box shows
+    # the product page's own four specs instead of repeating them.
+    y = max(pdf.get_y(), top + hero_h) + 8
+    y = pdf.key_specs(site_specs(key), y)
 
     pdf.set_y(y)
     pdf.section("Specifications")
@@ -516,8 +556,11 @@ def page_overview(pdf, p):
     right_bottom = pdf.feature_list(p["features"], COL_R_X, y + 5.5, COL_W)
 
     pdf.set_y(max(left_bottom, right_bottom) + 8)
-    pdf.buying_info(p.get("buying", BUYING_INFO))
-    pdf.quote_block()
+    bottom = pdf.buying_info(p.get("buying", BUYING_INFO))
+    # No quotation panel here: the last page carries it, and dropping it gives
+    # the specifications room. Stop rather than let the page spill over.
+    if bottom > FOOTER_Y - 8:
+        sys.exit(f"{key}: page 2 content ends at {bottom:.1f} mm, into the footer at {FOOTER_Y:.1f} mm")
 
 
 def page_process(pdf, p):
@@ -632,7 +675,7 @@ def build(key):
     p = PRODUCTS[key]
     pdf = MTCBrochure(product_name=f"{p['title']} - {p['subtitle']}")
     pdf.cover(p["title"], p["subtitle"], p.get("cover_image", p["main_image"]), p["stats"])
-    page_overview(pdf, p)
+    page_overview(pdf, p, key)
     page_process(pdf, p)
     page_gallery(pdf, p, key)
 

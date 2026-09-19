@@ -1,0 +1,2151 @@
+           /*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+           
+           body {
+               font-family: var(--font-sans);
+               color: #4d4643;
+           }
+           
+           a {
+               color: var(--primary-color);
+               text-decoration: none;
+           }
+           
+           a:hover {
+               color: #fd5c28;
+               text-decoration: none;
+           }
+           
+           h1,
+           h2,
+           h3,
+           h4,
+           h5,
+           h6 {
+               font-family: var(--font-sans);
+           }
+           /*--------------------------------------------------------------
+# Modern Hero Section
+--------------------------------------------------------------*/
+           
+           #hero {
+               width: 100%;
+               height: 85vh;
+               /* Taller = More Modern */
+               overflow: hidden;
+               position: relative;
+               background-color: #1a1a1a;
+               /* Dark fallback */
+           }
+           /* Dark Gradient Overlay - Makes text readable on any machine photo */
+           
+           #hero .carousel-item::before {
+               content: "";
+               position: absolute;
+               top: 0;
+               left: 0;
+               right: 0;
+               bottom: 0;
+               background: linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.1) 100%);
+               z-index: 1;
+           }
+           /* Glass/Industrial Text Box */
+           /* Typography */
+           
+           #hero h2 {
+               color: #fff;
+               margin-bottom: 20px;
+               font-size: 48px;
+               font-weight: 800;
+               /* Extra Bold */
+               text-transform: uppercase;
+               line-height: 1.1;
+               letter-spacing: 1px;
+               opacity: 0;
+               /* Hidden for animation */
+               animation: slideInDown 1s ease-out forwards;
+           }
+           
+           #hero h2 span {
+               color: var(--primary-color);
+               /* Orange Subtitle */
+               display: block;
+               font-size: 0.6em;
+               font-weight: 600;
+               margin-top: 10px;
+           }
+           /* The Button */
+           /* Custom Navigation Arrows */
+           
+           #hero .carousel-control-prev,
+           #hero .carousel-control-next {
+               width: 60px;
+               height: 60px;
+               background: rgba(0, 0, 0, 0.5);
+               top: 50%;
+               transform: translateY(-50%);
+               opacity: 1;
+               border: 1px solid rgba(255, 255, 255, 0.2);
+               transition: all 0.3s;
+           }
+           
+           #hero .carousel-control-prev:hover,
+           #hero .carousel-control-next:hover {
+               background: var(--primary-color);
+           }
+           
+           #hero .carousel-control-prev {
+               left: 0;
+           }
+           
+           #hero .carousel-control-next {
+               right: 0;
+           }
+           /* Indicators (Lines instead of dots) */
+           /* Animations */
+           
+           @keyframes slideInDown {
+               0% {
+                   transform: translateY(-50px);
+                   opacity: 0;
+               }
+               100% {
+                   transform: translateY(0);
+                   opacity: 1;
+               }
+           }
+           
+           /* Mobile Responsiveness */
+           
+           @media (max-width: 768px) {
+               #hero {
+                   height: 70vh;
+               }
+               #hero .carousel-item::before {
+                   /* On mobile, darken the whole image more so text is readable */
+                   background: rgba(0, 0, 0, 0.6);
+               }
+               #hero h2 {
+                   font-size: 28px;
+               }
+           }
+           /*--------------------------------------------------------------
+# Sections General
+--------------------------------------------------------------*/
+           
+           section {
+               padding: 60px 0;
+               overflow: hidden;
+           }
+           
+           .section-bg {
+               background-color: #f6f3f2;
+           }
+           
+           .section-title {
+               padding-bottom: 30px;
+               text-align: center;
+           }
+           
+           .section-title h2 {
+               font-size: 28px;
+               font-weight: 300;
+               margin-bottom: 20px;
+               padding-bottom: 0;
+               color: #65534c;
+           }
+           
+           .section-title h2 strong {
+               font-weight: 700;
+           }
+           
+           .section-title p {
+               margin-bottom: 0;
+           }
+           /*--------------------------------------------------------------
+# Services
+--------------------------------------------------------------*/
+           
+           .services {
+               padding: 60px 0;
+           }
+           
+           .services h3 {
+               font-size: 28px;
+               font-weight: 700;
+           }
+           
+           .services h3 span {
+               color: var(--primary-color);
+           }
+           
+           .services p {
+               padding: 0;
+               margin: 0;
+               text-align: left;
+           }
+           
+           @media (max-width: 1024px) {
+               .services {
+                   background-attachment: scroll;
+               }
+           }
+           /*--------------------------------------------------------------
+# Reasons
+--------------------------------------------------------------*/
+           
+           .strengths {
+               background: #f3f1f0;
+               padding: 60px 0;
+               color: #574741;
+           }
+           
+           .strengths .icon {
+               position: absolute;
+               top: -36px;
+               left: calc(50% - 36px);
+               transition: 0.2s;
+               border-radius: 50%;
+               border: 6px solid #fff;
+               display: flex;
+               justify-content: center;
+               align-items: center;
+               text-align: center;
+               width: 72px;
+               height: 72px;
+               background: var(--primary-color);
+           }
+           
+           .strengths .icon i {
+               color: #fff;
+               font-size: 24px;
+               line-height: 0;
+           }
+           
+           .strengths .title {
+               font-weight: 700;
+               margin-bottom: 15px;
+               font-size: 18px;
+               text-transform: uppercase;
+           }
+           
+           .strengths .title a {
+               color: #343a40;
+           }
+           
+           .strengths .description {
+               line-height: 24px;
+               font-size: 14px;
+           }
+           /*--------------------------------------------------------------
+# PhotoGallery
+--------------------------------------------------------------*/
+           
+           .portfolio #portfolio-flters {
+               padding: 0;
+               margin: 0 auto 50px auto;
+               list-style: none;
+               text-align: center;
+           }
+           
+           .portfolio #portfolio-flters li {
+               cursor: pointer;
+               display: inline-block;
+               padding: 8px 20px 10px 20px;
+               font-size: 14px;
+               font-weight: 400;
+               line-height: 1;
+               text-transform: uppercase;
+               color: #4d4643;
+               transition: all 0.3s;
+               border-radius: 50px;
+           }
+           
+           .portfolio #portfolio-flters li:hover,
+           .portfolio #portfolio-flters li.filter-active {
+               color: #fff;
+               background: var(--primary-color);
+           }
+           
+           .portfolio #portfolio-flters li:last-child {
+               margin-right: 0;
+           }
+           
+           .portfolio .portfolio-item {
+               margin-bottom: 30px;
+               border-radius: 5px;
+               overflow: hidden;
+               background: #fff;
+               box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+           }
+           
+           .portfolio .portfolio-item:hover {
+               transform: translateY(-5px);
+           }
+           
+           .portfolio .portfolio-item img {
+               width: 100%;
+               height: 200px;
+               /* Fixed height for all images */
+               object-fit: contain;
+               /* Ensure the entire image is visible within its container */
+               transition: transform 0.3s ease;
+           }
+           
+           .portfolio .portfolio-item .portfolio-info {
+               opacity: 1;
+               /* Always visible */
+               position: static;
+               /* Remove absolute positioning */
+               padding: 15px;
+               /* Adjust padding as needed */
+               text-align: center;
+               /* Center align content */
+               background: #fff;
+               /* White background */
+               border-top: 1px solid #eee;
+               /* Subtle border at the top */
+           }
+           
+           .portfolio .portfolio-item .portfolio-info h4 {
+               font-size: 18px;
+               color: #2b2320;
+               font-weight: 600;
+               margin-bottom: 5px;
+           }
+           
+           .portfolio .portfolio-item .portfolio-info p {
+               color: #65534c;
+               font-size: 14px;
+               margin-bottom: 0;
+           }
+           
+           .portfolio .portfolio-item .portfolio-info .preview-link {
+               display: none;
+               /* Hide these links as they're not needed with text always visible */
+           }
+           
+           .portfolio .portfolio-item .portfolio-links {
+               display: none;
+               /* Hide social links */
+           }
+           
+           .portfolio .portfolio-item:hover .portfolio-info {
+               bottom: auto;
+               /* Remove bottom animation */
+           }
+           /*--------------------------------------------------------------
+# About Us
+--------------------------------------------------------------*/
+           
+           .about-us .content {
+               padding: 30px 0;
+               margin: 10px;
+           }
+           
+           .about-us .content h3 {
+               font-weight: 700;
+               font-size: 34px;
+           }
+           
+           .about-us .content p {
+               margin-bottom: 0;
+               text-align: justify;
+           }
+           
+           .about-us .image {
+               position: relative;
+               min-height: 600px;
+           }
+           
+           .about-us .image::before {
+               content: "";
+               position: absolute;
+               top: 0;
+               left: 0;
+               right: 0;
+               bottom: 0;
+               background: url("../img/ISO.jpg") center center no-repeat;
+               background-size: 400px 600px;
+               transition: transform 0.3s ease;
+           }
+           
+           .about-us .image:hover::before {
+               transform: scale(1.1);
+           }
+           
+           @media (max-width: 991px) {
+               .about-us .image {
+                   text-align: center;
+               }
+               .about-us .image img {
+                   max-width: 80%;
+               }
+           }
+           
+           @media (max-width: 667px) {
+               .about-us .image img {
+                   max-width: 100%;
+               }
+           }
+           /*--------------------------------------------------------------
+# Features
+--------------------------------------------------------------*/
+           
+           .features {
+               padding-top: 20px;
+           }
+           
+           .features .nav-tabs {
+               border: 0;
+           }
+           
+           .features .nav-link {
+               border: 0;
+               padding: 25px 20px;
+               transition: 0.3s;
+               color: #2b2320;
+               display: flex;
+               /* align-items: center; */
+           }
+           
+           .features .nav-link:hover {
+               color: var(--primary-color);
+           }
+           
+           .features .nav-link h4 {
+               font-size: 18px;
+               font-weight: 600;
+           }
+           
+           .features .nav-link i {
+               margin-left: auto;
+               /* Pushes the icon to the right */
+           }
+           
+           .features .nav-link p {
+               font-size: 14px;
+               margin-bottom: 0;
+           }
+           
+           .features .nav-link.active {
+               box-shadow: 0px 0 15px rgba(0, 0, 0, 0.12);
+               color: var(--primary-color);
+           }
+           
+           .features .tab-pane.active {
+               animation: slide-down 0.5s ease-out;
+           }
+           
+           @keyframes slide-down {
+               0% {
+                   opacity: 0;
+               }
+               100% {
+                   opacity: 1;
+               }
+           }
+           /*--------------------------------------------------------------
+# Contact
+--------------------------------------------------------------*/
+           
+           .contact .info {
+               background: #fff;
+           }
+           /* 
+.contact .info-wrap i {
+    color: #000000;
+    font-size: 24px;
+    line-height: 0;
+} */
+           
+           .contact .php-email-form {
+               width: 100%;
+               box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
+               padding: 30px;
+               background: #fff;
+           }
+           
+           .contact .php-email-form .error-border {
+               border-color: red;
+           }
+           
+           .contact .php-email-form .form-group {
+               padding-bottom: 8px;
+           }
+           
+           .contact .php-email-form .error-msg {
+               display: none;
+               color: #fff;
+               background: #ed3c0d;
+               text-align: left;
+               padding: 15px;
+               font-weight: 600;
+           }
+           
+           .contact .php-email-form .error-msg br+br {
+               margin-top: 25px;
+           }
+           
+           .contact .php-email-form .sent-message {
+               display: none;
+               color: #fff;
+               background: #18d26e;
+               text-align: center;
+               padding: 15px;
+               font-weight: 600;
+           }
+           
+           .contact .php-email-form .loading {
+               display: none;
+               background: #fff;
+               text-align: center;
+               padding: 15px;
+           }
+           
+           .contact .php-email-form .loading:before {
+               content: "";
+               display: inline-block;
+               border-radius: 50%;
+               width: 24px;
+               height: 24px;
+               margin: 0 10px -6px 0;
+               border: 3px solid #18d26e;
+               border-top-color: #eee;
+               animation: animate-loading 1s linear infinite;
+           }
+           
+           .contact .php-email-form input,
+           .contact .php-email-form textarea {
+               border-radius: 0;
+               box-shadow: none;
+               font-size: 14px;
+           }
+           
+           .contact .php-email-form input {
+               height: 44px;
+           }
+           
+           .contact .php-email-form textarea {
+               padding: 10px 12px;
+           }
+           
+           .contact .php-email-form button[type="submit"] {
+               background: var(--primary-color);
+               border: 0;
+               padding: 10px 24px;
+               color: #fff;
+               transition: 0.4s;
+               border-radius: 4px;
+           }
+           
+           .contact .php-email-form button[type="submit"]:hover {
+               background: #fd5c28;
+           }
+           
+           @keyframes animate-loading {
+               0% {
+                   transform: rotate(0deg);
+               }
+               100% {
+                   transform: rotate(360deg);
+               }
+           }
+           /* =======================================================
+   MTC INDUSTRIAL SPLIT-CAROUSEL (FINAL VERSION)
+   ======================================================= */
+           
+           .mtc-hero-section {
+               position: relative;
+               width: 100%;
+               height: 85vh;
+               min-height: 650px;
+               background-color: #f4f4f4;
+               overflow: hidden;
+               align-items: center;
+               padding: 0;
+           }
+           /* Force Bootstrap height chain */
+           
+           .mtc-hero-section .carousel,
+           .mtc-hero-section .carousel-inner,
+           .mtc-hero-section .carousel-item {
+               height: 100% !important;
+           }
+           
+           .mtc-slide-grid {
+               height: 100%;
+               display: flex;
+               align-items: center;
+               position: relative;
+               z-index: 5;
+           }
+           
+           .mtc-text-col {
+               position: relative;
+               z-index: 10;
+               padding-right: 30px;
+           }
+           
+           .mtc-info-box {
+               background: #ffffff;
+               padding: 45px;
+               border-left: 8px solid var(--primary-color);
+               box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+               border-radius: 4px;
+               opacity: 0;
+               transform: translateX(-30px);
+               transition: all 0.1s ease-out;
+           }
+           
+           .carousel-item.active .mtc-info-box {
+               opacity: 1;
+               transform: translateX(0);
+           }
+           /* Typography */
+           
+           .mtc-badge {
+               color: var(--primary-color);
+               font-weight: 800;
+               letter-spacing: 3px;
+               font-size: 12px;
+               text-transform: uppercase;
+               display: block;
+               /* margin-bottom: 15px; */
+           }
+           
+           .mtc-title {
+               color: #1a1a1a;
+               font-size: 3.2rem;
+               font-weight: 800;
+               text-transform: uppercase;
+               line-height: 1;
+               margin-bottom: 20px;
+           }
+           
+           .mtc-subtitle {
+               color: #666;
+               font-size: 1.1rem;
+               line-height: 1.6;
+               /* margin-bottom: 35px; */
+               font-weight: 400;
+           }
+           
+           .mtc-btn {
+               display: inline-block;
+               background: var(--primary-color);
+               color: #fff;
+               padding: 15px 40px;
+               font-weight: 700;
+               text-transform: uppercase;
+               text-decoration: none;
+               transition: 0.3s;
+               letter-spacing: 1px;
+           }
+           
+           .mtc-btn:hover {
+               background: #111;
+               color: #fff;
+           }
+           
+           .mtc-btn i {
+               margin-left: 8px;
+           }
+           
+           .mtc-img-col {
+               height: 100%;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               position: relative;
+               background: radial-gradient( ellipse at center bottom, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.0) 65%);
+               background-size: 70% 40px;
+               background-repeat: no-repeat;
+               background-position: center bottom 15%;
+           }
+           
+           img.mtc-product-img {
+               max-width: 100%;
+               max-height: 75%;
+               object-fit: contain;
+               filter: drop-shadow(5px 15px 30px rgba(0, 0, 0, 0.2));
+               opacity: 0;
+               transform: translateX(30px) scale(0.95);
+               transition: all 0.2s ease-out;
+           }
+           
+           .carousel-item.active img.mtc-product-img {
+               opacity: 1;
+               transform: translateX(0) scale(1);
+           }
+           
+           .mtc-thumb-nav {
+               position: absolute;
+               bottom: 0;
+               left: 0;
+               width: 100%;
+               background: transparent !important;
+               padding: 10px 0;
+               z-index: 20;
+           }
+           
+           .mtc-thumb-scroll {
+               display: flex;
+               justify-content: center;
+               gap: 15px;
+               width: 100%;
+               overflow-x: auto;
+               padding-top: 15px;
+               padding-bottom: 15px;
+               scroll-behavior: smooth;
+               margin: 0 auto;
+               max-width: 100%;
+           }
+           
+           .mtc-thumb-scroll::-webkit-scrollbar {
+               height: 6px;
+           }
+           
+           .mtc-thumb-scroll::-webkit-scrollbar-track {
+               background: rgba(0, 0, 0, 0.05);
+               border-radius: 10px;
+           }
+           /* 2. The Scrollbar Handle (Thumb) */
+           
+           .mtc-thumb-scroll::-webkit-scrollbar-thumb {
+               background: #bbb;
+               border-radius: 10px;
+               transition: background 0.3s;
+           }
+           /* 3. Handle Hover State */
+           
+           .mtc-thumb-scroll::-webkit-scrollbar-thumb:hover {
+               background: var(--primary-color);
+               cursor: pointer;
+           }
+           
+           .mtc-thumb-item {
+               width: 110px;
+               flex-shrink: 0;
+               cursor: pointer;
+               background: #fff;
+               padding: 3px;
+               border-radius: 4px;
+               box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+               border: 2px solid transparent;
+               transition: 0.3s;
+               opacity: 0.7;
+           }
+           
+           .mtc-thumb-item img {
+               width: 100%;
+               height: 60px;
+               object-fit: cover;
+               border-radius: 2px;
+           }
+           
+           .mtc-thumb-item:hover {
+               opacity: 1;
+               transform: translateY(-3px);
+           }
+           
+           .mtc-thumb-item.active {
+               opacity: 1;
+               border-color: var(--primary-color);
+               /* Orange Border */
+               transform: translateY(-5px);
+           }
+           
+           .mtc-mobile-hero-img {
+               display: block;
+               width: 100%;
+               max-width: 350px;
+               height: 250px;
+               object-fit: contain;
+               margin: 15px auto 15px auto;
+               filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.15));
+           }
+           
+           @media (max-width: 991px) {
+               /* Reset Section Height */
+               .mtc-hero-section {
+                   height: auto !important;
+                   min-height: auto !important;
+                   padding-top: 10px;
+                   padding-bottom: 10px;
+                   display: block;
+               }
+               /* Reset Text Column */
+               .mtc-text-col {
+                   padding: 0 15px;
+                   width: 100%;
+               }
+               /* Info Box Styling */
+               .mtc-info-box {
+                   text-align: center;
+                   border-left: none;
+                   border-top: none;
+                   padding: 30px 20px;
+                   box-shadow: none;
+               }
+               /* Adjust Title Font for Mobile */
+               .mtc-title {
+                   font-size: 2rem;
+                   margin-top: 10px;
+               }
+               /* Thumbnails adjustments */
+               .mtc-thumb-nav {
+                   position: relative;
+                   margin-top: 20px;
+               }
+               .mtc-thumb-scroll {
+                   justify-content: flex-start;
+               }
+           }
+           /* ==============================================
+   MODERN STRENGTHS SECTION
+   ============================================== */
+           /* Section Background */
+           
+           .mtc-strengths-section {
+               padding: 50px 0;
+               background-color: var(--mtc-background-gray);
+               /* Very light grey */
+           }
+           /* Section Header styling */
+           
+           .mtc-section-header {
+               font-weight: 800;
+               text-transform: uppercase;
+               font-size: 2.5rem;
+               color: #333;
+               margin-bottom: 10px;
+           }
+           
+           .text-orange {
+               color: var(--primary-color);
+           }
+           /* THE CARD DESIGN */
+           
+           .mtc-feature-card {
+               background: #fff;
+               padding: 40px 30px;
+               position: relative;
+               overflow: hidden;
+               border: 1px solid #e5e5e5;
+               border-radius: 4px;
+               height: 100%;
+               /* Ensures equal height */
+               transition: all 0.4s ease;
+               z-index: 1;
+           }
+           /* Hover Effect: Lift up & Orange Border */
+           
+           .mtc-feature-card:hover {
+               transform: translateY(-10px);
+               box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+               border-bottom: 4px solid var(--primary-color);
+           }
+           /* The Icon Circle */
+           
+           .mtc-feature-card .icon-wrapper {
+               width: 60px;
+               height: 60px;
+               background: rgba(240, 60, 2, 0.1);
+               /* Faint Orange */
+               color: var(--primary-color);
+               border-radius: 50%;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               font-size: 24px;
+               margin-bottom: 25px;
+               transition: 0.3s;
+           }
+           /* Hover: Icon turns solid orange */
+           
+           .mtc-feature-card:hover .icon-wrapper {
+               background: var(--primary-color);
+               color: #fff;
+           }
+           /* Typography */
+           
+           .mtc-feature-card h4 {
+               font-size: 1.25rem;
+               font-weight: 700;
+               margin-bottom: 15px;
+               color: #222;
+               text-transform: uppercase;
+           }
+           
+           .mtc-feature-card p {
+               color: #666;
+               font-size: 0.95rem;
+               line-height: 1.6;
+               margin-bottom: 0;
+           }
+           /* BACKGROUND NUMBER (Watermark) */
+           
+           .card-bg-number {
+               position: absolute;
+               top: -10px;
+               right: 10px;
+               font-size: 6rem;
+               font-weight: 900;
+               color: rgba(0, 0, 0, 0.03);
+               /* Very faint grey */
+               z-index: -1;
+               font-family: var(--font-sans);
+               transition: 0.4s;
+           }
+           /* Hover: Number gets slightly darker/moves */
+           
+           .mtc-feature-card:hover .card-bg-number {
+               color: rgba(240, 60, 2, 0.08);
+               /* Faint orange tint */
+               transform: scale(1.1);
+           }
+           /* ==============================================
+   MODERN WELCOME & STATS SECTION
+   ============================================== */
+           
+           .mtc-about-section {
+               padding: 30px 0;
+               background-color: var(--mtc-background-white);
+               position: relative;
+               overflow: hidden;
+           }
+           /* --- LEFT SIDE: TEXT --- */
+           
+           .mtc-section-subtitle {
+               display: block;
+               color: #888;
+               font-size: 0.9rem;
+               font-weight: 600;
+               letter-spacing: 2px;
+               text-transform: uppercase;
+               margin-bottom: 10px;
+           }
+           
+           .mtc-section-title {
+               font-size: 2.8rem;
+               font-weight: 800;
+               color: #222;
+               line-height: 1.1;
+               margin-bottom: 25px;
+           }
+           
+           .text-orange {
+               color: var(--primary-color);
+           }
+           
+           .mtc-lead-text {
+               font-size: 1.2rem;
+               color: #444;
+               font-weight: 500;
+               border-left: 4px solid var(--primary-color);
+               padding-left: 20px;
+               margin-bottom: 20px;
+           }
+           
+           .mtc-body-text {
+               color: #666;
+               line-height: 1.7;
+               margin-bottom: 35px;
+           }
+           /* Action Row (Button + ISO) */
+           
+           .mtc-action-row {
+               display: flex;
+               align-items: center;
+               gap: 30px;
+               flex-wrap: wrap;
+           }
+           /* ISO Badge Styling */
+           
+           .mtc-iso-badge {
+               display: flex;
+               align-items: center;
+               gap: 15px;
+               border-left: 1px solid #ddd;
+               padding-left: 30px;
+           }
+           
+           .mtc-iso-badge i {
+               font-size: 2rem;
+           }
+           
+           .mtc-iso-badge span {
+               font-weight: 700;
+               color: #333;
+               line-height: 1.2;
+           }
+           
+           .mtc-iso-badge small {
+               font-weight: 400;
+               color: #777;
+           }
+           /* --- RIGHT SIDE: STATS CARDS --- */
+           
+           .mtc-stats-wrapper {
+               position: relative;
+               padding: 20px;
+           }
+           /* The Stat Box */
+           
+           .mtc-stat-card {
+               background: #fff;
+               padding: 30px 20px;
+               border-radius: 8px;
+               text-align: center;
+               border: 1px solid #f0f0f0;
+               box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+               /* Soft floaty shadow */
+               transition: 0.3s ease;
+               height: 100%;
+           }
+           
+           .mtc-stat-card:hover {
+               transform: translateY(-5px);
+               border-color: var(--primary-color);
+               box-shadow: 0 15px 40px rgba(240, 60, 2, 0.15);
+           }
+           
+           .stat-icon {
+               font-size: 2rem;
+               color: #ddd;
+               /* Initially grey */
+               margin-bottom: 15px;
+               transition: 0.3s;
+           }
+           
+           .mtc-stat-card:hover .stat-icon {
+               color: var(--primary-color);
+               /* Turns orange on hover */
+           }
+           
+           .mtc-stat-card h3 {
+               font-size: 2.5rem;
+               font-weight: 800;
+               color: #222;
+               margin-bottom: 5px;
+           }
+           
+           .mtc-stat-card p {
+               color: #666;
+               font-weight: 600;
+               margin-bottom: 0;
+               text-transform: uppercase;
+               font-size: 0.85rem;
+               letter-spacing: 1px;
+           }
+           /* Decorative Background Blob behind stats */
+           
+           .stat-bg-decoration {
+               position: absolute;
+               top: 50%;
+               left: 50%;
+               transform: translate(-50%, -50%);
+               width: 90%;
+               height: 90%;
+               background: radial-gradient(circle, rgba(240, 60, 2, 0.03) 0%, rgba(255, 255, 255, 0) 70%);
+               z-index: -1;
+               border-radius: 50%;
+           }
+           /* Mobile Adjustments */
+           
+           @media (max-width: 991px) {
+               .mtc-section-title {
+                   font-size: 2rem;
+               }
+               .mtc-action-row {
+                   flex-direction: column;
+                   align-items: flex-start;
+                   gap: 20px;
+               }
+               .mtc-iso-badge {
+                   border-left: none;
+                   padding-left: 0;
+               }
+               .mtc-stats-wrapper {
+                   margin-top: 40px;
+               }
+           }/* ==============================================
+   MTC MODERN SERVICES SECTION
+   ============================================== */
+
+
+.mtc-modern-services {
+    padding: 80px 0;
+    background-color: #f4f4f4;
+    position: relative;
+    overflow: hidden;
+}
+
+/* --- LEFT SIDE: TECHNICAL IMAGE --- */
+
+.mtc-tech-img-wrapper {
+    position: relative;
+    z-index: 1;
+    padding: 20px 0 20px 20px;
+}
+
+/* The Dotted Pattern Background */
+.tech-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150px;
+    height: 150px;
+    background-image: radial-gradient(#ddd 2px, transparent 2px);
+    background-size: 10px 10px;
+    z-index: -1;
+}
+
+.mtc-tech-img-wrapper .main-img {
+    border-radius: 8px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    /* Subtle zoom effect on load */
+    animation: fadeInScale 1s ease-out;
+}
+
+/* Glassmorphism Badge */
+.mtc-glass-badge {
+    position: absolute;
+    bottom: 40px;
+    left: -20px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-left: 4px solid var(--mtc-orange);
+    z-index: 2;
+}
+
+.mtc-glass-badge i {
+    font-size: 24px;
+}
+
+.mtc-glass-badge span {
+    line-height: 1.2;
+}
+
+/* --- RIGHT SIDE: GRID LAYOUT --- */
+
+.mtc-service-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two Columns */
+    gap: 20px;
+}
+
+.mtc-service-card {
+    background: #fff;
+    border: 1px solid #eee;
+    padding: 25px;
+    border-radius: 8px;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Spans across 2 columns */
+.mtc-service-card.full-width {
+    grid-column: span 2;
+    background: #fff9f7; /* Very light orange tint */
+    border-color: #ffecd9;
+}
+
+/* Hover Effects */
+.mtc-service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+    border-color: var(--mtc-orange);
+}
+
+/* The Icon */
+.mtc-service-card .card-icon {
+    width: 45px;
+    height: 45px;
+    background: rgba(240, 60, 2, 0.08);
+    color: var(--mtc-orange);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    transition: 0.3s;
+    flex-shrink: 0;
+}
+
+.mtc-service-card:hover .card-icon {
+    background: var(--mtc-orange);
+    color: #fff;
+}
+
+/* Text */
+.mtc-service-card h5 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #222;
+}
+
+.mtc-service-card p {
+    font-size: 13px;
+    color: #666;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Animation */
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .mtc-service-cards-grid {
+        grid-template-columns: 1fr; /* Stack on mobile */
+    }
+    .mtc-service-card.full-width {
+        grid-column: span 1;
+    }
+    .mtc-glass-badge {
+        left: 0;
+        bottom: -20px;
+    }
+    .mtc-tech-img-wrapper {
+        padding: 0;
+        margin-bottom: 50px;
+    }
+}
+           /* ==============================================
+   MODERN CLIENTS SECTION
+   ============================================== */
+           
+           .mtc-clients-section {
+               padding: 50px 0;
+               background-color: #faf9f8;
+               border-top: 1px solid #f0f0f0;
+           }
+           /* SECTION HEADERS */
+           
+           .mtc-section-header {
+               font-size: 2.2rem;
+               font-weight: 800;
+               color: #333;
+               text-transform: uppercase;
+           }
+           
+           .text-orange {
+               color: var(--primary-color);
+           }
+           /* CLIENT CARD (The Logo Box) */
+           
+           .mtc-client-card {
+               background: #fff;
+               border: 1px solid #eee;
+               border-radius: 8px;
+               padding: 20px;
+               height: 120px;
+               /* Fixed height for uniformity */
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               transition: all 0.3s ease;
+               position: relative;
+               overflow: hidden;
+           }
+           /* THE LOGO IMAGE styling */
+           
+           .mtc-client-card img {
+               max-width: 90%;
+               max-height: 70px;
+               /* Ensures logos don't get too tall */
+               object-fit: contain;
+               /* 1. Grayscale Effect (The Modern B2B Look) */
+               filter: grayscale(100%) opacity(0.6);
+               transition: all 0.4s ease;
+           }
+           /* HOVER EFFECTS */
+           
+           .mtc-client-card:hover {
+               border-color: var(--primary-color);
+               box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+               transform: translateY(-3px);
+               z-index: 2;
+           }
+           /* Bring Color Back on Hover */
+           
+           .mtc-client-card:hover img {
+               filter: grayscale(0%) opacity(1);
+               transform: scale(1.05);
+           }
+           
+           @media (max-width: 768px) {
+               .mtc-client-card {
+                   padding: 10px;
+                   height: 100px;
+               }
+               .mtc-client-card img {
+                   max-height: 50px;
+               }
+           }
+           /* Style for the "And Many More" card */
+           
+           .mtc-more-card {
+               background-color: #fdfdfd;
+               border: 2px dashed #ddd;
+               /* Dashed border implies "list continues" */
+               cursor: pointer;
+               text-decoration: none;
+               flex-direction: column;
+               /* Stack text vertically */
+           }
+           
+           .mtc-more-card .plus-icon {
+               display: block;
+               font-size: 2rem;
+               color: var(--primary-color);
+               /* Orange Plus */
+               font-weight: 300;
+               line-height: 1;
+               margin-bottom: 5px;
+               transition: 0.3s;
+           }
+           
+           .mtc-more-card .more-text {
+               font-size: 0.9rem;
+               font-weight: 700;
+               color: #888;
+               text-transform: uppercase;
+               line-height: 1.2;
+               transition: 0.3s;
+           }
+           /* Hover Effect */
+           
+           .mtc-more-card:hover {
+               background-color: var(--primary-color);
+               border-color: var(--primary-color);
+               border-style: solid;
+               /* Becomes solid on hover */
+           }
+           
+           .mtc-more-card:hover .plus-icon,
+           .mtc-more-card:hover .more-text {
+               color: #fff;
+               /* Turn text white on orange background */
+           }
+           /* ==============================================
+   MODERN VALUES SECTION (TABS)
+   ============================================== */
+           
+           .mtc-values-section {
+               padding: 50px 0;
+               background-color: var(--mtc-background-white);
+           }
+           /* --- LEFT SIDE: VERTICAL TABS --- */
+           
+           .mtc-vertical-tabs .nav-link {
+               background: #f8f9fa;
+               color: #555;
+               border: 1px solid #eee;
+               margin-bottom: 12px;
+               padding: 20px 25px;
+               text-align: left;
+               font-size: 1.1rem;
+               font-weight: 700;
+               text-transform: uppercase;
+               transition: all 0.3s ease;
+               border-radius: 4px;
+               position: relative;
+               overflow: hidden;
+           }
+           /* Icon Styles inside Tab */
+           
+           .mtc-vertical-tabs .nav-link i {
+               width: 25px;
+               text-align: center;
+           }
+           
+           .mtc-vertical-tabs .nav-link .arrow-icon {
+               opacity: 0;
+               transform: translateX(-10px);
+               transition: all 0.3s ease;
+           }
+           /* HOVER STATE */
+           
+           .mtc-vertical-tabs .nav-link:hover {
+               background: #fff;
+               border-color: var(--primary-color);
+               color: var(--primary-color);
+               box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+               transform: translateX(5px);
+               /* Slide right */
+           }
+           /* ACTIVE STATE (The "Orange Switch") */
+           
+           .mtc-vertical-tabs .nav-link.active {
+               background: var(--primary-color);
+               color: #fff;
+               border-color: var(--primary-color);
+               box-shadow: 0 10px 25px rgba(240, 60, 2, 0.3);
+           }
+           /* Show arrow when active */
+           
+           .mtc-vertical-tabs .nav-link.active .arrow-icon {
+               opacity: 1;
+               transform: translateX(0);
+           }
+           /* --- RIGHT SIDE: CONTENT CARD --- */
+           
+           .mtc-value-card {
+               background: #fff;
+               padding: 50px 40px;
+               border-left: 8px solid var(--primary-color);
+               box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+               position: relative;
+               overflow: hidden;
+               /* Clips the watermark */
+               min-height: 300px;
+               display: flex;
+               flex-direction: column;
+               justify-content: center;
+               border-radius: 0 8px 8px 0;
+           }
+           /* Typography */
+           
+           .mtc-value-card h3 {
+               font-size: 2.2rem;
+               font-weight: 800;
+               margin-bottom: 20px;
+               position: relative;
+               z-index: 2;
+               color: #222;
+           }
+           
+           .mtc-value-card p {
+               font-size: 1.05rem;
+               line-height: 1.8;
+               color: #555;
+               position: relative;
+               z-index: 2;
+               margin-bottom: 15px;
+           }
+           
+           .mtc-value-card strong {
+               color: #000;
+               font-weight: 700;
+           }
+           /* THE WATERMARK ICON (Background Faint Icon) */
+           
+           .watermark-icon {
+               position: absolute;
+               bottom: -20px;
+               right: 0;
+               font-size: 10rem;
+               color: rgba(0, 0, 0, 0.03);
+               /* Very faint grey */
+               z-index: 1;
+               transform: rotate(-15deg);
+               transition: 0.5s ease;
+           }
+           /* Animate watermark on hover */
+           
+           .mtc-value-card:hover .watermark-icon {
+               color: rgba(240, 60, 2, 0.08);
+               /* Faint orange */
+               transform: rotate(0deg) scale(1.1);
+           }
+           /* ANIMATION FOR TAB SWITCHING */
+           
+           .tab-pane.active {
+               animation: slideInRight 0.5s ease-out forwards;
+           }
+           
+           @keyframes slideInRight {
+               from {
+                   opacity: 0;
+                   transform: translateX(30px);
+               }
+               to {
+                   opacity: 1;
+                   transform: translateX(0);
+               }
+           }
+           /* Mobile Adjustments */
+           
+           @media (max-width: 991px) {
+               .mtc-vertical-tabs .nav-link {
+                   padding: 15px;
+                   font-size: 1rem;
+               }
+               .mtc-value-card {
+                   padding: 30px;
+                   min-height: auto;
+                   margin-top: 30px;
+               }
+               .watermark-icon {
+                   font-size: 6rem;
+               }
+           }
+           /* ==============================================
+   MODERN ABOUT & CERTIFICATE SECTION
+   ============================================== */
+           
+           .mtc-about-cert-section {
+               padding: 80px 0;
+               background-color: var(--mtc-background-gray);
+               /* Off-white background */
+               overflow: hidden;
+           }
+           /* --- LEFT SIDE: CERTIFICATE STYLING --- */
+           
+           .mtc-cert-wrapper {
+               position: relative;
+               padding: 20px;
+               display: inline-block;
+           }
+           /* The Certificate Image */
+           
+           .mtc-cert-img {
+               border: 10px solid #fff;
+               /* White matte border */
+               box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+               /* Deep Shadow */
+               position: relative;
+               z-index: 2;
+               max-height: 500px;
+               border-radius: 4px;
+           }
+           /* Make the orange frame look like a solid offset box */
+           
+           .mtc-cert-frame {
+               position: absolute;
+               top: 0;
+               left: 0;
+               width: 100%;
+               height: 100%;
+               /* Make border thicker */
+               border: 4px solid var(--primary-color);
+               /* Push it further away for a distinct "Layered" look */
+               transform: translate(-25px, -25px);
+               z-index: 1;
+               opacity: 0.2;
+               /* Subtle opacity */
+               border-radius: 4px;
+           }
+           /* The Floating Badge (30 Years) */
+           /* =========================================
+   FIX: BADGE POSITIONING & STYLE
+   ========================================= */
+           
+           .mtc-floating-badge {
+               position: absolute;
+               /* 1. Move DOWN: Hanging off the bottom edge */
+               bottom: -15px;
+               /* 2. Move RIGHT: Hanging off the side edge */
+               right: -25px;
+               background: var(--primary-color);
+               color: #fff;
+               padding: 12px 20px;
+               border-radius: 4px;
+               /* 3. SEPARATION: Add white border so it doesn't bleed into the photo */
+               border: 4px solid #fff;
+               /* 4. SHADOW: Make it pop off the page */
+               box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+               z-index: 3;
+               text-align: center;
+               min-width: 140px;
+               /* Ensure text fits on one line if needed */
+           }
+           /* Typography Tweaks inside Badge */
+           
+           .mtc-floating-badge .years {
+               display: block;
+               font-size: 2rem;
+               /* Make number bigger */
+               font-weight: 800;
+               line-height: 0.9;
+               margin-bottom: 3px;
+           }
+           
+           .mtc-floating-badge .text {
+               font-size: 0.75rem;
+               text-transform: uppercase;
+               font-weight: 700;
+               letter-spacing: 1px;
+               opacity: 0.9;
+           }
+           /* RESPONSIVE FIX: Prevent badge from falling off screen on mobile */
+           
+           @media (max-width: 768px) {
+               .mtc-floating-badge {
+                   right: 0;
+                   bottom: -20px;
+                   transform: scale(0.9);
+                   /* Slightly smaller on phone */
+               }
+           }
+           /* --- RIGHT SIDE: CONTENT --- */
+           
+           .mtc-section-tagline {
+               font-size: 0.9rem;
+               font-weight: 700;
+               letter-spacing: 2px;
+               color: #888;
+               text-transform: uppercase;
+               display: block;
+               margin-bottom: 5px;
+           }
+           
+           .mtc-lead-paragraph {
+               font-size: 1.15rem;
+               color: #333;
+               font-weight: 600;
+               margin-bottom: 15px;
+           }
+           
+           .mtc-body-paragraph {
+               color: #666;
+               line-height: 1.7;
+               margin-bottom: 30px;
+           }
+           /* FEATURE BOXES (Icon Grid) */
+           
+           .mtc-feature-box {
+               display: flex;
+               align-items: flex-start;
+           }
+           /* Icon Styling */
+           
+           .mtc-feature-box .icon-wrap {
+               flex-shrink: 0;
+               width: 50px;
+               height: 50px;
+               background: #fff;
+               border: 1px solid #eee;
+               border-radius: 50%;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               margin-right: 15px;
+               color: var(--primary-color);
+               font-size: 1.2rem;
+               box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+               transition: 0.3s;
+           }
+           
+           .mtc-feature-box:hover .icon-wrap {
+               background: var(--primary-color);
+               color: #fff;
+               transform: rotateY(180deg);
+           }
+           /* Text inside feature box */
+           
+           .mtc-feature-box .text-wrap h4 {
+               font-size: 1.1rem;
+               font-weight: 700;
+               color: #222;
+               margin-bottom: 5px;
+               text-transform: uppercase;
+           }
+           
+           .mtc-feature-box .text-wrap p {
+               font-size: 0.9rem;
+               color: #777;
+               line-height: 1.5;
+               margin: 0;
+           }
+           /* Mobile Adjustments */
+           
+           @media (max-width: 991px) {
+               .mtc-cert-wrapper {
+                   margin-bottom: 40px;
+               }
+               .mtc-floating-badge {
+                   right: 0;
+                   bottom: 0;
+               }
+               .mtc-cert-frame {
+                   display: none;
+               }
+           }
+           /* ==============================================
+   1. GLOBAL VARIABLES & UTILITIES
+   ============================================== */
+           
+           /* Fix for Issue #2: Helper class for the header text */
+           
+           .text-orange {
+               color: var(--primary-color) !important;
+           }
+           /* Modern Section Header Styling */
+           
+           .mtc-section-header {
+               font-weight: 800;
+               text-transform: uppercase;
+               letter-spacing: 1px;
+               margin-bottom: 10px;
+               color: #333;
+           }
+           /* ==============================================
+   2. MODERN PRODUCT SECTION
+   ============================================== */
+           
+           .mtc-products-section {
+               padding: 50px 0;
+               background-color: #fcfcfc;
+           }
+           
+           .mtc-product-card {
+               background: #fff;
+               border: 1px solid #eee;
+               border-radius: 6px;
+               overflow: hidden;
+               width: 100%;
+               transition: all 0.3s ease;
+               position: relative;
+               display: flex;
+               flex-direction: column;
+               height: 100%;
+               /* Ensures equal height in flex row */
+           }
+           
+           .mtc-product-card:hover {
+               transform: translateY(-8px);
+               box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+               border-color: #ddd;
+               border-top: 4px solid var(--primary-color);
+           }
+           /* ==============================================
+   3. IMAGE AREA & FIX FOR OVERLAY (Issue #1)
+   ============================================== */
+           /* IMAGE AREA - Auto Height (No Cropping) */
+           
+           .card-img-wrap {
+               height: auto;
+               width: 100%;
+               padding: 0;
+               overflow: hidden;
+               background: #fff;
+               border-bottom: 1px solid #eee;
+               display: block;
+               line-height: 0;
+           }
+           
+           .card-img-wrap img {
+               width: 100%;
+               height: auto;
+               display: block;
+               transition: transform 0.5s ease;
+           }
+           /* Hover: Zoom Image */
+           
+           .mtc-product-card:hover .card-img-wrap img {
+               transform: scale(1.05);
+               /* Gentle zoom */
+           }
+           /* ==============================================
+   4. CONTENT AREA
+   ============================================== */
+           
+           .card-body {
+               padding: 25px;
+               flex-grow: 1;
+               display: flex;
+               flex-direction: column;
+               text-align: left;
+           }
+           
+           .spec-badge {
+               display: inline-block;
+               background: #f0f0f0;
+               color: #666;
+               font-size: 0.75rem;
+               font-weight: 700;
+               text-transform: uppercase;
+               padding: 5px 10px;
+               border-radius: 4px;
+               margin-bottom: 12px;
+               letter-spacing: 0.5px;
+               align-self: flex-start;
+           }
+           
+           .product-title {
+               font-size: 1.15rem;
+               font-weight: 800;
+               margin-bottom: 15px;
+               line-height: 1.4;
+               color: #222;
+           }
+           
+           .product-title a {
+               color: #222;
+               text-decoration: none;
+               transition: 0.3s;
+           }
+           
+           .mtc-product-card:hover .product-title a {
+               color: var(--primary-color);
+           }
+           /* Footer Action */
+           
+           .card-footer-action {
+               margin-top: auto;
+               padding-top: 15px;
+               border-top: 1px dashed #eee;
+           }
+           
+           .view-link {
+               font-size: 0.9rem;
+               font-weight: 700;
+               color: var(--primary-color);
+               text-transform: uppercase;
+               text-decoration: none;
+               transition: 0.3s;
+               display: inline-flex;
+               align-items: center;
+           }
+           
+           .view-link i {
+               font-size: 0.8rem;
+               margin-left: 5px;
+               transition: 0.3s;
+           }
+           
+           .mtc-product-card:hover .view-link i {
+               transform: translateX(5px);
+           }
+           /* Button */
+           
+           .mtc-btn-outline {
+               display: inline-block;
+               padding: 12px 35px;
+               border: 2px solid var(--primary-color);
+               color: var(--primary-color);
+               font-weight: 700;
+               text-transform: uppercase;
+               text-decoration: none;
+               transition: 0.3s;
+               letter-spacing: 1px;
+           }
+           
+           .mtc-btn-outline:hover {
+               background: var(--primary-color);
+               color: #fff;
+               box-shadow: 0 5px 15px rgba(240, 60, 2, 0.3);
+           }
+           /* Mobile Adjustments */
+           
+           @media (max-width: 768px) {
+               .mtc-btn {
+                   padding: 12px 12px;
+               }
+               .card-img-wrap {
+                   height: 200px;
+               }
+               .mtc-product-card {
+                   max-width: 400px;
+                   margin: 0 auto 30px;
+               }
+           }
+           /* =================== Contact ================= */
+           
+           .contact-section {
+               padding: 60px 0 80px 0;
+               background: var(--bg-light);
+           }
+           /* --- INFO CARDS (Top Row) --- */
+           
+           .contact-info-card {
+               background: #fff;
+               padding: 30px 20px;
+               text-align: center;
+               border-radius: 6px;
+               box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+               border-bottom: 3px solid transparent;
+               transition: all 0.3s ease;
+               height: 100%;
+               margin-bottom: 20px;
+           }
+           
+           .contact-info-card:hover {
+               transform: translateY(-5px);
+               border-bottom-color: var(--primary-color);
+               box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+           }
+           
+           .contact-icon {
+               width: 60px;
+               height: 60px;
+               background: rgba(240, 60, 2, 0.1);
+               color: var(--primary-color);
+               border-radius: 50%;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               font-size: 24px;
+               margin: 0 auto 20px auto;
+               transition: 0.3s;
+           }
+           
+           .contact-info-card:hover .contact-icon {
+               background: var(--primary-color);
+               color: #fff;
+           }
+           
+           .contact-info-card h4 {
+               font-size: 1.1rem;
+               font-weight: 700;
+               margin-bottom: 10px;
+               color: var(--text-dark);
+               text-transform: uppercase;
+           }
+           
+           .contact-info-card p {
+               font-size: 0.9rem;
+               color: var(--text-gray);
+               margin-bottom: 5px;
+               line-height: 1.6;
+           }
+           
+           .contact-info-card a {
+               color: var(--text-gray);
+               text-decoration: none;
+               transition: 0.3s;
+           }
+           
+           .contact-info-card a:hover {
+               color: var(--primary-color);
+           }
+           /* --- FORM SECTION --- */
+           
+           .form-wrapper {
+               background: #fff;
+               padding: 40px;
+               border-radius: 8px;
+               box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+               height: 100%;
+           }
+           
+           .section-header-small {
+               margin-bottom: 30px;
+           }
+           
+           .section-header-small h3 {
+               font-weight: 800;
+               font-size: 1.8rem;
+               color: var(--text-dark);
+               margin-bottom: 10px;
+           }
+           
+           .section-header-small p {
+               color: var(--text-gray);
+           }
+           
+           .form-control {
+               height: 50px;
+               border-radius: 4px;
+               border: 1px solid #e0e0e0;
+               padding: 10px 15px;
+               font-size: 14px;
+               background: #fafafa;
+               transition: 0.3s;
+           }
+           
+           textarea.form-control {
+               height: auto;
+               padding-top: 15px;
+           }
+           
+           .form-control:focus {
+               border-color: var(--primary-color);
+               background: #fff;
+               box-shadow: 0 0 0 3px rgba(240, 60, 2, 0.1);
+           }
+           
+           .form-group {
+               margin-bottom: 20px;
+               position: relative;
+           }
+           /* Validation Styles */
+           
+           .error-border {
+               border-color: #dc3545 !important;
+               background-image: none !important;
+           }
+           /* Button */
+           
+           .btn-submit {
+               background: var(--primary-color);
+               color: #fff;
+               border: none;
+               padding: 12px 40px;
+               border-radius: 4px;
+               font-weight: 700;
+               text-transform: uppercase;
+               letter-spacing: 1px;
+               transition: 0.3s;
+               width: 100%;
+               cursor: pointer;
+           }
+           
+           .btn-submit:hover {
+               background: #d63300;
+               transform: translateY(-2px);
+               box-shadow: 0 5px 15px rgba(240, 60, 2, 0.3);
+           }
+           /* Messages */
+           
+           .sent-message {
+               display: none;
+               background: #d4edda;
+               color: #155724;
+               padding: 15px;
+               border-radius: 4px;
+               margin-bottom: 20px;
+               font-weight: 600;
+               text-align: center;
+           }
+           
+           .error-msg {
+               display: none;
+               background: #f8d7da;
+               color: #721c24;
+               padding: 15px;
+               border-radius: 4px;
+               margin-bottom: 20px;
+               font-weight: 600;
+               text-align: center;
+           }
+           
+           .loading {
+               display: none;
+               text-align: center;
+               padding: 10px;
+               font-weight: 600;
+               color: var(--primary-color);
+           }
+           /* --- MAP --- */
+           /* ==============================================
+   FAQ SECTION STYLES
+   ============================================== */
+           
+           .faq-wrapper {
+               background: #fff;
+               padding: 30px;
+               border-radius: 8px;
+               box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+               height: 100%;
+           }
+           
+           .custom-accordion .card {
+               border: none;
+               border-bottom: 1px solid #eee;
+               margin-bottom: 10px;
+               border-radius: 0;
+           }
+           
+           .custom-accordion .card:last-child {
+               border-bottom: none;
+           }
+           
+           .custom-accordion .card-header {
+               background: transparent;
+               padding: 0;
+               border: none;
+           }
+           
+           .custom-accordion .btn-link {
+               color: #333;
+               font-weight: 700;
+               text-decoration: none;
+               font-size: 1rem;
+               padding: 15px 0;
+               display: flex;
+               justify-content: space-between;
+               align-items: center;
+               transition: 0.3s;
+               text-align: left !important;
+           }
+           
+           .custom-accordion .btn-link:hover {
+               color: var(--primary-color);
+           }
+           
+           .custom-accordion .btn-link i {
+               font-size: 0.8rem;
+               color: var(--primary-color);
+               transition: transform 0.3s ease;
+           }
+           /* Rotate icon when open */
+           
+           .custom-accordion .btn-link[aria-expanded="true"] i {
+               transform: rotate(45deg);
+               /* Turns plus to X */
+           }
+           /* Active Question Color */
+           
+           .custom-accordion .btn-link[aria-expanded="true"] {
+               color: var(--primary-color);
+           }
+           
+           .custom-accordion .card-body {
+               padding-top: 0;
+               padding-bottom: 20px;
+               color: #666;
+               font-size: 0.95rem;
+               line-height: 1.6;
+               text-align: left !important;
+           }
+/* ==============================================
+   SEO/UX UPDATES (Sep 2026)
+   ============================================== */
+
+
+/* Home hero: two buttons side by side */
+.mtc-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.mtc-btn.mtc-btn-ghost {
+  background: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  padding: 13px 30px;
+}
+
+.mtc-btn.mtc-btn-ghost:hover {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+
+/* Products page: filter pills scroll sideways on phones instead of wrapping */
+@media (max-width: 767.98px) {
+  #product-filter-flters {
+    max-width: 100%;
+    white-space: nowrap;
+    overflow-x: auto;
+    text-align: left;
+    padding-bottom: 6px;
+    -webkit-overflow-scrolling: touch;
+  }
+  #product-filter-flters li {
+    margin-bottom: 4px;
+  }
+}

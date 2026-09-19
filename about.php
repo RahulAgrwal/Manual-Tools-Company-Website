@@ -43,6 +43,7 @@
   </script>
 
   <?php
+  $mtc_page_css = ['assets/css/about.css'];
   include('common-head.php');
   mtc_breadcrumb_schema(['About' => 'about']);
   ?>
@@ -50,282 +51,125 @@
 
 <body>
 
-
-  <!-- ======= Header ======= -->
-  <?php
-  include('header.php');
-  ?><!-- End Header -->
+  <?php include('header.php'); ?>
 
   <main id="main">
 
-    <!-- ======= Breadcrumbs ======= -->
     <section id="breadcrumbs" class="breadcrumbs">
-      <div class="container">
-
-        <div class="d-flex justify-content-between align-items-center">
+      <div class="wrap">
+        <div>
           <h1>About Manual Tools Company</h1>
           <ol>
             <li><a href="/">Home</a></li>
             <li>About</li>
           </ol>
         </div>
-
       </div>
-    </section><!-- End Breadcrumbs -->
+    </section>
 
-<!-- ============================================ -->
-<!-- MTC MODERN ABOUT & CERTIFICATE SECTION       -->
-<!-- ============================================ -->
-<section id="about-us" class="mtc-about-cert-section">
-  <div class="container">
-    <div class="row align-items-center">
-
-      <!-- LEFT COLUMN: The Certificate Showcase -->
-      <div class="col-lg-5 mb-5 mb-lg-0 text-center position-relative">
-        <div class="mtc-cert-wrapper">
-          <!-- Main Certificate Image -->
-          <!-- Make sure this points to your ISO image file -->
-          <img src="assets/img/ISO.jpg" alt="ISO 9001:2015 Certificate" class="img-fluid mtc-cert-img">
-
-          <!-- Decorative Frame Element -->
-          <div class="mtc-cert-frame"></div>
-
-          <!-- Floating Badge -->
-          <div class="mtc-floating-badge">
-            <span class="years">30+</span>
-            <span class="text">Years of<br>Excellence</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- RIGHT COLUMN: Content & Values -->
-      <div class="col-lg-7 ps-lg-5">
-        <div class="mtc-about-text">
-
-          <span class="mtc-section-tagline">Since 1995</span>
-          <h2 class="mtc-section-header">Coke Oven Machinery <span class="text-orange">Since 1995</span></h2>
-
-          <p class="mtc-lead-paragraph">
+    <!-- ======= Who we are =======
+         The certificate stays at the size it had (a 5-of-12 column) and is not
+         promoted: it expired in 2023 and the owner has asked for it to be left
+         as it is (BACKLOG.md). It now sits beside the text instead of leading
+         the page, and on phones it follows the text. -->
+    <section id="about-us" class="section about-intro">
+      <div class="wrap about-intro__grid">
+        <div class="about-intro__text">
+          <p class="about-eyebrow">Since 1995 in Dhanbad, Jharkhand</p>
+          <h2>Coke oven machinery, designed and built in Dhanbad</h2>
+          <p class="lede">
             We are a premier manufacturer of Coke Oven Machineries, based in Dhanbad, Jharkhand. For over three decades, we have set the industry standard for quality and reliability.
           </p>
-
-          <p class="mtc-body-paragraph">
-             We design and fabricate coal crushers, coke cutters, haulage machines, door lifting power winches, vibrator screens, conveyor materials, pusher machines and coal charging cars for coke oven plants, coal washeries and steel plants. Every machine can be built to the plant's own capacity and dimensions, and we support installation and commissioning on site.
+          <p>
+            We design and fabricate coal crushers, coke cutters, haulage machines, door lifting power winches, vibrator screens, conveyor materials, pusher machines and coal charging cars for coke oven plants, coal washeries and steel plants. Every machine can be built to the plant's own capacity and dimensions, and we support installation and commissioning on site.
           </p>
-
-          <p class="mtc-body-paragraph">
-             The company was founded in 1995 by the late Mr. Shobha Ram Agarwal and is run today by proprietor <strong>Mr. Ravindra Kr. Agarwal</strong>, from our workshop at Bastacolla, Dhansar, in Dhanbad. Our clients include coke, refractory, cement and steel companies across India, and we also supply buyers abroad.
+          <p>
+            The company was founded in 1995 by the late Mr. Shobha Ram Agarwal and is run today by proprietor <strong>Mr. Ravindra Kr. Agarwal</strong>, from our workshop at Bastacolla, Dhansar, in Dhanbad. Our clients include coke, refractory, cement and steel companies across India, and we also supply buyers abroad.
           </p>
-
-          <!-- The 4 Values Grid -->
-          <div class="row g-4 mt-2">
-
-            <!-- Item 1 -->
-            <div class="col-md-6">
-              <div class="mtc-feature-box">
-                <div class="icon-wrap">
-                  <i class="fas fa-cog"></i>
-                </div>
-                <div class="text-wrap">
-                  <h4>Standards</h4>
-                  <p>Rigorous quality control on all raw materials procured from reputed vendors.</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Item 2 -->
-            <div class="col-md-6">
-              <div class="mtc-feature-box">
-                <div class="icon-wrap">
-                  <i class="fas fa-pen-nib"></i>
-                </div>
-                <div class="text-wrap">
-                  <h4>Principle</h4>
-                  <p>Customers are our greatest asset. We never compromise on quality-driven principles.</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Item 3 -->
-            <div class="col-md-6">
-              <div class="mtc-feature-box">
-                <div class="icon-wrap">
-                  <i class="fas fa-tasks"></i>
-                </div>
-                <div class="text-wrap">
-                  <h4>Experience</h4>
-                  <p>Operating since 1995 with a dedicated team of 15+ specialized professionals.</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Item 4 -->
-            <div class="col-md-6">
-              <div class="mtc-feature-box">
-                <div class="icon-wrap">
-                  <i class="fas fa-shield-alt"></i>
-                </div>
-                <div class="text-wrap">
-                  <h4>Trust</h4>
-                  <p>Rest assured, you are in safe hands. Experience the difference reliability makes.</p>
-                </div>
-              </div>
-            </div>
-
-          </div> <!-- End Row -->
-
+          <div class="cluster about-intro__actions">
+            <a href="products" class="btn btn--quiet">See the machinery</a>
+            <a href="contact" class="btn btn--primary">Request a quote</a>
+          </div>
         </div>
+
+        <figure class="about-cert">
+          <img src="<?php echo mtc_img('assets/img/ISO.jpg'); ?>"
+               <?php echo mtc_img_size(mtc_img('assets/img/ISO.jpg')); ?>
+               alt="ISO 9001:2015 Certificate" loading="lazy" decoding="async">
+        </figure>
       </div>
 
-    </div>
-  </div>
-</section>
-<!-- End MTC MODERN ABOUT & CERTIFICATE SECTION -->
-    <!-- ======= Our Products Section ======= -->
-    <?php
-    include("our-products.php");
-    ?>
-    <!-- End Our Our Products Section Section -->
+      <!-- What we stand by: four short commitments, not a sequence. -->
+      <div class="wrap">
+        <ul class="about-values" aria-label="What we stand by">
+          <li><i class="fas fa-cog" aria-hidden="true"></i><h3>Standards</h3><p>Rigorous quality control on all raw materials procured from reputed vendors.</p></li>
+          <li><i class="fas fa-pen-nib" aria-hidden="true"></i><h3>Principle</h3><p>Customers are our greatest asset. We never compromise on quality-driven principles.</p></li>
+          <li><i class="fas fa-tasks" aria-hidden="true"></i><h3>Experience</h3><p>Operating since 1995 with a dedicated team of 15+ specialized professionals.</p></li>
+          <li><i class="fas fa-shield-alt" aria-hidden="true"></i><h3>Trust</h3><p>Rest assured, you are in safe hands. Experience the difference reliability makes.</p></li>
+        </ul>
+      </div>
+    </section>
 
-<!-- ============================================ -->
-<!-- MTC MODERN VALUES SECTION                    -->
-<!-- ============================================ -->
-<section id="features" class="mtc-values-section">
-  <div class="container">
+    <?php include("our-products.php"); ?>
 
-    <div class="section-title text-center mb-5">
-      <h2 class="mtc-section-header">Our <span class="text-orange">Core Values</span></h2>
-      <p class="text-muted">The principles that have driven our engineering excellence since 1995.</p>
-    </div>
-
-    <div class="row g-4 align-items-center">
-
-      <!-- LEFT COLUMN: The Navigation Tabs -->
-      <div class="col-lg-4">
-        <div class="nav flex-column nav-pills mtc-vertical-tabs" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-
-          <!-- Tab 1: History -->
-          <button class="nav-link active" id="v-pills-history-tab" data-bs-toggle="pill" data-bs-target="#v-pills-history" type="button" role="tab">
-            <div class="d-flex align-items-center justify-content-between w-100">
-              <span><i class="fas fa-history me-3"></i> Our History</span>
-              <i class="fas fa-arrow-right arrow-icon"></i>
-            </div>
-          </button>
-
-          <!-- Tab 2: Vision -->
-          <button class="nav-link" id="v-pills-vision-tab" data-bs-toggle="pill" data-bs-target="#v-pills-vision" type="button" role="tab">
-            <div class="d-flex align-items-center justify-content-between w-100">
-              <span><i class="fas fa-eye me-3"></i> Our Vision</span>
-              <i class="fas fa-arrow-right arrow-icon"></i>
-            </div>
-          </button>
-
-          <!-- Tab 3: Mission -->
-          <button class="nav-link" id="v-pills-mission-tab" data-bs-toggle="pill" data-bs-target="#v-pills-mission" type="button" role="tab">
-            <div class="d-flex align-items-center justify-content-between w-100">
-              <span><i class="fas fa-rocket me-3"></i> Our Mission</span>
-              <i class="fas fa-arrow-right arrow-icon"></i>
-            </div>
-          </button>
-
-          <!-- Tab 4: Ethics -->
-          <button class="nav-link" id="v-pills-ethics-tab" data-bs-toggle="pill" data-bs-target="#v-pills-ethics" type="button" role="tab">
-            <div class="d-flex align-items-center justify-content-between w-100">
-              <span><i class="fas fa-balance-scale me-3"></i> Core Ethics</span>
-              <i class="fas fa-arrow-right arrow-icon"></i>
-            </div>
-          </button>
-
+    <!-- ======= History, vision, mission, ethics =======
+         Was four Bootstrap vertical pill tabs, which hid three quarters of the
+         text behind clicks and needed the 79 KB Bootstrap bundle. All four are
+         short, so they are simply shown. -->
+    <section id="features" class="section about-story">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Our history and values</h2>
+          <p>The principles that have driven our engineering since 1995.</p>
+        </div>
+        <div class="about-story__grid">
+          <article>
+            <i class="fas fa-history" aria-hidden="true"></i>
+            <h3>Our history</h3>
+            <p>Established in 1995 in Dhanbad. A small beginning destined for a glorious future was made by <strong>Late Mr. Shobha Ram Agarwal</strong>. From a small firm indigenously manufacturing coke oven machinery, MTC has spread its wings to become a trusted supplier to coke oven plants across Eastern India and beyond.</p>
+          </article>
+          <article>
+            <i class="fas fa-eye" aria-hidden="true"></i>
+            <h3>Our vision</h3>
+            <p>To be the <strong>top-of-the-chart company</strong> manufacturing Coke Oven machinery, Conveyor Materials, and fabricated goods. We aim to deliver both standard and custom-built solutions that exceed customer expectations globally.</p>
+          </article>
+          <article>
+            <i class="fas fa-rocket" aria-hidden="true"></i>
+            <h3>Our mission</h3>
+            <p>To develop a nationwide market for our products and assure a growing volume of business. We strive to maintain our reputation for the <strong>finest quality products</strong> and the best service available anywhere in the industry.</p>
+          </article>
+          <article>
+            <i class="fas fa-balance-scale" aria-hidden="true"></i>
+            <h3>Core ethics</h3>
+            <p>At MTC, we are firmly dedicated to achieving <strong>customer delight</strong>. We promise premium products at the most economical prices, ensuring punctual delivery, and strictly adhering to fair and transparent business practices.</p>
+          </article>
         </div>
       </div>
+    </section>
 
-      <!-- RIGHT COLUMN: The Content Cards -->
-      <div class="col-lg-7 offset-lg-1">
-        <div class="tab-content mtc-tab-content" id="v-pills-tabContent">
+    <?php include("clients.php"); ?>
 
-          <!-- Content 1: History -->
-          <div class="tab-pane fade show active" id="v-pills-history" role="tabpanel">
-            <div class="mtc-value-card">
-              <i class="fas fa-history watermark-icon"></i>
-              <h3>A Legacy of <span class="text-orange">Excellence</span></h3>
-              <p class="lead">Established in 1995 in Dhanbad.</p>
-              <p>
-                A small beginning destined for a glorious future was made by <strong>Late Mr. Shobha Ram Agarwal</strong>.
-                From a small firm indigenously manufacturing coke oven machinery, MTC has spread its wings to become
-                a trusted supplier to coke oven plants across Eastern India and beyond.
-              </p>
-            </div>
-          </div>
-
-          <!-- Content 2: Vision -->
-          <div class="tab-pane fade" id="v-pills-vision" role="tabpanel">
-            <div class="mtc-value-card">
-              <i class="fas fa-eye watermark-icon"></i>
-              <h3>Future <span class="text-orange">Outlook</span></h3>
-              <p>
-                To be the <strong>top-of-the-chart company</strong> manufacturing Coke Oven machinery, Conveyor Materials,
-                and fabricated goods. We aim to deliver both standard and custom-built solutions that exceed customer
-                expectations globally.
-              </p>
-            </div>
-          </div>
-
-          <!-- Content 3: Mission -->
-          <div class="tab-pane fade" id="v-pills-mission" role="tabpanel">
-            <div class="mtc-value-card">
-              <i class="fas fa-rocket watermark-icon"></i>
-              <h3>Our <span class="text-orange">Mission</span></h3>
-              <p>
-                To develop a nationwide market for our products and assure a growing volume of business.
-                We strive to maintain our reputation for the <strong>finest quality products</strong> and the
-                best service available anywhere in the industry.
-              </p>
-            </div>
-          </div>
-
-          <!-- Content 4: Ethics -->
-          <div class="tab-pane fade" id="v-pills-ethics" role="tabpanel">
-            <div class="mtc-value-card">
-              <i class="fas fa-balance-scale watermark-icon"></i>
-              <h3>Core <span class="text-orange">Ethics</span></h3>
-              <p>
-                At MTC, we are firmly dedicated to achieving <strong>customer delight</strong>.
-                We promise premium products at the most economical prices, ensuring punctual delivery,
-                and strictly adhering to fair and transparent business practices.
-              </p>
-            </div>
-          </div>
-
+    <section class="cta-band">
+      <div class="wrap cta-band__inner">
+        <div>
+          <h2>Tell us what your plant needs</h2>
+          <p>Send us the capacity, your drawings and the delivery site, and we build to your requirements.</p>
+        </div>
+        <div class="cta-band__actions">
+          <a href="contact" class="btn btn--primary">Request a quote</a>
+          <a href="tel:+919430707348" class="cta-band__call">+91 94307 07348</a>
         </div>
       </div>
+    </section>
 
-    </div>
-  </div>
-</section>
-<!-- End MTC MODERN VALUES SECTION -->
+  </main>
 
-    <!-- ======= Our Clients Section ======= -->
-    <?php
-    include("clients.php");
-    ?>
-    <!-- End Our Clients Section -->
+  <?php include("footer.php"); ?>
 
+  <a href="#" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
 
-
-  </main><!-- End #main -->
-
-  <!-- ======= Footer ======= -->
-  <?php
-  include("footer.php");
-  ?><!-- End Footer -->
-
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="fas fa-arrow-up"></i></a>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <!-- No Bootstrap bundle: the vertical tabs were its only user on this page. -->
+  <script src="<?php echo mtc_asset('assets/js/main.js'); ?>"></script>
 
 </body>
 

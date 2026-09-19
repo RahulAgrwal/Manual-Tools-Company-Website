@@ -25,6 +25,11 @@ MAX_SIDE = [
 ]
 SKIP_DIRS = {"slide-thumbnail-1"}  # unused
 
+# Owned by tools/trim_cutouts.py, which trims the transparent margin off the
+# product cutouts before encoding. Regenerating them here from the untrimmed
+# PNG would silently undo that, so leave the folder alone.
+TRIM_OWNED = ("slide/",)
+
 # Folders whose photos also get a small "<name>.thumb.webp" for gallery strips.
 THUMB_DIRS = ("product-images", "about-us-products/")
 THUMB_SIDE = 320
@@ -65,6 +70,8 @@ def main():
         for name in filenames:
             src = Path(dirpath) / name
             if src.suffix.lower() not in SOURCE_TYPES:
+                continue
+            if (src.relative_to(ROOT).as_posix() + "/").startswith(TRIM_OWNED):
                 continue
             dst = convert(src)
             if dst:

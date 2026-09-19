@@ -1,0 +1,44 @@
+/* ==========================================================================
+   error.css -- the 404 page, on the tokens in mtc.css.
+   ========================================================================== */
+
+.error-page__code {
+  margin: 0 0 var(--s-3);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--c-action);
+}
+.error-page h1 { margin: 0 0 var(--s-4); }
+.error-page .lede { max-width: 52ch; }
+.error-page__actions { margin-top: var(--s-6); }
+
+.error-page__h2 {
+  margin: var(--s-8) 0 var(--s-4);
+  font-size: var(--fs-h4);
+}
+.error-page__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr));
+  gap: 0 var(--s-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--c-line);
+}
+.error-page__list li { border-bottom: 1px solid var(--c-line); }
+.error-page__list a {
+  display: block;
+  padding: var(--s-3) 0;
+  font-weight: var(--fw-bold);
+  color: var(--c-ink);
+  text-decoration: none;
+}
+.error-page__list a:hover { color: var(--c-action); }
+.error-page__list span {
+  display: block;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-body);
+  color: var(--c-ink-2);
+}

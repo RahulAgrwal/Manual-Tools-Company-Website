@@ -21,6 +21,8 @@ $domestic_clients = [
     ["image_path" => "assets/img/clients/domestic/krishna-coke.jpg", "image_name" => "Krishna Coke (INDIA) Pvt. Ltd."],
     ["image_path" => "assets/img/clients/domestic/MFPL.webp", "image_name" => "Metalik Fuel Private Limited"],
     ["image_path" => "assets/img/clients/domestic/Vivan-overseas.png", "image_name" => "VIVAN Overseas"],
+    ["image_path" => "assets/img/clients/domestic/Shree-Satya-Group.png", "image_name" => "Shree Satya Group"],
+    ["image_path" => "assets/img/clients/domestic/Mahalaxmi-Group.png", "image_name" => "Mahalaxmi Group"],
 ];
 
 $international_clients = [
@@ -28,67 +30,39 @@ $international_clients = [
 ];
 ?>
 
-<section id="clients" class="mtc-clients-section">
-    <div class="container">
-        
-        <!-- DOMESTIC SECTION -->
-        <div class="mb-5">
-            <div class="section-title text-center mb-4">
-                <h2 class="mtc-section-header">Domestic <span class="text-orange">Partners</span></h2>
-                <p class="text-muted">Trusted by leading Coke Oven plants across India</p>
-            </div>
-
-            <div class="row g-3 justify-content-center">
-                <?php foreach ($domestic_clients as $client) : ?>
-                    <!-- Using col-6 (mobile) to col-lg-2 (desktop) for a dense, neat grid -->
-                    <div class="col-lg-2 col-md-3 col-4">
-                        <div class="mtc-client-card">
-                            <img src="<?php echo mtc_img($client['image_path']); ?>" 
-                                 alt="<?php echo $client['image_name']; ?>" 
-                                 title="<?php echo $client['image_name']; ?>" 
-                                 loading="lazy" decoding="async">
-                        </div>
-                    </div>
-                <?php endforeach; ?>
-                                <!-- NEW: THE "AND MANY MORE" CARD -->
-                <div class="col-lg-2 col-md-3 col-4">
-                    <a href="contact" class="mtc-client-card mtc-more-card">
-                        <div class="text-center">
-                            <span class="plus-icon">+</span>
-                            <span class="more-text">And Many<br>More...</span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-<!-- INTERNATIONAL SECTION (Now matches Domestic Style) -->
-<div class="mt-5">
-    <div class="section-title text-center mb-4">
-        <h2 class="mtc-section-header">Global <span class="text-orange">Reach</span></h2>
-        <p class="text-muted">Exporting excellence beyond borders</p>
+<!-- One logo wall rather than two: the single international client used to
+     sit alone on its own row under a "Global Reach" heading. It now sits in
+     the same wall, marked, so the proof reads as one body of work. -->
+<section id="clients" class="section clients" aria-labelledby="clients-title">
+  <div class="wrap">
+    <div class="section-head section-head--center">
+      <h2 id="clients-title">Our clients</h2>
+      <p>Trusted by leading coke oven plants across India, and exporting beyond its borders.</p>
     </div>
 
-    <!-- 1. Use the SAME grid classes: row g-3 justify-content-center -->
-    <div class="row g-3 justify-content-center">
-        <?php foreach ($international_clients as $client) : ?>
-            
-            <!-- 2. Use the SAME column sizes: col-lg-2 col-md-3 col-4 -->
-            <div class="col-lg-2 col-md-3 col-4">
-                
-                <!-- 3. Use the standard .mtc-client-card (Remove 'international' class) -->
-                <!-- 4. Remove the <p> name and globe icon to match domestic style -->
-                <div class="mtc-client-card">
-                    <img src="<?php echo mtc_img($client['image_path']); ?>" 
-                         alt="<?php echo $client['image_name']; ?>" 
-                         title="<?php echo $client['image_name']; ?>" 
-                         loading="lazy" decoding="async">
-                </div>
-            </div>
-
-        <?php endforeach; ?>
-    </div>
-</div>
-
-    </div>
+    <ul class="clients__wall">
+      <?php foreach ($domestic_clients as $client) : ?>
+        <li class="clients__cell">
+          <img src="<?php echo mtc_img($client['image_path']); ?>"
+               <?php echo mtc_img_size(mtc_img($client['image_path'])); ?>
+               alt="<?php echo htmlspecialchars($client['image_name']); ?>"
+               title="<?php echo htmlspecialchars($client['image_name']); ?>"
+               loading="lazy" decoding="async">
+        </li>
+      <?php endforeach; ?>
+      <?php foreach ($international_clients as $client) : ?>
+        <li class="clients__cell clients__cell--intl">
+          <img src="<?php echo mtc_img($client['image_path']); ?>"
+               <?php echo mtc_img_size(mtc_img($client['image_path'])); ?>
+               alt="<?php echo htmlspecialchars($client['image_name']); ?>"
+               title="<?php echo htmlspecialchars($client['image_name']); ?>"
+               loading="lazy" decoding="async">
+          <span class="clients__tag">International</span>
+        </li>
+      <?php endforeach; ?>
+      <li class="clients__cell clients__cell--more">
+        <a href="contact">And many more</a>
+      </li>
+    </ul>
+  </div>
 </section>

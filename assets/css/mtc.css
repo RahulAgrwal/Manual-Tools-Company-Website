@@ -1,0 +1,1012 @@
+/* ==========================================================================
+   mtc.css -- the design system for manualtoolsco.com
+   "Engineered Light": cool paper, near-black ink, orange reserved for action.
+
+   Load order is tokens -> base -> primitives -> components. This file is the
+   ONLY place :root is declared; if you find another, delete it.
+
+   The palette is decided by the product photography. Every machine is
+   photographed as a cyan render, so the canvas is a cool near-white rather
+   than a warm cream: warm paper fights cyan, cool paper lets it sit.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Type -- one family, self-hosted, variable 400..700.
+   Archivo is an American gothic grotesque: flat-sided, high x-height, with
+   true tabular figures for the specification tables. Heading and body share
+   it; the contrast comes from size, weight and tracking, not a second family.
+   -------------------------------------------------------------------------- */
+@font-face {
+  font-family: "Archivo";
+  src: url("../fonts/archivo-latin-var.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+                 U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191,
+                 U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Metric-matched fallback so the swap does not move the layout (CLS). */
+@font-face {
+  font-family: "Archivo Fallback";
+  src: local("Segoe UI"), local("Helvetica Neue"), local("Arial");
+  size-adjust: 95%;
+  ascent-override: 92%;
+  descent-override: 24%;
+  line-gap-override: 0%;
+}
+
+:root {
+  /* ---- Surfaces: cool paper ------------------------------------------ */
+  --c-canvas:       #FAFBFC;
+  --c-canvas-sunk:  #F0F2F4;   /* recessed product wells, alternating bands */
+  --c-surface:      #FFFFFF;
+  --c-ink-surface:  #10161C;   /* footer and other dark panels */
+
+  /* ---- Ink ------------------------------------------------------------ */
+  --c-ink:          #10161C;   /* headings, spec values */
+  --c-ink-2:        #55606B;   /* body copy */
+  --c-ink-3:        #63707C;   /* labels, captions, meta. Was #8A949E: 2.75-3.08:1, failed WCAG AA */
+  --c-ink-on-dark:  #E8ECEF;
+
+  /* ---- Line ----------------------------------------------------------- */
+  --c-line:         #E2E6EA;
+  --c-line-strong:  #C8CFD6;
+
+  /* ---- Action. Orange is ONLY for primary actions --------------------- */
+  /* Owner decision 2026-09-18: fills use #CC3202 -- the brand hue a shade
+     deeper -- because white on #F03C02 is 3.92:1 and fails WCAG AA at button
+     text size. #CC3202 is 5.22:1. The logo keeps the original #F03C02. */
+  --c-action:       #CC3202;
+  --c-action-hover: #A82901;
+  --c-action-ink:   #FFFFFF;
+  --c-action-tint:  #FFF1EC;
+  --c-focus:        #1A5FD0;   /* deliberately not orange: it must read as UI */
+
+  /* ---- Status --------------------------------------------------------- */
+  --c-ok:   #1E7A4C;
+  --c-warn: #8A5D00;
+  --c-err:  #B3261E;
+
+  /* ---- Type ----------------------------------------------------------- */
+  --font-sans: "Archivo", "Archivo Fallback", "Segoe UI", system-ui,
+               -apple-system, sans-serif;
+
+  --fs-display: clamp(2.5rem, 1.7rem + 3.4vw, 4rem);
+  --fs-h1:      clamp(2rem, 1.55rem + 1.9vw, 3.125rem);
+  --fs-h2:      clamp(1.625rem, 1.38rem + 1vw, 2.25rem);
+  --fs-h3:      1.375rem;
+  --fs-h4:      1.125rem;
+  --fs-lg:      1.1875rem;
+  --fs-body:    1.0625rem;
+  --fs-sm:      0.9375rem;
+  --fs-xs:      0.8125rem;
+
+  --lh-display: 1.04;
+  --lh-head:    1.15;
+  --lh-body:    1.62;
+  --lh-ui:      1.3;
+
+  --tr-display: -0.03em;
+  --tr-head:    -0.017em;
+
+  --fw-body: 400;
+  --fw-med:  500;
+  --fw-bold: 700;
+
+  --measure: 68ch;
+
+  /* ---- Space: 4px base, nine steps, no more --------------------------- */
+  --s-1: 0.25rem;
+  --s-2: 0.5rem;
+  --s-3: 0.75rem;
+  --s-4: 1rem;
+  --s-5: 1.5rem;
+  --s-6: 2rem;
+  --s-7: 3rem;
+  --s-8: 4rem;
+  --s-9: 6rem;
+
+  --section-y: clamp(3rem, 1.75rem + 5vw, 6rem);
+  --gutter:    clamp(1rem, 0.5rem + 2vw, 2rem);
+  --wrap:      1200px;
+
+  /* ---- Radius: near-square is the point. Size carries hierarchy. ------ */
+  --r-1: 2px;    /* inputs, chips */
+  --r-2: 4px;    /* cards, buttons */
+  --r-3: 14px;   /* the product well, and nothing else */
+  --r-pill: 999px;
+
+  /* ---- Elevation: hairlines first. Shadow has two authorised users:
+          the sticky quote card and the mobile CTA bar. ------------------ */
+  --shadow-1: 0 1px 2px rgb(16 22 28 / 0.05);
+  --shadow-2: 0 14px 34px -14px rgb(16 22 28 / 0.22);
+
+  /* ---- Motion --------------------------------------------------------- */
+  --ease:  cubic-bezier(0.2, 0.6, 0.2, 1);
+  --dur-1: 120ms;
+  --dur-2: 220ms;
+
+  /* ---- Layers --------------------------------------------------------- */
+  --z-header:    100;
+  --z-nav:       200;
+  --z-mobilecta: 300;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Reboot -- the few Bootstrap Reboot rules the site was built on, moved here
+   from compat.css when that file was deleted (phase 8). They come first so
+   the base rules below override them, as compat.css used to by loading first.
+   Not carried over: caption-side: bottom (captions sit above tables now).
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+body { margin: 0; }
+
+h1, h2, h3, h4, h5, h6 { margin-top: 0; margin-bottom: 0.5rem; }
+p { margin-top: 0; margin-bottom: 1rem; }
+ul, ol { margin-top: 0; margin-bottom: 1rem; padding-left: 2rem; }
+ul ul, ol ul, ul ol, ol ol { margin-bottom: 0; }
+dl, dd { margin-bottom: 1rem; }
+dd { margin-left: 0; }
+
+b, strong { font-weight: bolder; }
+small { font-size: 0.875em; }
+/* Links carry no underline by default; each component styles its own
+   (prose links, .lede a, the contact card...). This rule used to come from
+   legacy.css, deleted from the page load in phase 9. */
+a { color: inherit; text-decoration: none; }
+img, svg { vertical-align: middle; }
+
+table { border-collapse: collapse; }
+th { text-align: inherit; }
+th, td { padding: 0; }
+
+label { display: inline-block; }
+button, input, select, textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+button, [type="button"], [type="submit"] { -webkit-appearance: button; cursor: pointer; }
+button:focus:not(:focus-visible) { outline: 0; }
+textarea { resize: vertical; }
+iframe { border: 0; }
+
+/* The site relies on this: the visitor count, gallery filtering, product tab
+   panels and the form status lines are all shown and hidden with `hidden`. */
+[hidden] { display: none !important; }
+
+/* --------------------------------------------------------------------------
+   Base
+   -------------------------------------------------------------------------- */
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  /* An anchor jump (#quote-form) or a focused control must not land under
+     the fixed header (WCAG 2.2 focus-not-obscured). main.js keeps
+     --header-h equal to the header's real height. */
+  scroll-padding-top: calc(var(--header-h, 76px) + 1rem);
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-body);
+  line-height: var(--lh-body);
+  color: var(--c-ink-2);
+  background-color: var(--c-canvas);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  color: var(--c-ink);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-head);
+  letter-spacing: var(--tr-head);
+  text-wrap: balance;
+}
+
+h1 { font-size: var(--fs-h1); letter-spacing: var(--tr-display); line-height: var(--lh-display); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+h4 { font-size: var(--fs-h4); }
+
+/* An email address has no natural break points, so a long one
+   (ravindrakumaragarwal@rocketmail.com) overflowed the contact-page card once
+   .container narrowed to the site measure. Let addresses wrap anywhere. */
+a[href^="mailto:"] { overflow-wrap: anywhere; }
+
+/* Numerals line up in spec tables and stat blocks without a mono family. */
+table, .tnum { font-variant-numeric: tabular-nums; }
+
+/* One visible focus treatment for the whole site. 3px, not 2px: the
+   design-driver checklist (WCAG 2.2 focus appearance) asks for 3-4px. */
+:focus-visible {
+  outline: 3px solid var(--c-focus);
+  outline-offset: 2px;
+  border-radius: var(--r-1);
+}
+
+::selection {
+  background: var(--c-action);
+  color: var(--c-action-ink);
+}
+
+/* --------------------------------------------------------------------------
+   Layout primitives
+   These replace Bootstrap's grid. auto-fit/minmax means a card grid needs no
+   per-breakpoint column classes at all.
+   -------------------------------------------------------------------------- */
+.wrap {
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+.wrap--narrow { max-width: 56rem; }
+
+.section { padding-block: var(--section-y); }
+
+/* legacy.css still sets `section { padding: 60px 0; overflow: hidden }` for the
+   pages not yet rebuilt. On rebuilt sections the overflow must be visible:
+   overflow: hidden on an ancestor silently disables position: sticky (the
+   product quote form) and clips focus rings. Class selectors outrank the bare
+   `section` selector, so this wins even though legacy.css loads later. */
+.section, .breadcrumbs, .pd-hero, .related { overflow: visible; }
+.section--sunk { background: var(--c-canvas-sunk); }
+
+.grid { display: grid; gap: var(--s-5); }
+.grid--2 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); }
+.grid--3 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); }
+.grid--4 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); }
+
+.split { display: grid; gap: var(--s-6); }
+.aside { display: grid; gap: var(--s-6); }
+@media (min-width: 62rem) {
+  .split { grid-template-columns: 1fr 1fr; }
+  .aside { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: var(--s-7); }
+}
+
+/* Vertical rhythm without a margin utility for every element. */
+.flow > * + * { margin-block-start: var(--s-4); }
+.flow--tight > * + * { margin-block-start: var(--s-2); }
+
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-3);
+}
+
+.measure { max-width: var(--measure); }
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Legacy variables
+   The old stylesheets declared :root four times (legacy.css three times,
+   legacy-product.css once) with values that contradicted each other:
+   --mtc-dark was both #1a1a1a and #111, and --mtc-gray-bg resolved to
+   #f8f9fa or #f9f9f9 depending on whether the page happened to load the
+   product stylesheet. Three more (--text-gray, --text-dark, --bg-light)
+   were used but never defined at all, so they silently inherited.
+
+   Consolidated here, once, at the value that was actually winning. These
+   are aliases onto the tokens above; each one disappears as the page that
+   uses it is rebuilt, and this block goes with the last of them.
+   -------------------------------------------------------------------------- */
+:root {
+  --primary-color: var(--c-action);
+  --primary-hover: #ff5722;
+  --primary-dark:  var(--c-action-hover);
+  --primary-light: var(--c-action-tint);
+  --mtc-orange:    var(--c-action);
+  --mtc-primary:   var(--c-action);
+
+  --text-main:     #4d4643;
+  --mtc-dark:      #111;          /* the second declaration won */
+  --mtc-text-dark: #222;
+  --mtc-text-muted: #666;
+  --mtc-light-gray: #f4f6f9;
+  --mtc-gray-bg:   #f9f9f9;       /* was page-dependent; settled on one */
+  --mtc-border:    #e0e0e0;
+  --mtc-background-white: #ffffff;
+  --mtc-background-gray:  #f6f3f2;
+  --header-height: 85px;
+
+  /* Referenced by legacy rules but never defined, so they resolved to
+     nothing. Given the values those rules clearly intended. */
+  --text-dark:  #222;
+  --text-gray:  #666;
+  --bg-light:   #f9f9f9;
+}
+
+/* ==========================================================================
+   Components
+   New names deliberately: legacy.css loads after this file, so a shared class
+   name would let the old rules win. Each legacy name dies with its page.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Buttons -- one primary, one quiet. Replaces three overlapping systems
+   (.mtc-btn/-outline/-ghost, .mtc-btn-orange/-dark/-outline/-call-us and an
+   inline one in the quote form). There is at most one primary per view.
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-2);
+  padding: 0.75rem 1.4rem;
+  font-family: inherit;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-ui);
+  letter-spacing: 0.01em;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: var(--r-2);
+  transition: background-color var(--dur-1) var(--ease),
+              border-color var(--dur-1) var(--ease),
+              color var(--dur-1) var(--ease);
+}
+
+.btn--primary {
+  color: var(--c-action-ink);
+  background: var(--c-action);
+  border-color: var(--c-action);
+}
+.btn--primary:hover {
+  background: var(--c-action-hover);
+  border-color: var(--c-action-hover);
+  color: var(--c-action-ink);
+}
+
+.btn--quiet {
+  color: var(--c-ink);
+  background: transparent;
+  border-color: var(--c-line-strong);
+}
+.btn--quiet:hover {
+  background: var(--c-surface);
+  border-color: var(--c-ink);
+  color: var(--c-ink);
+}
+
+/* --------------------------------------------------------------------------
+   Product card
+   The machine is a transparent cutout, so it sits in a recessed well at a
+   fixed aspect ratio with object-fit: contain. That is what keeps a row of
+   cards level when the source images are 4:3, 16:9 and 3:2, and it lets the
+   cutout read as an object rather than as a photograph in a box.
+   -------------------------------------------------------------------------- */
+.product-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-2);
+  overflow: hidden;
+  transition: border-color var(--dur-2) var(--ease);
+}
+.product-card:hover { border-color: var(--c-line-strong); }
+.product-card:focus-within { border-color: var(--c-focus); }
+
+.product-card__well {
+  position: relative;
+  /* flex: none keeps a card with a two-line title from stealing height. */
+  flex: none;
+  aspect-ratio: 4 / 3;
+  background: var(--c-canvas-sunk);
+  border-bottom: 1px solid var(--c-line);
+}
+/* Absolutely positioned, not max-height: 100%. aspect-ratio is only a
+   preferred ratio: a tall image forced its well taller, so wells in one row
+   came out different heights and card text started at different levels
+   (seen on the home, about and related-products grids). */
+.product-card__well img {
+  position: absolute;
+  inset: var(--s-5);
+  width: calc(100% - 2 * var(--s-5));
+  height: calc(100% - 2 * var(--s-5));
+  object-fit: contain;
+}
+
+.product-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  padding: var(--s-5);
+}
+
+/* Sentence case, not a tracked-out uppercase pill: this is a real variant
+   name ("Double drive, drum type"), so it should read as one. */
+.product-card__variant {
+  font-size: var(--fs-xs);
+  color: var(--c-ink-3);
+  line-height: var(--lh-ui);
+}
+
+.product-card__title {
+  margin: 0;
+  font-size: var(--fs-h4);
+  line-height: var(--lh-head);
+}
+.product-card__title a {
+  color: var(--c-ink);
+  text-decoration: none;
+}
+/* The whole card is the hit target; the title stays the accessible name. */
+.product-card__title a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.product-card:hover .product-card__title a { color: var(--c-action); }
+
+.product-card__desc {
+  margin: 0;
+  font-size: var(--fs-sm);
+  line-height: 1.55;
+  color: var(--c-ink-2);
+}
+
+/* --------------------------------------------------------------------------
+   Spare and wear parts
+   Shared by the coal crusher hub and the two crusher detail pages, so it lives
+   here rather than in hub.css or product.css. The parts are transparent
+   cutouts, so each sits whole in a recessed well at a fixed ratio (the
+   .product-card treatment), which keeps a row of cards level although the
+   sources are 4:3, 16:9 and 3:2.
+   -------------------------------------------------------------------------- */
+.spares-grid { align-items: stretch; }
+
+.spare-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-2);
+  overflow: hidden;
+}
+.spare-card__well {
+  position: relative;
+  flex: none;
+  aspect-ratio: 4 / 3;
+  background: var(--c-canvas-sunk);
+  border-bottom: 1px solid var(--c-line);
+}
+/* Absolutely positioned rather than max-height: aspect-ratio is only a
+   preferred ratio, so a tall source would otherwise stretch its own well and
+   the card text in that column would start lower than its neighbours'. */
+.spare-card__well img {
+  position: absolute;
+  inset: var(--s-5);
+  width: calc(100% - 2 * var(--s-5));
+  height: calc(100% - 2 * var(--s-5));
+  object-fit: contain;
+}
+/* One card per row on a phone, so a 4:3 well would make the section several
+   screens long. The parts are wide objects, so a shallower well loses nothing. */
+@media (max-width: 34rem) {
+  .spare-card__well { aspect-ratio: 16 / 9; }
+}
+
+.spare-card__body {
+  /* flex: 1 makes every body fill its card, so the "Fits" line it pushes to
+     the bottom sits level across the row although the copy differs in length. */
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  padding: var(--s-5);
+}
+.spare-card__title { margin: 0; font-size: var(--fs-h4); line-height: var(--lh-head); }
+.spare-card__desc {
+  margin: 0;
+  font-size: var(--fs-sm);
+  line-height: 1.55;
+  color: var(--c-ink-2);
+}
+/* "Fits" sits at the foot of every card, level across the row. */
+.spare-card__fits {
+  margin: auto 0 0;
+  padding-top: var(--s-4);
+  font-size: var(--fs-xs);
+  line-height: var(--lh-ui);
+  color: var(--c-ink-2);
+}
+.spare-card__fits span {
+  display: block;
+  margin-bottom: 0.15em;
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--c-ink-3);
+}
+
+.spares-note {
+  margin: var(--s-6) 0 0;
+  max-width: var(--measure);
+  font-size: var(--fs-sm);
+  color: var(--c-ink-2);
+}
+
+/* Ordering a spare: the same three steps as the printed catalogue. */
+.spares-order {
+  margin-top: var(--s-6);
+  padding: var(--s-6);
+  background: var(--c-canvas-sunk);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-2);
+}
+.spares-order h3 { margin: 0 0 var(--s-5); font-size: var(--fs-h4); }
+.spares-order ol {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: var(--s-5);
+  margin: 0 0 var(--s-5);
+  padding: 0;
+  list-style: none;
+}
+.spares-order li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-3);
+  font-size: var(--fs-sm);
+  line-height: 1.55;
+  color: var(--c-ink-2);
+}
+.spares-order li span {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background: var(--c-action);
+  color: var(--c-action-ink);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+}
+
+/* --------------------------------------------------------------------------
+   Section heading -- replaces six overlapping heading classes
+   -------------------------------------------------------------------------- */
+.section-head {
+  max-width: 44rem;
+  margin-block-end: var(--s-7);
+}
+.section-head h2 { margin: 0 0 var(--s-3); }
+.section-head p {
+  margin: 0;
+  font-size: var(--fs-lg);
+  color: var(--c-ink-2);
+}
+.section-head--center {
+  margin-inline: auto;
+  text-align: center;
+}
+
+/* Tablet: the auto-fit grid gave three columns, and ten machines left the
+   last one alone on its row (seen at 768px). Two columns fill five rows. */
+@media (min-width: 48rem) and (max-width: 61.99rem) {
+  #our-products .grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+/* The "See all" link under the home/about machinery grid. */
+.our-products__more { margin-top: var(--s-7); text-align: center; }
+
+/* --------------------------------------------------------------------------
+   Breadcrumb bar
+   Was a heavy dark band across the top of every page, which gave the most
+   minor information on the page the most visual weight. Now a hairline rail.
+   -------------------------------------------------------------------------- */
+.breadcrumbs {
+  padding-block: var(--s-6) var(--s-5);
+  background: var(--c-canvas);
+  border-bottom: 1px solid var(--c-line);
+}
+.breadcrumbs .container > div,
+.breadcrumbs .wrap > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-3);
+}
+.breadcrumbs h1,
+.breadcrumbs h2 {
+  margin: 0;
+  font-size: var(--fs-h2);
+}
+.breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  margin: 0;
+  padding: 0;
+  font-size: var(--fs-xs);
+  color: var(--c-ink-3);
+  list-style: none;
+}
+.breadcrumbs ol li + li::before {
+  content: "/";
+  margin-right: var(--s-2);
+  color: var(--c-line-strong);
+}
+.breadcrumbs ol a { color: var(--c-ink-2); text-decoration: none; }
+.breadcrumbs ol a:hover { color: var(--c-action); }
+
+/* --------------------------------------------------------------------------
+   Filter pills
+   The active pill is a selection, not an action, so it is ink rather than
+   orange. Orange here would compete with the real call to action.
+   -------------------------------------------------------------------------- */
+.filter-bar {
+  display: flex;
+  gap: var(--s-2);
+  margin: 0 0 var(--s-6);
+  padding: 0 0 var(--s-2);
+  overflow-x: auto;
+  list-style: none;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}
+/* <li> on the products page; <button> on the gallery (keyboard-reachable). */
+.filter-bar li,
+.filter-bar button {
+  font-family: inherit;
+  min-height: 2.75rem;   /* 44px touch target */
+  flex: none;
+  padding: var(--s-2) var(--s-4);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-med);
+  color: var(--c-ink-2);
+  white-space: nowrap;
+  cursor: pointer;
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-pill);
+  transition: color var(--dur-1) var(--ease),
+              background-color var(--dur-1) var(--ease),
+              border-color var(--dur-1) var(--ease);
+}
+.filter-bar li:hover,
+.filter-bar button:hover { border-color: var(--c-line-strong); color: var(--c-ink); }
+.filter-bar li.filter-active,
+.filter-bar button[aria-pressed="true"] {
+  color: var(--c-surface);
+  background: var(--c-ink);
+  border-color: var(--c-ink);
+}
+
+/* --------------------------------------------------------------------------
+   Product listing row
+   -------------------------------------------------------------------------- */
+.product-rows { display: grid; gap: var(--s-5); }
+
+/* The one-column template is explicit: left implicit, the track sized to its
+   content, and on a 390px phone it came out 407px inside a 358px card -- the
+   text ran under the card's right edge (seen in phase 6's phone check). */
+.product-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  overflow: hidden;
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-2);
+}
+@media (min-width: 48rem) {
+  .product-row { grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); }
+}
+
+.product-row__well {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 3;
+  padding: var(--s-5);
+  background: var(--c-canvas-sunk);
+  border-bottom: 1px solid var(--c-line);
+}
+@media (min-width: 48rem) {
+  .product-row__well {
+    aspect-ratio: auto;
+    border-bottom: 0;
+    border-right: 1px solid var(--c-line);
+  }
+}
+.product-row__well img {
+  max-width: 100%;
+  max-height: 16rem;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.product-row__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--s-3);
+  padding: var(--s-6);
+}
+
+.product-row__eyebrow {
+  margin: 0;
+  font-size: var(--fs-xs);
+  color: var(--c-ink-3);
+}
+
+.product-row__title {
+  margin: 0;
+  font-size: var(--fs-h3);
+  line-height: var(--lh-head);
+}
+.product-row__title span {
+  display: block;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-body);
+  color: var(--c-ink-2);
+  letter-spacing: 0;
+}
+
+.product-row__desc {
+  max-width: 60ch;
+  margin: 0;
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  color: var(--c-ink-2);
+}
+
+/* Spec chips -- reference figures, so they read as data, not as buttons. */
+.spec-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  width: 100%;
+  margin: var(--s-2) 0;
+  padding: 0;
+  list-style: none;
+}
+.spec-chips li {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: var(--s-2) var(--s-3);
+  font-size: var(--fs-xs);
+  font-variant-numeric: tabular-nums;
+  color: var(--c-ink);
+  background: var(--c-canvas-sunk);
+  border-radius: var(--r-1);
+}
+.spec-chips i { color: var(--c-ink-3); font-size: 0.9em; }
+
+/* Lead paragraph: the one-sentence orientation under a page title. */
+.lede {
+  margin: 0;
+  font-size: var(--fs-lg);
+  line-height: 1.55;
+  color: var(--c-ink-2);
+}
+.lede a { color: var(--c-action); text-decoration: none; }
+.lede a:hover { text-decoration: underline; }
+
+/* --------------------------------------------------------------------------
+   Clients logo wall (clients.php). Lives here, not in home.css,
+   because the about page includes it too.
+   -------------------------------------------------------------------------- */
+/* Hairlines drawn by each cell's right and bottom border plus the wall's top
+   and left, not by a background showing through 1px gaps: verified in the
+   browser, that trick filled the unused end of an incomplete last row with a
+   solid grey block. */
+.clients__wall {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 9.5rem), 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--c-line);
+  border-left: 1px solid var(--c-line);
+}
+.clients__cell {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 3 / 2;
+  padding: var(--s-4);
+  background: var(--c-surface);
+  border-right: 1px solid var(--c-line);
+  border-bottom: 1px solid var(--c-line);
+}
+.clients__cell img {
+  max-width: 100%;
+  max-height: 3.25rem;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+.clients__tag {
+  position: absolute;
+  left: var(--s-2);
+  bottom: var(--s-2);
+  font-size: 0.6875rem;
+  color: var(--c-ink-2);
+}
+.clients__cell--more a {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  color: var(--c-ink);
+  text-decoration: none;
+}
+.clients__cell--more a:hover { color: var(--c-action); }
+/* Phones: flatter cells. At 3:2 the two-column wall was ~1,070px of logos. */
+@media (max-width: 47.99rem) {
+  .clients__cell { aspect-ratio: 2 / 1; padding: var(--s-3); }
+  .clients__cell img { max-height: 2.75rem; }
+}
+
+
+/* Product cards in a grid, on phones: a compact row -- small well beside the
+   text, description clamped to two lines. Verified at 390px: stacked full
+   cards were ~470px each, so the ten-machine grid alone was ~4,700px of
+   scrolling. Scoped to .grid so the related-products scroll row keeps its
+   full cards. */
+@media (max-width: 47.99rem) {
+  .grid > .product-card {
+    display: grid;
+    grid-template-columns: 6.5rem minmax(0, 1fr);
+    align-items: center;
+  }
+  /* No aspect-ratio here: verified in the browser, aspect-ratio: 1 plus a
+     row-driven height made the square wider than its 6.5rem column and it
+     covered the first letters of the text. Column sets width, row sets height. */
+  .grid > .product-card .product-card__well {
+    aspect-ratio: auto;
+    width: 100%;
+    height: 100%;
+    min-height: 6.5rem;
+    border-bottom: 0;
+    border-right: 1px solid var(--c-line);
+  }
+  .grid > .product-card .product-card__well img {
+    inset: var(--s-2);
+    width: calc(100% - 2 * var(--s-2));
+    height: calc(100% - 2 * var(--s-2));
+  }
+  .grid > .product-card .product-card__body { padding: var(--s-3) var(--s-4); gap: var(--s-1); }
+  .grid > .product-card .product-card__desc {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: var(--fs-xs);
+  }
+  .grid:has(> .product-card) { gap: var(--s-3); }
+}
+
+
+/* --------------------------------------------------------------------------
+   Quote band (.cta-band) -- the conversion path at the foot of the home and
+   about pages. On the dark ink surface so it reads as the end of the page's
+   argument rather than one more section.
+   -------------------------------------------------------------------------- */
+.cta-band {
+  padding: var(--s-8) 0;
+  overflow: visible;
+  color: var(--c-ink-on-dark);
+  background: var(--c-ink-surface);
+  /* The footer below is the same dark surface; without a rule the two read as
+     one block and the call to action loses its edge (seen in the browser). */
+  border-bottom: 1px solid rgb(255 255 255 / 0.1);
+}
+.cta-band__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-5) var(--s-7);
+}
+.cta-band h2 { margin: 0 0 var(--s-2); color: #fff; }
+.cta-band p { margin: 0; max-width: 52ch; color: rgb(232 236 239 / 0.75); }
+.cta-band__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-5); }
+.cta-band__call {
+  font-weight: var(--fw-bold);
+  font-variant-numeric: tabular-nums;
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-color: rgb(255 255 255 / 0.35);
+  text-underline-offset: 3px;
+}
+.cta-band__call:hover { text-decoration-color: #fff; }
+
+
+/* --------------------------------------------------------------------------
+   Forms -- labelled fields and status lines, shared by the product-page
+   quote card and the contact page. main.js adds .error-border to an empty
+   required field and fades the .form-status lines in and out.
+   -------------------------------------------------------------------------- */
+.field { margin-bottom: var(--s-4); }
+.field label {
+  display: block;
+  margin-bottom: var(--s-2);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-med);
+  color: var(--c-ink);
+}
+.field__opt {
+  margin-left: var(--s-1);
+  font-weight: var(--fw-body);
+  color: var(--c-ink-3);
+}
+.field input,
+.field textarea {
+  display: block;
+  width: 100%;
+  min-height: 2.75rem;
+  padding: var(--s-2) var(--s-3);
+  font: inherit;
+  font-size: var(--fs-body);
+  color: var(--c-ink);
+  background: var(--c-surface);
+  border: 1px solid var(--c-line-strong);
+  border-radius: var(--r-1);
+  transition: border-color var(--dur-1) var(--ease), box-shadow var(--dur-1) var(--ease);
+}
+.field textarea { resize: vertical; min-height: 6rem; }
+.field input::placeholder,
+.field textarea::placeholder { color: var(--c-ink-3); }
+.field input:hover,
+.field textarea:hover { border-color: var(--c-ink-3); }
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--c-focus);
+  box-shadow: 0 0 0 3px rgb(26 95 208 / 0.18);
+}
+/* main.js adds .error-border to a required field left empty. */
+.field .error-border {
+  border-color: var(--c-err);
+  box-shadow: 0 0 0 3px rgb(179 38 30 / 0.12);
+}
+
+/* Status lines; main.js fades them in and out. */
+.form-status {
+  margin-bottom: var(--s-4);
+  padding: var(--s-3) var(--s-4);
+  font-size: var(--fs-sm);
+  border-radius: var(--r-1);
+  background: var(--c-canvas-sunk);
+  color: var(--c-ink);
+}
+.form-status--error { background: #FDECEA; color: var(--c-err); }
+.form-status--ok { background: #E8F4ED; color: var(--c-ok); }

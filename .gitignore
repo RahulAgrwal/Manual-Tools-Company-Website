@@ -5,3 +5,10 @@ secrets.local.php
 # SEO audit output (local reports and screenshots)
 manualtoolsco.com-audit/
 __pycache__/
+
+# Redesign QA reports (local only)
+.redesign-reports/
+
+# HTML kept by brochure/generate_range_catalogue.py --html
+brochure/catalogue-build/
+brochure/catalogue-2-build/

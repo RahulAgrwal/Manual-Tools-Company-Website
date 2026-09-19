@@ -1,0 +1,125 @@
+/* Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com
+   License: https://fontawesome.com/license/free
+   (Icons: CC BY 4.0, Fonts: SIL OFL 1.1) */
+@font-face {
+  font-family: "Font Awesome 5 Free";
+  font-style: normal;
+  font-weight: 900;
+  font-display: block;
+  src: url(../webfonts/fa-solid-900.woff2) format("woff2");
+}
+@font-face {
+  font-family: "Font Awesome 5 Brands";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(../webfonts/fa-brands-400.woff2) format("woff2");
+}
+.fa, .fas, .fab {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+}
+.fa, .fas { font-family: "Font Awesome 5 Free"; font-weight: 900; }
+.fab { font-family: "Font Awesome 5 Brands"; font-weight: 400; }
+.fa-fw { text-align: center; width: 1.25em; }
+.fa-spin { animation: fa-spin 2s infinite linear; }
+@keyframes fa-spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .fa-spin { animation: none; } }
+
+
+/* Icons used by this site - regenerate with tools/subset_fontawesome.py */
+.fa-anchor::before { content: "\f13d"; }
+.fa-arrow-down::before { content: "\f063"; }
+.fa-arrow-right::before { content: "\f061"; }
+.fa-arrow-up::before { content: "\f062"; }
+.fa-balance-scale::before { content: "\f24e"; }
+.fa-bars::before { content: "\f0c9"; }
+.fa-bolt::before { content: "\f0e7"; }
+.fa-box-open::before { content: "\f49e"; }
+.fa-boxes::before { content: "\f468"; }
+.fa-bullseye::before { content: "\f140"; }
+.fa-certificate::before { content: "\f0a3"; }
+.fa-chalkboard-teacher::before { content: "\f51c"; }
+.fa-chart-line::before { content: "\f201"; }
+.fa-check-circle::before { content: "\f058"; }
+.fa-chevron-down::before { content: "\f078"; }
+.fa-chevron-left::before { content: "\f053"; }
+.fa-chevron-right::before { content: "\f054"; }
+.fa-chevron-up::before { content: "\f077"; }
+.fa-circle-notch::before { content: "\f1ce"; }
+.fa-clock::before { content: "\f017"; }
+.fa-cog::before { content: "\f013"; }
+.fa-cogs::before { content: "\f085"; }
+.fa-columns::before { content: "\f0db"; }
+.fa-compress-arrows-alt::before { content: "\f78c"; }
+.fa-crosshairs::before { content: "\f05b"; }
+.fa-cubes::before { content: "\f1b3"; }
+.fa-dolly-flatbed::before { content: "\f474"; }
+.fa-door-open::before { content: "\f52b"; }
+.fa-download::before { content: "\f019"; }
+.fa-drafting-compass::before { content: "\f568"; }
+.fa-ellipsis-h::before { content: "\f141"; }
+.fa-envelope::before { content: "\f0e0"; }
+.fa-exclamation-circle::before { content: "\f06a"; }
+.fa-exclamation-triangle::before { content: "\f071"; }
+.fa-expand-arrows-alt::before { content: "\f31e"; }
+.fa-external-link-alt::before { content: "\f35d"; }
+.fa-eye::before { content: "\f06e"; }
+.fa-facebook-f::before { content: "\f39e"; }
+.fa-file-alt::before { content: "\f15c"; }
+.fa-file-signature::before { content: "\f573"; }
+.fa-filter::before { content: "\f0b0"; }
+.fa-fire::before { content: "\f06d"; }
+.fa-fire-alt::before { content: "\f7e4"; }
+.fa-flask::before { content: "\f0c3"; }
+.fa-gem::before { content: "\f3a5"; }
+.fa-hammer::before { content: "\f6e3"; }
+.fa-hard-hat::before { content: "\f807"; }
+.fa-headset::before { content: "\f590"; }
+.fa-history::before { content: "\f1da"; }
+.fa-industry::before { content: "\f275"; }
+.fa-instagram::before { content: "\f16d"; }
+.fa-layer-group::before { content: "\f5fd"; }
+.fa-location-arrow::before { content: "\f124"; }
+.fa-lock::before { content: "\f023"; }
+.fa-map-marker-alt::before { content: "\f3c5"; }
+.fa-minus::before { content: "\f068"; }
+.fa-mobile-alt::before { content: "\f3cd"; }
+.fa-pen-nib::before { content: "\f5ad"; }
+.fa-phone-alt::before { content: "\f879"; }
+.fa-play::before { content: "\f04b"; }
+.fa-power-off::before { content: "\f011"; }
+.fa-random::before { content: "\f074"; }
+.fa-ring::before { content: "\f70b"; }
+.fa-rocket::before { content: "\f135"; }
+.fa-ruler::before { content: "\f545"; }
+.fa-ruler-combined::before { content: "\f546"; }
+.fa-ruler-horizontal::before { content: "\f547"; }
+.fa-search-plus::before { content: "\f00e"; }
+.fa-shield-alt::before { content: "\f3ed"; }
+.fa-sign-out-alt::before { content: "\f2f5"; }
+.fa-sliders-h::before { content: "\f1de"; }
+.fa-sort-amount-down::before { content: "\f160"; }
+.fa-sync::before { content: "\f021"; }
+.fa-sync-alt::before { content: "\f2f1"; }
+.fa-tachometer-alt::before { content: "\f3fd"; }
+.fa-tasks::before { content: "\f0ae"; }
+.fa-th::before { content: "\f00a"; }
+.fa-times::before { content: "\f00d"; }
+.fa-tools::before { content: "\f7d9"; }
+.fa-train::before { content: "\f238"; }
+.fa-truck::before { content: "\f0d1"; }
+.fa-truck-loading::before { content: "\f4de"; }
+.fa-truck-moving::before { content: "\f4df"; }
+.fa-user-tie::before { content: "\f508"; }
+.fa-users-cog::before { content: "\f509"; }
+.fa-warehouse::before { content: "\f494"; }
+.fa-wave-square::before { content: "\f83e"; }
+.fa-weight-hanging::before { content: "\f5cd"; }
+.fa-wind::before { content: "\f72e"; }
+.fa-wrench::before { content: "\f0ad"; }
