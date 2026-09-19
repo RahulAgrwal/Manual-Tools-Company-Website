@@ -596,6 +596,12 @@ belongs in its own change.
   from the SVG with a transparent background, because Google's logo guidance
   prefers a raster of 112px+. The favicon lists the SVG first and the PNG as
   fallback. Seen at 1440 and 390 @3x: sharp at 60px.
+- `[x]` Owner request (2026-09-19): the header uses the owner's full SVG logo
+  (`assets/img/mtc-logo-full.svg`, badge + name + tagline as outlines, kept as
+  supplied) instead of `MTC Logo.png`. Same 6.15:1 proportions, so the header
+  height is unchanged (77px). `MTC Logo.png` stays: the enquiry emails
+  (email clients rarely show SVG) and the fpdf product brochures use it.
+  Seen at 1440 (271x44) and 390 @3x (207x34), sharp, no overflow.
 - `[ ]` Catalogue on phones is ~9,300px (746px per row); consider the compact
   row treatment used on home.
 

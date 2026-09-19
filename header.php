@@ -1,6 +1,9 @@
 <?php
 $page = basename($_SERVER['PHP_SELF'], '.php');
-$logo = mtc_img('assets/img/MTC Logo.png');
+// The owner's full logo as SVG (badge + name + tagline, text as outlines):
+// sharp at any size. assets/img/MTC Logo.png stays for the enquiry emails
+// (email clients rarely show SVG) and the fpdf product brochures.
+$logo = 'assets/img/mtc-logo-full.svg';
 ?>
 
 <!-- ==============================================
@@ -29,7 +32,7 @@ $logo = mtc_img('assets/img/MTC Logo.png');
 
         <div class="logo">
             <a href="/">
-                <img src="<?php echo $logo; ?>" <?php echo mtc_img_size($logo); ?> alt="Manual Tools Company - Coke Oven Machinery">
+                <img src="<?php echo $logo; ?>" width="1600" height="260" alt="Manual Tools Company - Coke Oven Machinery">
             </a>
         </div>
 
