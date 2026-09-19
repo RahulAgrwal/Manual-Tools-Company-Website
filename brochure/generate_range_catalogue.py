@@ -140,7 +140,7 @@ HEROES = [
             ("Mild steel hammers", "Six hammers throw the coal against manganese steel liner "
              "plates. They are replaced through the side access door without dismantling the "
              "rotor.", None),
-            ("Single-side feeding mouth", "Takes coal lumps up to 125 mm straight from the "
+            ("Single-side feeding mouth", "Takes coal lumps up to 150 mm straight from the "
              "conveyor into the crushing chamber.", None),
             ("Spherical roller bearings", "Double row spherical roller bearings carry the rotor "
              "shaft.", None),
@@ -157,7 +157,7 @@ HEROES = [
              "a dense impact zone for 20 - 25 TPH.", None),
             ("Replaceable hammers", "Each hammer can be replaced or reversed.", None),
             ("16 mm fabricated housing", "Heavy steel body built to take the impact of lumps "
-             "up to 150 mm.", None),
+             "up to 200 mm.", None),
             ("Manganese steel liner jaw plates", "Bolted top and side plates take the wear "
              "instead of the body, and are swapped without cutting.", None),
         ],
@@ -212,8 +212,8 @@ HEROES = [
         "category": "Door<br>Lifting",
         "photo": {"cutout": CUTOUT["power-winch"]},
         "callouts": [
-            ("Self-locking worm reducer", "If the power fails, the door's weight cannot drive the "
-             "motor backwards.", None),
+            ("Worm reducer gearbox", "A high reduction ratio in a single compact stage, so a "
+             "5 - 7.5 H.P. motor lifts up to 5 tons.", None),
             ("Gears", "The worm gearing cuts speed and multiplies "
              "torque for a smooth, non-jerky lift at about 2 - 4 m/min.", None),
             ("Grooved steel drum / steel drum", "Winds the wire rope evenly. A standard rope length is included; "
@@ -231,7 +231,7 @@ HEROES = [
              "helps prevent the load slipping back.", None),
             ("Cast steel gears", "Machine-cut cast steel gears for a steady 10-ton horizontal "
              "pull.", None),
-            ("C-channel base frame", "A fabricated C-channel steel base, with a manual or "
+            ("MS Channel base frame", "A fabricated MS Channel steel base, with a manual or "
              "electro-hydraulic thruster brake as an option.", None),
             ("Pulling, not lifting", "Designed for horizontal pulling or inclined dragging, not "
              "as a vertical lifting hoist.", None),
@@ -269,11 +269,11 @@ CHART_OVEN = {
             ("Other drives", ["15 H.P. travel, 7.5 H.P. stamping", "3 H.P. slide gates", "-", "-"]),
             ("Connected load", ["Approx. 65 - 70 H.P.", "-", "-", "-"]),
             ("Gearbox", ["Helical, with chain drive", "Worm reducer (travel)",
-                         "Self-locking worm reducer", "Heavy duty worm reducer"]),
+                         "Worm reducer gearbox", "Heavy duty worm reducer"]),
             ("Brake", ["-", "-", "-", "Manual or thruster (optional)"]),
         ]),
         ("Build", [
-            ("Mounting", ["Rail-mounted", "Rail-mounted", "Fixed base", "C-channel base frame"]),
+            ("Mounting", ["Rail-mounted", "Rail-mounted", "Fixed base", "MS Channel base frame"]),
             ("Main parts", ["20 m pusher and leveller beams", "2, 3 or 4 conical hoppers, 8 mm plate",
                             "Grooved steel drum / steel drum", "Cast steel, machine-cut gears"]),
         ]),
@@ -287,7 +287,7 @@ CHART_SIZING = {
     "groups": [
         ("Performance", [
             ("Capacity", ["8 - 12 TPH", "20 - 25 TPH", "12 - 15 TPH", "15 - 20 TPH", "1 - 4 decks"]),
-            ("Feed size", ["Up to 125 mm", "Up to 150 mm", "Up to 200 mm", "Up to 200 mm", "Mixed feed"]),
+            ("Feed size", ["Up to 150 mm", "Up to 200 mm", "Up to 200 mm", "Up to 200 mm", "Mixed feed"]),
             ("Output size", ["Below 2 mm", "Below 2 mm", "40 - 60 mm", "40 - 60 mm",
                              "One grade per deck"]),
             ("Material", ["Coal", "Coal", "Coke", "Coke", "Coke, coal, ore"]),
@@ -726,7 +726,7 @@ def page_engineering_left(n):
       <p><b>Cast steel gears</b> – machine-cut gears on haulages, winches and coke cutters.</p>
       <div class="gb-h">{icon("fa-industry", "ico box-ico")}<b>FABRICATION</b></div>
       <p>Bodies and frames are fabricated from heavy steel: 12 and 16 mm plate on the coal crushers,
-      8 mm plate on the charging car hoppers, C-channel base frames under the haulages, and
+      8 mm plate on the charging car hoppers, MS Channel base frames under the haulages, and
       heavy coil springs under the vibrator screens.</p>
     </div>
   </div>

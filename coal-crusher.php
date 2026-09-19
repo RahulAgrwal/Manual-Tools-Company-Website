@@ -71,8 +71,8 @@
           </p>
           <p>
             The difference is capacity. The <strong>Single Disc</strong> crusher has one disc with 6 hammers, takes lumps up to
-            125 mm and crushes 8 to 12 tons per hour with an 80–120 HP motor. The <strong>Double Disc</strong> crusher has two
-            discs with 12 hammers, takes lumps up to 150 mm and crushes 20 to 25 tons per hour with a 150–180 HP motor. Choose
+            150 mm and crushes 8 to 12 tons per hour with an 80–120 HP motor. The <strong>Double Disc</strong> crusher has two
+            discs with 12 hammers, takes lumps up to 200 mm and crushes 20 to 25 tons per hour with a 150–180 HP motor. Choose
             the single disc for moderate throughput and a smaller motor, and the double disc for large coke oven batteries, bigger
             boilers and briquetting plants.
           </p>
@@ -92,7 +92,7 @@
             <tbody>
               <tr><th scope="row">Capacity</th><td>8–12 TPH</td><td>20–25 TPH</td></tr>
               <tr><th scope="row">Motor</th><td>80–120 HP</td><td>150–180 HP</td></tr>
-              <tr><th scope="row">Max feed size</th><td>125 mm</td><td>150 mm</td></tr>
+              <tr><th scope="row">Max feed size</th><td>150 mm</td><td>200 mm</td></tr>
               <tr><th scope="row">Output size</th><td>Below 2 mm</td><td>Below 2 mm</td></tr>
               <tr><th scope="row">Hammers</th><td>6 (mild steel)</td><td>12 (mild steel)</td></tr>
               <tr><th scope="row">Body</th><td>12 mm steel</td><td>16 mm steel</td></tr>
@@ -118,7 +118,7 @@
               <p class="product-row__eyebrow">Coal Disintegrator</p>
               <h2 class="product-row__title">Coal Crusher (5 No.)<span>Single Disc</span></h2>
               <p class="product-row__desc">
-                One disc with six mild steel hammers crushes coal lumps up to 125 mm to below 2 mm. Suited to coke oven
+                One disc with six mild steel hammers crushes coal lumps up to 150 mm to below 2 mm. Suited to coke oven
                 plants and thermal power units with moderate throughput.
               </p>
               <ul class="spec-chips">
@@ -141,7 +141,7 @@
               <p class="product-row__eyebrow">High Capacity Disintegrator</p>
               <h2 class="product-row__title">Coal Crusher (5 No.)<span>Double Disc</span></h2>
               <p class="product-row__desc">
-                Two discs with twelve mild steel hammers crush lumps up to 150 mm to below 2 mm at up to 25 tons per hour.
+                Two discs with twelve mild steel hammers crush lumps up to 200 mm to below 2 mm at up to 25 tons per hour.
                 Built for large coke oven batteries, FBC boilers and briquetting plants.
               </p>
               <ul class="spec-chips">

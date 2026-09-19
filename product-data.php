@@ -14,7 +14,7 @@ $MTC_PRODUCTS = [
   'coal-crusher-5-No-single-disc' => [
       'slug' => 'coal-crusher-5-No-single-disc',
       'title' => 'Coal Crusher Single Disc (5 No., 8–12 TPH) | Manual Tools Company',
-      'description' => 'Single disc coal crusher (coal disintegrator), 5 No. size: 80–120 HP, 8–12 TPH, feed up to 125 mm, output below 2 mm. Made in Dhanbad, India.',
+      'description' => 'Single disc coal crusher (coal disintegrator), 5 No. size: 80–120 HP, 8–12 TPH, feed up to 150 mm, output below 2 mm. Made in Dhanbad, India.',
       'og_image' => 'assets/img/about-us-products-thumbnail/Coal-Crusher-single-disc.jpg',
       'schema_name' => 'Coal Crusher (5 No.) — Single Disc',
       'schema_description' => '5 No. single disc coal crusher — 8–12 TPH capacity, crushed size <2 mm, 80–120 HP motor range, manganese liners, 12 mm body thickness, six mild steel hammers.',
@@ -26,7 +26,7 @@ $MTC_PRODUCTS = [
           ],
           [
               'Feed Size',
-              '< 125 mm'
+              '< 150 mm'
           ],
           [
               'Crushed Size',
@@ -79,7 +79,7 @@ applications.',
           [
               'fa-arrow-down',
               'Max Feed Size',
-              'Up to 125mm'
+              'Up to 150mm'
           ]
       ],
       'brochure' => 'brochure/Manual_Tools_Co_Coal_Crusher_Single_Disc.pdf',
@@ -99,10 +99,10 @@ applications.',
       ],
       'overview_heading' => 'What is a 5 No. single disc coal crusher?',
       'overview_paras' => [
-          'A 5 No. single disc coal crusher is a coal disintegrator that reduces coal lumps of up to 125 mm to fine particles below 2 mm, the size needed for charging coke ovens and firing boilers. Inside a 12 mm fabricated steel body lined with manganese steel plates, a single rotating disc carries six mild steel hammers. Coal fed into the hopper is struck repeatedly by the hammers until it is fine enough to discharge.',
+          'A 5 No. single disc coal crusher is a coal disintegrator that reduces coal lumps of up to 150 mm to fine particles below 2 mm, the size needed for charging coke ovens and firing boilers. Inside a 12 mm fabricated steel body lined with manganese steel plates, a single rotating disc carries six mild steel hammers. Coal fed into the hopper is struck repeatedly by the hammers until it is fine enough to discharge.',
           'The crusher is driven by an 80 to 120 HP electric motor, chosen to suit the output you need, and handles 8 to 12 tons of coal per hour. The hammers are replaced through a side access door, and routine care is limited to checking the liner plates and greasing the bearings. It suits coke oven plants and thermal power units with moderate throughput.'
       ],
-      'overview_related_html' => 'Need 20–25 TPH or feed up to 150 mm? <a href="coal-crusher-5-No-double-disc">See the Double Disc coal crusher <i class="fas fa-arrow-right"></i></a>',
+      'overview_related_html' => 'Need 20–25 TPH or feed up to 200 mm? <a href="coal-crusher-5-No-double-disc">See the Double Disc coal crusher <i class="fas fa-arrow-right"></i></a>',
       // Spare and wear parts, rendered by product-page.php between the overview
       // and the tabs. Optional: a product without this key gets no section.
       'spares' => [
@@ -175,7 +175,7 @@ applications.',
           ],
           [
               'Input Feed Size',
-              '< 125 mm'
+              '< 150 mm'
           ],
           [
               'Output Size',
@@ -197,7 +197,7 @@ applications.',
           [
               'fa-arrow-down',
               'Gravity Feed Intake',
-              'Raw coal lumps (up to 125mm) enter via the top hopper. The angled chute design ensures
+              'Raw coal lumps (up to 150mm) enter via the top hopper. The angled chute design ensures
 material is directed straight into the rotor\'s impact zone without clogging.'
           ],
           [
@@ -292,7 +292,7 @@ alignment.',
   'coal-crusher-5-No-double-disc' => [
       'slug' => 'coal-crusher-5-No-double-disc',
       'title' => 'Coal Crusher Double Disc (5 No., 20–25 TPH) | Manual Tools Company',
-      'description' => 'Double disc coal crusher (coal disintegrator), 5 No. size: 150–180 HP, 20–25 TPH, feed below 150 mm, output below 2 mm. Made in Dhanbad, India.',
+      'description' => 'Double disc coal crusher (coal disintegrator), 5 No. size: 150–180 HP, 20–25 TPH, feed below 200 mm, output below 2 mm. Made in Dhanbad, India.',
       'og_image' => 'assets/img/about-us-products-thumbnail/Coal-Crusher-Double-Disc.jpg',
       'schema_name' => 'Coal Crusher (5 No.) — Double Disc',
       'schema_description' => '5 No. double disc coal crusher — 20–25 TPH capacity, crushed size <2 mm, 150–180 HP motor range, manganese liners, 12 mild steel hammers.',
@@ -304,7 +304,7 @@ alignment.',
           ],
           [
               'Feed Size',
-              '< 150 mm'
+              '< 200 mm'
           ],
           [
               'Crushed Size',
@@ -351,7 +351,7 @@ alignment.',
           [
               'fa-arrow-down',
               'Max Feed Size',
-              'Up to 150mm'
+              'Up to 200mm'
           ]
       ],
       'brochure' => 'brochure/Manual_Tools_Co_Coal_Crusher_Double_Disc.pdf',
@@ -371,7 +371,7 @@ alignment.',
       ],
       'overview_heading' => 'What is a 5 No. double disc coal crusher?',
       'overview_paras' => [
-          'A 5 No. double disc coal crusher is a high-capacity coal disintegrator for plants that need 20 to 25 tons of fine coal per hour. Two discs rotate together and carry 12 mild steel hammers in total, so coal is struck far more often than in a single disc machine. That lets it accept larger lumps, up to 150 mm, while still discharging coal below 2 mm through calibrated grate bars.',
+          'A 5 No. double disc coal crusher is a high-capacity coal disintegrator for plants that need 20 to 25 tons of fine coal per hour. Two discs rotate together and carry 12 mild steel hammers in total, so coal is struck far more often than in a single disc machine. That lets it accept larger lumps, up to 200 mm, while still discharging coal below 2 mm through calibrated grate bars.',
           'The housing is 16 mm fabricated steel, and each hammer can be replaced or reversed. A 150 to 180 HP slip-ring or squirrel cage motor drives the machine. It is built for large recovery-type coke ovens, bigger FBC boilers in thermal power plants and briquetting plants, and it handles coal with up to 8–10% moisture.'
       ],
       'overview_related_html' => 'Need 8–12 TPH with a smaller motor? <a href="coal-crusher-5-No-single-disc">See the Single Disc coal crusher <i class="fas fa-arrow-right"></i></a>',
@@ -452,7 +452,7 @@ alignment.',
           ],
           [
               'Input Feed Size',
-              '< 150 mm'
+              '< 200 mm'
           ],
           [
               'Output Size',
@@ -474,7 +474,7 @@ alignment.',
           [
               'fa-arrow-down',
               'Large Feed Intake',
-              'Capable of accepting larger lumps (150mm). The wide hopper throat ensures material distributes evenly across the width of both discs.'
+              'Capable of accepting larger lumps (200mm). The wide hopper throat ensures material distributes evenly across the width of both discs.'
           ],
           [
               'fa-hammer',
@@ -536,7 +536,7 @@ alignment.',
       'faqs' => [
           [
               'How does this differ from the Single Disc model?',
-              'The Double Disc model uses two rotors and 12 hammers, doubling the capacity to 20-25 TPH and allowing for larger feed sizes (150mm) compared to the Single Disc\'s 8-12 TPH.'
+              'The Double Disc model uses two rotors and 12 hammers, doubling the capacity to 20-25 TPH and allowing for larger feed sizes (200mm) compared to the Single Disc\'s 8-12 TPH.'
           ],
           [
               'What motor is required?',
@@ -1114,7 +1114,7 @@ alignment.',
       'overview_heading' => 'What is a coke oven haulage machine?',
       'overview_paras' => [
           'A coke oven haulage machine is an electric winch that pulls heavy loads horizontally or up an incline. In coke oven plants it is used to extract coke cakes and to move charging cars and heavy door mechanisms. This model has a 10 HP, 3-phase motor driving a heavy-duty worm reducer gearbox with machine-cut cast steel gears.',
-          'The worm drive cuts the motor speed and multiplies torque for a steady pull of up to 10 tons, and because it cannot run backwards it helps stop the load slipping back. The wire rope winds onto a drum mounted on a fabricated C-channel steel base frame, and a manual or electro-hydraulic thruster brake is available. The same machine is used for rail shunting inside plants and for hauling tubs up inclines in mines. It is not a lifting hoist: for lifting oven doors, see the Door Lifting Power Winch.'
+          'The worm drive cuts the motor speed and multiplies torque for a steady pull of up to 10 tons, and because it cannot run backwards it helps stop the load slipping back. The wire rope winds onto a drum mounted on a fabricated MS Channel steel base frame, and a manual or electro-hydraulic thruster brake is available. The same machine is used for rail shunting inside plants and for hauling tubs up inclines in mines. It is not a lifting hoist: for lifting oven doors, see the Door Lifting Power Winch.'
       ],
       'overview_related_html' => 'Need to lift oven doors vertically? <a href="power-winch">See the Door Lifting Power Winch <i class="fas fa-arrow-right"></i></a>',
       'buyer_items' => [
@@ -1171,7 +1171,7 @@ alignment.',
           ],
           [
               'Base Frame',
-              'Fabricated C-Channel Steel'
+              'Fabricated MS Channel Steel'
           ],
           [
               'Braking System',
@@ -1270,7 +1270,7 @@ alignment.',
   'power-winch' => [
       'slug' => 'power-winch',
       'title' => 'Door Lifting Power Winch for Coke Ovens | Manual Tools Company',
-      'description' => 'Power winch for lifting coke oven doors: 2.5–5 ton capacity, 5–7.5 HP motor, self-locking worm reducer gearbox. Made in Dhanbad, India. Get a quote.',
+      'description' => 'Power winch for lifting coke oven doors: 2.5–5 ton capacity, 5–7.5 HP motor, worm reducer gearbox, 2–4 m/min lift. Made in Dhanbad, India. Get a quote.',
       'og_image' => 'assets/img/about-us-products-thumbnail/Power-Winchh.png',
       'schema_name' => 'Door Lifting Power Winch',
       'schema_description' => 'Heavy-duty electric winch designed for lifting coke oven doors. Features worm reducer gearbox and 5 ton capacity.',
@@ -1306,7 +1306,7 @@ alignment.',
       'model_label' => 'Model',
       'model' => 'MTC-PW-DL',
       'stock' => 'In Stock',
-      'intro_html' => 'Safety and control are paramount when lifting heavy Coke Oven doors. This Power Winch features a high-ratio <strong>Worm Reducer Gearbox</strong> that acts as a natural brake system, ensuring loads hold steady even during power failures. Powered by a robust 5-7.5 HP motor, it offers a lifting capacity of up to 5 tons.',
+      'intro_html' => 'Control matters more than speed when lifting heavy Coke Oven doors. This Power Winch uses a high-ratio <strong>Worm Reducer Gearbox</strong> to multiply torque and keep the lift slow and steady. Powered by a robust 5-7.5 HP motor, it offers a lifting capacity of up to 5 tons.',
       'specs' => [
           [
               'fa-weight-hanging',
@@ -1321,7 +1321,7 @@ alignment.',
           [
               'fa-cogs',
               'Gearbox Type',
-              'Worm Reducer'
+              'Worm Reducer Gearbox'
           ],
           [
               'fa-arrow-up',
@@ -1336,8 +1336,8 @@ alignment.',
               'ISO 9001:2015'
           ],
           [
-              'fa-lock',
-              'Self-Locking Gear'
+              'fa-cogs',
+              'Worm Reducer Gearbox'
           ],
           [
               'fa-tools',
@@ -1346,7 +1346,7 @@ alignment.',
       ],
       'overview_heading' => 'What is a door lifting power winch?',
       'overview_paras' => [
-          'A door lifting power winch is an electric winch that raises and lowers heavy coke oven doors on the battery bench. It is built for safe, controlled lifting rather than speed: a 5 to 7.5 HP motor drives a self-locking worm reducer gearbox, so the weight of the door cannot turn the motor backwards if the power fails.',
+          'A door lifting power winch is an electric winch that raises and lowers heavy coke oven doors on the battery bench. It is built for controlled lifting rather than speed: a 5 to 7.5 HP motor drives a worm reducer gearbox, whose high reduction ratio multiplies torque and keeps the door moving at a slow, steady rate.',
           'The output shaft turns a grooved steel drum that winds the wire rope at about 2 to 4 metres per minute. Lifting capacity is 2.5 to 5 tons, which covers most standard coke oven doors, depending on battery height and door weight. Besides oven doors, the winch lifts isolation dampers in power plants and steel mills and serves maintenance bays without an overhead crane.'
       ],
       'overview_related_html' => 'Need horizontal pulling instead of lifting? <a href="haulage">See the Coke Oven Haulage Machine <i class="fas fa-arrow-right"></i></a>',
@@ -1381,8 +1381,8 @@ alignment.',
       ],
       'tech_heading' => 'Precision Lifting for Critical Operations',
       'tech_paras' => [
-          'The Manual Tools Company <strong>Door Lifting Power Winch</strong> is designed specifically for the vertical lifting of heavy industrial doors, particularly in Coke Oven Batteries. Unlike standard construction winches, this unit prioritizes stability and load holding over speed.',
-          'The core advantage lies in its <strong>Worm Reducer Gearbox</strong>. This design provides a high reduction ratio in a compact space and offers an inherent safety feature: the gear cannot be back-driven by the load. This prevents the door from accidentally dropping if the motor brake fails or power is cut.'
+          'The Manual Tools Company <strong>Door Lifting Power Winch</strong> is designed specifically for the vertical lifting of heavy industrial doors, particularly in Coke Oven Batteries. Unlike standard construction winches, this unit prioritizes steady, controlled movement over speed.',
+          'The core advantage lies in its <strong>Worm Reducer Gearbox</strong>. A worm drive reaches a high reduction ratio in a single compact stage, so a modest 5 to 7.5 HP motor produces the torque needed to raise a 5 ton door, and the lift stays slow and even rather than jerking the rope.'
       ],
       'tech_table_heading' => 'Technical Parameters',
       'tech_rows' => [
@@ -1396,7 +1396,7 @@ alignment.',
           ],
           [
               'Gearbox Type',
-              'Worm Reducer (Self-Locking)'
+              'Worm Reducer Gearbox'
           ],
           [
               'Gear Material',
@@ -1477,15 +1477,11 @@ alignment.',
       'faqs' => [
           [
               'Why is a Worm Gearbox used instead of Helical?',
-              'Worm gearboxes offer a \'self-locking\' feature. If power fails, the weight of the door cannot drive the motor backwards, preventing the load from falling.'
+              'A worm drive reaches a high reduction ratio in one compact stage, so a smaller motor delivers the torque a heavy door needs, and the lift stays slow and even.'
           ],
           [
               'What is the lifting speed?',
               'These are designed for torque, not speed. The lifting speed is generally slow and controlled (approx. 2-4 meters/minute) to ensure safety.'
-          ],
-          [
-              'Does it come with a brake?',
-              'The worm reducer gearbox is self-locking: if the power fails, the weight of the door cannot drive the motor backwards, so the load is held.'
           ],
           [
               'What capacity do I need for a Coke Oven?',
