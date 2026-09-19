@@ -28,7 +28,6 @@ FA_WOFF = ROOT / "assets" / "fontawesome" / "webfonts" / "fa-solid-900.woff2"
 ICON_CSS = ROOT / "assets" / "fontawesome" / "css" / "icons.css"
 LOGO = ROOT / "assets" / "img" / "MTC Logo.png"
 FULL_LOGO_SVG = ROOT / "assets" / "img" / "mtc-logo-full.svg"
-BADGE = ROOT / "brochure" / "30yearss.png"
 
 PHONE = "+91 9430707348"
 EMAIL = "manualtoolsco.dhn@gmail.com"
@@ -138,11 +137,6 @@ def full_logo_svg(badge="#FFFFFF", mark="#D40000", words="#FFFFFF"):
 def folio(n, dark=False):
     cls = "folio on-dark" if dark else "folio"
     return f'<div class="{cls}">{n} &nbsp;|&nbsp; {SITE}</div>'
-
-
-def brand_bar():
-    """The running head: the logo, then the product name on the right."""
-    return f'<img class="hd-logo" src="{LOGO.as_uri()}" alt="">'
 
 
 def css():

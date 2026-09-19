@@ -639,6 +639,36 @@ belongs in its own change.
 Newest first. One entry per session or per notable event: what was done, what
 went wrong, what the next session should pick up. Required — see the rule at the top.
 
+### 2026-09-19 — post-deploy: specs, catalogue spread, brochures rebuilt
+
+Content and PDF work, so the detail is in `BACKLOG.md`; recorded here because
+this file is the redesign's log and the palette decision below belongs with it.
+
+- **Owner spec corrections**, site and every PDF: single disc 8-10 -> **8-12 TPH**
+  and feed 125 -> **150 mm**; double disc feed 150 -> **200 mm**, body 12 ->
+  **16 mm**, moisture 10-12 -> **8-10%**; both coke cutters **40-60 mm**; ring
+  type 20 -> **15-20 TPH**; charging car **8-20 T hopper, 2, 3 or 4 mouths**;
+  winch **"Worm Reducer Gearbox"** with the load-holding claim dropped entirely;
+  haulage **MS Channel** base frame.
+- **Spare parts** now appear on `/coal-crusher` and both crusher pages, and in
+  the brochures with photographs, all driven by one optional `spares` key in
+  `product-data.php`.
+- **"At the battery"** added to catalogue 1 as a facing pair opening the oven
+  machines, with the photograph running across the fold. 30 -> **32 pages**,
+  which also cleared the standing "not a multiple of 4" booklet warning.
+- **Product brochures rebuilt as HTML** printed by headless Chrome, replacing
+  the fpdf2 layout (`brochure_layout.py` deleted). They were the last thing set
+  in Helvetica; everything is now **Archivo**.
+- **One red everywhere.** Brochures were #C21807, catalogues #F03C02 (the site's
+  *old* red) and the site #D40000. All three are now **#D40000**; the logo
+  artwork stays #FF0000. Keep the three `:root` blocks in step -- see `CLAUDE.md`.
+- **Audit (this entry's own commit).** `check_pages.py` against production: 16
+  pages, 0 failures. One real miss found and fixed: the charging car's overview
+  still read "into **four** conical hoppers ... the oven's **four** charging
+  holes", contradicting the new 2/3/4 specs. Every sweep during the change had
+  searched for the digit `4`, so the spelled-out word slipped through all of
+  them. **Lesson: when a count changes, grep the spelled-out form too.**
+
 ### 2026-09-19 — deployed; brand red matched to the logo; top bar on phones
 
 - **The redesign is live.** Merged to `main` through PR #1 (`e2c132b`) and

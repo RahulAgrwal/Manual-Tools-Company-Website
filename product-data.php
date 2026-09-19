@@ -2252,7 +2252,7 @@ alignment.',
       ],
       'overview_heading' => 'What is a coal charging car?',
       'overview_paras' => [
-          'A coal charging car, also called a larry car, is a rail-mounted machine that runs along the top of a coke oven battery and charges coal into the ovens from above. It takes a measured coal blend from the overhead service bunker into four conical hoppers, travels to the empty oven, and lines up its telescopic sleeves with the oven\'s four charging holes to limit smoke leakage. Motorised slide gates (3 HP) then open and the coal flows in by gravity, with a manual override wheel for power failures.',
+          'A coal charging car, also called a larry car, is a rail-mounted machine that runs along the top of a coke oven battery and charges coal into the ovens from above. It takes a measured coal blend from the overhead service bunker into its conical hoppers, travels to the empty oven, and lines up its telescopic sleeves with the oven\'s charging holes to limit smoke leakage. Motorised slide gates (3 HP) then open and the coal flows in by gravity, with a manual override wheel for power failures.',
           'A 15 HP motor with a worm reducer gearbox moves the car at 60 to 80 metres per minute and positions it precisely. Hoppers are made from 8 mm tapered steel plate with steep sides so that wet coal flows, in capacities of 8, 15 or 20 tons. Safety features include hydraulic buffers, travel alarms and heat shields for the operator cabin.'
       ],
       'overview_related_html' => 'Running a stamp-charged battery? <a href="pusher-with-stamping-arrangement">See the Pusher Machine with Stamping Arrangement <i class="fas fa-arrow-right"></i></a>',

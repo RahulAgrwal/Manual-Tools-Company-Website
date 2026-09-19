@@ -37,7 +37,7 @@ import tempfile
 from pathlib import Path
 
 from brochure_html import (
-    BADGE, EMAIL, Images, LOGO, OVERFLOW_JS, PHONE, PLACE, ROOT, SITE,
+    EMAIL, Images, LOGO, OVERFLOW_JS, PHONE, PLACE, ROOT, SITE,
     check_overflow, css, esc, find_browser, folio, full_logo_svg, icon_char, print_pdf,
 )
 
