@@ -7,7 +7,7 @@ $GLOBAL_PRODUCT_CARDS = [
     "subtitle" => "Single Disc",
     "link" => "coal-crusher-5-No-single-disc",
     "short_description" => "Engineered for consistent fine coal disintegration with adjustable output size below 2mm.",
-    "long_description" => "High-efficiency single disc pulverizer designed to crush coal to below 2mm. Features 6 Manganese hammers and a heavy-duty body for consistent industrial performance.",
+    "long_description" => "High-efficiency single disc pulverizer designed to crush coal to below 2mm. Features 6 mild steel hammers and a heavy-duty body for consistent industrial performance.",
     "category" => "coal-crusher",
     "eyebrow" => "Coal Disintegrator",
     "mini_specs" => [
@@ -27,7 +27,7 @@ $GLOBAL_PRODUCT_CARDS = [
     "category" => "coal-crusher",
     "eyebrow" => "High Capacity Disintegrator",
     "mini_specs" => [
-      ["fa-bolt", "160 - 200 HP Motor"],
+      ["fa-bolt", "150 - 180 HP Motor"],
       ["fa-filter", "Output < 2mm"],
       ["fa-tachometer-alt", "20 - 25 TPH"],
       ["fa-hammer", "12 Hammers"]
@@ -66,7 +66,7 @@ $GLOBAL_PRODUCT_CARDS = [
     ]
   ],
   [
-    "image_path" => "assets/img/slide/Vibrator-Screen.png",
+    "image_path" => "assets/img/product-images/vibrator-screen/Vibrator-Screen-3.png",
     "title" => "Vibrator Screen Machine",
     "subtitle" => "Triple Deck",
     "link" => "vibrator-screen",

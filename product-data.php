@@ -17,7 +17,7 @@ $MTC_PRODUCTS = [
       'description' => 'Single disc coal crusher (coal disintegrator), 5 No. size: 80–120 HP, 8–10 TPH, feed up to 125 mm, output below 2 mm. Made in Dhanbad, India.',
       'og_image' => 'assets/img/about-us-products-thumbnail/Coal-Crusher-single-disc.jpg',
       'schema_name' => 'Coal Crusher (5 No.) — Single Disc',
-      'schema_description' => '5 No. single disc coal crusher — 8–10 TPH capacity, crushed size <2 mm, 80–120 HP motor range, manganese liners, 12 mm body thickness, six hammers.',
+      'schema_description' => '5 No. single disc coal crusher — 8–10 TPH capacity, crushed size <2 mm, 80–120 HP motor range, manganese liners, 12 mm body thickness, six mild steel hammers.',
       'sku' => 'MTC-CC-5-SD',
       'schema_props' => [
           [
@@ -56,7 +56,7 @@ $MTC_PRODUCTS = [
       'model' => 'MTC-CC-5-SD',
       'stock' => 'In Stock',
       'intro_html' => 'Engineered for precision and consistency, this Single Disc Crusher effectively pulverizes coal into fine
-granules below 2mm. Featuring a robust 12mm body and 6 Manganese Steel hammers, it is ideal for coke oven
+granules below 2mm. Featuring a robust 12mm body and 6 Mild Steel hammers, it is ideal for coke oven
 applications.',
       'specs' => [
           [
@@ -97,7 +97,7 @@ applications.',
       ],
       'overview_heading' => 'What is a 5 No. single disc coal crusher?',
       'overview_paras' => [
-          'A 5 No. single disc coal crusher is a coal disintegrator that reduces coal lumps of up to 125 mm to fine particles below 2 mm, the size needed for charging coke ovens and firing boilers. Inside a 12 mm fabricated steel body lined with manganese steel plates, a single rotating disc carries six manganese steel hammers. Coal fed into the hopper is struck repeatedly by the hammers until it is fine enough to discharge.',
+          'A 5 No. single disc coal crusher is a coal disintegrator that reduces coal lumps of up to 125 mm to fine particles below 2 mm, the size needed for charging coke ovens and firing boilers. Inside a 12 mm fabricated steel body lined with manganese steel plates, a single rotating disc carries six mild steel hammers. Coal fed into the hopper is struck repeatedly by the hammers until it is fine enough to discharge.',
           'The crusher is driven by an 80 to 120 HP electric motor, chosen to suit the output you need, and handles 8 to 10 tons of coal per hour. The hammers are replaced through a side access door, and routine care is limited to checking the liner plates and greasing the bearings. It suits coke oven plants and thermal power units with moderate throughput.'
       ],
       'overview_related_html' => 'Need 20–25 TPH or feed up to 150 mm? <a href="coal-crusher-5-No-double-disc">See the Double Disc coal crusher <i class="fas fa-arrow-right"></i></a>',
@@ -139,7 +139,7 @@ applications.',
       'tech_rows' => [
           [
               'Rotor Style',
-              'Single Disc (6 Manganese Hammers)'
+              'Single Disc (6 Mild Steel Hammers)'
           ],
           [
               'Motor Power',
@@ -175,7 +175,7 @@ material is directed straight into the rotor\'s impact zone without clogging.'
           [
               'fa-hammer',
               'High-Velocity Impact',
-              'The Single Disc rotates at 960-1440 RPM. Six suspended manganese steel hammers strike
+              'The Single Disc rotates at 960-1440 RPM. Six suspended mild steel hammers strike
 the coal against the serrated liner plates, achieving instant size reduction.'
           ],
           [
@@ -247,7 +247,7 @@ alignment.',
           ],
           [
               'Are the hammers replaceable?',
-              'Yes, the 6 Manganese Steel hammers are designed for easy replacement via the side access door.'
+              'Yes, the 6 Mild Steel hammers are designed for easy replacement via the side access door.'
           ],
           [
               'What is the delivery time?',
@@ -264,15 +264,15 @@ alignment.',
   'coal-crusher-5-No-double-disc' => [
       'slug' => 'coal-crusher-5-No-double-disc',
       'title' => 'Coal Crusher Double Disc (5 No., 20–25 TPH) | Manual Tools Company',
-      'description' => 'Double disc coal crusher (coal disintegrator), 5 No. size: 160–200 HP, 20–25 TPH, feed below 150 mm, output below 2 mm. Made in Dhanbad, India.',
+      'description' => 'Double disc coal crusher (coal disintegrator), 5 No. size: 150–180 HP, 20–25 TPH, feed below 150 mm, output below 2 mm. Made in Dhanbad, India.',
       'og_image' => 'assets/img/about-us-products-thumbnail/Coal-Crusher-Double-Disc.jpg',
       'schema_name' => 'Coal Crusher (5 No.) — Double Disc',
-      'schema_description' => '5 No. double disc coal crusher — 20–25 TPH capacity, crushed size <2 mm, 160–200 HP motor range, manganese liners, 12 hammers.',
+      'schema_description' => '5 No. double disc coal crusher — 20–25 TPH capacity, crushed size <2 mm, 150–180 HP motor range, manganese liners, 12 mild steel hammers.',
       'sku' => 'MTC-CC-5-DD',
       'schema_props' => [
           [
               'Motor Power',
-              '160 – 200 H.P.'
+              '150 – 180 H.P.'
           ],
           [
               'Feed Size',
@@ -303,7 +303,7 @@ alignment.',
       'model_label' => 'Model',
       'model' => 'MTC-CC-5-DD',
       'stock' => 'Made to Order',
-      'intro_html' => 'Engineered for high-volume industrial demands, the Double Disc Crusher delivers superior throughput of up to 25 TPH. Featuring <strong>12 Manganese Steel hammers</strong> across two discs, it ensures rapid pulverization of larger coal lumps (<150mm) into fine <2mm granules for maximum combustion efficiency.',
+      'intro_html' => 'Engineered for high-volume industrial demands, the Double Disc Crusher delivers superior throughput of up to 25 TPH. Featuring <strong>12 Mild Steel hammers</strong> across two discs, it ensures rapid pulverization of larger coal lumps (<150mm) into fine <2mm granules for maximum combustion efficiency.',
       'specs' => [
           [
               'fa-tachometer-alt',
@@ -313,7 +313,7 @@ alignment.',
           [
               'fa-bolt',
               'Motor Power',
-              '160 - 200 HP'
+              '150 - 180 HP'
           ],
           [
               'fa-filter',
@@ -343,8 +343,8 @@ alignment.',
       ],
       'overview_heading' => 'What is a 5 No. double disc coal crusher?',
       'overview_paras' => [
-          'A 5 No. double disc coal crusher is a high-capacity coal disintegrator for plants that need 20 to 25 tons of fine coal per hour. Two discs rotate together and carry 12 manganese steel hammers in total, so coal is struck far more often than in a single disc machine. That lets it accept larger lumps, up to 150 mm, while still discharging coal below 2 mm through calibrated grate bars.',
-          'The housing is 12 mm fabricated steel, and each hammer can be replaced or reversed without dismantling the rotor. A 160 to 200 HP slip-ring or squirrel cage motor drives the machine. It is built for large recovery-type coke ovens, bigger FBC boilers in thermal power plants and briquetting plants, and it handles coal with up to 10–12% moisture.'
+          'A 5 No. double disc coal crusher is a high-capacity coal disintegrator for plants that need 20 to 25 tons of fine coal per hour. Two discs rotate together and carry 12 mild steel hammers in total, so coal is struck far more often than in a single disc machine. That lets it accept larger lumps, up to 150 mm, while still discharging coal below 2 mm through calibrated grate bars.',
+          'The housing is 12 mm fabricated steel, and each hammer can be replaced or reversed without dismantling the rotor. A 150 to 180 HP slip-ring or squirrel cage motor drives the machine. It is built for large recovery-type coke ovens, bigger FBC boilers in thermal power plants and briquetting plants, and it handles coal with up to 10–12% moisture.'
       ],
       'overview_related_html' => 'Need 8–10 TPH with a smaller motor? <a href="coal-crusher-5-No-single-disc">See the Single Disc coal crusher <i class="fas fa-arrow-right"></i></a>',
       'buyer_items' => [
@@ -379,17 +379,17 @@ alignment.',
       'tech_heading' => 'Double the Power, Double the Output',
       'tech_paras' => [
           'The Manual Tools Company <strong>Double Disc Coal Crusher</strong> is the powerhouse of our pulverization line. By utilizing a dual-rotor configuration, this machine doubles the impact frequency, allowing it to process significantly larger feed materials (up to 150mm) while maintaining the ultra-fine output required for Coke Oven Plants.',
-          'Ideally suited for large-scale operations, the unit is constructed with a 12mm heavy-duty fabricated steel housing and features 12 replaceable Manganese Steel hammers, providing exceptional durability against abrasive Indian coal varieties.'
+          'Ideally suited for large-scale operations, the unit is constructed with a 12mm heavy-duty fabricated steel housing and features 12 replaceable Mild Steel hammers, with manganese steel liner plates to withstand abrasive Indian coal varieties.'
       ],
       'tech_table_heading' => 'Technical Parameters',
       'tech_rows' => [
           [
               'Rotor Style',
-              'Double Disc (12 Manganese Hammers)'
+              'Double Disc (12 Mild Steel Hammers)'
           ],
           [
               'Motor Power',
-              '160 HP – 200 HP (Heavy Duty)'
+              '150 HP – 180 HP (Heavy Duty)'
           ],
           [
               'Input Feed Size',
@@ -420,7 +420,7 @@ alignment.',
           [
               'fa-hammer',
               'Dual Rotor Impact',
-              'Two discs rotating in sync carry <strong>12 Manganese Hammers</strong>. This creates a denser impact zone, pulverizing material faster than single-disc models.'
+              'Two discs rotating in sync carry <strong>12 Mild Steel Hammers</strong>. This creates a denser impact zone, pulverizing material faster than single-disc models.'
           ],
           [
               'fa-filter',
