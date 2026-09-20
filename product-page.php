@@ -66,6 +66,15 @@ if (!empty($p['has_video'])) {
         $media[] = ['type' => 'video', 'src' => $vid, 'thumb' => $poster];
     }
 }
+// The scanned catalogue plate for this machine, last in the gallery. It is
+// deliberately not the lead (see above): it carries a "MANUAL TOOLS CO."
+// header, a halftone background and a caption baked into its pixels, so it is
+// labelled rather than passed off as a photograph of the machine.
+$plate = $p['main_image'] ?? null;
+if ($plate && file_exists($plate) && (!$lead || basename($plate) !== basename($lead))) {
+    $media[] = ['type' => 'image', 'src' => mtc_img($plate), 'thumb' => mtc_thumb($plate),
+                'label' => 'Catalogue plate'];
+}
 if (!$media) {
     $media[] = ['type' => 'image', 'src' => '', 'thumb' => ''];
 }

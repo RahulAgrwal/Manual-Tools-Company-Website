@@ -23,6 +23,8 @@
 
 ## Done
 
+- [x] **2026-09-20: Catalogue plates added to the end of every product gallery.** The ten scanned plates in `assets/img/about-us-products/` are each a product's `main_image`, and until now appeared only as the `og:image`. They are appended as the last gallery item on all ten product pages, labelled **"Catalogue plate"** through the existing label mechanism, because the redesign had deliberately demoted them from the lead: each carries a "MANUAL TOOLS CO." header, a halftone background and a caption baked into its pixels, so it should not be passed off as a photograph of the machine. Thumbnails already existed. Verified at 1440 and 390 px (headless Chrome), plate last on all ten, `check_pages.py` 16 pages / 0 failures, no horizontal overflow (`scrollWidth == clientWidth`).
+
 - [x] **2026-09-20: Nine audit findings fixed.** A `/code-review` pass over the 52 commits that reached `main` this session found nine issues; all are fixed and the lead times confirmed by the owner.
   - **`/products` filter collapsed the layout.** `item.style.display = "block"` was set on `.product-item`, which *is* the `.product-row` that `mtc.css` lays out as a grid above 48rem. The inline style won, so the first click on any pill - "All" included - stacked all ten rows for the rest of the session. Now `item.hidden`, which the global `[hidden] { display: none !important }` already covers.
   - **The process-flow schematic was listed as a product photo** on the single disc crusher and the drum cutter: the gallery glob took every image in the folder. `photo-gallery.php` had always filtered it out; `product-page.php` now does the same. It still appears in the Process Flow tab.
