@@ -44,6 +44,9 @@ BLOCKED = [
     "header", "footer", "common-head", "page-helpers", "global-products",
     "our-products", "related-products", "sidebar-quote-form", "clients",
     "load-secrets", "webcounter", "router", "secrets.example",
+    # added with the redesign: product-page renders a broken page on its own
+    # and product-data would dump the whole data file
+    "product-page", "product-data",
 ]
 
 # PHP renders errors as "<b>Warning</b>: msg in <b>file</b> on line <b>12</b>".

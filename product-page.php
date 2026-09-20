@@ -51,6 +51,10 @@ if ($lead) {
 }
 $labels = $p['gallery_labels'] ?? [];
 foreach (glob($p['gallery_dir'] . '*.{jpg,jpeg,png,gif}', GLOB_BRACE) ?: [] as $img) {
+    // The process diagram lives in the same folder but is a schematic, not a
+    // photograph of the machine: it belongs in the Process Flow tab only.
+    // photo-gallery.php filters it out the same way.
+    if (strpos(basename($img), 'process-diagram') !== false) continue;
     // The lead can be one of the gallery photos; don't list it twice.
     if ($lead && basename($img) === basename($lead) && dirname($img) . '/' === $p['gallery_dir']) continue;
     $media[] = ['type' => 'image', 'src' => mtc_img($img), 'thumb' => mtc_thumb($img),

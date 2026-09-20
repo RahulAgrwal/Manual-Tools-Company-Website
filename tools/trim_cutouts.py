@@ -34,6 +34,10 @@ QUALITY = 82
 # Refuse a trim that keeps almost nothing: that means the alpha channel is not
 # what we think it is, and a bad crop would ship a beheaded machine.
 MIN_KEPT_AREA = 0.04
+# A skip worth failing the run for: the alpha box is so small the source is
+# probably not the cutout it was taken for. The other skip reason ("no alpha
+# channel") is ordinary and must not stop the next tool in the chain.
+FAIL_WHY = "content is"
 
 
 def content_box(im):
@@ -88,7 +92,7 @@ def main():
 
             kept = ((box[2] - box[0]) * (box[3] - box[1])) / (full[0] * full[1])
             if kept < MIN_KEPT_AREA:
-                skipped.append((src.name, f"content is only {kept:.1%} of canvas"))
+                skipped.append((src.name, FAIL_WHY + f" only {kept:.1%} of canvas"))
                 continue
 
             crop = padded(box, full)
@@ -125,7 +129,11 @@ def main():
             print(f"\n{before / 1024:.0f} KB -> {after / 1024:.0f} KB across the full-size copies")
         else:
             print("All trimmed copies are up to date.")
-    return 1 if skipped else 0
+    # Only a crop that came out implausibly small is a real failure. "No alpha
+    # channel" and "already fills the canvas" are ordinary outcomes for a plain
+    # PNG in this folder, and failing on them silently stopped the documented
+    # `trim_cutouts.py && optimize_images.py` chain at the first step.
+    return 1 if any(why.startswith(FAIL_WHY) for _, why in skipped) else 0
 
 
 if __name__ == "__main__":

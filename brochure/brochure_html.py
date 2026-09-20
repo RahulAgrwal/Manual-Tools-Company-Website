@@ -334,8 +334,21 @@ def find_browser():
     sys.exit("Chrome or Edge is needed to print the brochures (set CHROME to its path).")
 
 
+def _profile(page):
+    """A throwaway Chrome profile inside this build.
+
+    Without --user-data-dir every headless run shares the default profile, so
+    two builds started close together fight over it. --print-to-pdf still
+    exits 0 when that happens, so check=True sees success while the PDF is
+    written corrupt -- every page blank, zlib errors on each content stream.
+    That is what a back-to-back catalogue build used to produce."""
+    d = page.parent / "chrome-profile"
+    d.mkdir(exist_ok=True)
+    return f"--user-data-dir={d}"
+
+
 def check_overflow(browser, page, label):
-    dom = subprocess.run([browser, "--headless=new", "--disable-gpu",
+    dom = subprocess.run([browser, "--headless=new", "--disable-gpu", _profile(page),
                           "--allow-file-access-from-files", "--virtual-time-budget=15000",
                           "--dump-dom", page.as_uri()],
                          capture_output=True, text=True, encoding="utf-8").stdout
@@ -348,6 +361,19 @@ def check_overflow(browser, page, label):
 
 def print_pdf(browser, page, out):
     subprocess.run([browser, "--headless=new", "--disable-gpu", "--no-pdf-header-footer",
-                    "--allow-file-access-from-files", "--virtual-time-budget=15000",
-                    f"--print-to-pdf={out}", page.as_uri()],
+                    _profile(page), "--allow-file-access-from-files",
+                    "--virtual-time-budget=15000", f"--print-to-pdf={out}", page.as_uri()],
                    check=True, capture_output=True)
+    verify_pdf(out)
+
+
+def verify_pdf(out, min_bytes=40_000):
+    """Chrome can exit 0 having written nothing usable, so never trust the
+    return code alone."""
+    if not out.exists():
+        sys.exit(f"{out.name}: Chrome reported success but wrote no file")
+    head = out.open("rb").read(5)
+    if head != b"%PDF-":
+        sys.exit(f"{out.name}: not a PDF (starts {head!r})")
+    if out.stat().st_size < min_bytes:
+        sys.exit(f"{out.name}: only {out.stat().st_size} bytes; the build is not sound")

@@ -1441,8 +1441,31 @@ addEventListener("load", () => document.fonts.ready.then(() => {
 """
 
 
+def _profile(page):
+    """A throwaway Chrome profile inside this build. Without it every headless
+    run shares the default profile, so two catalogue builds started close
+    together fight over it -- and --print-to-pdf still exits 0 while writing a
+    corrupt PDF (every page blank, zlib errors on each content stream)."""
+    d = page.parent / "chrome-profile"
+    d.mkdir(exist_ok=True)
+    return f"--user-data-dir={d}"
+
+
+def verify_pdf(out, min_bytes=200_000):
+    """Chrome can exit 0 having written nothing usable, so never trust the
+    return code alone."""
+    if not out.exists():
+        sys.exit(f"{out.name}: Chrome reported success but wrote no file")
+    head = out.open("rb").read(5)
+    if head != b"%PDF-":
+        sys.exit(f"{out.name}: not a PDF (starts {head!r})")
+    if out.stat().st_size < min_bytes:
+        sys.exit(f"{out.name}: only {out.stat().st_size} bytes; the build is not sound")
+
+
 def check_overflow(browser, page):
-    dom = subprocess.run([browser, "--headless=new", "--disable-gpu", "--allow-file-access-from-files",
+    dom = subprocess.run([browser, "--headless=new", "--disable-gpu", _profile(page),
+                          "--allow-file-access-from-files",
                           "--virtual-time-budget=15000", "--dump-dom", page.as_uri()],
                          capture_output=True, text=True, encoding="utf-8").stdout
     m = re.search(r'data-overflow="([^"]*)"', dom)
@@ -1532,9 +1555,10 @@ def main():
         browser = find_browser()
         check_overflow(browser, page)
         subprocess.run([browser, "--headless=new", "--disable-gpu", "--no-pdf-header-footer",
-                        "--allow-file-access-from-files", "--virtual-time-budget=15000",
-                        f"--print-to-pdf={OUT}", page.as_uri()],
+                        _profile(page), "--allow-file-access-from-files",
+                        "--virtual-time-budget=15000", f"--print-to-pdf={OUT}", page.as_uri()],
                        check=True, capture_output=True)
+        verify_pdf(OUT)
         print(f"wrote {OUT.relative_to(ROOT)} ({count} pages, {OUT.stat().st_size / 1e6:.1f} MB)")
         if keep_html:
             dest = ROOT / "brochure" / "catalogue-build"
