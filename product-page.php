@@ -51,6 +51,10 @@ if ($lead) {
 }
 $labels = $p['gallery_labels'] ?? [];
 foreach (glob($p['gallery_dir'] . '*.{jpg,jpeg,png,gif}', GLOB_BRACE) ?: [] as $img) {
+    // The process diagram lives in the same folder but is a schematic, not a
+    // photograph of the machine: it belongs in the Process Flow tab only.
+    // photo-gallery.php filters it out the same way.
+    if (strpos(basename($img), 'process-diagram') !== false) continue;
     // The lead can be one of the gallery photos; don't list it twice.
     if ($lead && basename($img) === basename($lead) && dirname($img) . '/' === $p['gallery_dir']) continue;
     $media[] = ['type' => 'image', 'src' => mtc_img($img), 'thumb' => mtc_thumb($img),
@@ -61,6 +65,15 @@ if (!empty($p['has_video'])) {
     foreach (glob($p['gallery_dir'] . '*.{mp4,webm}', GLOB_BRACE) ?: [] as $vid) {
         $media[] = ['type' => 'video', 'src' => $vid, 'thumb' => $poster];
     }
+}
+// The scanned catalogue plate for this machine, last in the gallery. It is
+// deliberately not the lead (see above): it carries a "MANUAL TOOLS CO."
+// header, a halftone background and a caption baked into its pixels, so it is
+// labelled rather than passed off as a photograph of the machine.
+$plate = $p['main_image'] ?? null;
+if ($plate && file_exists($plate) && (!$lead || basename($plate) !== basename($lead))) {
+    $media[] = ['type' => 'image', 'src' => mtc_img($plate), 'thumb' => mtc_thumb($plate),
+                'label' => 'Catalogue plate'];
 }
 if (!$media) {
     $media[] = ['type' => 'image', 'src' => '', 'thumb' => ''];

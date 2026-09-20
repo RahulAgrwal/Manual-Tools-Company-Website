@@ -77,6 +77,9 @@
   picker.addEventListener('click', function (event) {
     var item = event.target.closest('.home-picker__item');
     if (!item) return;
+    // Each picker item is a real link, so let the browser have the clicks that
+    // mean "open this somewhere else": ctrl/cmd, shift, and middle-click.
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.button !== 0) return;
     event.preventDefault();
     if (!item.classList.contains('is-active')) select(item);
   });

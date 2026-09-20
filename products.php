@@ -139,7 +139,7 @@
   <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="assets/js/main.js"></script>
+  <script src="<?php echo mtc_asset('assets/js/main.js'); ?>"></script>
 
   <!-- Filter Script (Updated for Class Based Filtering) -->
   <script>
@@ -157,13 +157,17 @@
           const filterValue = btn.getAttribute("data-filter");
 
           productItems.forEach(item => {
+            // `hidden`, never style.display: .product-item IS the .product-row,
+            // which mtc.css lays out as a grid above 48rem. An inline
+            // display:block beat that rule and collapsed every row to a
+            // stacked block on the first click, "All" included. mtc.css
+            // already carries [hidden] { display: none !important }.
             if (filterValue === "*" || item.classList.contains(filterValue.substring(1))) {
-              item.style.display = "block";
-              // Add simple fade in animation
+              item.hidden = false;
               item.style.opacity = "0";
               setTimeout(() => item.style.opacity = "1", 50);
             } else {
-              item.style.display = "none";
+              item.hidden = true;
             }
           });
         });

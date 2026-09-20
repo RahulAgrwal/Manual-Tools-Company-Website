@@ -29,6 +29,7 @@ brochure always shows the same four figures as the website.
 """
 import glob
 import json
+import re
 import shutil
 import subprocess
 import sys
@@ -37,7 +38,7 @@ import tempfile
 from pathlib import Path
 
 from brochure_html import (
-    BADGE, EMAIL, Images, LOGO, OVERFLOW_JS, PHONE, PLACE, ROOT, SITE,
+    EMAIL, Images, LOGO, OVERFLOW_JS, PHONE, PLACE, ROOT, SITE,
     check_overflow, css, esc, find_browser, folio, full_logo_svg, icon_char, print_pdf,
 )
 
@@ -69,7 +70,8 @@ def _site(key):
         out = subprocess.run(
             [php, "-r", 'include "product-data.php"; echo json_encode(array_map('
                         'fn($p) => ["specs" => $p["specs"], "spares" => $p["spares"] ?? [],'
-                        ' "spares_note" => $p["spares_note"] ?? ""], $MTC_PRODUCTS));'],
+                        ' "spares_note" => $p["spares_note"] ?? "",'
+                        ' "buyer_items" => $p["buyer_items"]], $MTC_PRODUCTS));'],
             capture_output=True, text=True, check=True, encoding="utf-8")
         _site_data = json.loads(out.stdout)
     return _site_data[SITE_SLUG[key]]
@@ -87,8 +89,28 @@ def site_spares(key):
     return [(s["title"], s["fits"], s["img"]) for s in d["spares"]], d["spares_note"]
 
 
-# Same wording as the "Buying information" box on every product page.
-# Keep the two in sync: the contact-page FAQ has to agree with these terms.
+def site_buying(key):
+    """The product page's own Buying information box, as [(label, text)].
+
+    It used to be a single constant here, which quietly disagreed with three
+    machines: the brochures printed "Made to order. Ask us for the current
+    lead time." while the single disc page said it is often in stock with
+    3-4 week custom builds, the double disc said 4-5 weeks and the winch said
+    often in stock. A buyer comparing the PDF with the site got different
+    terms for the same machine, and CLAUDE.md requires them to agree."""
+    rows = []
+    for item in _site(key)["buyer_items"]:
+        text = re.sub(r"<[^>]+>", "", item).strip()
+        label, _, rest = text.partition(":")
+        if not rest.strip():
+            continue                      # the brochure link; the PDF is the brochure
+        rows.append((label.strip(), rest.strip()))
+    return rows or BUYING_INFO
+
+
+# Fallback only. site_buying() below reads the real "Buying information" box
+# from each product page, so the printed terms cannot drift from the website;
+# this list is what a product would get if its page listed none.
 BUYING_INFO = [
     ("Lead time", "Made to order. Ask us for the current lead time."),
     ("Warranty", "1 year, as on all our machinery."),
@@ -567,7 +589,7 @@ def _overview(img, p, key):
     rows = "".join(f"<tr><td>{esc(k)}</td><td>{esc(v)}</td></tr>" for k, v in p["specs"])
     feats = "".join(f"<li>{esc(x)}</li>" for x in p["features"])
     buying = "".join(f"<p><b>{esc(k)}:</b> {esc(v)}</p>"
-                     for k, v in p.get("buying", BUYING_INFO))
+                     for k, v in site_buying(key))
     return f"""
 <section class="page">
   {_head(p, 2)}
